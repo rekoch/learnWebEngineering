@@ -37,11 +37,6 @@ Wenn die Zeit gut reicht:
    - Personalisierte Like/Follow-Zustände
    - Session-Management
 
-5. **Einfaches CMS über Backend**
-   - Content direkt editieren
-   - WYSIWYG-Editor
-   - Content-Management-Interface
-
 ---
 
 ## Lernziele
