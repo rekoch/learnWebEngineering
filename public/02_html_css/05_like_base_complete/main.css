@@ -3,9 +3,8 @@
 @import url("fonts.css");
 
 @font-face {
-  font-family: "Galactica";
-  src: url("https://static.digitecgalaxus.ch/static/fonts/Galactica/galactica-2024-12-19.woff2")
-    format("woff2");
+  font-family: "Brand Sans";
+  src: local("Segoe UI"), local("Helvetica Neue"), local("Arial"), sans-serif;
 }
 
 * {
@@ -18,7 +17,7 @@
 
 body {
   margin: 20px;
-  font-family: Galactica, Arial, sans-serif;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
 .content-category {

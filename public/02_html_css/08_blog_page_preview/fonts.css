@@ -1,7 +1,6 @@
 @font-face {
-  font-family: "Galactica";
-  src: url("https://static.digitecgalaxus.ch/static/fonts/Galactica/galactica-2024-12-19.woff2")
-    format("woff2");
+  font-family: "Brand Sans";
+  src: local("Segoe UI"), local("Helvetica Neue"), local("Arial"), sans-serif;
 }
 
 .font-small {

@@ -11,10 +11,10 @@
 
 /*colors*/
 :root {
- --galaxus-brown: #c4a277;
- --galaxus-yellow: #ffc32d;
- --galaxus-red: #f67858;
- --galaxus-green: #84d160;
- --galaxus-purple: #b384d3;
- --galaxus-blue: #72c7f9;
+ --brand-brown: #c4a277;
+ --brand-yellow: #ffc32d;
+ --brand-red: #f67858;
+ --brand-green: #84d160;
+ --brand-purple: #b384d3;
+ --brand-blue: #72c7f9;
 }

@@ -3,15 +3,15 @@ table {
 }
 
 .table-background-brown {
-  background: var(--galaxus-brown);
+  background: var(--brand-brown);
 }
 
 .table-background-yellow {
-  background: var(--galaxus-yellow);
+  background: var(--brand-yellow);
 }
 
 .table-background-red {
-  background: var(--galaxus-red);
+  background: var(--brand-red);
 }
 
 .legend span {
@@ -30,11 +30,11 @@ table {
 }
 
 .legend span.legend-color-brown::before {
-    background: var(--galaxus-brown);
+    background: var(--brand-brown);
 }
 .legend span.legend-color-yellow::before {
-    background: var(--galaxus-yellow);
+    background: var(--brand-yellow);
 }
 .legend span.legend-color-red::before {
-    background: var(--galaxus-red);
+    background: var(--brand-red);
 }

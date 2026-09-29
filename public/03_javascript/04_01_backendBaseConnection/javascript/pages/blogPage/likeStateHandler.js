@@ -16,8 +16,8 @@ Ausserdem wurden die Texte für die Buttons bereits definiert welche du verwende
 
 import { appObserver, ObserverEvents } from "../../services/observer.js";
 
-const likePageText = "Dieser Artikel gefällt mir!";
-const unlikePageText = "Dieser Artikel gefällt mir nicht mehr";
+const likePageText = "Dieser Beitrag gefällt mir!";
+const unlikePageText = "Dieser Beitrag gefällt mir nicht mehr";
 
 const filledHeart = document.createElement("span");
 filledHeart.innerHTML = `<svg
