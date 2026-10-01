@@ -2,13 +2,7 @@
 
 ## Rubrik-Styling optimieren
 
-Die Rubrik "Produkttest" ist noch nicht ganz korrekt. Die Farbe stimmt nicht. Ausserdem können wir dafür sorgen, dass sicher immer alles mit Grossbuchstaben dargestellt wird.
-
-### Korrekte Farbe finden
-
-Die korrekte Farbe kannst du entweder dem [Farbschema-Leitfaden](https://www.galaxus.ch/designsystem/foundations/colors-design) entnehmen oder aus der Vorlage übernehmen.
-
-> 💡 **Hinweis**: Wir setzen hier und in allen folgenden Styles nur das **helle Farbschema** um. Andernfalls müssten wir deutlich mehr CSS schreiben.
+Die Rubrik "BEISPIELBEITRAG" ist noch nicht ganz korrekt. Die Farbe stimmt nicht. Ausserdem können wir dafür sorgen, dass sicher immer alles mit Grossbuchstaben dargestellt wird.
 
 ### CSS-Klasse definieren
 
@@ -26,7 +20,7 @@ Definiere eine Klasse, auf welcher du die Werte vergibst und füge sie überall 
 #### **HTML-Anwendung:**
 
 ```html
-<p class="content-category">Produkttest</p>
+<p class="content-category">Beispielbeitrag</p>
 ```
 
 ### Eigenschaften erklärt

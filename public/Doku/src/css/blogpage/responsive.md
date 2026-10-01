@@ -47,8 +47,6 @@ Damit wir überhaupt verschiedene Bildschirmbreiten unterstützen, müssen wir *
 
 ### Breakpoints des Beispiel-Layouts
 
-**Referenz**: [Bildschirmbereiche und Breakpoints](https://www.galaxus.ch/designsystem/foundations/screen-ranges-and-breakpoints)
-
 | Range | Breite | Geräte |
 |-------|--------|--------|
 | **zero → xs** | 0 - 699px | Mobile |
@@ -153,8 +151,6 @@ button {
 ![Hässliche Button-Platzierungen](images/responsive_uglyButtonPlacements.png)
 
 **Problem**: Die Buttons wirken etwas unsauber und es gibt quasi eine **Zick-Zack-Linie**.
-
-> **Insider-Info**: Der Bereich wird aktuell bei Clippy tatsächlich neu gestaltet!
 
 ### HTML bereinigen
 

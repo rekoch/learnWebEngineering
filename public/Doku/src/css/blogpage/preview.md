@@ -113,11 +113,9 @@ Falls dir ein Container fehlt, um diese Elemente zu umschliessen, kannst du ein 
 
 ![Flex aber hässliches Bild](images/preview_flexButUglyImage.png)
 
-### Bildverzerrung beheben
+### Bild weiter optimieren
 
-**Typisch Entwicklung**: Man löst ein Problem und schafft sich neue... Wunderbar oder? 
-
-**Problem**: Das Bild ist jetzt komplett verzogen.
+**Problem**: Je nach Bildgrösse kann es sein, dass es sich nicht korrekt auf die Breite anpasst
 
 **Lösung**: `object-fit: cover`
 ```css

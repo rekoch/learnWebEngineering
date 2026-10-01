@@ -2,7 +2,7 @@
 
 ## Button Design System
 
-Die Buttons sehen noch nicht ganz so aus wie sie sollten. Häufig gibt es in einem Design System einen **"primary"** und **"standard"** oder **"secondary"** Button. Das ist bei uns nicht anders.
+Die Buttons sehen noch nicht ganz so aus wie sie sollten. Häufig gibt es in einem Design System einen **"primary"** und **"standard"** oder **"secondary"** Button.
 
 ### Button-Hierarchie
 
@@ -11,13 +11,7 @@ Die Buttons sehen noch nicht ganz so aus wie sie sollten. Häufig gibt es in ein
 | **Primary** | Primäre Aktion | Die gewünschte/erwartete Aktion |
 | **Secondary** | Alternative Aktionen | Weniger prominente Buttons |
 
-> ⚠️ **Realität**: Teilweise wird das auch bei uns nicht ganz eingehalten und es gibt mehr als einen Primary Button.
-
-### Design-Referenzen
-
-**Design System**: [Button-Design und Zustände](https://www.galaxus.ch/designsystem/components/button-design#states-primary-button)
-
-> **Tipp**: Da es nicht so einfach ist die nötigen CSS-Werte zu finden, kann es einfacher sein, wenn du das Beispiel im **Dev-Tool des Browsers** anschaust. Immerhin die Farben findest du einigermassen übersichtlich.
+> ⚠️ **Realität**: Teilweise wird das auch profesionellen Webseiten nicht sauber umgesetzt und es gibt mehr als einen primary button.
 
 ### Responsive Considerations
 
