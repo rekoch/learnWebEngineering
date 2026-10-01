@@ -8,7 +8,7 @@ Damit wir überhaupt CSS ergänzen können, brauchen wir unser CSS:
 
 ### **Schritt 2: HTML kopieren**
 - **HTML aus der HTML-Übung** in den neuen Ordner kopieren
-- **Alternative**: Von [GitHub](https://github.com/rekoch/webEngineerDgEditors/tree/main/public/01_html) herunterladen
+- **Alternative**: Von [GitHub](https://github.com/rekoch/learnWebEngineering/tree/main/public/01_html) herunterladen
 
 ### **Schritt 3: CSS-Datei erstellen**
 - **`main.css`** im neuen Ordner erstellen

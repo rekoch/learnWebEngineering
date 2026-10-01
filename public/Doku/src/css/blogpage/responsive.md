@@ -6,7 +6,7 @@ Wenn wir eine Page für möglichst viele Endgeräte nutzen wollen, sollten wir s
 
 > 📖 **Siehe auch**: [Responsive Web Design Guide](../rwd.md)
 
-> 💡 **Falls du nicht klarkommst**, nutze den Stand aus [GitHub](https://github.com/rekoch/webEngineerDgEditors/tree/main/public/02_html_css/06_variables)
+> 💡 **Falls du nicht klarkommst**, nutze den Stand aus [GitHub](https://github.com/rekoch/learnWebEngineering/tree/main/public/02_html_css/06_variables)
 
 ---
 
@@ -39,15 +39,15 @@ Wenn wir eine Seite responsive gestalten, sollten wir uns festlegen:
 
 ## Breakpoints definieren
 
-### Galaxus Design System
+### Designsystem des Beispiels
 
 Damit wir überhaupt verschiedene Bildschirmbreiten unterstützen, müssen wir **Breakpoints** definieren.
 
 **Breakpoints** = Stellen im Screen, wo wir sagen *"hey, jetzt sollte ich etwas am Design anpassen"*
 
-### Galaxus Breakpoints
+### Breakpoints des Beispiel-Layouts
 
-**Referenz**: [Galaxus Screen Ranges](https://www.galaxus.ch/designsystem/foundations/screen-ranges-and-breakpoints)
+**Referenz**: [Bildschirmbereiche und Breakpoints](https://www.galaxus.ch/designsystem/foundations/screen-ranges-and-breakpoints)
 
 | Range | Breite | Geräte |
 |-------|--------|--------|
@@ -177,6 +177,6 @@ button {
 
 ### 🔗 Fertige Version
 
-**Die komplette Lösung** findest du unter: [GitHub - Responsive Version](https://github.com/rekoch/webEngineerDgEditors/tree/main/public/02_html_css/07_responsive)
+**Die komplette Lösung** findest du unter: [GitHub - Responsive Version](https://github.com/rekoch/learnWebEngineering/tree/main/public/02_html_css/07_responsive)
 
 **Responsive Design erfolgreich implementiert!** 🎉

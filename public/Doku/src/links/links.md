@@ -18,5 +18,5 @@
 | Debug mit Chrome | [Chrome DevTools JavaScript](https://developer.chrome.com/docs/devtools/javascript?hl=de) |
 | Debug mit VSCode | [VS Code Debugging](https://code.visualstudio.com/docs/debugtest/debugging) |
 | <div style="height: 40px; vertical-align:middle; display:table-cell">**Kurs relevante Links**</div> |  |
-| Github | [GitHub Repository](https://github.com/rekoch/webEngineerDgEditors) |
+| Github | [GitHub Repository](https://github.com/rekoch/learnWebEngineering) |
 | End-Resultate | [Web Engineering Results](https://learn-web-engineering.web.app) |

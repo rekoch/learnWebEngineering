@@ -69,7 +69,7 @@ Wenn du jetzt ungebremst noch weiter machen möchtest, dann kannst du folgende o
 
 ## Fertige Lösung
 
-**Die "fertige" Blog Page** mit dem ganzen CSS findest du unter: [GitHub - Completed Blog Page](https://github.com/rekoch/webEngineerDgEditors/tree/main/public/02_html_css/09_blog_page_completed)
+**Die "fertige" Blog Page** mit dem ganzen CSS findest du unter: [GitHub - Completed Blog Page](https://github.com/rekoch/learnWebEngineering/tree/main/public/02_html_css/09_blog_page_completed)
 
 > 💡 **Hinweis**: Du findest unter dem Link allenfalls auch CSS, HTML-Elemente/Lösungen, die nicht Teil des Tutorials direkt sind. Falls du konkret Fragen hast oder es ähnlich machen willst, frage am besten einfach im Kurs nach.
 

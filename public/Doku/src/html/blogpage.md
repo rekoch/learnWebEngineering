@@ -16,8 +16,6 @@ Die Page enthält:
 
 **Struktur vor Design**: Wir fokussieren uns zunächst auf das **HTML-Grundgerüst**. Das Design kommt später mit CSS.
 
-> ⚠️ **Hinweis**: Ignoriere die linke und rechte Spalte. Wir konzentrieren uns ausschließlich auf die **Page selbst**.
-
 ---
 
 ## Mindest-Anforderungen
@@ -53,7 +51,7 @@ Wenn Zeit vorhanden:
 
 1. **VS Code öffnen**
 2. **Ordner für Übungen** anlegen
-3. **GitHub Repository** für Referenz: [webEngineerDgEditors](https://github.com/rekoch/webEngineerDgEditors)
+3. **GitHub Repository** für Referenz: [learnWebEngineering](https://github.com/rekoch/learnWebEngineering)
 
 ### Schritt 2: Basis-Datei erstellen
 

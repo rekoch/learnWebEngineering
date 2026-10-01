@@ -220,7 +220,7 @@ Falls etwas nicht funktioniert:
 
 Bei völliger Verzweiflung kannst du die **komplette Lösung** auf GitHub einsehen:
 
-[GitHub: Follow Buttons mit Backend Integration](https://github.com/rekoch/webEngineerDgEditors/tree/main/public/03_javascript/06_followButtonsWithBackendIntegration)
+[GitHub: Follow Buttons mit Backend Integration](https://github.com/rekoch/learnWebEngineering/tree/main/public/03_javascript/06_followButtonsWithBackendIntegration)
 
 ---
 

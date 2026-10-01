@@ -6,9 +6,9 @@ Die Rubrik "Produkttest" ist noch nicht ganz korrekt. Die Farbe stimmt nicht. Au
 
 ### Korrekte Farbe finden
 
-Die korrekte Farbe kannst du entweder dem [Galaxus Design System](https://www.galaxus.ch/designsystem/foundations/colors-design) entnehmen oder ab der Vorlage suchen/kopieren.
+Die korrekte Farbe kannst du entweder dem [Farbschema-Leitfaden](https://www.galaxus.ch/designsystem/foundations/colors-design) entnehmen oder aus der Vorlage übernehmen.
 
-> 💡 **Hinweis**: Wir setzen hier und in allen folgenden Styles immer nur das **Galaxus Light Theme** um. Ansonsten müssten wir sehr viel mehr CSS produzieren.
+> 💡 **Hinweis**: Wir setzen hier und in allen folgenden Styles nur das **helle Farbschema** um. Andernfalls müssten wir deutlich mehr CSS schreiben.
 
 ### CSS-Klasse definieren
 
@@ -33,12 +33,12 @@ Definiere eine Klasse, auf welcher du die Werte vergibst und füge sie überall 
 
 | Eigenschaft | Wert | Beschreibung |
 |-------------|------|--------------|
-| **color** | `rgb(147, 83, 185)` | Galaxus-Purple für Kategorien |
+| **color** | `rgb(147, 83, 185)` | Violettton für Kategorien |
 | **text-transform** | `uppercase` | Automatische Grossschreibung |
 
 ### ✅ Resultat
 
-- **Korrekte Purple-Farbe** wie im Design System
+- **Korrekte Violettfarbe** wie im Farbschema
 - **Automatische Grossbuchstaben** für Konsistenz
 - **Wiederverwendbare Klasse** für alle Rubriken
 

@@ -261,6 +261,6 @@ Falls du willst und magst, kannst du im Like-Bereich noch 2-3 Details beheben:
 
 ### Endlösung
 
-**Du findest den Endstand** der Lösung auf [GitHub](https://github.com/rekoch/webEngineerDgEditors/tree/main/public/02_html_css/05_like_with_icon)
+**Du findest den Endstand** der Lösung auf [GitHub](https://github.com/rekoch/learnWebEngineering/tree/main/public/02_html_css/05_like_with_icon)
 
 **Like-Bereich ist responsive und professionell umgesetzt!** 🎉

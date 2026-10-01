@@ -46,7 +46,7 @@ Wir wollen aber die selbe Schrift wie in der Vorlage. Dazu müssen wir die Schri
 
 ## Font-URL finden
 
-Die URL auf den Font ist auf der [Galaxus-Seite](https://www.galaxus.ch/de/page/endlich-weg-vom-lahmen-e-reader-dieses-tablet-macht-auf-e-ink-37832) zu finden:
+Die URL für den Font findest du auf der [Quellseite](https://www.galaxus.ch/de/page/endlich-weg-vom-lahmen-e-reader-dieses-tablet-macht-auf-e-ink-37832):
 
 **Original-Pfad:** `/static/fonts/Galactica/galactica-2024-12-19.woff2`
 

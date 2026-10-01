@@ -238,4 +238,4 @@ Setze dann py-s auf das Article Element
 ### Fleissarbeit…
 Jetzt hast du alle Grundlagen im CSS, um all die Blog Page Previews zu gestalten. Gehe durch jede Stelle in der Index.html Seite durch, ergänze die Klassen und es sollte soweit passen. Für Desktop könnte man das Bild noch etwas breiter machen. Aber das ist deine Wahl ob du das noch machen möchtest 😊 Viel Erfolg!
 
-Ps. Du findest die fertige Version auf Github https://github.com/rekoch/webEngineerDgEditors/tree/main/public/02_html_css/08_blog_page_preview
+Ps. Du findest die fertige Version auf Github https://github.com/rekoch/learnWebEngineering/tree/main/public/02_html_css/08_blog_page_preview

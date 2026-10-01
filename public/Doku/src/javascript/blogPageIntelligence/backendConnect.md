@@ -24,10 +24,10 @@
 ### Projekt-Code holen
 
 - **Frontend herunterladen:**
-[github Frontend](https://github.com/rekoch/webEngineerDgEditors/tree/main/public/03_javascript/04_01_backendBaseConnection)
+[github Frontend](https://github.com/rekoch/learnWebEngineering/tree/main/public/03_javascript/04_01_backendBaseConnection)
 - **Backend herunterladen:**
-[github Backend](https://github.com/rekoch/webEngineerDgEditors/tree/main/public/00_backend)
-- **Alternative:** Komplettes [GitHub Projekt klonen](https://github.com/rekoch/webEngineerDgEditors) oder als ZIP herunterladen.
+[github Backend](https://github.com/rekoch/learnWebEngineering/tree/main/public/00_backend)
+- **Alternative:** Komplettes [GitHub Projekt klonen](https://github.com/rekoch/learnWebEngineering) oder als ZIP herunterladen.
 ![Github Download](./images/githubClone.png)
 
 ### VS Code Settings anpassen

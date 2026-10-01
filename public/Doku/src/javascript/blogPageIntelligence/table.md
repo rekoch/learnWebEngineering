@@ -2,9 +2,9 @@
 
 ## Das Problem
 
-Wenn du den letzten Stand aus dem [GitHub Repository](https://github.com/rekoch/webEngineerDgEditors/tree/main/public/02_html_css/09_blog_page_completed) nimmst, findest du eine Tabelle für die Benchmark-Übersicht.
+Wenn du den letzten Stand aus dem [GitHub Repository](https://github.com/rekoch/learnWebEngineering/tree/main/public/02_html_css/09_blog_page_completed) nimmst, findest du eine Tabelle für die Benchmark-Übersicht.
 
-Die Tabelle startet hier: [index.html#L202](https://github.com/rekoch/webEngineerDgEditors/blob/780c327390f81ab9a61810681ac9baeac2ba58d1/public/02_html_css/09_blog_page_completed/index.html#L202)
+Die Tabelle startet hier: [index.html#L202](https://github.com/rekoch/learnWebEngineering/blob/main/public/02_html_css/09_blog_page_completed/index.html#L202)
 
 ### Design-Herausforderung
 

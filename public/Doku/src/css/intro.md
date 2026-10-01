@@ -56,11 +56,10 @@ Das Entwickler-Werkzeug wird auf der rechten Seite angezeigt. Die Position läss
 - **🎯 Hierachische Definitionen**: Von unten nach oben
 - **✂️ Durchgestrichene Regeln**: "Verlierende" CSS-Definitionen
 - **🏆 Gewinnende Definition**: Letzte, spezifischste Regel
-- **🤖 Framework-Klassen**: Z.B. `.yDkbjfY3` (automatisch generiert)
 
 ### 💡 Beispiel-CSS-Eigenschaft
 ```css
-margin-bottom: 16px; /* 16 Pixel Abstand unterhalb des Elements */
+font-size: 30px; /* Schriftgrösse 30px */
 ```
 
 ---
@@ -134,7 +133,7 @@ Nach dem Tutorial-Durchlauf:
 
 ### 📋 Entwicklungsschritte
 
-1. **🖼️ Design analysieren** (Galaxus-Beispiel)
+1. **🖼️ Design analysieren** (Beispielseite)
 2. **🏗️ HTML-Struktur** überprüfen
 3. **🎨 CSS schrittweise** hinzufügen
 4. **🔄 Browser-Tests** kontinuierlich

@@ -15,7 +15,7 @@ Die Buttons sehen noch nicht ganz so aus wie sie sollten. Häufig gibt es in ein
 
 ### Design-Referenzen
 
-**Design System**: [Galaxus Button Design](https://www.galaxus.ch/designsystem/components/button-design#states-primary-button)
+**Design System**: [Button-Design und Zustände](https://www.galaxus.ch/designsystem/components/button-design#states-primary-button)
 
 > **Tipp**: Da es nicht so einfach ist die nötigen CSS-Werte zu finden, kann es einfacher sein, wenn du das Beispiel im **Dev-Tool des Browsers** anschaust. Immerhin die Farben findest du einigermassen übersichtlich.
 
