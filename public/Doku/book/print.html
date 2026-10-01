@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-4b85b825.js";
+            window.path_to_searchindex_js = "searchindex-a5e9c7c4.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-a0e4b7d7.js"></script>
@@ -433,9 +433,6 @@
 </ul>
 <h3 id="entwicklungsansatz"><a class="header" href="#entwicklungsansatz">Entwicklungsansatz</a></h3>
 <p><strong>Struktur vor Design</strong>: Wir fokussieren uns zunächst auf das <strong>HTML-Grundgerüst</strong>. Das Design kommt später mit CSS.</p>
-<blockquote>
-<p>⚠️ <strong>Hinweis</strong>: Ignoriere die linke und rechte Spalte. Wir konzentrieren uns ausschließlich auf die <strong>Page selbst</strong>.</p>
-</blockquote>
 <hr>
 <h2 id="mindest-anforderungen"><a class="header" href="#mindest-anforderungen">Mindest-Anforderungen</a></h2>
 <h3 id="-kern-elemente-must-have"><a class="header" href="#-kern-elemente-must-have">✅ Kern-Elemente (Must-have)</a></h3>
@@ -662,10 +659,9 @@
 <li><strong>🎯 Hierachische Definitionen</strong>: Von unten nach oben</li>
 <li><strong>✂️ Durchgestrichene Regeln</strong>: “Verlierende” CSS-Definitionen</li>
 <li><strong>🏆 Gewinnende Definition</strong>: Letzte, spezifischste Regel</li>
-<li><strong>🤖 Framework-Klassen</strong>: Z.B. <code>.yDkbjfY3</code> (automatisch generiert)</li>
 </ul>
 <h3 id="-beispiel-css-eigenschaft"><a class="header" href="#-beispiel-css-eigenschaft">💡 Beispiel-CSS-Eigenschaft</a></h3>
-<pre><code class="language-css">margin-bottom: 16px; /* 16 Pixel Abstand unterhalb des Elements */
+<pre><code class="language-css">font-size: 30px; /* Schriftgrösse 30px */
 </code></pre>
 <hr>
 <h2 id="-css-lernen"><a class="header" href="#-css-lernen">📚 CSS lernen</a></h2>
@@ -1455,13 +1451,13 @@ Mit CSS Grid, Bootstrap oder Spalten Design lassen sich diese Art von Design / L
 <p>Diese wenigen Anpassungen haben schon einen starken Effekt auf das Optische. Basierend auf der Vorlage müssen wir uns auch noch Schrift und Schriftgrösse anschauen.</p>
 <h2 id="font-family-analysieren"><a class="header" href="#font-family-analysieren">Font-Family analysieren</a></h2>
 <p>Wenn du z.B. das Titel-Element H2 untersuchst, findest du folgende Definition:</p>
-<pre><code class="language-css">font-family: Galactica, Arial, sans-serif;
+<pre><code class="language-css">font-family: Lato, Arial, sans-serif;
 </code></pre>
 <h2 id="body-font-definieren"><a class="header" href="#body-font-definieren">Body-Font definieren</a></h2>
 <p>Wir ergänzen die Schrift auf unsere ganze Page im CSS mittels dem Body-Selektor:</p>
 <pre><code class="language-css">body {
   margin: 20px;
-  font-family: Galactica, Arial, sans-serif;
+  font-family: Lato, Arial, sans-serif;
 }
 </code></pre>
 <h2 id="computed-styles-überprüfen"><a class="header" href="#computed-styles-überprüfen">Computed Styles überprüfen</a></h2>
@@ -1469,30 +1465,49 @@ Mit CSS Grid, Bootstrap oder Spalten Design lassen sich diese Art von Design / L
 <p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="css/blogpage/images/font_computed.png" alt="Font Computed"><span class="img-wrapper"><img src="css/blogpage/images/font_computed.png" alt="Font Computed"></span></label></p>
 <p><strong>Fallback-Mechanismus:</strong></p>
 <ol>
-<li><strong>Galactica</strong> versuchen → nicht gefunden</li>
+<li><strong>Lato</strong> versuchen → noch nicht geladen</li>
 <li><strong>Arial</strong> versuchen → ✅ gefunden und verwendet</li>
 <li><strong>sans-serif</strong> als letzte Option</li>
 </ol>
 <blockquote>
-<p>⚠️ <strong>Problem</strong>: Es rendert die Schrift “Arial”, da <strong>Galactica</strong> nicht verfügbar ist.</p>
+<p>⚠️ <strong>Problem</strong>: Es rendert die Schrift “Arial”, da <strong>Lato</strong> noch nicht verfügbar ist.</p>
 </blockquote>
 <hr>
 <h1 id="custom-font-laden"><a class="header" href="#custom-font-laden">Custom Font laden</a></h1>
-<p>Wir wollen aber die selbe Schrift wie in der Vorlage. Dazu müssen wir die Schrift zuerst laden.</p>
+<p>Damit der Browser Lato statt der Fallback-Schrift verwendet, laden wir die Schriftdateien lokal und binden sie mit <code>@font-face</code> ein.</p>
 <h2 id="font-loading-grundlagen"><a class="header" href="#font-loading-grundlagen">Font-Loading Grundlagen</a></h2>
 <p><strong>Referenz</strong>: <a href="https://www.w3schools.com/css/css3_fonts.asp">W3Schools CSS3 Fonts</a></p>
-<h2 id="font-url-finden"><a class="header" href="#font-url-finden">Font-URL finden</a></h2>
-<p>Die URL für den Font findest du auf der <a href="https://www.galaxus.ch/de/page/endlich-weg-vom-lahmen-e-reader-dieses-tablet-macht-auf-e-ink-37832">Quellseite</a>:</p>
-<p><strong>Original-Pfad:</strong> <code>/static/fonts/Galactica/galactica-2024-12-19.woff2</code></p>
-<p><strong>Vollständige URL:</strong> <code>https://static.digitecgalaxus.ch/static/fonts/Galactica/galactica-2024-12-19.woff2</code></p>
+<h2 id="fontdateien-herunterladen"><a class="header" href="#fontdateien-herunterladen">Fontdateien herunterladen</a></h2>
+<p>Wir verwenden <a href="https://fonts.google.com/specimen/Lato">Lato</a>, eine Schrift unter der <strong>SIL Open Font License 1.1</strong>. Lade beide WOFF2-Dateien herunter, damit auch Umlaute und weitere Zeichen abgedeckt sind:</p>
+<ul>
+<li><a href="https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHjx4wXiWtFCc.woff2">Lato-latin.woff2</a></li>
+<li><a href="https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHjxAwXiWtFCfQ7A.woff2">Lato-latin-ext.woff2</a></li>
+</ul>
+<p>Lege die Dateien in <code>public/02_html_css/fonts/</code> ab. Die Lizenz liegt dort als <code>OFL.txt</code> bei. In diesem Ordner erstellst du auch <code>lato.css</code> mit den folgenden Definitionen:</p>
 <h2 id="font-face-implementieren"><a class="header" href="#font-face-implementieren">@font-face implementieren</a></h2>
 <pre><code class="language-css">@font-face {
-  font-family: 'Galactica';
-  src: url("https://static.digitecgalaxus.ch/static/fonts/Galactica/galactica-2024-12-19.woff2") format('woff2');
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("Lato-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("Lato-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 </code></pre>
-<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="css/blogpage/images/font_galactica.png" alt="Galactica Font geladen"><span class="img-wrapper"><img src="css/blogpage/images/font_galactica.png" alt="Galactica Font geladen"></span></label></p>
-<p><strong>✅ Lade die Page neu</strong> und du wirst sehen, dass nun tatsächlich die <strong>Galactica-Schrift</strong> verwendet wird!</p>
+<p>Importiere die gemeinsame Font-Definition in der <code>fonts.css</code> deines Beispielordners:</p>
+<pre><code class="language-css">@import url("../fonts/lato.css");
+</code></pre>
+<p>So können alle Beispielstände dieselben Fontdateien verwenden.</p>
+<p><strong>✅ Lade die Seite neu</strong> und prüfe unter <strong>Computed → Rendered Fonts</strong>, dass nun <strong>Lato</strong> verwendet wird.</p>
 <hr>
 <h1 id="schriftgrössen-und-gewichte-definieren"><a class="header" href="#schriftgrössen-und-gewichte-definieren">Schriftgrössen und Gewichte definieren</a></h1>
 <p>Damit auch die Grössen und font-weight aller Texte stimmen, gehe durch die Elemente aus der Vorlage durch und definiere es entsprechend in deinem CSS.</p>

@@ -2,11 +2,6 @@
 @import url("utilities.css");
 @import url("fonts.css");
 
-@font-face {
-  font-family: "Brand Sans";
-  src: local("Segoe UI"), local("Helvetica Neue"), local("Arial"), sans-serif;
-}
-
 * {
   text-wrap-mode: wrap;
   text-wrap-style: pretty;
@@ -17,7 +12,7 @@
 
 body {
   margin: 20px;
-  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Lato", Arial, sans-serif;
 }
 
 .content-category {

@@ -7,7 +7,7 @@ Diese wenigen Anpassungen haben schon einen starken Effekt auf das Optische. Bas
 Wenn du z.B. das Titel-Element H2 untersuchst, findest du folgende Definition:
 
 ```css
-font-family: Galactica, Arial, sans-serif;
+font-family: Lato, Arial, sans-serif;
 ```
 
 ## Body-Font definieren
@@ -17,7 +17,7 @@ Wir ergänzen die Schrift auf unsere ganze Page im CSS mittels dem Body-Selektor
 ```css
 body {
   margin: 20px;
-  font-family: Galactica, Arial, sans-serif;
+  font-family: Lato, Arial, sans-serif;
 }
 ```
 
@@ -28,42 +28,62 @@ Wenn du deine Seite nochmals untersuchst, wirst du eine Änderung feststellen. A
 ![Font Computed](images/font_computed.png)
 
 **Fallback-Mechanismus:**
-1. **Galactica** versuchen → nicht gefunden
+1. **Lato** versuchen → noch nicht geladen
 2. **Arial** versuchen → ✅ gefunden und verwendet
 3. **sans-serif** als letzte Option
 
-> ⚠️ **Problem**: Es rendert die Schrift "Arial", da **Galactica** nicht verfügbar ist.
+> ⚠️ **Problem**: Es rendert die Schrift "Arial", da **Lato** noch nicht verfügbar ist.
 
 ---
 
 # Custom Font laden
 
-Wir wollen aber die selbe Schrift wie in der Vorlage. Dazu müssen wir die Schrift zuerst laden.
+Damit der Browser Lato statt der Fallback-Schrift verwendet, laden wir die Schriftdateien lokal und binden sie mit `@font-face` ein.
 
 ## Font-Loading Grundlagen
 
 **Referenz**: [W3Schools CSS3 Fonts](https://www.w3schools.com/css/css3_fonts.asp)
 
-## Font-URL finden
+## Fontdateien herunterladen
 
-Die URL für den Font findest du auf der [Quellseite](https://www.galaxus.ch/de/page/endlich-weg-vom-lahmen-e-reader-dieses-tablet-macht-auf-e-ink-37832):
+Wir verwenden [Lato](https://fonts.google.com/specimen/Lato), eine Schrift unter der **SIL Open Font License 1.1**. Lade beide WOFF2-Dateien herunter, damit auch Umlaute und weitere Zeichen abgedeckt sind:
 
-**Original-Pfad:** `/static/fonts/Galactica/galactica-2024-12-19.woff2`
+- [Lato-latin.woff2](https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHjx4wXiWtFCc.woff2)
+- [Lato-latin-ext.woff2](https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHjxAwXiWtFCfQ7A.woff2)
 
-**Vollständige URL:** `https://static.digitecgalaxus.ch/static/fonts/Galactica/galactica-2024-12-19.woff2`
+Lege die Dateien in `public/02_html_css/fonts/` ab. Die Lizenz liegt dort als `OFL.txt` bei. In diesem Ordner erstellst du auch `lato.css` mit den folgenden Definitionen:
 
 ## @font-face implementieren
 
 ```css
 @font-face {
-  font-family: 'Galactica';
-  src: url("https://static.digitecgalaxus.ch/static/fonts/Galactica/galactica-2024-12-19.woff2") format('woff2');
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("Lato-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("Lato-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 ```
 
-![Galactica Font geladen](images/font_galactica.png)
+Importiere die gemeinsame Font-Definition in der `fonts.css` deines Beispielordners:
 
-**✅ Lade die Page neu** und du wirst sehen, dass nun tatsächlich die **Galactica-Schrift** verwendet wird!
+```css
+@import url("../fonts/lato.css");
+```
+
+So können alle Beispielstände dieselben Fontdateien verwenden.
+
+**✅ Lade die Seite neu** und prüfe unter **Computed → Rendered Fonts**, dass nun **Lato** verwendet wird.
 
 ---
 

@@ -1,7 +1,4 @@
-@font-face {
-  font-family: "Brand Sans";
-  src: local("Segoe UI"), local("Helvetica Neue"), local("Arial"), sans-serif;
-}
+@import url("../../../02_html_css/fonts/lato.css");
 
 .font-small {
   font-size: 14px;
