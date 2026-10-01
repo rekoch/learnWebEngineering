@@ -4,7 +4,11 @@ NodeJS verwenden wir nur im Hintergrund. Dieses Tool ist dafür zuständig, dass
 
 ## Download und Installation
 
-Wähle auf der Seite [Node Download](https://nodejs.org/en/download/) LTS und danach die 64-Bit Version von Windows bzw. Mac.
+Das Backend in diesem Kursprojekt verwendet **Node.js 26.10.0**. Die Version ist in `public/00_backend/.nvmrc` festgelegt.
+
+Wähle auf der Seite [Node Download](https://nodejs.org/en/download/) die Version **v26.10.0** aus dem Bereich **Current** und danach die passende Version für Windows bzw. Mac.
+
+> **Hinweis**: Node.js 26 ist die aktuelle Release-Linie, aber noch nicht LTS. Für produktive Server wird normalerweise eine unterstützte LTS-Version empfohlen.
 
 ![Node Download](images/nodeDownload.png)
 

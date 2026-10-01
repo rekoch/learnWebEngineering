@@ -8,7 +8,6 @@ Einerseits findest du auf W3Schools verschiedene Tutorials dazu [W3Schools JavaS
 ![Download als ZIP](./images/githubClone.png)
 - entpacke das ZIP lokal
 - öffne den folder [/public/03_javascript/01_basics](https://github.com/rekoch/learnWebEngineering/tree/main/public/03_javascript/01_basics) direkt im Vs Code
-![VS Code folder öffnen](./images/openFolder.gif)
 - nun kannst du jedes File Schritt für Schritt in deinem Tempo durchgehen. Es gibt bei den meisten ein Excercise dazu, wo das zuvor gelernte üben kannst
 - Starte die "Erklär" Files am Besten lokal auf deinem Gerät mit der Vs Code Debug Funktion. So kannst du durchgehen und siehst auch immer die Ausgabe in der Konsole
 ![Vs Code Debug der Erklär Files](./images/debugVsCode.gif)
