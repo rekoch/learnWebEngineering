@@ -20,7 +20,7 @@ Im `index.html` den CSS-Import ergänzen:
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>blog page 37832</title>
+    <title>article</title>
     <link rel="stylesheet" href="main.css">
 </head>
 ```
@@ -72,10 +72,6 @@ body {
 **Teste verschiedene Werte und überprüfe das Ergebnis!**
 
 ---
-
-# Weitere Anpassungen
-
-Damit die Page immer mehr der [Galaxus-Vorlage](https://www.galaxus.ch/de/page/endlich-weg-vom-lahmen-e-reader-dieses-tablet-macht-auf-e-ink-37832) entspricht, passen wir weitere Elemente an.
 
 ## iFrame responsive machen
 

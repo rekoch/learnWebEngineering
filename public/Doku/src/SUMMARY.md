@@ -4,7 +4,6 @@
 # Links und Tutorials
 - [Hilfreiche Links](./links/links.md)
 - [Tutorials](./links/tutorials.md)
-- [Video Aufzeichnungen](./links/videos.md)
 
 # Setup
 - [Setup](./setup/intro.md)

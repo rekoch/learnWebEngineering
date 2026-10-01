@@ -13,7 +13,7 @@
 ### 📋 Schritt-für-Schritt-Anleitung
 
 #### **1. Beispiel-Seite öffnen**
-- **[Galaxus Artikel](https://www.galaxus.ch/de/page/endlich-weg-vom-lahmen-e-reader-dieses-tablet-macht-auf-e-ink-37832)** in **Chrome** öffnen
+- **[Beispiel Artikel](https://learn-web-engineering.web.app/02_html_css/09_blog_page_completed/index.html)** in **Chrome** öffnen
 - **Rechtsklick** auf einen Bereich der Seite
 - **"Untersuchen"** auswählen (oder **F12** drücken)
 

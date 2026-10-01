@@ -2,7 +2,7 @@
 
 ## Projekt-Ziel
 
-Wir bauen eine Blog Page nach dem Vorbild von [Galaxus Beispiel-Artikel](https://www.galaxus.ch/de/page/endlich-weg-vom-lahmen-e-reader-dieses-tablet-macht-auf-e-ink-37832).
+Wir bauen eine Page, die von einem News Artikel oder ähnlichem inspiriert ist.
 
 Die Page enthält:
 - **Video/Bild als Slide**
@@ -16,7 +16,7 @@ Die Page enthält:
 
 **Struktur vor Design**: Wir fokussieren uns zunächst auf das **HTML-Grundgerüst**. Das Design kommt später mit CSS.
 
-> ⚠️ **Hinweis**: Ignoriere die linke und rechte Spalte. Wir konzentrieren uns ausschließlich auf die **Blog Page selbst**.
+> ⚠️ **Hinweis**: Ignoriere die linke und rechte Spalte. Wir konzentrieren uns ausschließlich auf die **Page selbst**.
 
 ---
 
@@ -44,8 +44,6 @@ Wenn Zeit vorhanden:
 13. **Produkt-Kachel**
 14. **Autor:innen-Box** mit Folgen-Button
 15. **Thema** mit Folgen-Button
-
-> 🚫 **Verzicht**: Community-Bereich (zu komplex für Einstieg)
 
 ---
 

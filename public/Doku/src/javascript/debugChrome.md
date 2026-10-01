@@ -1,7 +1,7 @@
 # Debug JS mit Chrome
 Die Methode welche den einfachsten Zugang gewährt, ist der Browser selbst. Denn der Browser führt direkt JavaScript aus und unterstützt dich mit vielen sinnvollen Tools.
 
-1. Öffne die Seite [02_buttonReactive](https://web-eng-dg.web.app/03_javascript/03_buttonReactive/index.html) mit Chrome
+1. Öffne die Seite [02_buttonReactive](https://learn-web-engineering.web.app/03_javascript/03_buttonReactive/index.html) mit Chrome
 1. Öffne die Dev Tools (F12, rechtsklick im HTML -> untersuchen)
 1. Scrolle zu den Buttons am Ende der Seite
 ![Blog Page Buttons](./images/BlogPageButtons.png)
