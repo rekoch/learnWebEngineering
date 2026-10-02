@@ -8,7 +8,7 @@ Unsere Buttons sehen zwar aus wie Buttons, aber sie machen noch nichts. Wir woll
 2. **Autor:in Folgen Button** - mit Unfollow  
 3. **Thema Folgen Button** - mit Unfollow
 
-> **Frontend-Focus**: In dieser Umsetzung konzentrieren wir uns auf Frontend-Logik. Daten werden nur im Frontend gespeichert - bei einem Page-Reload werden alle Status zurückgesetzt.
+> ⚠️ **Frontend-Focus**: In dieser Umsetzung konzentrieren wir uns auf Frontend-Logik. Daten werden nur im Frontend gespeichert - bei einem Page-Reload werden alle Status zurückgesetzt.
 
 ---
 
@@ -320,7 +320,7 @@ Wir wollen nur die Zahl steuern können. Dafür ist ein `<span>` Element perfekt
 <span id="data-like-counter">59</span> Personen gefällt dieser Artikel
 ```
 
-> **Wichtig**: IDs dürfen nur einmal pro HTML existieren!
+> 💡 **Wichtig**: IDs dürfen nur einmal pro HTML existieren!
 
 ### Like-spezifische Toggle-Funktion
 
@@ -458,9 +458,9 @@ if (currentState == "inactive") {
 
 **Alle Buttons sind jetzt voll funktionsfähig:**
 
-**Like Button**: Toggle mit Counter und Icon  
-**Follow Author**: Toggle mit Text-Änderung  
-**Follow Topic**: Toggle mit Text-Änderung  
+✅ **Like Button**: Toggle mit Counter und Icon  
+✅ **Follow Author**: Toggle mit Text-Änderung  
+✅ **Follow Topic**: Toggle mit Text-Änderung  
 
 ### Nächste Schritte
 

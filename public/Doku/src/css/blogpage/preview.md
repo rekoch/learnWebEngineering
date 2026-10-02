@@ -11,7 +11,7 @@ Die Blog Page Preview gibt es an verschiedenen Orten und Formaten:
 | **Einzelne Page** | ![Mobile One Page](images/preview_mobile_onePage.png) | ![Desktop One Page](images/preview_desktop_onePage.png) |
 | **Listenansicht** | ![Mobile List](images/preview_list_mobile.png) | ![Desktop List](images/preview_list_desktop.png) |
 
-> **Glück**: Die Änderungen sind minimal zwischen den Versionen. Wir können uns auf die Mobile konzentrieren und haben ev. die restlichen Varianten bereits mit abgebildet.
+> 💡 **Glück**: Die Änderungen sind minimal zwischen den Versionen. Wir können uns auf die Mobile konzentrieren und haben ev. die restlichen Varianten bereits mit abgebildet.
 
 ---
 
@@ -59,7 +59,7 @@ Setze die beiden Klassen `d-flex` und `flex-row` auf dem HTML-Element **`article
 
 ![Flex angewendet](images/preview_flexWithImageApplied.png)
 
-** Resultat**: Die Text-Elemente sind schon mal rechts vom Bild. Eigentlich genau was wir möchten!
+**✅ Resultat**: Die Text-Elemente sind schon mal rechts vom Bild. Eigentlich genau was wir möchten!
 
 ---
 
@@ -234,6 +234,6 @@ Setze dann py-s auf das Article Element
 ![Final mit festen Paddings und Margins](images/PreviewFinalWithFixedPaddingsAndMargins.png)
 
 ### Fleissarbeit…
-Jetzt hast du alle Grundlagen im CSS, um all die Blog Page Previews zu gestalten. Gehe durch jede Stelle in der Index.html Seite durch, ergänze die Klassen und es sollte soweit passen. Für Desktop könnte man das Bild noch etwas breiter machen. Aber das ist deine Wahl ob du das noch machen möchtest Viel Erfolg!
+Jetzt hast du alle Grundlagen im CSS, um all die Blog Page Previews zu gestalten. Gehe durch jede Stelle in der Index.html Seite durch, ergänze die Klassen und es sollte soweit passen. Für Desktop könnte man das Bild noch etwas breiter machen. Aber das ist deine Wahl ob du das noch machen möchtest 😊 Viel Erfolg!
 
 Ps. Den fertigen Stand findest du auf [GitHub in der index.html](https://github.com/rekoch/learnWebEngineering/blob/main/public/02_html_css/08_blog_page_preview/index.html).

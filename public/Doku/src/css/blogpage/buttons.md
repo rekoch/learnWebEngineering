@@ -142,6 +142,6 @@ Am Schluss musst du im HTML überall noch **"primary"** hinzufügen, wo es ein s
 
 **Hältst du dich an die Vorlage**, sind das tatsächlich aktuell **alle Buttons als Primary**. Eventuell können wir diesen Umstand später noch verbessern.
 
-**Button-System ist professionell implementiert!**
+**Button-System ist professionell implementiert!** 🎉
 
 

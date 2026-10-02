@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-5d5a3815.js";
+            window.path_to_searchindex_js = "../searchindex-08afbf74.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d8799e27.js"></script>
@@ -193,9 +193,9 @@
 <p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="images/rwd_2014Stats.png" alt="Statistiken 2014"><span class="img-wrapper"><img src="images/rwd_2014Stats.png" alt="Statistiken 2014"></span></label></p>
 <p><strong>Deutlich kleinere Auflösungen</strong> dominieren das Chart:</p>
 <ul>
-<li>** Smartphones** an der Spitze</li>
+<li><strong>Smartphones</strong> an der Spitze</li>
 <li><strong>“Others”</strong> deutlich gestiegen</li>
-<li>** Paradigmenwechsel**: Responsive Design wird Pflicht</li>
+<li><strong>Paradigmenwechsel</strong>: Responsive Design wird Pflicht</li>
 </ul>
 <blockquote>
 <p><strong>Realität</strong>: Smartphones haben der Webentwicklung einen Dämpfer verpasst. Plötzlich müssen Seiten auch auf relativ kleinen Auflösungen gut aussehen.</p>
@@ -207,7 +207,7 @@
 <ul>
 <li>Browser verkleinerte Desktop-Darstellung</li>
 <li><strong>Zoom-Geste</strong> ermöglichte Navigation</li>
-<li>** Problem**: Nicht zielführend für positive User Experience</li>
+<li><strong>❌ Problem</strong>: Nicht zielführend für positive User Experience</li>
 </ul>
 <h3 id="die-viewport-lösung"><a class="header" href="#die-viewport-lösung">Die Viewport-Lösung</a></h3>
 <p><strong>Emmet-Shortcut <code>!</code> erstellt automatisch:</strong></p>
@@ -226,14 +226,14 @@
 <h2 id="mobile-first-strategie"><a class="header" href="#mobile-first-strategie">Mobile First Strategie</a></h2>
 <h3 id="konzept-übersicht"><a class="header" href="#konzept-übersicht">Konzept-Übersicht</a></h3>
 <p><strong>Mobile First</strong> = Design beginnt mit kleinster Auflösung</p>
-<pre><code>320px (Mobile)  → 768px (Tablet)  → 1200px (Desktop)
+<pre><code>📱 320px (Mobile)  →  📲 768px (Tablet)  →  🖥️ 1200px (Desktop)
 </code></pre>
 <h3 id="breakpoint-system"><a class="header" href="#breakpoint-system">Breakpoint-System</a></h3>
 <p><strong>Breakpoint</strong> = Bestimmte Auflösung, wo sich das Design anpassen muss</p>
 <p><strong>Beispiel-Szenario:</strong></p>
 <ul>
-<li><strong>Button bis 400px</strong>: <code>width: 100%</code></li>
-<li><strong>Button ab 450px</strong>: Anpassung nötig</li>
+<li><strong>Button bis 400px</strong>: <code>width: 100%</code> ✅</li>
+<li><strong>Button ab 450px</strong>: Anpassung nötig ❌</li>
 <li><strong>Lösung</strong>: Breakpoint bei <code>400px</code> definieren</li>
 </ul>
 <h3 id="bootstrap-breakpoints-beispiel"><a class="header" href="#bootstrap-breakpoints-beispiel">Bootstrap Breakpoints (Beispiel)</a></h3>
@@ -427,24 +427,24 @@
 <tr><th>Aspekt</th><th><strong>Bootstrap</strong></th><th><strong>Custom Grid</strong></th></tr>
 </thead>
 <tbody>
-<tr><td>** Setup-Zeit**</td><td>Schnell</td><td>Länger</td></tr>
-<tr><td>** Flexibilität**</td><td>Begrenzt</td><td>Vollständig</td></tr>
-<tr><td>** Lernaufwand**</td><td>Framework lernen</td><td>CSS verstehen</td></tr>
-<tr><td>** Anpassungen**</td><td>Workarounds</td><td>Direkte Kontrolle</td></tr>
-<tr><td>** Bundle-Size**</td><td>Größer</td><td>Minimal</td></tr>
+<tr><td><strong>Setup-Zeit</strong></td><td>Schnell</td><td>Länger</td></tr>
+<tr><td><strong>Flexibilität</strong></td><td>Begrenzt</td><td>Vollständig</td></tr>
+<tr><td><strong>Lernaufwand</strong></td><td>Framework lernen</td><td>CSS verstehen</td></tr>
+<tr><td><strong>Anpassungen</strong></td><td>Workarounds</td><td>Direkte Kontrolle</td></tr>
+<tr><td><strong>Bundle-Size</strong></td><td>Größer</td><td>Minimal</td></tr>
 </tbody>
 </table>
 </div>
 <h3 id="bootstrap-verwenden-wenn"><a class="header" href="#bootstrap-verwenden-wenn">Bootstrap verwenden, wenn:</a></h3>
 <ul>
-<li>** Schnelle Prototypen** erstellen</li>
+<li><strong>Schnelle Prototypen</strong> erstellen</li>
 <li><strong>12-Spalten-System</strong> ausreicht</li>
 <li><strong>Standard-Designs</strong> umsetzen</li>
 <li><strong>Team</strong> bereits Bootstrap-Erfahrung hat</li>
 </ul>
 <h3 id="custom-grid-verwenden-wenn"><a class="header" href="#custom-grid-verwenden-wenn">Custom Grid verwenden, wenn:</a></h3>
 <ul>
-<li>** Unique Designs** entwickeln</li>
+<li><strong>Unique Designs</strong> entwickeln</li>
 <li><strong>Volle Kontrolle</strong> benötigt</li>
 <li><strong>Performance</strong> kritisch ist</li>
 <li><strong>Lernziele</strong> CSS-Verständnis beinhalten</li>
@@ -454,10 +454,10 @@
 <h3 id="css-grid-vorteile-seit-20162017"><a class="header" href="#css-grid-vorteile-seit-20162017">CSS Grid Vorteile (seit 2016/2017)</a></h3>
 <p><strong>Warum CSS Grid?</strong></p>
 <ul>
-<li>** 2D-Layout** (Zeilen + Spalten)</li>
-<li>** Intuitive Syntax**</li>
-<li>** Native Browser-Support**</li>
-<li>** Performance-optimiert**</li>
+<li><strong>2D-Layout</strong> (Zeilen + Spalten)</li>
+<li><strong>Intuitive Syntax</strong></li>
+<li><strong>Native Browser-Support</strong></li>
+<li><strong>Performance-optimiert</strong></li>
 </ul>
 <h3 id="css-grid-lernressourcen"><a class="header" href="#css-grid-lernressourcen">CSS Grid Lernressourcen</a></h3>
 <div class="table-wrapper">
@@ -613,7 +613,7 @@ col-12 {
 <li>Die Elemente sind nun immer ab der zweiten Spalte gereiht und nicht mehr verteilt
 Alle dies Dinge wollen wir nun beheben. Die einfachste ist auf jeden Fall das Gap und die Spaltenbreite.</li>
 </ul>
-<p>Passe daher dein css entsprechend an. Wir setzen Variablen ein, die wiederum mit Media-Queries definiert werden. So können wir die Angaben automatisch setzen, basierend auf der Viewport Grösse. Genius</p>
+<p>Passe daher dein css entsprechend an. Wir setzen Variablen ein, die wiederum mit Media-Queries definiert werden. So können wir die Angaben automatisch setzen, basierend auf der Viewport Grösse. Genius 🤓</p>
 <pre><code class="language-css">:root {
   --columns-amount: 12;
   --column-width: 50px;
@@ -703,10 +703,10 @@ Mit CSS Grid, Bootstrap oder Spalten Design lassen sich diese Art von Design / L
 <tr><th>Feature</th><th><strong>CSS Grid</strong></th><th><strong>CSS Flexbox</strong></th></tr>
 </thead>
 <tbody>
-<tr><td>** Dimensionen**</td><td>2D (Zeilen + Spalten)</td><td>1D (Eine Richtung)</td></tr>
-<tr><td>** Use Case**</td><td>Page Layout</td><td>Component Layout</td></tr>
-<tr><td>** Responsive**</td><td>Breakpoint-basiert</td><td>Content-basiert</td></tr>
-<tr><td>** Komplexität**</td><td>Höher</td><td>Einfacher</td></tr>
+<tr><td><strong>Dimensionen</strong></td><td>2D (Zeilen + Spalten)</td><td>1D (Eine Richtung)</td></tr>
+<tr><td><strong>Use Case</strong></td><td>Page Layout</td><td>Component Layout</td></tr>
+<tr><td><strong>Responsive</strong></td><td>Breakpoint-basiert</td><td>Content-basiert</td></tr>
+<tr><td><strong>Komplexität</strong></td><td>Höher</td><td>Einfacher</td></tr>
 </tbody>
 </table>
 </div>
@@ -720,47 +720,47 @@ Mit CSS Grid, Bootstrap oder Spalten Design lassen sich diese Art von Design / L
 <h3 id="die-richtige-wahl-treffen"><a class="header" href="#die-richtige-wahl-treffen">Die richtige Wahl treffen</a></h3>
 <h4 id="fragen-zur-orientierung"><a class="header" href="#fragen-zur-orientierung"><strong>Fragen zur Orientierung:</strong></a></h4>
 <ol>
-<li>** Neues Projekt** oder bestehende Libraries?</li>
-<li>** Team-Erfahrung** mit welcher Technologie?</li>
-<li>** Layout-Flexibilität**: Immer 12 Spalten oder variabel?</li>
-<li>** Device-Support**: Welche Breakpoints nötig?</li>
+<li><strong>Neues Projekt</strong> oder bestehende Libraries?</li>
+<li><strong>Team-Erfahrung</strong> mit welcher Technologie?</li>
+<li><strong>Layout-Flexibilität</strong>: Immer 12 Spalten oder variabel?</li>
+<li><strong>Device-Support</strong>: Welche Breakpoints nötig?</li>
 </ol>
-<h4 id="-empfehlungen"><a class="header" href="#-empfehlungen">** Empfehlungen:**</a></h4>
+<h4 id="empfehlungen"><a class="header" href="#empfehlungen"><strong>Empfehlungen:</strong></a></h4>
 <div class="table-wrapper">
 <table>
 <thead>
 <tr><th>Szenario</th><th>Empfehlung</th><th>Begründung</th></tr>
 </thead>
 <tbody>
-<tr><td>** Neue Website**</td><td><strong>CSS Grid + Flexbox</strong></td><td>Modern, flexibel, performant</td></tr>
-<tr><td>** Bestehende Bootstrap-Site**</td><td><strong>Bootstrap</strong></td><td>Konsistenz wahren</td></tr>
-<tr><td>** Einfache Layouts**</td><td><strong>Flexbox</strong></td><td>Weniger Overhead</td></tr>
-<tr><td>** Komplexe Layouts**</td><td><strong>CSS Grid</strong></td><td>2D-Kontrolle</td></tr>
+<tr><td><strong>Neue Website</strong></td><td><strong>CSS Grid + Flexbox</strong></td><td>Modern, flexibel, performant</td></tr>
+<tr><td><strong>Bestehende Bootstrap-Site</strong></td><td><strong>Bootstrap</strong></td><td>Konsistenz wahren</td></tr>
+<tr><td><strong>Einfache Layouts</strong></td><td><strong>Flexbox</strong></td><td>Weniger Overhead</td></tr>
+<tr><td><strong>Komplexe Layouts</strong></td><td><strong>CSS Grid</strong></td><td>2D-Kontrolle</td></tr>
 </tbody>
 </table>
 </div>
 <h3 id="anti-patterns-vermeiden"><a class="header" href="#anti-patterns-vermeiden">Anti-Patterns vermeiden</a></h3>
 <ul>
-<li>** Bootstrap + CSS Grid Mix** (Konflikte)</li>
-<li>** Float-basierte Layouts** (veraltet)</li>
-<li>** Table-Layout für Design** (nicht semantisch)</li>
+<li><strong>❌ Bootstrap + CSS Grid Mix</strong> (Konflikte)</li>
+<li><strong>❌ Float-basierte Layouts</strong> (veraltet)</li>
+<li><strong>❌ Table-Layout für Design</strong> (nicht semantisch)</li>
 </ul>
 <hr>
 <h2 id="zusammenfassung"><a class="header" href="#zusammenfassung">Zusammenfassung</a></h2>
 <h3 id="was-du-gelernt-hast"><a class="header" href="#was-du-gelernt-hast">Was du gelernt hast:</a></h3>
 <ol>
-<li>** Mobile First Prinzip**</li>
-<li>** Custom Grid System**</li>
-<li>** Breakpoint-Strategien**</li>
-<li>** CSS Grid Modernisierung**</li>
-<li>** Technologie-Entscheidungen**</li>
+<li><strong>Mobile First Prinzip</strong></li>
+<li><strong>Custom Grid System</strong></li>
+<li><strong>Breakpoint-Strategien</strong></li>
+<li><strong>CSS Grid Modernisierung</strong></li>
+<li><strong>Technologie-Entscheidungen</strong></li>
 </ol>
 <h3 id="nächste-schritte"><a class="header" href="#nächste-schritte">Nächste Schritte:</a></h3>
 <ol>
-<li>** Praktisches Üben** mit eigenem Projekt</li>
-<li>** CSS Grid Garden** durchspielen</li>
-<li>** Flexbox Froggy** meistern</li>
-<li>** Blog-Seite** responsive machen</li>
+<li><strong>Praktisches Üben</strong> mit eigenem Projekt</li>
+<li><strong>CSS Grid Garden</strong> durchspielen</li>
+<li><strong>Flexbox Froggy</strong> meistern</li>
+<li><strong>Blog-Seite</strong> responsive machen</li>
 </ol>
 <p><strong>Du bist bereit für modernes, responsives Webdesign!</strong></p>
 

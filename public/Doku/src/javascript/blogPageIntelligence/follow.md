@@ -4,7 +4,7 @@
 
 Du hast gelernt, wie du das Backend für State-Management nutzt - mit Services wie Observer und blogPageLikes. Jetzt fehlt die **Follow-Funktionalität** für **Author** und **Topic**. Nutze dein erworbenes Wissen!
 
-> **Challenge**: Wissen ist Macht, und mit Macht kommt... noch mehr Code!
+> 💪 **Challenge**: Wissen ist Macht, und mit Macht kommt... noch mehr Code! 😄
 
 ---
 
@@ -207,7 +207,7 @@ const topicName = button.dataset.topicName;
 
 ## That's it folks!
 
-Wenn alle Tests erfolgreich sind: **Gratulation!**
+Wenn alle Tests erfolgreich sind: **Gratulation!** 🥂
 
 ### Debugging-Hilfe
 
@@ -228,10 +228,10 @@ Bei völliger Verzweiflung kannst du die **komplette Lösung** auf GitHub einseh
 
 Nach erfolgreicher Implementation beherrschst du:
 
-**Event-driven Architecture** mit Observer Pattern  
-**Multi-Button State Management**  
-**Backend-Frontend-Synchronisation**  
-**Dynamic UI Updates**  
-**Error Handling & Robustness**  
+✅ **Event-driven Architecture** mit Observer Pattern  
+✅ **Multi-Button State Management**  
+✅ **Backend-Frontend-Synchronisation**  
+✅ **Dynamic UI Updates**  
+✅ **Error Handling & Robustness**  
 
-**Du bist bereit für komplexere Frontend-Herausforderungen!**
+**Du bist bereit für komplexere Frontend-Herausforderungen!** 🚀

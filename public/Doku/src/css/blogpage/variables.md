@@ -25,7 +25,7 @@ Wir haben in den utilities Angaben für margins von `xs` bis `xxl` eingesetzt. D
 - **Konsistente Spacing-Skala** 
 - **Wiederverwendbare Werte**
 
-> **Pragmatischer Ansatz**: Wir definieren die Variablen explizit für die Margins. Später können wir diese möglicherweise mit anderen zusammenführen.
+> 💡 **Pragmatischer Ansatz**: Wir definieren die Variablen explizit für die Margins. Später können wir diese möglicherweise mit anderen zusammenführen.
 
 ### CSS Variablen Grundlagen
 
@@ -183,4 +183,4 @@ Im Prinzip könntest du jetzt das restliche CSS nach weiteren Möglichkeiten fü
 
 Wir lassen weitere Variablen vorerst sein und kümmern uns dafür um ein **responsives Layout**.
 
-**Variable-System etabliert - bereit für responsive Design!**
+**Variable-System etabliert - bereit für responsive Design!** 🎉

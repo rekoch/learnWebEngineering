@@ -4,7 +4,7 @@
 
 Wenn wir eine Page für möglichst viele Endgeräte nutzen wollen, sollten wir sie **responsive** gestalten. 
 
-> **Siehe auch**: [Responsive Web Design Guide](../rwd.md)
+> 📖 **Siehe auch**: [Responsive Web Design Guide](../rwd.md)
 
 > **Falls du nicht klarkommst**, nutze den Stand aus [GitHub](https://github.com/rekoch/learnWebEngineering/tree/main/public/02_html_css/06_variables)
 
@@ -18,8 +18,8 @@ Wenn wir eine Seite responsive gestalten, sollten wir uns festlegen:
 
 | Ansatz | Beschreibung | Heute empfohlen? |
 |--------|--------------|------------------|
-| **Desktop First** | Zuerst Desktop, dann kleiner | Veraltet |
-| **Mobile First** | Zuerst Mobile, dann grösser | Standard |
+| **Desktop First** | Zuerst Desktop, dann kleiner | ❌ Veraltet |
+| **Mobile First** | Zuerst Mobile, dann grösser | ✅ Standard |
 
 ### Was bedeutet Mobile First?
 
@@ -157,7 +157,7 @@ button {
 **Entferne** zu guter Letzt die CSS-Klasse im HTML:
 ```html
 <!-- ENTFERNEN: class="width-200-fit" -->
-<button class="primary"> Gefällt mir</button>
+<button class="primary">❤️ Gefällt mir</button>
 ```
 
 ---
@@ -175,4 +175,4 @@ button {
 
 **Die komplette Lösung** findest du unter: [GitHub - Responsive Version](https://github.com/rekoch/learnWebEngineering/tree/main/public/02_html_css/07_responsive)
 
-**Responsive Design erfolgreich implementiert!**
+**Responsive Design erfolgreich implementiert!** 🎉

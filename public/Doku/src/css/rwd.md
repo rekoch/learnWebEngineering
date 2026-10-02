@@ -25,9 +25,9 @@ Apple Seite
 
 **Deutlich kleinere Auflösungen** dominieren das Chart:
 
-- ** Smartphones** an der Spitze
+- **Smartphones** an der Spitze
 - **"Others"** deutlich gestiegen
-- ** Paradigmenwechsel**: Responsive Design wird Pflicht
+- **Paradigmenwechsel**: Responsive Design wird Pflicht
 
 > **Realität**: Smartphones haben der Webentwicklung einen Dämpfer verpasst. Plötzlich müssen Seiten auch auf relativ kleinen Auflösungen gut aussehen.
 
@@ -41,7 +41,7 @@ Apple Seite
 
 - Browser verkleinerte Desktop-Darstellung
 - **Zoom-Geste** ermöglichte Navigation
-- ** Problem**: Nicht zielführend für positive User Experience
+- **❌ Problem**: Nicht zielführend für positive User Experience
 
 ### Die Viewport-Lösung
 
@@ -68,7 +68,7 @@ Apple Seite
 **Mobile First** = Design beginnt mit kleinster Auflösung
 
 ```
-320px (Mobile)  → 768px (Tablet)  → 1200px (Desktop)
+📱 320px (Mobile)  →  📲 768px (Tablet)  →  🖥️ 1200px (Desktop)
 ```
 
 ### Breakpoint-System
@@ -77,8 +77,8 @@ Apple Seite
 
 **Beispiel-Szenario:**
 
-- **Button bis 400px**: `width: 100%`
-- **Button ab 450px**: Anpassung nötig
+- **Button bis 400px**: `width: 100%` ✅
+- **Button ab 450px**: Anpassung nötig ❌
 - **Lösung**: Breakpoint bei `400px` definieren
 
 ### Bootstrap Breakpoints (Beispiel)
@@ -330,22 +330,22 @@ Nun hast du gesehen, dass es nicht unbedingt Magie ist, ein Grid selber zu progr
 
 | Aspekt              | **Bootstrap**    | **Custom Grid**   |
 | ------------------- | ---------------- | ----------------- |
-| ** Setup-Zeit**   | Schnell          | Länger            |
-| ** Flexibilität** | Begrenzt         | Vollständig       |
-| ** Lernaufwand**  | Framework lernen | CSS verstehen     |
-| ** Anpassungen**  | Workarounds      | Direkte Kontrolle |
-| ** Bundle-Size**  | Größer           | Minimal           |
+| **Setup-Zeit**   | Schnell          | Länger            |
+| **Flexibilität** | Begrenzt         | Vollständig       |
+| **Lernaufwand**  | Framework lernen | CSS verstehen     |
+| **Anpassungen**  | Workarounds      | Direkte Kontrolle |
+| **Bundle-Size**  | Größer           | Minimal           |
 
 ### Bootstrap verwenden, wenn:
 
-- ** Schnelle Prototypen** erstellen
+- **Schnelle Prototypen** erstellen
 - **12-Spalten-System** ausreicht
 - **Standard-Designs** umsetzen
 - **Team** bereits Bootstrap-Erfahrung hat
 
 ### Custom Grid verwenden, wenn:
 
-- ** Unique Designs** entwickeln
+- **Unique Designs** entwickeln
 - **Volle Kontrolle** benötigt
 - **Performance** kritisch ist
 - **Lernziele** CSS-Verständnis beinhalten
@@ -358,10 +358,10 @@ Nun hast du gesehen, dass es nicht unbedingt Magie ist, ein Grid selber zu progr
 
 **Warum CSS Grid?**
 
-- ** 2D-Layout** (Zeilen + Spalten)
-- ** Intuitive Syntax**
-- ** Native Browser-Support**
-- ** Performance-optimiert**
+- **2D-Layout** (Zeilen + Spalten)
+- **Intuitive Syntax**
+- **Native Browser-Support**
+- **Performance-optimiert**
 
 ### CSS Grid Lernressourcen
 
@@ -541,7 +541,7 @@ Teste ein wenig das neue Layout. Folgende Dinge sollten dir auffallen:
 - Die Elemente sind nun immer ab der zweiten Spalte gereiht und nicht mehr verteilt
   Alle dies Dinge wollen wir nun beheben. Die einfachste ist auf jeden Fall das Gap und die Spaltenbreite.
 
-Passe daher dein css entsprechend an. Wir setzen Variablen ein, die wiederum mit Media-Queries definiert werden. So können wir die Angaben automatisch setzen, basierend auf der Viewport Grösse. Genius
+Passe daher dein css entsprechend an. Wir setzen Variablen ein, die wiederum mit Media-Queries definiert werden. So können wir die Angaben automatisch setzen, basierend auf der Viewport Grösse. Genius 🤓
 
 ```css
 :root {
@@ -655,10 +655,10 @@ Mit CSS Grid, Bootstrap oder Spalten Design lassen sich diese Art von Design / L
 
 | Feature            | **CSS Grid**          | **CSS Flexbox**    |
 | ------------------ | --------------------- | ------------------ |
-| ** Dimensionen** | 2D (Zeilen + Spalten) | 1D (Eine Richtung) |
-| ** Use Case**    | Page Layout           | Component Layout   |
-| ** Responsive**  | Breakpoint-basiert    | Content-basiert    |
-| ** Komplexität** | Höher                 | Einfacher          |
+| **Dimensionen** | 2D (Zeilen + Spalten) | 1D (Eine Richtung) |
+| **Use Case**    | Page Layout           | Component Layout   |
+| **Responsive**  | Breakpoint-basiert    | Content-basiert    |
+| **Komplexität** | Höher                 | Einfacher          |
 
 ### Flexbox Lernressourcen
 
@@ -673,25 +673,25 @@ Mit CSS Grid, Bootstrap oder Spalten Design lassen sich diese Art von Design / L
 
 #### **Fragen zur Orientierung:**
 
-1. ** Neues Projekt** oder bestehende Libraries?
-2. ** Team-Erfahrung** mit welcher Technologie?
-3. ** Layout-Flexibilität**: Immer 12 Spalten oder variabel?
-4. ** Device-Support**: Welche Breakpoints nötig?
+1. **Neues Projekt** oder bestehende Libraries?
+2. **Team-Erfahrung** mit welcher Technologie?
+3. **Layout-Flexibilität**: Immer 12 Spalten oder variabel?
+4. **Device-Support**: Welche Breakpoints nötig?
 
-#### ** Empfehlungen:**
+#### **Empfehlungen:**
 
 | Szenario                         | Empfehlung             | Begründung                   |
 | -------------------------------- | ---------------------- | ---------------------------- |
-| ** Neue Website**              | **CSS Grid + Flexbox** | Modern, flexibel, performant |
-| ** Bestehende Bootstrap-Site** | **Bootstrap**          | Konsistenz wahren            |
-| ** Einfache Layouts**          | **Flexbox**            | Weniger Overhead             |
-| ** Komplexe Layouts**          | **CSS Grid**           | 2D-Kontrolle                 |
+| **Neue Website**              | **CSS Grid + Flexbox** | Modern, flexibel, performant |
+| **Bestehende Bootstrap-Site** | **Bootstrap**          | Konsistenz wahren            |
+| **Einfache Layouts**          | **Flexbox**            | Weniger Overhead             |
+| **Komplexe Layouts**          | **CSS Grid**           | 2D-Kontrolle                 |
 
 ### Anti-Patterns vermeiden
 
-- ** Bootstrap + CSS Grid Mix** (Konflikte)
-- ** Float-basierte Layouts** (veraltet)
-- ** Table-Layout für Design** (nicht semantisch)
+- **❌ Bootstrap + CSS Grid Mix** (Konflikte)
+- **❌ Float-basierte Layouts** (veraltet)
+- **❌ Table-Layout für Design** (nicht semantisch)
 
 ---
 
@@ -699,17 +699,17 @@ Mit CSS Grid, Bootstrap oder Spalten Design lassen sich diese Art von Design / L
 
 ### Was du gelernt hast:
 
-1. ** Mobile First Prinzip**
-2. ** Custom Grid System**
-3. ** Breakpoint-Strategien**
-4. ** CSS Grid Modernisierung**
-5. ** Technologie-Entscheidungen**
+1. **Mobile First Prinzip**
+2. **Custom Grid System**
+3. **Breakpoint-Strategien**
+4. **CSS Grid Modernisierung**
+5. **Technologie-Entscheidungen**
 
 ### Nächste Schritte:
 
-1. ** Praktisches Üben** mit eigenem Projekt
-2. ** CSS Grid Garden** durchspielen
-3. ** Flexbox Froggy** meistern
-4. ** Blog-Seite** responsive machen
+1. **Praktisches Üben** mit eigenem Projekt
+2. **CSS Grid Garden** durchspielen
+3. **Flexbox Froggy** meistern
+4. **Blog-Seite** responsive machen
 
 **Du bist bereit für modernes, responsives Webdesign!**

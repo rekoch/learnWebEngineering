@@ -36,4 +36,4 @@ Definiere eine Klasse, auf welcher du die Werte vergibst und füge sie überall 
 - **Automatische Grossbuchstaben** für Konsistenz
 - **Wiederverwendbare Klasse** für alle Rubriken
 
-**Rubrik-Styling ist professionell umgesetzt!**
+**Rubrik-Styling ist professionell umgesetzt!** 🎉

@@ -35,7 +35,7 @@
             const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../searchindex-5d5a3815.js";
+            window.path_to_searchindex_js = "../../searchindex-08afbf74.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../toc-d8799e27.js"></script>
@@ -179,8 +179,8 @@
 <h3 id="situation-verstehen"><a class="header" href="#situation-verstehen">Situation verstehen</a></h3>
 <p><strong>Frontend-Only</strong>: Alles ist einfach - nur <strong>ein Datenzustand</strong> im Browser:</p>
 <ul>
-<li>Button gedrückt? HTML/Cookie</li>
-<li>Seite geliked? Lokaler Speicher</li>
+<li>Button gedrückt? ✅ HTML/Cookie</li>
+<li>Seite geliked? ✅ Lokaler Speicher</li>
 </ul>
 <p><strong>Mit Backend</strong>: <strong>Zwei Datenzustände</strong> synchronisieren:</p>
 <ul>
@@ -230,20 +230,20 @@
 <h2 id="projekt-struktur-verstehen"><a class="header" href="#projekt-struktur-verstehen">Projekt-Struktur verstehen</a></h2>
 <h3 id="backend-struktur-00_backend"><a class="header" href="#backend-struktur-00_backend">Backend-Struktur (<code>00_backend/</code>)</a></h3>
 <pre><code>00_backend/
-├── app.js                    # Express-Hauptanwendung
-├── package.json              # Dependencies &amp; Scripts
-├── .env                      # Umgebungsvariablen
-├── editorialContent.db       # SQLite-Datenbank
-├── readme.md                 # Setup-Anweisungen
-├── routes/                   # API-Endpunkte
+├── 📄 app.js                    # Express-Hauptanwendung
+├── 📄 package.json              # Dependencies &amp; Scripts
+├── 📄 .env                      # Umgebungsvariablen
+├── 📄 editorialContent.db       # SQLite-Datenbank
+├── 📄 readme.md                 # Setup-Anweisungen
+├── 📁 routes/                   # API-Endpunkte
 │   ├── likes.js                 # Like-Funktionalität
 │   ├── authorFollow.js          # Autor-Follow
 │   └── topicFollow.js           # Topic-Follow
-├── db/                       # Datenbank-Layer
+├── 📁 db/                       # Datenbank-Layer
 │   ├── blogPageLikesRepo.js     # Like-Operationen
 │   ├── authorFollowRepo.js      # Autor-Follow-Ops
 │   └── topicFollowRepo.js       # Topic-Follow-Ops
-└── utils/                    # Middleware &amp; Tools
+└── 📁 utils/                    # Middleware &amp; Tools
     ├── corsMiddleware.js        # CORS-Konfiguration
     └── swagger.js               # API-Dokumentation
 </code></pre>
@@ -262,22 +262,22 @@ npm run dev
 </code></pre>
 <h3 id="frontend-struktur-04_01_backendbaseconnection"><a class="header" href="#frontend-struktur-04_01_backendbaseconnection">Frontend-Struktur (<code>04_01_backendBaseConnection/</code>)</a></h3>
 <pre><code>04_01_backendBaseConnection/
-├── index.html                # Haupt-HTML
-├── css/                      # Styling
-├── javascript/
-│   ├── main.js               # Entry Point
-│   ├── services/             # Backend-Services
-│   │   ├── observer.js       # Event-System (Singleton)
-│   │   ├── httpClient.js     # HTTP-Wrapper
-│   │   ├── blogPageLikes.js  # Like-API-Calls
-│   │   ├── authorFollow.js   # Autor-Follow-APIs
-│   │   └── topicFollow.js    # Topic-Follow-APIs
-│   └── pages/blogPage/       # Blog-spezifische Logik
-│       ├── blogPageMain.js   # Koordination
-│       ├── buttons.js        # Button-Events
-│       ├── likeStateHandler.js    # Like-State
-│       ├── followStateHandler.js  # Follow-State
-│       └── tables.js         # Tabellen-Management
+├── 📄 index.html                # Haupt-HTML
+├── 📁 css/                      # Styling
+├── 📁 javascript/
+│   ├── 📄 main.js               # Entry Point
+│   ├── 📁 services/             # Backend-Services
+│   │   ├── 📄 observer.js       # Event-System (Singleton)
+│   │   ├── 📄 httpClient.js     # HTTP-Wrapper
+│   │   ├── 📄 blogPageLikes.js  # Like-API-Calls
+│   │   ├── 📄 authorFollow.js   # Autor-Follow-APIs
+│   │   └── 📄 topicFollow.js    # Topic-Follow-APIs
+│   └── 📁 pages/blogPage/       # Blog-spezifische Logik
+│       ├── 📄 blogPageMain.js   # Koordination
+│       ├── 📄 buttons.js        # Button-Events
+│       ├── 📄 likeStateHandler.js    # Like-State
+│       ├── 📄 followStateHandler.js  # Follow-State
+│       └── 📄 tables.js         # Tabellen-Management
 </code></pre>
 <h3 id="architektur-highlights"><a class="header" href="#architektur-highlights">Architektur-Highlights</a></h3>
 <h4 id="services-layer"><a class="header" href="#services-layer"><strong>Services Layer</strong></a></h4>
@@ -358,7 +358,7 @@ setLikeCounter();
   }
 }
 </code></pre>
-<p>** Test**: Du solltest jetzt “99” und den Text sehen!</p>
+<p><strong>✅ Test</strong>: Du solltest jetzt “99” und den Text sehen!</p>
 <hr>
 <h2 id="backend-integration"><a class="header" href="#backend-integration">Backend-Integration</a></h2>
 <h3 id="schritt-1-service-importieren"><a class="header" href="#schritt-1-service-importieren">Schritt 1: Service importieren</a></h3>
@@ -379,7 +379,7 @@ import { getLikesPerBlogPage } from "../../services/blogPageLikes.js";
   }
 }
 </code></pre>
-<p>** Problem**: Keine Zahl wird angezeigt? <strong>Async-Problem!</strong>
+<p><strong>🚨 Problem</strong>: Keine Zahl wird angezeigt? <strong>Async-Problem!</strong>
 Siehe auch <a href="../callbacks.html">callbacks</a></p>
 <h3 id="schritt-3-asyncawait-pattern"><a class="header" href="#schritt-3-asyncawait-pattern">Schritt 3: Async/Await Pattern</a></h3>
 <p><strong>Problem</strong>: Code wartet nicht auf Backend-Response.<br><strong>Lösung</strong>: <code>await</code> für asynchrone Operationen. Zudem musst du die function mit <code>async</code> auszeichnen, damit ein <code>await</code>erlaubt ist.</p>
@@ -395,7 +395,7 @@ Siehe auch <a href="../callbacks.html">callbacks</a></p>
   }
 }
 </code></pre>
-<p>** Test**: Echte Backend-Daten werden geladen!</p>
+<p><strong>✅ Test</strong>: Echte Backend-Daten werden geladen!</p>
 <hr>
 <h2 id="event-driven-counter-updates"><a class="header" href="#event-driven-counter-updates">Event-Driven Counter Updates</a></h2>
 <p>Im Prinzip könnte sich die BlogPageId ändern. Dafür gibt es bereits einen abonnierten Event im likeStateHandler. Anstelle dass wir den Counter beim Laden setzen, nutzen wir den Event. Immer wenn sich die Id ändert laden wir den korrekten Wert aus dem Backend.</p>
@@ -432,7 +432,7 @@ observeLikeEvents();
 <h3 id="blogpageid-zurücksetzen"><a class="header" href="#blogpageid-zurücksetzen">BlogPageId zurücksetzen</a></h3>
 <pre><code class="language-javascript">let blogPageId = 0;  // Wieder auf 0, da Wert von Observer kommt
 </code></pre>
-<p>** Test**: Likes werden weiterhin geladen, aber jetzt event-driven!</p>
+<p><strong>✅ Test</strong>: Likes werden weiterhin geladen, aber jetzt event-driven!</p>
 <p>Du kannst dies auch im Console.log überprüfen.
 <label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/ConsoleLogLikeStateHandler.png" alt="LikeStateHandler Ausgabe"><span class="img-wrapper"><img src="./images/ConsoleLogLikeStateHandler.png" alt="LikeStateHandler Ausgabe"></span></label></p>
 <hr>

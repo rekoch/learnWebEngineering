@@ -35,7 +35,7 @@ function orderCoffee(callback) {
 }
 
 function drinkCoffee(coffeeType) {
-  console.log(`Kaffee wird getrunken: ${coffeeType} `);
+  console.log(`Kaffee wird getrunken: ${coffeeType} ☕️`);
 }
 
 orderCoffee(drinkCoffee);
@@ -75,7 +75,7 @@ function orderCoffee(callback) {
 }
 
 orderCoffee((coffeeType) => {
-  console.log(`Kaffee wird getrunken: ${coffeeType} `);
+  console.log(`Kaffee wird getrunken: ${coffeeType} ☕️`);
 });
 ```
 

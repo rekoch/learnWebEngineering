@@ -5,8 +5,8 @@
 ### Situation verstehen
 
 **Frontend-Only**: Alles ist einfach - nur **ein Datenzustand** im Browser:
-- Button gedrückt? HTML/Cookie
-- Seite geliked? Lokaler Speicher
+- Button gedrückt? ✅ HTML/Cookie
+- Seite geliked? ✅ Lokaler Speicher
 
 **Mit Backend**: **Zwei Datenzustände** synchronisieren:
 - **Frontend-State** (Browser)
@@ -66,20 +66,20 @@ Achte darauf, dass bei der Zeile davor ein Komma am Schluss ist.
 
 ```
 00_backend/
-├── app.js                    # Express-Hauptanwendung
-├── package.json              # Dependencies & Scripts
-├── .env                      # Umgebungsvariablen
-├── editorialContent.db       # SQLite-Datenbank
-├── readme.md                 # Setup-Anweisungen
-├── routes/                   # API-Endpunkte
+├── 📄 app.js                    # Express-Hauptanwendung
+├── 📄 package.json              # Dependencies & Scripts
+├── 📄 .env                      # Umgebungsvariablen
+├── 📄 editorialContent.db       # SQLite-Datenbank
+├── 📄 readme.md                 # Setup-Anweisungen
+├── 📁 routes/                   # API-Endpunkte
 │   ├── likes.js                 # Like-Funktionalität
 │   ├── authorFollow.js          # Autor-Follow
 │   └── topicFollow.js           # Topic-Follow
-├── db/                       # Datenbank-Layer
+├── 📁 db/                       # Datenbank-Layer
 │   ├── blogPageLikesRepo.js     # Like-Operationen
 │   ├── authorFollowRepo.js      # Autor-Follow-Ops
 │   └── topicFollowRepo.js       # Topic-Follow-Ops
-└── utils/                    # Middleware & Tools
+└── 📁 utils/                    # Middleware & Tools
     ├── corsMiddleware.js        # CORS-Konfiguration
     └── swagger.js               # API-Dokumentation
 ```
@@ -104,22 +104,22 @@ npm run dev
 
 ```
 04_01_backendBaseConnection/
-├── index.html                # Haupt-HTML
-├── css/                      # Styling
-├── javascript/
-│   ├── main.js               # Entry Point
-│   ├── services/             # Backend-Services
-│   │   ├── observer.js       # Event-System (Singleton)
-│   │   ├── httpClient.js     # HTTP-Wrapper
-│   │   ├── blogPageLikes.js  # Like-API-Calls
-│   │   ├── authorFollow.js   # Autor-Follow-APIs
-│   │   └── topicFollow.js    # Topic-Follow-APIs
-│   └── pages/blogPage/       # Blog-spezifische Logik
-│       ├── blogPageMain.js   # Koordination
-│       ├── buttons.js        # Button-Events
-│       ├── likeStateHandler.js    # Like-State
-│       ├── followStateHandler.js  # Follow-State
-│       └── tables.js         # Tabellen-Management
+├── 📄 index.html                # Haupt-HTML
+├── 📁 css/                      # Styling
+├── 📁 javascript/
+│   ├── 📄 main.js               # Entry Point
+│   ├── 📁 services/             # Backend-Services
+│   │   ├── 📄 observer.js       # Event-System (Singleton)
+│   │   ├── 📄 httpClient.js     # HTTP-Wrapper
+│   │   ├── 📄 blogPageLikes.js  # Like-API-Calls
+│   │   ├── 📄 authorFollow.js   # Autor-Follow-APIs
+│   │   └── 📄 topicFollow.js    # Topic-Follow-APIs
+│   └── 📁 pages/blogPage/       # Blog-spezifische Logik
+│       ├── 📄 blogPageMain.js   # Koordination
+│       ├── 📄 buttons.js        # Button-Events
+│       ├── 📄 likeStateHandler.js    # Like-State
+│       ├── 📄 followStateHandler.js  # Follow-State
+│       └── 📄 tables.js         # Tabellen-Management
 ```
 
 ### Architektur-Highlights
@@ -221,7 +221,7 @@ function setLikeCounter() {
 }
 ```
 
-** Test**: Du solltest jetzt "99" und den Text sehen!
+**✅ Test**: Du solltest jetzt "99" und den Text sehen!
 
 ---
 
@@ -251,7 +251,7 @@ function setLikeCounter() {
 }
 ```
 
-** Problem**: Keine Zahl wird angezeigt? **Async-Problem!**
+**🚨 Problem**: Keine Zahl wird angezeigt? **Async-Problem!**
 Siehe auch [callbacks](../callbacks.html)
 
 ### Schritt 3: Async/Await Pattern
@@ -273,7 +273,7 @@ async function setLikeCounter() {
 }
 ```
 
-** Test**: Echte Backend-Daten werden geladen!
+**✅ Test**: Echte Backend-Daten werden geladen!
 
 ---
 
@@ -322,7 +322,7 @@ function observeBlogPageIdChange() {
 let blogPageId = 0;  // Wieder auf 0, da Wert von Observer kommt
 ```
 
-** Test**: Likes werden weiterhin geladen, aber jetzt event-driven!
+**✅ Test**: Likes werden weiterhin geladen, aber jetzt event-driven!
 
 Du kannst dies auch im Console.log überprüfen.
 ![LikeStateHandler Ausgabe](./images/ConsoleLogLikeStateHandler.png)

@@ -4,7 +4,7 @@
 
 **CSS** steht für **Cascading Style Sheets** und bildet die Grundlage des Designs für jede Webseite. 
 
-> **Wichtig**: Sogar wenn du kein eigenes CSS definiert hast, gibt es ein CSS! Jeder Browser definiert dies über das **"User Agent Stylesheet"**.
+> 🔍 **Wichtig**: Sogar wenn du kein eigenes CSS definiert hast, gibt es ein CSS! Jeder Browser definiert dies über das **"User Agent Stylesheet"**.
 
 ---
 
@@ -52,10 +52,10 @@ Das Entwickler-Werkzeug wird auf der rechten Seite angezeigt. Die Position läss
 
 ### Was du in den DevTools siehst:
 
-- ** User-Agent-Stylesheet**: Browser-Standard (unterste Ebene)
-- ** Hierachische Definitionen**: Von unten nach oben
-- ** Durchgestrichene Regeln**: "Verlierende" CSS-Definitionen
-- ** Gewinnende Definition**: Letzte, spezifischste Regel
+- **📋 User-Agent-Stylesheet**: Browser-Standard (unterste Ebene)
+- **🎯 Hierachische Definitionen**: Von unten nach oben
+- **✂️ Durchgestrichene Regeln**: "Verlierende" CSS-Definitionen
+- **🏆 Gewinnende Definition**: Letzte, spezifischste Regel
 
 ### Beispiel-CSS-Eigenschaft
 ```css
@@ -102,12 +102,12 @@ font-size: 30px; /* Schriftgrösse 30px */
 
 Nach dem Tutorial-Durchlauf:
 
-1. ** HTML-Grundgerüst** (bereits vorhanden)
-2. ** CSS-Design** hinzufügen
-3. ** Responsive** machen
-4. ** Interaktivität** erweitern
+1. **HTML-Grundgerüst** (bereits vorhanden)
+2. **CSS-Design** hinzufügen
+3. **Responsive** machen
+4. **Interaktivität** erweitern
 
-> **Ziel**: Die Blog-Seite von einem reinen HTML-Gerüst zu einer ansprechend gestylten Webseite verwandeln!
+> 🔥 **Ziel**: Die Blog-Seite von einem reinen HTML-Gerüst zu einer ansprechend gestylten Webseite verwandeln!
 
 ---
 
@@ -115,17 +115,17 @@ Nach dem Tutorial-Durchlauf:
 
 ### CSS-Grundregeln
 
-- ** Kommentare** für komplexe Bereiche
-- ** Logische Struktur** in CSS-Dateien
-- ** Spezifische Selektoren** verwenden
-- ** Wiederverwendbare Klassen** erstellen
+- **Kommentare** für komplexe Bereiche
+- **Logische Struktur** in CSS-Dateien
+- **Spezifische Selektoren** verwenden
+- **Wiederverwendbare Klassen** erstellen
 
 ### Browser-DevTools nutzen
 
-- ** Live-Editing** für schnelle Tests
-- ** Computed Styles** für finale Werte
-- ** Element-Inspektion** für Debugging
-- ** Device-Simulation** für Responsive Tests
+- **Live-Editing** für schnelle Tests
+- **Computed Styles** für finale Werte
+- **Element-Inspektion** für Debugging
+- **Device-Simulation** für Responsive Tests
 
 ---
 
@@ -133,10 +133,10 @@ Nach dem Tutorial-Durchlauf:
 
 ### Entwicklungsschritte
 
-1. ** Design analysieren** (Beispielseite)
-2. ** HTML-Struktur** überprüfen
-3. ** CSS schrittweise** hinzufügen
-4. ** Browser-Tests** kontinuierlich
-5. ** Responsive** optimieren
+1. **Design analysieren** (Beispielseite)
+2. **HTML-Struktur** überprüfen
+3. **CSS schrittweise** hinzufügen
+4. **Browser-Tests** kontinuierlich
+5. **Responsive** optimieren
 
-**Bereit für kreatives CSS-Design!**
+**Bereit für kreatives CSS-Design!** 🎉

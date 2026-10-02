@@ -48,7 +48,7 @@ Am einfachsten lernst du die HTML-Grundlagen im **Tutorial-Kurs** von [FreeCodeC
 
 ![Open with LiveServer](images/OpenWithLiveServer.png)
 
-> **Hinweis**: Falls der Button nicht verfügbar ist, überprüfe dein Setup und installiere die LiveServer Extension (siehe Abschnitt "Setup")
+> 💡 **Hinweis**: Falls der Button nicht verfügbar ist, überprüfe dein Setup und installiere die LiveServer Extension (siehe Abschnitt "Setup")
 
 ### Schritt 4: Browser-Ansicht
 

@@ -65,7 +65,7 @@ import "./tables.js";
 </body>
 ```
 
-> **Wichtig**: `type="module"` ermöglicht das Importieren anderer Scripts
+> 💡 **Wichtig**: `type="module"` ermöglicht das Importieren anderer Scripts
 
 ### Test der Einbindung
 
@@ -81,7 +81,7 @@ console.log("tables.js loaded");
 2. Chrome DevTools → **Console**
 3. Seite neu laden
 
-Du solltest den Text sehen! Klick rechts auf das Script-Link - es führt direkt zur Datei.
+Du solltest den Text sehen! 🥳 Klick rechts auf das Script-Link - es führt direkt zur Datei.
 ![Console log](./images/ChromeWebTool.png)
 
 ---
@@ -250,8 +250,8 @@ columns.forEach((col) => {
 
 [MDN Spread Syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) - "Spreaded" Array-Elemente als einzelne Parameter:
 
-- `Math.max([1,2,3])` funktioniert nicht
-- `Math.max(...[1,2,3])` funktioniert → `Math.max(1,2,3)`
+- `Math.max([1,2,3])` ❌ funktioniert nicht
+- `Math.max(...[1,2,3])` ✅ funktioniert → `Math.max(1,2,3)`
 
 #### Template Literals
 
@@ -276,4 +276,4 @@ Mit `${}` können Variablen und Berechnungen direkt im String verwendet werden.
 2. **Verstehe** jeden Schritt
 3. **Erweitere** Wissen schrittweise zu kompakteren Lösungen
 
-> **AI & Google**: Du wirst oft auf kompakte Varianten stoßen - je mehr du lernst, desto verständlicher werden sie!
+> 💡 **AI & Google**: Du wirst oft auf kompakte Varianten stoßen - je mehr du lernst, desto verständlicher werden sie!

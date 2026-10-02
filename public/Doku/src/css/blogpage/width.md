@@ -16,7 +16,7 @@ Versuche mittels dem **Dev-Tools in Chrome** herauszufinden, welche Werte und wo
 
 Arbeite hier mit dem `div`-Element um den eigentlichen Artikel zu umschliessen und vergib dann eine Klasse, auf welcher du das `max-width` abkopierst.
 
-> **Beachte**: Das Slide Video/Bild hat eine **andere Breite** definiert. Füge also allenfalls zwei verschiedene Klassen dazu oder passe `iframe` an.
+> ⚠️ **Beachte**: Das Slide Video/Bild hat eine **andere Breite** definiert. Füge also allenfalls zwei verschiedene Klassen dazu oder passe `iframe` an.
 
 ### Hero-Bereich Spacing
 
@@ -58,9 +58,9 @@ iframe {
 
 ## Implementierungs-Checklist
 
-1. ** Container-div** um Artikel-Content
-2. ** Klasse vergeben** für max-width
-3. ** iframe-Spacing** anpassen
-4. ** Responsive** testen
+1. **Container-div** um Artikel-Content
+2. **Klasse vergeben** für max-width
+3. **iframe-Spacing** anpassen
+4. **Responsive** testen
 
-**Layout-Breite ist professionell optimiert!**
+**Layout-Breite ist professionell optimiert!** 🎉
