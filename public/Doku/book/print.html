@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-19de432b.js";
+            window.path_to_searchindex_js = "searchindex-b1b9f06c.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-ab2db50f.js"></script>
+        <script src="toc-f7391618.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -4537,6 +4537,64 @@ for (const btn of buttons) {
 <h3 id="empfehlung"><a class="header" href="#empfehlung">Empfehlung</a></h3>
 <p>TypeScript ohne praktischen Code zu lernen, kann trocken sein. Es lohnt sich trotzdem, sich damit zu befassen, bevor du ein grösseres Projekt startest. Eine kurze Einführung findest du zum Beispiel unter <a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html">TypeScript für JavaScript-Erfahrene</a>.</p>
 <p>Danach kannst du mit einem Projekt starten und TypeScript direkt einsetzen. Am Anfang wirst du vielleicht noch mit Fehlern kämpfen. Visual Studio Code und andere IDEs erkennen TypeScript jedoch gut und unterstützen dich dabei. Wenn du nicht weiterkommst, nutze die <a href="https://www.typescriptlang.org">TypeScript-Website</a> als Referenz.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="react"><a class="header" href="#react">React</a></h1>
+<p>React ist eine JavaScript-Bibliothek, die dir das Bauen von Benutzeroberflächen für Webseiten (Webapps) erleichtert. Mehr dazu findest du unter <a href="https://react.dev">React</a>.</p>
+<h2 id="herausforderungen-klassischer-webentwicklung"><a class="header" href="#herausforderungen-klassischer-webentwicklung">Herausforderungen klassischer Webentwicklung</a></h2>
+<p>Vielleicht ist dir in den vorangehenden Themen aufgefallen, dass sich Code manchmal wiederholt. Zum Beispiel haben mehrere Artikel oft denselben HTML-Aufbau, obwohl sich ihre Inhalte unterscheiden:</p>
+<pre><code class="language-html">&lt;article&gt;
+  &lt;p&gt;Beispielbeitrag&lt;/p&gt;
+  &lt;h2&gt;Ein kleines Beet, viele Möglichkeiten&lt;/h2&gt;
+  &lt;p&gt;von Nora Linden&lt;/p&gt;
+&lt;/article&gt;
+
+&lt;article&gt;
+  &lt;p&gt;Beispielbeitrag&lt;/p&gt;
+  &lt;h2&gt;Ein kleiner Garten mitten in der Stadt&lt;/h2&gt;
+  &lt;p&gt;von Nora Linden&lt;/p&gt;
+&lt;/article&gt;
+</code></pre>
+<p>Die Idee, wiederverwendbare Vorlagen mit Platzhaltern zu schreiben, ist nicht neu. Frühere Template-Systeme erzeugten daraus fertiges HTML, etwa beim Erstellen der Website oder auf dem Server.</p>
+<p>Mit React definierst du solche Bausteine als wiederverwendbare Komponenten. Ihre Oberfläche beschreibst du mit JSX, einer HTML-ähnlichen Syntax, die in JavaScript verwendet wird. So kannst du JavaScript-Ausdrücke, zum Beispiel Daten oder Bedingungen, in die Oberfläche einbauen. Entwicklungswerkzeuge wandeln JSX in JavaScript um, das React nutzt, um die Oberfläche darzustellen und bei Änderungen zu aktualisieren.</p>
+<h2 id="react-lernen"><a class="header" href="#react-lernen">React lernen</a></h2>
+<p>Für einen ersten Eindruck empfiehlt sich das <a href="https://react.dev/learn/tutorial-tic-tac-toe">Tic-Tac-Toe-Tutorial</a>. Du kannst aber auch direkt mit dem Umbau auf React weitermachen.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="blogseite-mit-react-und-typescript"><a class="header" href="#blogseite-mit-react-und-typescript">Blogseite mit React und TypeScript</a></h1>
+<p>Im letzten Kapitel hast du gesehen, wie sich wiederverwendbare Oberflächen mit React bauen lassen. Jetzt nehmen wir unsere <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/03_javascript/03_buttonReactive">Blogseite mit reaktiven Buttons</a> als Ausgangspunkt und übertragen sie Schritt für Schritt in ein React-Projekt.</p>
+<h2 id="ausgangslage"><a class="header" href="#ausgangslage">Ausgangslage</a></h2>
+<p>Die Seite enthält bereits interaktive Like- und Follow-Buttons. Ihre Zustände werden aber nur im Browser verändert. Es gibt noch keine Backend-Anbindung: Wenn du die Seite neu lädst, gehen die Änderungen verloren. Das ist für diesen ersten Schritt beabsichtigt. Wir wollen zunächst die bestehende Oberfläche und ihre Interaktionen mit React umsetzen.</p>
+<p>Lade das Repository als ZIP über <strong>Code &gt; Download ZIP</strong> herunter oder klone es. Der Starter-Code liegt im Ordner <code>public/03_javascript/03_buttonReactive</code>.</p>
+<h2 id="react-projekt-erstellen"><a class="header" href="#react-projekt-erstellen">React-Projekt erstellen</a></h2>
+<p>Für React verwenden wir Vite mit TypeScript. Öffne ein Terminal im Repository und erstelle ein neues Projekt:</p>
+<pre><code class="language-sh">npm create vite@latest public/07_react/mein-react-projekt -- --template react-ts
+cd public/07_react/mein-react-projekt
+npm install
+npm run dev
+</code></pre>
+<p>Vite erstellt unter anderem <code>src/main.tsx</code> und <code>src/App.tsx</code>. <code>main.tsx</code> verbindet React mit dem HTML-Element <code>#root</code> in <code>index.html</code>. In <code>App.tsx</code> bauen wir die Seite.</p>
+<h2 id="html-nach-jsx-übertragen"><a class="header" href="#html-nach-jsx-übertragen">HTML nach JSX übertragen</a></h2>
+<p>Übernimm den Inhalt aus dem <code>&lt;body&gt;</code> des Starters in die Rückgabe von <code>App</code>. Die äussere HTML-Datei brauchst du nicht zu kopieren: <code>index.html</code> enthält weiterhin nur den Einstiegspunkt, und React rendert die Oberfläche in <code>#root</code>.</p>
+<p>JSX sieht HTML ähnlich, hat aber ein paar eigene Regeln:</p>
+<ul>
+<li>Verwende <code>className</code> anstelle von <code>class</code>.</li>
+<li>Schliess Elemente ohne Inhalt selbst, zum Beispiel <code>&lt;img /&gt;</code> und <code>&lt;br /&gt;</code>.</li>
+<li>Schreibe Attribute in der JSX-Schreibweise, zum Beispiel <code>allowFullScreen</code>.</li>
+<li>Entferne das bisherige <code>javascript/main.js</code>. Die Interaktionen bauen wir mit React neu.</li>
+</ul>
+<p>Die vorhandenen Styles kannst du zunächst weiterverwenden. Im Beispielprojekt werden sie in <code>App.tsx</code> aus dem Starter-Ordner importiert:</p>
+<pre><code class="language-tsx">import "../../../03_javascript/03_buttonReactive/main.css";
+</code></pre>
+<h2 id="interaktionen-mit-state"><a class="header" href="#interaktionen-mit-state">Interaktionen mit State</a></h2>
+<p>Im bisherigen JavaScript suchen wir Buttons im DOM, registrieren Event-Listener und verändern danach Text, Klassen und <code>data-*</code>-Attribute direkt. In React beschreiben wir stattdessen, wie die Oberfläche abhängig vom Zustand aussehen soll.</p>
+<p>Für den Like-Button brauchst du zum Beispiel einen Zustand für die Auswahl und einen für den Zähler:</p>
+<pre><code class="language-tsx">const [liked, setLiked] = useState(false);
+const [likeCount, setLikeCount] = useState(59);
+</code></pre>
+<p>React und TypeScript leiten die Typen <code>boolean</code> und <code>number</code> hier aus den Startwerten ab. Beim Klick aktualisierst du die Zustände mit <code>setLiked</code> und <code>setLikeCount</code>. In JSX zeigst du abhängig von <code>liked</code> den passenden Text und mit <code>{likeCount}</code> den aktuellen Zähler an. Für «Autorin folgen» und «Thema folgen» funktioniert es nach demselben Prinzip: je ein boolescher Zustand und ein Click-Handler.</p>
+<p>Der Zustand lebt vorerst nur im Arbeitsspeicher der Seite. Er wird weder gespeichert noch an einen Server geschickt. Die Backend-Anbindung kommt später.</p>
+<h2 id="eine-grosse-komponente"><a class="header" href="#eine-grosse-komponente">Eine grosse Komponente</a></h2>
+<p>Vorerst bleibt die ganze Blogseite in einer einzigen Komponente namens <code>App</code>. Auch wiederholte Artikel-Bausteine teilen wir noch nicht auf. So können wir uns zuerst darauf konzentrieren, wie JSX, TypeScript, State und Ereignisse zusammenspielen. In den folgenden Kapiteln zerlegen wir die Seite schrittweise in kleinere Komponenten und verwenden diese wieder.</p>
+<p>Den vollständigen <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/07_react/02_react-mit-typescript">React- und TypeScript-Endstand findest du hier</a>. Vergleiche ihn mit deiner Umsetzung und achte besonders darauf, wie sich die drei Buttons anhand ihres jeweiligen States darstellen.</p>
 
                     </main>
 
