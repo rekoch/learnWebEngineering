@@ -1,18 +1,18 @@
-# ⛓️‍💥 Backend verbinden
+# Backend verbinden
 
 ## Frontend trifft Backend
 
 ### Situation verstehen
 
 **Frontend-Only**: Alles ist einfach - nur **ein Datenzustand** im Browser:
-- Button gedrückt? ✅ HTML/Cookie
-- Seite geliked? ✅ Lokaler Speicher
+- Button gedrückt? HTML/Cookie
+- Seite geliked? Lokaler Speicher
 
 **Mit Backend**: **Zwei Datenzustände** synchronisieren:
-- 🖥️ **Frontend-State** (Browser)
-- 🗄️ **Backend-State** (Datenbank)
+- **Frontend-State** (Browser)
+- **Backend-State** (Datenbank)
 
-### 🎯 Erste Implementierung-Ziele
+### Erste Implementierung-Ziele
 
 1. **Like Count** vom Backend laden und korrekt anzeigen
 2. **Blog-Page-ID-Wechsel** mit Backend-Daten synchronisieren
@@ -66,20 +66,20 @@ Achte darauf, dass bei der Zeile davor ein Komma am Schluss ist.
 
 ```
 00_backend/
-├── 📄 app.js                    # Express-Hauptanwendung
-├── 📄 package.json              # Dependencies & Scripts
-├── 📄 .env                      # Umgebungsvariablen
-├── 📄 editorialContent.db       # SQLite-Datenbank
-├── 📄 readme.md                 # Setup-Anweisungen
-├── 📁 routes/                   # API-Endpunkte
+├── app.js                    # Express-Hauptanwendung
+├── package.json              # Dependencies & Scripts
+├── .env                      # Umgebungsvariablen
+├── editorialContent.db       # SQLite-Datenbank
+├── readme.md                 # Setup-Anweisungen
+├── routes/                   # API-Endpunkte
 │   ├── likes.js                 # Like-Funktionalität
 │   ├── authorFollow.js          # Autor-Follow
 │   └── topicFollow.js           # Topic-Follow
-├── 📁 db/                       # Datenbank-Layer
+├── db/                       # Datenbank-Layer
 │   ├── blogPageLikesRepo.js     # Like-Operationen
 │   ├── authorFollowRepo.js      # Autor-Follow-Ops
 │   └── topicFollowRepo.js       # Topic-Follow-Ops
-└── 📁 utils/                    # Middleware & Tools
+└── utils/                    # Middleware & Tools
     ├── corsMiddleware.js        # CORS-Konfiguration
     └── swagger.js               # API-Dokumentation
 ```
@@ -96,30 +96,30 @@ npm install
 # Development-Server starten
 npm run dev
 
-# ✅ Backend läuft auf Port 3000
-# 📚 API-Docs: http://localhost:3000/api-docs/
+# Backend läuft auf Port 3000
+# API-Docs: http://localhost:3000/api-docs/
 ```
 
 ### Frontend-Struktur (`04_01_backendBaseConnection/`)
 
 ```
 04_01_backendBaseConnection/
-├── 📄 index.html                # Haupt-HTML
-├── 📁 css/                      # Styling
-├── 📁 javascript/
-│   ├── 📄 main.js               # Entry Point
-│   ├── 📁 services/             # Backend-Services
-│   │   ├── 📄 observer.js       # Event-System (Singleton)
-│   │   ├── 📄 httpClient.js     # HTTP-Wrapper
-│   │   ├── 📄 blogPageLikes.js  # Like-API-Calls
-│   │   ├── 📄 authorFollow.js   # Autor-Follow-APIs
-│   │   └── 📄 topicFollow.js    # Topic-Follow-APIs
-│   └── 📁 pages/blogPage/       # Blog-spezifische Logik
-│       ├── 📄 blogPageMain.js   # Koordination
-│       ├── 📄 buttons.js        # Button-Events
-│       ├── 📄 likeStateHandler.js    # Like-State
-│       ├── 📄 followStateHandler.js  # Follow-State
-│       └── 📄 tables.js         # Tabellen-Management
+├── index.html                # Haupt-HTML
+├── css/                      # Styling
+├── javascript/
+│   ├── main.js               # Entry Point
+│   ├── services/             # Backend-Services
+│   │   ├── observer.js       # Event-System (Singleton)
+│   │   ├── httpClient.js     # HTTP-Wrapper
+│   │   ├── blogPageLikes.js  # Like-API-Calls
+│   │   ├── authorFollow.js   # Autor-Follow-APIs
+│   │   └── topicFollow.js    # Topic-Follow-APIs
+│   └── pages/blogPage/       # Blog-spezifische Logik
+│       ├── blogPageMain.js   # Koordination
+│       ├── buttons.js        # Button-Events
+│       ├── likeStateHandler.js    # Like-State
+│       ├── followStateHandler.js  # Follow-State
+│       └── tables.js         # Tabellen-Management
 ```
 
 ### Architektur-Highlights
@@ -139,7 +139,7 @@ npm run dev
 - **Async/Await**: Statt Promise-Chains
 - **Event Prevention**: Verhindert Page-Reloads
 
-### Frontend ↔ Backend Workflow
+### Frontend Backend Workflow
 
 1. **Frontend** → API-Calls über Services
 2. **Backend** → JSON-Response  
@@ -221,7 +221,7 @@ function setLikeCounter() {
 }
 ```
 
-**✅ Test**: Du solltest jetzt "99" und den Text sehen!
+** Test**: Du solltest jetzt "99" und den Text sehen!
 
 ---
 
@@ -273,7 +273,7 @@ async function setLikeCounter() {
 }
 ```
 
-**✅ Test**: Echte Backend-Daten werden geladen!
+** Test**: Echte Backend-Daten werden geladen!
 
 ---
 
@@ -322,7 +322,7 @@ function observeBlogPageIdChange() {
 let blogPageId = 0;  // Wieder auf 0, da Wert von Observer kommt
 ```
 
-**✅ Test**: Likes werden weiterhin geladen, aber jetzt event-driven!
+** Test**: Likes werden weiterhin geladen, aber jetzt event-driven!
 
 Du kannst dies auch im Console.log überprüfen.
 ![LikeStateHandler Ausgabe](./images/ConsoleLogLikeStateHandler.png)
@@ -348,15 +348,15 @@ appObserver.emit(ObserverEvents.BLOG_PAGE_ID_CHANGED, { blogPageId: 37832 });
 
 ---
 
-## 🎉 Meilenstein erreicht!
+## Meilenstein erreicht!
 
-### ✅ Was funktioniert jetzt:
+### Was funktioniert jetzt:
 
 1. **Backend-Integration** - Like-Count aus Datenbank
 2. **Event-Driven Updates** - Observer-Pattern implementiert
 3. **Async/Await** - Moderne JavaScript-Patterns
 4. **Dynamic BlogPageId** - Reaktion auf ID-Änderungen
 
-### 🚀 Nächste Schritte:
+### Nächste Schritte:
 
 Im nächsten Kapitel machen wir die **Like-Buttons funktional** und synchronisieren Backend-State mit Frontend-Interaktionen!

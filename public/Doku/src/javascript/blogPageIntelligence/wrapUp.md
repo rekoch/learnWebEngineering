@@ -1,4 +1,4 @@
-# 💝 Wrap it up
+# Wrap it up
 
 ## So long and thanks for all the fish
 
@@ -34,7 +34,7 @@ Erweitere das aktuelle Beispiel um weitere Funktionen:
 - **Komplette Blog-Page** aus dem Backend laden
 - **Zusätzliche Features** implementieren
 
-> 💡 **Backend ist bereit**: Datenbank, statische Routen etc. sind bereits eingerichtet!
+> **Backend ist bereit**: Datenbank, statische Routen etc. sind bereits eingerichtet!
 
 ### Option 2: Framework verwenden
 Nimm dir ein modernes Framework zur Hand und baue die Page damit nach:
@@ -56,12 +56,12 @@ Vieles, was wir **aufwändig manuell** gebaut haben, nehmen dir Angular/React ab
 
 ---
 
-## 🏆 Erreichte Meilensteine
+## Erreichte Meilensteine
 
-✅ **JavaScript-Grundlagen** gemeistert  
-✅ **DOM-Manipulation** verstanden  
-✅ **API-Integration** erfolgreich  
-✅ **Moderne Patterns** angewendet  
-✅ **Full-Stack Development** erlebt  
+**JavaScript-Grundlagen** gemeistert  
+**DOM-Manipulation** verstanden  
+**API-Integration** erfolgreich  
+**Moderne Patterns** angewendet  
+**Full-Stack Development** erlebt  
 
-**Congratulations!** 🎊 Du bist bereit für den nächsten Schritt in deiner Development-Journey!
+**Congratulations!** Du bist bereit für den nächsten Schritt in deiner Development-Journey!

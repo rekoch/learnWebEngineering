@@ -1,6 +1,6 @@
-# ❤️‍🩹 Like-Funktion wiederherstellen
+# Like-Funktion wiederherstellen
 
-## 🎯 Überblick
+## Überblick
 
 Mit [connect the backend](./backendConnect.html) hast du dafür gesorgt, dass Like-Counter-Daten aus dem Backend stammen. Der Button selbst funktioniert aber noch nicht korrekt. Wir implementieren die Like-Verwaltung in zwei Schritten:
 
@@ -40,8 +40,8 @@ Da wir bereits ein Event System zur Verfügung haben, setzen wir Variante 2 um. 
 
 **Event-basierte Kommunikation:**
 
-- ❌ Option 1: Direkte Funktionsaufrufe (enger gekoppelt)
-- ✅ **Option 2**: Event versenden (flexibler, entkoppelter)
+- Option 1: Direkte Funktionsaufrufe (enger gekoppelt)
+- **Option 2**: Event versenden (flexibler, entkoppelter)
 
 ---
 
@@ -72,13 +72,13 @@ document.querySelectorAll("button[data-button]").forEach((button) => {
 });
 ```
 
-### ✅ Test der Event-Übertragung
+### Test der Event-Übertragung
 
 1. **Seite mit LiveServer starten**
 2. **Like Button klicken**
 3. **Console beobachten** - Zahlen-Output sollte sich erhöhen
 
-> 🎉 **Erfolg**: LikeStateHandler empfängt und verarbeitet dein Event!
+> **Erfolg**: LikeStateHandler empfängt und verarbeitet dein Event!
 
 ---
 
@@ -211,7 +211,7 @@ async function toggleLikeState() {
 }
 ```
 
-### ✅ Funktionstest
+### Funktionstest
 
 **Backend und Frontend starten** und Like-Button testen!
 
@@ -448,7 +448,7 @@ Was noch fehlt ist das selbe, wenn die blog page id ändert. Dies ist in unserem
 
 Ergänze daher auch die Funktion `observeBlogPageIdChange()` mit dem Setzen des likeStatus und des counters.
 
-> 💡 Dir fällt sicher auf, dass wir wiederum Code in zwei Methoden haben, der deckungsgleich ist. Das Laden des States und das Setzen.
+> Dir fällt sicher auf, dass wir wiederum Code in zwei Methoden haben, der deckungsgleich ist. Das Laden des States und das Setzen.
 
 **DRY-Prinzip - Wiederverwendbare Init-Funktion:**
 
@@ -501,9 +501,9 @@ function observeBlogPageIdChange() {
 
 ---
 
-## 🎉 Endergebnis
+## Endergebnis
 
-### ✅ Implementierte Features
+### Implementierte Features
 
 1. **Like/Unlike Toggle** - Backend-synchronisiert
 2. **UI-Updates** - Button-Text und Icon-Änderungen
@@ -516,9 +516,9 @@ function observeBlogPageIdChange() {
 
 **Test-Szenarios:**
 
-1. ✅ Like/Unlike mit verschiedenen Users
-2. ✅ User-ID-Wechsel oben rechts
-3. ✅ Backend-Verbindung aktiv
-4. ✅ Counter-Updates in Echtzeit
+1. Like/Unlike mit verschiedenen Users
+2. User-ID-Wechsel oben rechts
+3. Backend-Verbindung aktiv
+4. Counter-Updates in Echtzeit
 
-**Die Like-Funktionalität ist jetzt vollständig implementiert!** 🚀
+**Die Like-Funktionalität ist jetzt vollständig implementiert!**

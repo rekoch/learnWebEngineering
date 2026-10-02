@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>🚓 follow Funktion wiederherstellen - Learn To Build A Web Page</title>
+        <title> follow Funktion wiederherstellen - Learn To Build A Web Page</title>
 
 
         <!-- Custom HTML head -->
@@ -35,10 +35,10 @@
             const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../searchindex-529cab84.js";
+            window.path_to_searchindex_js = "../../searchindex-5d5a3815.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../../toc-a0e4b7d7.js"></script>
+        <script src="../../toc-d8799e27.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -174,11 +174,11 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="-follow-funktion-wiederherstellen"><a class="header" href="#-follow-funktion-wiederherstellen">🚓 Follow-Funktion wiederherstellen</a></h1>
+                        <h1 id="follow-funktion-wiederherstellen"><a class="header" href="#follow-funktion-wiederherstellen">Follow-Funktion wiederherstellen</a></h1>
 <h2 id="aufgabe"><a class="header" href="#aufgabe">Aufgabe</a></h2>
 <p>Du hast gelernt, wie du das Backend für State-Management nutzt - mit Services wie Observer und blogPageLikes. Jetzt fehlt die <strong>Follow-Funktionalität</strong> für <strong>Author</strong> und <strong>Topic</strong>. Nutze dein erworbenes Wissen!</p>
 <blockquote>
-<p>💪 <strong>Challenge</strong>: Wissen ist Macht, und mit Macht kommt… noch mehr Code! 😄</p>
+<p><strong>Challenge</strong>: Wissen ist Macht, und mit Macht kommt… noch mehr Code!</p>
 </blockquote>
 <hr>
 <h2 id="author-follow-implementieren"><a class="header" href="#author-follow-implementieren">Author Follow implementieren</a></h2>
@@ -227,7 +227,7 @@ observeBlogPageIdChange();
 </code></pre>
 <hr>
 <h2 id="implementation-aufgaben"><a class="header" href="#implementation-aufgaben">Implementation-Aufgaben</a></h2>
-<h3 id="1-button-event-system-erweitern"><a class="header" href="#1-button-event-system-erweitern">1️⃣ Button Event-System erweitern</a></h3>
+<h3 id="1-button-event-system-erweitern"><a class="header" href="#1-button-event-system-erweitern">1 Button Event-System erweitern</a></h3>
 <p><strong>In <code>buttons.js</code></strong>: Follow-Button-Klicks via Observer weiterleiten</p>
 <p><strong>Beispiel für Author-Follow:</strong></p>
 <pre><code class="language-javascript">case "follow_author":
@@ -236,20 +236,20 @@ observeBlogPageIdChange();
   });
   break;
 </code></pre>
-<h3 id="2-follow-state-handler-implementieren"><a class="header" href="#2-follow-state-handler-implementieren">2️⃣ Follow State Handler implementieren</a></h3>
+<h3 id="2-follow-state-handler-implementieren"><a class="header" href="#2-follow-state-handler-implementieren">2 Follow State Handler implementieren</a></h3>
 <p><strong>Event empfangen und verarbeiten:</strong></p>
 <pre><code class="language-javascript">appObserver.subscribe(ObserverEvents.AUTHOR_FOLLOW_BUTTON_CLICKED, async (data) =&gt; {
   const button = data.button;
   // Toggle-Logik implementieren
 });
 </code></pre>
-<h3 id="3-ui-korrekt-aktualisieren"><a class="header" href="#3-ui-korrekt-aktualisieren">3️⃣ UI korrekt aktualisieren</a></h3>
+<h3 id="3-ui-korrekt-aktualisieren"><a class="header" href="#3-ui-korrekt-aktualisieren">3 UI korrekt aktualisieren</a></h3>
 <ul>
 <li><strong>Text</strong> zwischen follow/unfollow wechseln</li>
 <li><strong>CSS-Klasse</strong> <code>primary</code> richtig setzen/entfernen</li>
 <li><strong>Backend-State</strong> synchronisieren</li>
 </ul>
-<h3 id="4-userblogpage-id-changes-handhaben"><a class="header" href="#4-userblogpage-id-changes-handhaben">4️⃣ User/BlogPage-ID-Changes handhaben</a></h3>
+<h3 id="4-userblogpage-id-changes-handhaben"><a class="header" href="#4-userblogpage-id-changes-handhaben">4 User/BlogPage-ID-Changes handhaben</a></h3>
 <p>Bei Änderungen der User-ID oder Blog-Page-ID korrekten Follow-Status laden und UI aktualisieren.</p>
 <hr>
 <h2 id="hilfreiche-code-snippets"><a class="header" href="#hilfreiche-code-snippets">Hilfreiche Code-Snippets</a></h2>
@@ -283,10 +283,10 @@ observeBlogPageIdChange();
 <h2 id="topic-follow-implementieren"><a class="header" href="#topic-follow-implementieren">Topic Follow implementieren</a></h2>
 <h3 id="ähnlich-aber-mit-unterschieden"><a class="header" href="#ähnlich-aber-mit-unterschieden">Ähnlich, aber mit Unterschieden</a></h3>
 <p><strong>Topic Follow</strong> ist fast identisch zu Author Follow, mit diesen <strong>wichtigen Unterschieden</strong>:</p>
-<h4 id="1-neuer-event-typ-benötigt"><a class="header" href="#1-neuer-event-typ-benötigt">1️⃣ Neuer Event-Typ benötigt</a></h4>
+<h4 id="1-neuer-event-typ-benötigt"><a class="header" href="#1-neuer-event-typ-benötigt">1 Neuer Event-Typ benötigt</a></h4>
 <pre><code class="language-javascript">ObserverEvents.TOPIC_FOLLOW_BUTTON_CLICKED
 </code></pre>
-<h4 id="2-multiple-button-support"><a class="header" href="#2-multiple-button-support">2️⃣ Multiple Button Support</a></h4>
+<h4 id="2-multiple-button-support"><a class="header" href="#2-multiple-button-support">2 Multiple Button Support</a></h4>
 <p>Topics können <strong>mehrfach pro Blog-Page</strong> vorkommen. Alle Topic-Buttons berücksichtigen:</p>
 <pre><code class="language-javascript">const buttons = document.querySelectorAll("button[data-button='follow_topic']");
 
@@ -294,12 +294,12 @@ for (const btn of buttons) {
   // UI für jeden Button aktualisieren
 }
 </code></pre>
-<h4 id="3-topic-name-extrahieren"><a class="header" href="#3-topic-name-extrahieren">3️⃣ Topic-Name extrahieren</a></h4>
+<h4 id="3-topic-name-extrahieren"><a class="header" href="#3-topic-name-extrahieren">3 Topic-Name extrahieren</a></h4>
 <pre><code class="language-javascript">const topicName = button.dataset.topicName;
 </code></pre>
 <hr>
 <h2 id="implementation-checkliste"><a class="header" href="#implementation-checkliste">Implementation-Checkliste</a></h2>
-<h3 id="-author-follow"><a class="header" href="#-author-follow">✅ Author Follow</a></h3>
+<h3 id="author-follow"><a class="header" href="#author-follow">Author Follow</a></h3>
 <ul>
 <li><input disabled="" type="checkbox"> <strong>Observer Events</strong> für Author-Follow erstellt</li>
 <li><input disabled="" type="checkbox"> <strong>Button-Click-Events</strong> in buttons.js implementiert</li>
@@ -309,7 +309,7 @@ for (const btn of buttons) {
 <li><input disabled="" type="checkbox"> <strong>User-ID-Change</strong> Handling</li>
 <li><input disabled="" type="checkbox"> <strong>Blog-Page-ID-Change</strong> Handling</li>
 </ul>
-<h3 id="-topic-follow"><a class="header" href="#-topic-follow">✅ Topic Follow</a></h3>
+<h3 id="topic-follow"><a class="header" href="#topic-follow">Topic Follow</a></h3>
 <ul>
 <li><input disabled="" type="checkbox"> <strong>Observer Events</strong> für Topic-Follow erstellt</li>
 <li><input disabled="" type="checkbox"> <strong>Multiple Button Support</strong> implementiert</li>
@@ -328,9 +328,9 @@ for (const btn of buttons) {
 <li><strong>Backend-Persistenz</strong> - Status bleibt nach Page-Reload erhalten</li>
 </ol>
 <hr>
-<h2 id="-thats-it-folks"><a class="header" href="#-thats-it-folks">🎉 That’s it folks!</a></h2>
-<p>Wenn alle Tests erfolgreich sind: <strong>Gratulation!</strong> 🥂</p>
-<h3 id="-debugging-hilfe"><a class="header" href="#-debugging-hilfe">🐛 Debugging-Hilfe</a></h3>
+<h2 id="thats-it-folks"><a class="header" href="#thats-it-folks">That’s it folks!</a></h2>
+<p>Wenn alle Tests erfolgreich sind: <strong>Gratulation!</strong></p>
+<h3 id="debugging-hilfe"><a class="header" href="#debugging-hilfe">Debugging-Hilfe</a></h3>
 <p>Falls etwas nicht funktioniert:</p>
 <ol>
 <li><strong>Console-Logs</strong> überprüfen</li>
@@ -341,10 +341,10 @@ for (const btn of buttons) {
 <p>Bei völliger Verzweiflung kannst du die <strong>komplette Lösung</strong> auf GitHub einsehen:</p>
 <p><a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/03_javascript/06_followButtonsWithBackendIntegration">GitHub: Follow Buttons mit Backend Integration</a></p>
 <hr>
-<h2 id="-lernziele-erreicht"><a class="header" href="#-lernziele-erreicht">🏆 Lernziele erreicht</a></h2>
+<h2 id="lernziele-erreicht"><a class="header" href="#lernziele-erreicht">Lernziele erreicht</a></h2>
 <p>Nach erfolgreicher Implementation beherrschst du:</p>
-<p>✅ <strong>Event-driven Architecture</strong> mit Observer Pattern<br>✅ <strong>Multi-Button State Management</strong><br>✅ <strong>Backend-Frontend-Synchronisation</strong><br>✅ <strong>Dynamic UI Updates</strong><br>✅ <strong>Error Handling &amp; Robustness</strong></p>
-<p><strong>Du bist bereit für komplexere Frontend-Herausforderungen!</strong> 🚀</p>
+<p><strong>Event-driven Architecture</strong> mit Observer Pattern<br><strong>Multi-Button State Management</strong><br><strong>Backend-Frontend-Synchronisation</strong><br><strong>Dynamic UI Updates</strong><br><strong>Error Handling &amp; Robustness</strong></p>
+<p><strong>Du bist bereit für komplexere Frontend-Herausforderungen!</strong></p>
 
                     </main>
 
@@ -381,6 +381,22 @@ for (const btn of buttons) {
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>

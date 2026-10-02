@@ -1,10 +1,10 @@
-# 🎁 Wrap it up
+# Wrap it up
 
 ## Erfolgreiche Umsetzung!
 
 Du hast jetzt all die Elemente umgesetzt:
 
-### ✅ Erfolgreich implementiert:
+### Erfolgreich implementiert:
 
 - **Textgrössen** inklusive Überschriften etc.
 - **Video oder Bild** als Slide
@@ -24,7 +24,7 @@ Du hast jetzt all die Elemente umgesetzt:
 | **Font-Management** | Custom Fonts korrekt einbinden |
 | **Utility-First CSS** | Wiederverwendbare Klassen |
 
-**🎊 Gratulation - du bist jetzt ein CSS-Profi!**
+** Gratulation - du bist jetzt ein CSS-Profi!**
 
 ---
 
@@ -71,6 +71,6 @@ Wenn du jetzt ungebremst noch weiter machen möchtest, dann kannst du folgende o
 
 **Die "fertige" Blog Page** mit dem ganzen CSS findest du unter: [GitHub - Completed Blog Page](https://github.com/rekoch/learnWebEngineering/tree/main/public/02_html_css/09_blog_page_completed)
 
-> 💡 **Hinweis**: Du findest unter dem Link allenfalls auch CSS, HTML-Elemente/Lösungen, die nicht Teil des Tutorials direkt sind. Falls du konkret Fragen hast oder es ähnlich machen willst, frage am besten einfach im Kurs nach.
+> **Hinweis**: Du findest unter dem Link allenfalls auch CSS, HTML-Elemente/Lösungen, die nicht Teil des Tutorials direkt sind. Falls du konkret Fragen hast oder es ähnlich machen willst, frage am besten einfach im Kurs nach.
 
-**Du hast eine solide CSS-Basis geschaffen - jetzt wird experimentiert!** 🚀
+**Du hast eine solide CSS-Basis geschaffen - jetzt wird experimentiert!**

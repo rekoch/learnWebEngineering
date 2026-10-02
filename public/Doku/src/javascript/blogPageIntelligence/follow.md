@@ -1,10 +1,10 @@
-# 🚓 Follow-Funktion wiederherstellen
+# Follow-Funktion wiederherstellen
 
 ## Aufgabe
 
 Du hast gelernt, wie du das Backend für State-Management nutzt - mit Services wie Observer und blogPageLikes. Jetzt fehlt die **Follow-Funktionalität** für **Author** und **Topic**. Nutze dein erworbenes Wissen!
 
-> 💪 **Challenge**: Wissen ist Macht, und mit Macht kommt... noch mehr Code! 😄
+> **Challenge**: Wissen ist Macht, und mit Macht kommt... noch mehr Code!
 
 ---
 
@@ -65,7 +65,7 @@ import "./followStateHandler.js";
 
 ## Implementation-Aufgaben
 
-### 1️⃣ Button Event-System erweitern
+### 1 Button Event-System erweitern
 
 **In `buttons.js`**: Follow-Button-Klicks via Observer weiterleiten
 
@@ -78,7 +78,7 @@ case "follow_author":
   break;
 ```
 
-### 2️⃣ Follow State Handler implementieren
+### 2 Follow State Handler implementieren
 
 **Event empfangen und verarbeiten:**
 ```javascript
@@ -88,13 +88,13 @@ appObserver.subscribe(ObserverEvents.AUTHOR_FOLLOW_BUTTON_CLICKED, async (data) 
 });
 ```
 
-### 3️⃣ UI korrekt aktualisieren
+### 3 UI korrekt aktualisieren
 
 - **Text** zwischen follow/unfollow wechseln
 - **CSS-Klasse** `primary` richtig setzen/entfernen
 - **Backend-State** synchronisieren
 
-### 4️⃣ User/BlogPage-ID-Changes handhaben
+### 4 User/BlogPage-ID-Changes handhaben
 
 Bei Änderungen der User-ID oder Blog-Page-ID korrekten Follow-Status laden und UI aktualisieren.
 
@@ -148,12 +148,12 @@ function updateAuthorFollowButtonUi(isFollowing, button) {
 
 **Topic Follow** ist fast identisch zu Author Follow, mit diesen **wichtigen Unterschieden**:
 
-#### 1️⃣ Neuer Event-Typ benötigt
+#### 1 Neuer Event-Typ benötigt
 ```javascript
 ObserverEvents.TOPIC_FOLLOW_BUTTON_CLICKED
 ```
 
-#### 2️⃣ Multiple Button Support
+#### 2 Multiple Button Support
 
 Topics können **mehrfach pro Blog-Page** vorkommen. Alle Topic-Buttons berücksichtigen:
 
@@ -165,7 +165,7 @@ for (const btn of buttons) {
 }
 ```
 
-#### 3️⃣ Topic-Name extrahieren
+#### 3 Topic-Name extrahieren
 
 ```javascript
 const topicName = button.dataset.topicName;
@@ -175,7 +175,7 @@ const topicName = button.dataset.topicName;
 
 ## Implementation-Checkliste
 
-### ✅ Author Follow
+### Author Follow
 - [ ] **Observer Events** für Author-Follow erstellt
 - [ ] **Button-Click-Events** in buttons.js implementiert
 - [ ] **Toggle-Logik** in followStateHandler.js
@@ -184,7 +184,7 @@ const topicName = button.dataset.topicName;
 - [ ] **User-ID-Change** Handling
 - [ ] **Blog-Page-ID-Change** Handling
 
-### ✅ Topic Follow
+### Topic Follow
 - [ ] **Observer Events** für Topic-Follow erstellt
 - [ ] **Multiple Button Support** implementiert
 - [ ] **Topic-Name-Extraktion** aus Button-Data
@@ -205,11 +205,11 @@ const topicName = button.dataset.topicName;
 
 ---
 
-## 🎉 That's it folks!
+## That's it folks!
 
-Wenn alle Tests erfolgreich sind: **Gratulation!** 🥂
+Wenn alle Tests erfolgreich sind: **Gratulation!**
 
-### 🐛 Debugging-Hilfe
+### Debugging-Hilfe
 
 Falls etwas nicht funktioniert:
 1. **Console-Logs** überprüfen
@@ -224,14 +224,14 @@ Bei völliger Verzweiflung kannst du die **komplette Lösung** auf GitHub einseh
 
 ---
 
-## 🏆 Lernziele erreicht
+## Lernziele erreicht
 
 Nach erfolgreicher Implementation beherrschst du:
 
-✅ **Event-driven Architecture** mit Observer Pattern  
-✅ **Multi-Button State Management**  
-✅ **Backend-Frontend-Synchronisation**  
-✅ **Dynamic UI Updates**  
-✅ **Error Handling & Robustness**  
+**Event-driven Architecture** mit Observer Pattern  
+**Multi-Button State Management**  
+**Backend-Frontend-Synchronisation**  
+**Dynamic UI Updates**  
+**Error Handling & Robustness**  
 
-**Du bist bereit für komplexere Frontend-Herausforderungen!** 🚀
+**Du bist bereit für komplexere Frontend-Herausforderungen!**

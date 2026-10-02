@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>❤️‍🩹 like Funktion wiederherstellen - Learn To Build A Web Page</title>
+        <title> like Funktion wiederherstellen - Learn To Build A Web Page</title>
 
 
         <!-- Custom HTML head -->
@@ -35,10 +35,10 @@
             const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../searchindex-529cab84.js";
+            window.path_to_searchindex_js = "../../searchindex-5d5a3815.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../../toc-a0e4b7d7.js"></script>
+        <script src="../../toc-d8799e27.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -174,8 +174,8 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="-like-funktion-wiederherstellen"><a class="header" href="#-like-funktion-wiederherstellen">❤️‍🩹 Like-Funktion wiederherstellen</a></h1>
-<h2 id="-überblick"><a class="header" href="#-überblick">🎯 Überblick</a></h2>
+                        <h1 id="like-funktion-wiederherstellen"><a class="header" href="#like-funktion-wiederherstellen">Like-Funktion wiederherstellen</a></h1>
+<h2 id="überblick"><a class="header" href="#überblick">Überblick</a></h2>
 <p>Mit <a href="./backendConnect.html">connect the backend</a> hast du dafür gesorgt, dass Like-Counter-Daten aus dem Backend stammen. Der Button selbst funktioniert aber noch nicht korrekt. Wir implementieren die Like-Verwaltung in zwei Schritten:</p>
 <h3 id="ziele"><a class="header" href="#ziele">Ziele:</a></h3>
 <ol>
@@ -207,8 +207,8 @@
 <p>Da wir bereits ein Event System zur Verfügung haben, setzen wir Variante 2 um. Diese lässt mehr Spielraum zu.</p>
 <p><strong>Event-basierte Kommunikation:</strong></p>
 <ul>
-<li>❌ Option 1: Direkte Funktionsaufrufe (enger gekoppelt)</li>
-<li>✅ <strong>Option 2</strong>: Event versenden (flexibler, entkoppelter)</li>
+<li>Option 1: Direkte Funktionsaufrufe (enger gekoppelt)</li>
+<li><strong>Option 2</strong>: Event versenden (flexibler, entkoppelter)</li>
 </ul>
 <hr>
 <h2 id="like-event-versenden"><a class="header" href="#like-event-versenden">Like Event versenden</a></h2>
@@ -229,14 +229,14 @@
   });
 });
 </code></pre>
-<h3 id="-test-der-event-übertragung"><a class="header" href="#-test-der-event-übertragung">✅ Test der Event-Übertragung</a></h3>
+<h3 id="test-der-event-übertragung"><a class="header" href="#test-der-event-übertragung">Test der Event-Übertragung</a></h3>
 <ol>
 <li><strong>Seite mit LiveServer starten</strong></li>
 <li><strong>Like Button klicken</strong></li>
 <li><strong>Console beobachten</strong> - Zahlen-Output sollte sich erhöhen</li>
 </ol>
 <blockquote>
-<p>🎉 <strong>Erfolg</strong>: LikeStateHandler empfängt und verarbeitet dein Event!</p>
+<p><strong>Erfolg</strong>: LikeStateHandler empfängt und verarbeitet dein Event!</p>
 </blockquote>
 <hr>
 <h2 id="like-event-verarbeiten"><a class="header" href="#like-event-verarbeiten">Like Event verarbeiten</a></h2>
@@ -339,7 +339,7 @@ async function toggleLikeState() {
   setLikeCounter(); // Counter aktualisieren
 }
 </code></pre>
-<h3 id="-funktionstest"><a class="header" href="#-funktionstest">✅ Funktionstest</a></h3>
+<h3 id="funktionstest"><a class="header" href="#funktionstest">Funktionstest</a></h3>
 <p><strong>Backend und Frontend starten</strong> und Like-Button testen!</p>
 <hr>
 <h2 id="error-handling-implementieren"><a class="header" href="#error-handling-implementieren">Error Handling implementieren</a></h2>
@@ -527,7 +527,7 @@ if (!doesUserLikeBlogPageResponse) {
 <p>Was noch fehlt ist das selbe, wenn die blog page id ändert. Dies ist in unserem Fall eigentlich nicht möglich, aber wir wollen den Init über das Main.js nutzen, wo die Blog Page ID gesetzt wird. So ist beim Laden sichergestellt, dass der Like State stimmt.</p>
 <p>Ergänze daher auch die Funktion <code>observeBlogPageIdChange()</code> mit dem Setzen des likeStatus und des counters.</p>
 <blockquote>
-<p>💡 Dir fällt sicher auf, dass wir wiederum Code in zwei Methoden haben, der deckungsgleich ist. Das Laden des States und das Setzen.</p>
+<p>Dir fällt sicher auf, dass wir wiederum Code in zwei Methoden haben, der deckungsgleich ist. Das Laden des States und das Setzen.</p>
 </blockquote>
 <p><strong>DRY-Prinzip - Wiederverwendbare Init-Funktion:</strong></p>
 <p>Don’t repeat yourself. Legen wir dies so zusammen, dass wir es wieder verwenden können. Mittels einer neuen Funktion <code>initLikeState()</code> fassen wir die gemeinsame Logik zusammen und nutzen danach diese.</p>
@@ -568,8 +568,8 @@ if (!doesUserLikeBlogPageResponse) {
 }
 </code></pre>
 <hr>
-<h2 id="-endergebnis"><a class="header" href="#-endergebnis">🎉 Endergebnis</a></h2>
-<h3 id="-implementierte-features"><a class="header" href="#-implementierte-features">✅ Implementierte Features</a></h3>
+<h2 id="endergebnis"><a class="header" href="#endergebnis">Endergebnis</a></h2>
+<h3 id="implementierte-features"><a class="header" href="#implementierte-features">Implementierte Features</a></h3>
 <ol>
 <li><strong>Like/Unlike Toggle</strong> - Backend-synchronisiert</li>
 <li><strong>UI-Updates</strong> - Button-Text und Icon-Änderungen</li>
@@ -581,12 +581,12 @@ if (!doesUserLikeBlogPageResponse) {
 <h3 id="vollständiger-test"><a class="header" href="#vollständiger-test">Vollständiger Test</a></h3>
 <p><strong>Test-Szenarios:</strong></p>
 <ol>
-<li>✅ Like/Unlike mit verschiedenen Users</li>
-<li>✅ User-ID-Wechsel oben rechts</li>
-<li>✅ Backend-Verbindung aktiv</li>
-<li>✅ Counter-Updates in Echtzeit</li>
+<li>Like/Unlike mit verschiedenen Users</li>
+<li>User-ID-Wechsel oben rechts</li>
+<li>Backend-Verbindung aktiv</li>
+<li>Counter-Updates in Echtzeit</li>
 </ol>
-<p><strong>Die Like-Funktionalität ist jetzt vollständig implementiert!</strong> 🚀</p>
+<p><strong>Die Like-Funktionalität ist jetzt vollständig implementiert!</strong></p>
 
                     </main>
 
@@ -623,6 +623,22 @@ if (!doesUserLikeBlogPageResponse) {
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>

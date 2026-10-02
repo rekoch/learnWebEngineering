@@ -1,8 +1,8 @@
-# 📱 Responsive Web Design
+# Responsive Web Design
 
-## 🕰️ Die Evolution des Web Designs
+## Die Evolution des Web Designs
 
-### 📊 2009: Die einfache Zeit
+### 2009: Die einfache Zeit
 
 Im Jahr **2009** war noch alles viel einfacher. Die meisten User nutzten eine Bildauflösung von **1024x768 Pixel** - dem damaligen Desktop-Standard.
 ![Statistiken 2009](images/rwd_chart.png)
@@ -19,31 +19,31 @@ SBB Seite
 Apple Seite
 ![Alte Website-Darstellung](images/rwd_oldApplePage.png)
 
-### 📈 2014: Der Mobile Wandel
+### 2014: Der Mobile Wandel
 
 ![Statistiken 2014](images/rwd_2014Stats.png)
 
 **Deutlich kleinere Auflösungen** dominieren das Chart:
 
-- **📱 Smartphones** an der Spitze
+- ** Smartphones** an der Spitze
 - **"Others"** deutlich gestiegen
-- **💥 Paradigmenwechsel**: Responsive Design wird Pflicht
+- ** Paradigmenwechsel**: Responsive Design wird Pflicht
 
-> 🚨 **Realität**: Smartphones haben der Webentwicklung einen Dämpfer verpasst. Plötzlich müssen Seiten auch auf relativ kleinen Auflösungen gut aussehen.
+> **Realität**: Smartphones haben der Webentwicklung einen Dämpfer verpasst. Plötzlich müssen Seiten auch auf relativ kleinen Auflösungen gut aussehen.
 
 ---
 
-## 📱 Mobile First & Responsive Design
+## Mobile First & Responsive Design
 
-### 🍎 Das iPhone-Problem (2008)
+### Das iPhone-Problem (2008)
 
 **Ursprüngliche Lösung**: Webseiten wurden "gezoomed" dargestellt
 
 - Browser verkleinerte Desktop-Darstellung
 - **Zoom-Geste** ermöglichte Navigation
-- **❌ Problem**: Nicht zielführend für positive User Experience
+- ** Problem**: Nicht zielführend für positive User Experience
 
-### 🔧 Die Viewport-Lösung
+### Die Viewport-Lösung
 
 **Emmet-Shortcut `!` erstellt automatisch:**
 
@@ -57,31 +57,31 @@ Apple Seite
 - **400px Button** = **volle Breite** auf 400px-Screen
 - **Verantwortung** liegt bei der Entwicklerin
 
-> 📖 **Mehr Infos**: [W3Schools Viewport Guide](https://www.w3schools.com/css/css_rwd_viewport.asp)
+> **Mehr Infos**: [W3Schools Viewport Guide](https://www.w3schools.com/css/css_rwd_viewport.asp)
 
 ---
 
-## 🏗️ Mobile First Strategie
+## Mobile First Strategie
 
-### 📋 Konzept-Übersicht
+### Konzept-Übersicht
 
 **Mobile First** = Design beginnt mit kleinster Auflösung
 
 ```
-📱 320px (Mobile)  →  📲 768px (Tablet)  →  🖥️ 1200px (Desktop)
+320px (Mobile)  → 768px (Tablet)  → 1200px (Desktop)
 ```
 
-### 🎯 Breakpoint-System
+### Breakpoint-System
 
 **Breakpoint** = Bestimmte Auflösung, wo sich das Design anpassen muss
 
 **Beispiel-Szenario:**
 
-- **Button bis 400px**: `width: 100%` ✅
-- **Button ab 450px**: Anpassung nötig ❌
+- **Button bis 400px**: `width: 100%`
+- **Button ab 450px**: Anpassung nötig
 - **Lösung**: Breakpoint bei `400px` definieren
 
-### 📊 Bootstrap Breakpoints (Beispiel)
+### Bootstrap Breakpoints (Beispiel)
 
 ![Bootstrap Breakpoints](images/rwd_breakpointsBootstrap.png)
 
@@ -93,9 +93,9 @@ Apple Seite
 
 ---
 
-## 🛠️ Praktische Umsetzung
+## Praktische Umsetzung
 
-### 📁 Projekt-Setup
+### Projekt-Setup
 
 #### **Schritt 1: Ordner-Struktur**
 
@@ -114,7 +114,7 @@ Apple Seite
 - **Flexible Aufteilung** für verschiedene Layouts
 - **Prozentuale Breiten** für responsive Verhalten
 
-### 📂 Grid CSS erstellen
+### Grid CSS erstellen
 
 #### **Ordner-Struktur:**
 
@@ -167,7 +167,7 @@ project/
 }
 ```
 
-### 🔧 HTML-Grundgerüst
+### HTML-Grundgerüst
 
 #### **index.html Body:**
 
@@ -199,7 +199,7 @@ project/
 }
 ```
 
-### 🔗 CSS verknüpfen
+### CSS verknüpfen
 
 #### **HTML Head erweitern:**
 
@@ -221,7 +221,7 @@ project/
 Jetzt sollte deine Page wie folgt aussehen.
 ![Erste Ansicht](images/rwd_screenshotIndexHtml.png)
 
-### 📐 Row-System implementieren
+### Row-System implementieren
 
 Was noch fehlt ist die Möglichkeit, einzelne Zeilen zu definieren. Wir möchten sicherstellen, dass sich die Verteilung nur auf einen bestimmten Bereich bezieht. Dafür benötigen wir noch folgende css Anweisung in unserem grid.css file
 
@@ -255,9 +255,9 @@ Da wir mobile-first designen, kümmern wir uns um die Namens Zusätze erst ab de
 
 ---
 
-## 📱 Responsive Breakpoints
+## Responsive Breakpoints
 
-### 🎯 Media Queries implementieren
+### Media Queries implementieren
 
 #### **Mobile First Basis-Grid:**
 
@@ -292,7 +292,7 @@ Da wir mobile-first designen, kümmern wir uns um die Namens Zusätze erst ab de
 }
 ```
 
-### 💡 Responsive HTML-Beispiel
+### Responsive HTML-Beispiel
 
 Nun hast du die Möglichkeit, das Layout für jeden Breakpoint zu definieren. Mache bspw. mal col-12 im mobile, für sm danach col-sm-3 und siehe wie sich das Layout nun verhält.
 
@@ -312,7 +312,7 @@ Nun hast du die Möglichkeit, das Layout für jeden Breakpoint zu definieren. Ma
 
 ---
 
-## 🤔 Library vs. Custom Solution
+## Library vs. Custom Solution
 
 Nun hast du gesehen, dass es nicht unbedingt Magie ist, ein Grid selber zu programmieren. Damit alles funktioniert, fehlen trotzdem noch einige CSS Klassen, die noch definiert werden müssen. Daher stellt sich doch gleich die Frage, wieso nicht von Anfang an Bootstrap oder andere CSS Bibliotheken einsetzen? Wenn dein Projekt keine speziellen Anforderungen hat, du mit grundsätzlich 12 Spalten problemlos dein Design umsetzen kannst, dann kannst du gut und gerne eine Bibliothek wie Bootstrap einsetzen. Trotzdem muss man sich immer bewusst sein, dass der Einsatz einer solchen Bibliothek auch erfordert, dass man sie korrekt versteht und entsprechend korrekt einsetzt. Du musst die Klassen verstehen und wissen, welche für was eingesetzt wird. Ein einfaches Beispiel mit Bootstrap sieht wie folgt aus
 
@@ -326,52 +326,52 @@ Nun hast du gesehen, dass es nicht unbedingt Magie ist, ein Grid selber zu progr
 </div>
 ```
 
-### ⚖️ Entscheidungskriterien
+### Entscheidungskriterien
 
 | Aspekt              | **Bootstrap**    | **Custom Grid**   |
 | ------------------- | ---------------- | ----------------- |
-| **⚡ Setup-Zeit**   | Schnell          | Länger            |
-| **🎯 Flexibilität** | Begrenzt         | Vollständig       |
-| **📚 Lernaufwand**  | Framework lernen | CSS verstehen     |
-| **🔧 Anpassungen**  | Workarounds      | Direkte Kontrolle |
-| **📦 Bundle-Size**  | Größer           | Minimal           |
+| ** Setup-Zeit**   | Schnell          | Länger            |
+| ** Flexibilität** | Begrenzt         | Vollständig       |
+| ** Lernaufwand**  | Framework lernen | CSS verstehen     |
+| ** Anpassungen**  | Workarounds      | Direkte Kontrolle |
+| ** Bundle-Size**  | Größer           | Minimal           |
 
-### ✅ Bootstrap verwenden, wenn:
+### Bootstrap verwenden, wenn:
 
-- **🚀 Schnelle Prototypen** erstellen
+- ** Schnelle Prototypen** erstellen
 - **12-Spalten-System** ausreicht
 - **Standard-Designs** umsetzen
 - **Team** bereits Bootstrap-Erfahrung hat
 
-### ✅ Custom Grid verwenden, wenn:
+### Custom Grid verwenden, wenn:
 
-- **🎨 Unique Designs** entwickeln
+- ** Unique Designs** entwickeln
 - **Volle Kontrolle** benötigt
 - **Performance** kritisch ist
 - **Lernziele** CSS-Verständnis beinhalten
 
 ---
 
-## 🚀 The Modern Way: CSS Grid
+## The Modern Way: CSS Grid
 
-### 🌟 CSS Grid Vorteile (seit 2016/2017)
+### CSS Grid Vorteile (seit 2016/2017)
 
 **Warum CSS Grid?**
 
-- **🏗️ 2D-Layout** (Zeilen + Spalten)
-- **🎯 Intuitive Syntax**
-- **📱 Native Browser-Support**
-- **⚡ Performance-optimiert**
+- ** 2D-Layout** (Zeilen + Spalten)
+- ** Intuitive Syntax**
+- ** Native Browser-Support**
+- ** Performance-optimiert**
 
-### 📚 CSS Grid Lernressourcen
+### CSS Grid Lernressourcen
 
 | Resource                                                                                  | Typ      | Beschreibung        |
 | ----------------------------------------------------------------------------------------- | -------- | ------------------- |
-| **[CSS Grid Garden](https://cssgridgarden.com/)**                                         | 🎮 Spiel | Interaktives Lernen |
-| **[Scrimba CSS Grid](https://scrimba.com/learn-css-grid-c02k)**                           | 🎥 Video | Hands-on Kurs       |
-| **[MDN Grid Guide](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids)** | 📖 Docs  | Umfassende Referenz |
+| **[CSS Grid Garden](https://cssgridgarden.com/)**                                         | Spiel | Interaktives Lernen |
+| **[Scrimba CSS Grid](https://scrimba.com/learn-css-grid-c02k)**                           | Video | Hands-on Kurs       |
+| **[MDN Grid Guide](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids)** | Docs  | Umfassende Referenz |
 
-### 🔧 CSS Grid Implementation
+### CSS Grid Implementation
 
 #### **Variablen definieren:**
 
@@ -417,7 +417,7 @@ Du wirst feststellen, dass wir bereits eine vertikale Verteilung haben. Nun möc
 }
 ```
 
-### 🎯 Advanced CSS Grid Features
+### Advanced CSS Grid Features
 
 Du hast nun ein Grid ähnliches Layout mit CSS Grid als Basis gebaut. Überlege dir folgende Anforderung. Nebst dem eigentlichen Inhalt, der auf 12 Spalten verteilt ist, möchtest du nun auf einer virtuellen ersten bzw. letzten Spalte bei Bedarf einen "Seiten-Content" einfügen.
 ![Responsive Breiten](images/rwd_screenshotWithColumns.png)
@@ -541,7 +541,7 @@ Teste ein wenig das neue Layout. Folgende Dinge sollten dir auffallen:
 - Die Elemente sind nun immer ab der zweiten Spalte gereiht und nicht mehr verteilt
   Alle dies Dinge wollen wir nun beheben. Die einfachste ist auf jeden Fall das Gap und die Spaltenbreite.
 
-Passe daher dein css entsprechend an. Wir setzen Variablen ein, die wiederum mit Media-Queries definiert werden. So können wir die Angaben automatisch setzen, basierend auf der Viewport Grösse. Genius 🤓
+Passe daher dein css entsprechend an. Wir setzen Variablen ein, die wiederum mit Media-Queries definiert werden. So können wir die Angaben automatisch setzen, basierend auf der Viewport Grösse. Genius
 
 ```css
 :root {
@@ -646,70 +646,70 @@ Sieht toll aus, oder? Du kannst etwas mit der Position spielen, span hinzufügen
 
 ---
 
-## 🔄 CSS Flexbox
+## CSS Flexbox
 Die bisherigen Layout Möglichkeiten beziehen sich sowohl auf die horizontale wie auch auf die vertikale Verteilung von Elementen. Man kann es sich auch so vorstellen, dass man damit sehr gut fährt, wenn man das eigentlich Design-Layout umsetzen möchte. Also wo gibt es auf der Seite Inhalt? Gibt es eine Navbar? Gibt es einen Side-Content? Gibt es einen Footer?
 Mit CSS Grid, Bootstrap oder Spalten Design lassen sich diese Art von Design / Layouts sehr gut strukturieren und umsetzen. Man könnte auch von 2 Dimensionalen Layouts sprechen. Nebst diesen Varianten hält seit einigen Jahren auch Flexbox Einzug im ganzen CSS Universum. Analog CSS Grid kennt der Browser CSS Flexbox direkt und wird unterdessen breit von den Browser unterstützt. Flexbox ist sogar älter als CSS Grid. Bei Flexbox sprechen wir nun eher von einem eindimensionalen Design. Wir können damit sehr gut Elemente auf der selben Ebene layouten. Sei dies auf der vertikalen oder horizontalen Ausrichtung.
 
 
-### 🎯 Flexbox vs. Grid
+### Flexbox vs. Grid
 
 | Feature            | **CSS Grid**          | **CSS Flexbox**    |
 | ------------------ | --------------------- | ------------------ |
-| **📐 Dimensionen** | 2D (Zeilen + Spalten) | 1D (Eine Richtung) |
-| **🎯 Use Case**    | Page Layout           | Component Layout   |
-| **📱 Responsive**  | Breakpoint-basiert    | Content-basiert    |
-| **🔧 Komplexität** | Höher                 | Einfacher          |
+| ** Dimensionen** | 2D (Zeilen + Spalten) | 1D (Eine Richtung) |
+| ** Use Case**    | Page Layout           | Component Layout   |
+| ** Responsive**  | Breakpoint-basiert    | Content-basiert    |
+| ** Komplexität** | Höher                 | Einfacher          |
 
-### 📚 Flexbox Lernressourcen
+### Flexbox Lernressourcen
 
-- **[Flexbox Froggy](https://flexboxfroggy.com/)** 🐸
-- **[CSS-Tricks Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)** 📖
+- **[Flexbox Froggy](https://flexboxfroggy.com/)**
+- **[CSS-Tricks Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)**
 
 ---
 
-## 🎯 Technologie-Entscheidung
+## Technologie-Entscheidung
 
-### 🤔 Die richtige Wahl treffen
+### Die richtige Wahl treffen
 
 #### **Fragen zur Orientierung:**
 
-1. **🆕 Neues Projekt** oder bestehende Libraries?
-2. **👥 Team-Erfahrung** mit welcher Technologie?
-3. **🎨 Layout-Flexibilität**: Immer 12 Spalten oder variabel?
-4. **📱 Device-Support**: Welche Breakpoints nötig?
+1. ** Neues Projekt** oder bestehende Libraries?
+2. ** Team-Erfahrung** mit welcher Technologie?
+3. ** Layout-Flexibilität**: Immer 12 Spalten oder variabel?
+4. ** Device-Support**: Welche Breakpoints nötig?
 
-#### **💡 Empfehlungen:**
+#### ** Empfehlungen:**
 
 | Szenario                         | Empfehlung             | Begründung                   |
 | -------------------------------- | ---------------------- | ---------------------------- |
-| **🚀 Neue Website**              | **CSS Grid + Flexbox** | Modern, flexibel, performant |
-| **🔧 Bestehende Bootstrap-Site** | **Bootstrap**          | Konsistenz wahren            |
-| **🎯 Einfache Layouts**          | **Flexbox**            | Weniger Overhead             |
-| **🏗️ Komplexe Layouts**          | **CSS Grid**           | 2D-Kontrolle                 |
+| ** Neue Website**              | **CSS Grid + Flexbox** | Modern, flexibel, performant |
+| ** Bestehende Bootstrap-Site** | **Bootstrap**          | Konsistenz wahren            |
+| ** Einfache Layouts**          | **Flexbox**            | Weniger Overhead             |
+| ** Komplexe Layouts**          | **CSS Grid**           | 2D-Kontrolle                 |
 
-### ⚠️ Anti-Patterns vermeiden
+### Anti-Patterns vermeiden
 
-- **❌ Bootstrap + CSS Grid Mix** (Konflikte)
-- **❌ Float-basierte Layouts** (veraltet)
-- **❌ Table-Layout für Design** (nicht semantisch)
+- ** Bootstrap + CSS Grid Mix** (Konflikte)
+- ** Float-basierte Layouts** (veraltet)
+- ** Table-Layout für Design** (nicht semantisch)
 
 ---
 
-## 🎉 Zusammenfassung
+## Zusammenfassung
 
-### ✅ Was du gelernt hast:
+### Was du gelernt hast:
 
-1. **📱 Mobile First Prinzip**
-2. **🔧 Custom Grid System**
-3. **📊 Breakpoint-Strategien**
-4. **🚀 CSS Grid Modernisierung**
-5. **⚖️ Technologie-Entscheidungen**
+1. ** Mobile First Prinzip**
+2. ** Custom Grid System**
+3. ** Breakpoint-Strategien**
+4. ** CSS Grid Modernisierung**
+5. ** Technologie-Entscheidungen**
 
-### 🎯 Nächste Schritte:
+### Nächste Schritte:
 
-1. **💻 Praktisches Üben** mit eigenem Projekt
-2. **🎮 CSS Grid Garden** durchspielen
-3. **🐸 Flexbox Froggy** meistern
-4. **🏗️ Blog-Seite** responsive machen
+1. ** Praktisches Üben** mit eigenem Projekt
+2. ** CSS Grid Garden** durchspielen
+3. ** Flexbox Froggy** meistern
+4. ** Blog-Seite** responsive machen
 
-**Du bist bereit für modernes, responsives Webdesign!** 🌟
+**Du bist bereit für modernes, responsives Webdesign!**

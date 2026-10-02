@@ -1,4 +1,4 @@
-# ❤️ Like Bereich
+# Like Bereich
 
 ## Responsive Layout-Unterschiede
 
@@ -30,7 +30,7 @@ Diese Art von CSS nennt sich **"Utility-First"** und wird etwa von der CSS-Bibli
 - **Utility-Klassen** (Utility-First CSS)
 - **Komponenten-basierten/semantischen Klassen** (OOCSS)
 
-> 📖 **Mehr Infos**: [CSS Methodologies Guide](https://medium.com/@hossein.khoshnevis77/understanding-and-implementing-css-methodologies-a-guide-for-web-developers-572983f0e9fe)
+> **Mehr Infos**: [CSS Methodologies Guide](https://medium.com/@hossein.khoshnevis77/understanding-and-implementing-css-methodologies-a-guide-for-web-developers-572983f0e9fe)
 
 ---
 
@@ -160,12 +160,12 @@ Nachdem nun die CSS-Klassen erstellt sind, fülle im HTML nun dort die Klassen e
 
 ---
 
-## ✅ Progress Tracking
+## Progress Tracking
 
-### 📋 Stand Like-Bereich:
-- ✅ **Abstände oben und unten**
-- ❌ **Text unter dem Button** zentriert mit richtigen Abständen
-- ❌ **Breite des Like-Buttons**
+### Stand Like-Bereich:
+- **Abstände oben und unten**
+- **Text unter dem Button** zentriert mit richtigen Abständen
+- **Breite des Like-Buttons**
 
 ---
 
@@ -196,10 +196,10 @@ Du hast bereits die nötigen margins für die Abstände definiert und musst sie 
 ```
 
 
-### ✅ Updated Progress:
-- ✅ **Abstände oben und unten**
-- ✅ **Text zentriert** mit richtigen Abständen
-- ❌ **Breite des Like-Buttons**
+### Updated Progress:
+- **Abstände oben und unten**
+- **Text zentriert** mit richtigen Abständen
+- **Breite des Like-Buttons**
 
 ---
 
@@ -227,7 +227,7 @@ Da dies sehr spezifisch ist, macht es Sinn, beim `button.css` eine Spezialbreite
 ### HTML erweitern
 
 ```html
-<button class="primary width-200-fit">❤️ Gefällt mir</button>
+<button class="primary width-200-fit"> Gefällt mir</button>
 ```
 
 ![Falsche Button-Position](images/like_wrongButtonPosition.png)
@@ -240,16 +240,16 @@ Erst jetzt fällt auf, dass der Button eigentlich linksseitig orientiert ist. Au
 
 ![Text Center](images/like_text-center.png)
 
-> 🎉 **Falls du das von Beginn an so gemacht hast, umso besser!**
+> **Falls du das von Beginn an so gemacht hast, umso besser!**
 
-### ✅ Final Progress:
-- ✅ **Abstände oben und unten**
-- ✅ **Text zentriert** mit richtigen Abständen  
-- ✅ **Breite des Like-Buttons**
+### Final Progress:
+- **Abstände oben und unten**
+- **Text zentriert** mit richtigen Abständen  
+- **Breite des Like-Buttons**
 
 ---
 
-## Ein ❤️ für Details
+## Details mit Herz
 
 Falls du willst und magst, kannst du im Like-Bereich noch 2-3 Details beheben:
 
@@ -263,4 +263,4 @@ Falls du willst und magst, kannst du im Like-Bereich noch 2-3 Details beheben:
 
 **Du findest den Endstand** der Lösung auf [GitHub](https://github.com/rekoch/learnWebEngineering/tree/main/public/02_html_css/05_like_with_icon)
 
-**Like-Bereich ist responsive und professionell umgesetzt!** 🎉
+**Like-Bereich ist responsive und professionell umgesetzt!**

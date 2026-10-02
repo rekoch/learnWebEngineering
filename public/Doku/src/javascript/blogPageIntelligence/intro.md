@@ -1,4 +1,4 @@
-# 🧠 Blog Page Intelligence
+# Blog Page Intelligence
 ![Intro](./images/BPI_welcome.png)
 
 ## Von statisch zu dynamisch
@@ -12,7 +12,7 @@ Mittels JavaScript geben wir der Blog Page mehr **Intelligenz**:
 
 ---
 
-## 🎯 Hauptziele
+## Hauptziele
 ### Kern-Features (Must-have)
 1. **Diagramm/Tabelle dynamischer gestalten**
    - Interaktive Elemente

@@ -1,6 +1,6 @@
-# 🛎️ Push the Button
+# Push the Button
 
-## 🎯 Ziele
+## Ziele
 
 Unsere Buttons sehen zwar aus wie Buttons, aber sie machen noch nichts. Wir wollen folgende Funktionen erreichen:
 
@@ -20,7 +20,7 @@ Unsere Buttons sehen zwar aus wie Buttons, aber sie machen noch nichts. Wir woll
 2. **Import in `main.js`** hinzufügen
 3. **Test mit Console-Output** (siehe Kapitel "Table Auto Design")
 
-### 🐛 Debugging-Optionen
+### Debugging-Optionen
 
 Für lokales Debugging siehe:
 - [Debug JavaScript mit Browser (Chrome)](../debugVsCode.md)
@@ -156,7 +156,7 @@ document.querySelectorAll("button[data-button]").forEach((button) => {
 
 ## Button States Management
 
-### ⚡ Switch-Statement für Button-Typen
+### Switch-Statement für Button-Typen
 Siehe auch [JavaScript Switch Statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
 ```javascript
 document.querySelectorAll("button[data-button]").forEach((button) => {
@@ -320,7 +320,7 @@ Wir wollen nur die Zahl steuern können. Dafür ist ein `<span>` Element perfekt
 <span id="data-like-counter">59</span> Personen gefällt dieser Artikel
 ```
 
-> 💡 **Wichtig**: IDs dürfen nur einmal pro HTML existieren!
+> **Wichtig**: IDs dürfen nur einmal pro HTML existieren!
 
 ### Like-spezifische Toggle-Funktion
 
@@ -454,13 +454,13 @@ if (currentState == "inactive") {
 
 ---
 
-## 🎉 Ergebnis
+## Ergebnis
 
 **Alle Buttons sind jetzt voll funktionsfähig:**
 
-✅ **Like Button**: Toggle mit Counter und Icon  
-✅ **Follow Author**: Toggle mit Text-Änderung  
-✅ **Follow Topic**: Toggle mit Text-Änderung  
+**Like Button**: Toggle mit Counter und Icon  
+**Follow Author**: Toggle mit Text-Änderung  
+**Follow Topic**: Toggle mit Text-Änderung  
 
 ### Nächste Schritte
 

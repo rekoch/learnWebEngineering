@@ -1,4 +1,4 @@
-# 🗺️ Basis
+# Basis
 ## Setup-Prozess
 
 Damit wir überhaupt CSS ergänzen können, brauchen wir unser CSS:
@@ -25,7 +25,7 @@ Im `index.html` den CSS-Import ergänzen:
 </head>
 ```
 
-**✅ Jetzt kannst du in diesem CSS Styles für deine Webseite einsetzen!**
+** Jetzt kannst du in diesem CSS Styles für deine Webseite einsetzen!**
 
 ---
 
@@ -57,7 +57,7 @@ Wir wollen als erstes den äusseren Rand der Seite definieren. Nun kriegen wir e
 
 ![Margin mit Farben](images/intro_marginWithColors.png)
 
-> 💡 **Erkenntniss**: Wir müssen den **`body`**-Selektor übersteuern, um genau diesen Wert zu vergrössern!
+> **Erkenntniss**: Wir müssen den **`body`**-Selektor übersteuern, um genau diesen Wert zu vergrössern!
 
 ## CSS-Lösung implementieren
 
@@ -90,7 +90,7 @@ iframe {
 }
 ```
 
-> ⚠️ **Wichtig**: Min-height müssen wir bei einem iFrame definieren. Ansonsten wird es "zerquetscht"!
+> **Wichtig**: Min-height müssen wir bei einem iFrame definieren. Ansonsten wird es "zerquetscht"!
 
 ## Bilder responsive machen
 
@@ -103,11 +103,11 @@ img {
 }
 ```
 
-**✅ Resultat**: Die maximale Breite wird auf 100% der ganzen Seite gesetzt und so "sprengen" die Bilder das Layout in der Breite nicht mehr.
+** Resultat**: Die maximale Breite wird auf 100% der ganzen Seite gesetzt und so "sprengen" die Bilder das Layout in der Breite nicht mehr.
 
 ---
 
-# 🎯 Nächste Schritte
+# Nächste Schritte
 
 Nach diesen Grundlagen-Anpassungen:
 
@@ -116,4 +116,4 @@ Nach diesen Grundlagen-Anpassungen:
 3. **Layout** optimieren
 4. **Responsive** Design implementieren
 
-**Die Basis steht - jetzt wird es kreativ!** 🚀
+**Die Basis steht - jetzt wird es kreativ!**

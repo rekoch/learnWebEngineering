@@ -1,4 +1,4 @@
-# 🏷️ Rubrik
+# Rubrik
 
 ## Rubrik-Styling optimieren
 
@@ -30,10 +30,10 @@ Definiere eine Klasse, auf welcher du die Werte vergibst und füge sie überall 
 | **color** | `rgb(147, 83, 185)` | Violettton für Kategorien |
 | **text-transform** | `uppercase` | Automatische Grossschreibung |
 
-### ✅ Resultat
+### Resultat
 
 - **Korrekte Violettfarbe** wie im Farbschema
 - **Automatische Grossbuchstaben** für Konsistenz
 - **Wiederverwendbare Klasse** für alle Rubriken
 
-**Rubrik-Styling ist professionell umgesetzt!** 🎉
+**Rubrik-Styling ist professionell umgesetzt!**

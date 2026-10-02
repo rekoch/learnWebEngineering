@@ -1,4 +1,4 @@
-# 🔘 Buttons
+# Buttons
 
 ## Button Design System
 
@@ -11,7 +11,7 @@ Die Buttons sehen noch nicht ganz so aus wie sie sollten. Häufig gibt es in ein
 | **Primary** | Primäre Aktion | Die gewünschte/erwartete Aktion |
 | **Secondary** | Alternative Aktionen | Weniger prominente Buttons |
 
-> ⚠️ **Realität**: Teilweise wird das auch profesionellen Webseiten nicht sauber umgesetzt und es gibt mehr als einen primary button.
+> **Realität**: Teilweise wird das auch profesionellen Webseiten nicht sauber umgesetzt und es gibt mehr als einen primary button.
 
 ### Responsive Considerations
 
@@ -142,6 +142,6 @@ Am Schluss musst du im HTML überall noch **"primary"** hinzufügen, wo es ein s
 
 **Hältst du dich an die Vorlage**, sind das tatsächlich aktuell **alle Buttons als Primary**. Eventuell können wir diesen Umstand später noch verbessern.
 
-**Button-System ist professionell implementiert!** 🎉
+**Button-System ist professionell implementiert!**
 
 

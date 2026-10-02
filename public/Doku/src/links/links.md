@@ -8,7 +8,7 @@
 | Nachschlagewerk zu CSS Flexbox | [CSS Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) |
 | CSS Variablen | [W3Schools CSS Variables](https://www.w3schools.com/css/css3_variables.asp) |
 | CSS Nesting | [W3Schools CSS Nesting](https://www.w3schools.com/cssref/sel_nesting.php) |
-| CSS Methodologies ➡️ welche Architekturen für CSS gibt es | [CSS Methodologies Guide](https://medium.com/@hossein.khoshnevis77/understanding-and-implementing-css-methodologies-a-guide-for-web-developers-572983f0e9fe) |
+| CSS Methodologies welche Architekturen für CSS gibt es | [CSS Methodologies Guide](https://medium.com/@hossein.khoshnevis77/understanding-and-implementing-css-methodologies-a-guide-for-web-developers-572983f0e9fe) |
 | Was kann Vs Code. Bspw. HTML | [VS Code HTML Features](https://code.visualstudio.com/docs/languages/html) |
 |  <div style="height: 40px; vertical-align:middle; display:table-cell">**Tools**</div>|  |
 | Zum nachprüfen, auf welche API's heute ein Browser zugreifen kann bzw. darf; äusserst hilfreich, wenn man anstelle einer App überlegt, eine Webseite zu bauen | [What Web Can Do Today](https://whatwebcando.today) |

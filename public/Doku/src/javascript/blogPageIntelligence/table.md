@@ -1,4 +1,4 @@
-# 🤖 Table Auto Design
+# Table Auto Design
 
 ## Das Problem
 
@@ -19,7 +19,7 @@ Obwohl die Tabelle funktioniert, hat sie ein **fundamentales Problem**: Die Brei
 
 **CSS hat hier seine Grenzen** - Breiten und Höhen basierend auf "anderen" Elementen zu definieren, kann CSS nicht.
 
-### 🎯 Ziele der dynamischen Tabelle
+### Ziele der dynamischen Tabelle
 
 Wir möchten eine Tabelle, die folgendes kann:
 
@@ -65,9 +65,9 @@ import "./tables.js";
 </body>
 ```
 
-> 💡 **Wichtig**: `type="module"` ermöglicht das Importieren anderer Scripts
+> **Wichtig**: `type="module"` ermöglicht das Importieren anderer Scripts
 
-### ✅ Test der Einbindung
+### Test der Einbindung
 
 **In `tables.js` einfügen:**
 
@@ -81,7 +81,7 @@ console.log("tables.js loaded");
 2. Chrome DevTools → **Console**
 3. Seite neu laden
 
-Du solltest den Text sehen! 🥳 Klick rechts auf das Script-Link - es führt direkt zur Datei.
+Du solltest den Text sehen! Klick rechts auf das Script-Link - es führt direkt zur Datei.
 ![Console log](./images/ChromeWebTool.png)
 
 ---
@@ -139,13 +139,13 @@ Dies ist ein neues `div` Element welches um die bestehende Tabelle erweitert wer
 </p>
 ```
 
-> 💡 **Alternative**: `data-table-type` statt `data-table-name` für verschiedene Tabellentypen
+> **Alternative**: `data-table-type` statt `data-table-name` für verschiedene Tabellentypen
 
 ---
 
 ## JavaScript-Implementierung
 
-### 1️⃣ Tabellen finden
+### 1 Tabellen finden
 
 ```javascript
 document.querySelectorAll("[data-table-name]").forEach((table) => {
@@ -155,7 +155,7 @@ document.querySelectorAll("[data-table-name]").forEach((table) => {
 
 Foreach siehe [foreach Erklärung](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
-### 2️⃣ Spalten finden und höchsten Wert ermitteln
+### 2 Spalten finden und höchsten Wert ermitteln
 
 Jetzt haben wir das Tabellen Element und können innerhalb wiederum all unsere Spalten finden. Wieso brauchen wir das? Damit die Breite der Spalten stimmt, müssen wir zuerst den höchsten Wert finden. Denn dieser bestimmt 100%. Davon abgeleitet können wir dann berechnen, wie viel % Breit die Spalte sein sollte.
 
@@ -185,7 +185,7 @@ document.querySelectorAll("[data-table-name]").forEach((table) => {
 - `Number()`: Konvertiert Text zu Zahl für Vergleiche
 - Optional: `trim()` für Leerzeichen entfernen
 
-### 3️⃣ Breiten berechnen und setzen
+### 3 Breiten berechnen und setzen
 
 ```javascript
 document.querySelectorAll("[data-table-name]").forEach((table) => {
@@ -208,7 +208,7 @@ document.querySelectorAll("[data-table-name]").forEach((table) => {
 });
 ```
 
-### 4️⃣ HTML-Style entfernen
+### 4 HTML-Style entfernen
 
 Da JavaScript die Breite berechnet, kannst du das `style="width: 24%"` im HTML entfernen:
 
@@ -250,8 +250,8 @@ columns.forEach((col) => {
 
 [MDN Spread Syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) - "Spreaded" Array-Elemente als einzelne Parameter:
 
-- `Math.max([1,2,3])` ❌ funktioniert nicht
-- `Math.max(...[1,2,3])` ✅ funktioniert → `Math.max(1,2,3)`
+- `Math.max([1,2,3])` funktioniert nicht
+- `Math.max(...[1,2,3])` funktioniert → `Math.max(1,2,3)`
 
 #### Template Literals
 
@@ -276,4 +276,4 @@ Mit `${}` können Variablen und Berechnungen direkt im String verwendet werden.
 2. **Verstehe** jeden Schritt
 3. **Erweitere** Wissen schrittweise zu kompakteren Lösungen
 
-> 💡 **AI & Google**: Du wirst oft auf kompakte Varianten stoßen - je mehr du lernst, desto verständlicher werden sie!
+> **AI & Google**: Du wirst oft auf kompakte Varianten stoßen - je mehr du lernst, desto verständlicher werden sie!

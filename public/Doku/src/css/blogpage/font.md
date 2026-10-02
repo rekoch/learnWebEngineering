@@ -1,4 +1,4 @@
-# 📚 Font und Schriftgrösse anpassen
+# Font und Schriftgrösse anpassen
 
 Diese wenigen Anpassungen haben schon einen starken Effekt auf das Optische. Basierend auf der Vorlage müssen wir uns auch noch Schrift und Schriftgrösse anschauen.
 
@@ -29,10 +29,10 @@ Wenn du deine Seite nochmals untersuchst, wirst du eine Änderung feststellen. A
 
 **Fallback-Mechanismus:**
 1. **Lato** versuchen → noch nicht geladen
-2. **Arial** versuchen → ✅ gefunden und verwendet
+2. **Arial** versuchen → gefunden und verwendet
 3. **sans-serif** als letzte Option
 
-> ⚠️ **Problem**: Es rendert die Schrift "Arial", da **Lato** noch nicht verfügbar ist.
+> **Problem**: Es rendert die Schrift "Arial", da **Lato** noch nicht verfügbar ist.
 
 ---
 
@@ -83,7 +83,7 @@ Importiere die gemeinsame Font-Definition in der `fonts.css` deines Beispielordn
 
 So können alle Beispielstände dieselben Fontdateien verwenden.
 
-**✅ Lade die Seite neu** und prüfe unter **Computed → Rendered Fonts**, dass nun **Lato** verwendet wird.
+** Lade die Seite neu** und prüfe unter **Computed → Rendered Fonts**, dass nun **Lato** verwendet wird.
 
 ---
 
@@ -114,7 +114,7 @@ h1 {
 2. **P-Tags** analysieren
 3. **Werte aus Vorlage** übernehmen
 
-> ⚠️ **Beachte**: Falls du den Lead als H2 und weitere als H3 definiert hast, musst du das beim Kopieren entsprechend berücksichtigen!
+> **Beachte**: Falls du den Lead als H2 und weitere als H3 definiert hast, musst du das beim Kopieren entsprechend berücksichtigen!
 
 ---
 
@@ -169,4 +169,4 @@ Die weiteren Definitionen machen die Umbrüche etc. noch etwas besser:
 - **text-wrap-style**: Schönere Zeilenumbrüche
 - **overflow-wrap**: Besseres Verhalten bei langen Wörtern
 
-**Typography-Grundlage ist gelegt!** 🎉
+**Typography-Grundlage ist gelegt!**

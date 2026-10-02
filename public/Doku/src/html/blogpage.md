@@ -1,4 +1,4 @@
-# 📄 Blog Page erstellen
+# Blog Page erstellen
 
 ## Projekt-Ziel
 
@@ -20,7 +20,7 @@ Die Page enthält:
 
 ## Mindest-Anforderungen
 
-### ✅ Kern-Elemente (Must-have)
+### Kern-Elemente (Must-have)
 
 1. **Video oder Bild** als Slide (freie Tag-Wahl)
 2. **Rubrik** 
@@ -32,7 +32,7 @@ Die Page enthält:
 8. **Gefällt mir Button**
 9. **Empfehlungen** mit weiteren Blog Pages
 
-### 🌟 Erweiterte Elemente (Nice-to-have)
+### Erweiterte Elemente (Nice-to-have)
 
 Wenn Zeit vorhanden:
 
@@ -101,7 +101,7 @@ Wenn Zeit vorhanden:
 #### **D. Interaktions-Elemente**
 ```html
 <!-- Gefällt mir Button -->
-<button>❤️ Gefällt mir</button>
+<button> Gefällt mir</button>
 ```
 
 #### **E. Empfehlungen**
@@ -188,14 +188,14 @@ Wenn Zeit vorhanden:
 
 ### Schritt-für-Schritt-Checklist
 
-1. ✅ **HTML-Grundgerüst** erstellen
-2. ✅ **LiveServer** starten
-3. ✅ **Media-Bereich** implementieren
-4. ✅ **Content-Header** aufbauen
-5. ✅ **Hauptinhalt** strukturieren
-6. ✅ **Interaktions-Elemente** hinzufügen
-7. ✅ **Empfehlungen-Bereich** erstellen
-8. ✅ **Erweiterte Elemente** (optional)
+1. **HTML-Grundgerüst** erstellen
+2. **LiveServer** starten
+3. **Media-Bereich** implementieren
+4. **Content-Header** aufbauen
+5. **Hauptinhalt** strukturieren
+6. **Interaktions-Elemente** hinzufügen
+7. **Empfehlungen-Bereich** erstellen
+8. **Erweiterte Elemente** (optional)
 
 ### Iterativer Ansatz
 
@@ -206,7 +206,7 @@ Wenn Zeit vorhanden:
 
 ---
 
-## 🚀 Nächste Schritte
+## Nächste Schritte
 
 Nach Fertigstellung der HTML-Struktur:
 
@@ -215,4 +215,4 @@ Nach Fertigstellung der HTML-Struktur:
 3. **JavaScript-Interaktivität** einbauen
 4. **Performance-Optimierung**
 
-**Ziel erreicht**: Solide HTML-Basis für eine professionelle Blog Page! 🎉
+**Ziel erreicht**: Solide HTML-Basis für eine professionelle Blog Page!
