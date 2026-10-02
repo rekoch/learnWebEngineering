@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Willkommen - Learn To Build A Web Page</title>
+        <title>Blog Page - Learn To Build A Web Page</title>
 
 
         <!-- Custom HTML head -->
@@ -12,33 +12,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon-de23e50b.svg">
-        <link rel="shortcut icon" href="favicon-8114d1fc.png">
-        <link rel="stylesheet" href="css/variables-8adf115d.css">
-        <link rel="stylesheet" href="css/general-e96d0476.css">
-        <link rel="stylesheet" href="css/chrome-d279d366.css">
-        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
-        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
-        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "";
+            const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-19de432b.js";
+            window.path_to_searchindex_js = "../searchindex-19de432b.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-ab2db50f.js"></script>
+        <script src="../toc-ab2db50f.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -105,7 +105,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
             </noscript>
             <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -140,7 +140,7 @@
                     <h1 class="menu-title">Learn To Build A Web Page</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
 
@@ -174,35 +174,202 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="willkommen"><a class="header" href="#willkommen">Willkommen</a></h1>
-<p>Dieser Kurs ermöglicht dir einen Einstieg in die Webentwicklung. Anhand einer beispielhaften Blogseite baust du Schritt für Schritt eine Webseite nach und lernst, wie Inhalt, Gestaltung und Interaktion zusammenspielen.</p>
-<h2 id="wie-hängt-das-zusammen"><a class="header" href="#wie-hängt-das-zusammen">Wie hängt das zusammen?</a></h2>
-<p>Eine Webseite im Browser entsteht aus mehreren Bausteinen:</p>
-<pre><code class="language-text">Webseite im Browser
-├── HTML        Inhalt und Struktur
-├── CSS         Aussehen und Layout
-└── JavaScript  Verhalten und Interaktion
-	├── React   UI-Bibliothek für Komponenten
-	└── Angular Webframework, meist mit TypeScript
-</code></pre>
+                        <h1 id="blog-page"><a class="header" href="#blog-page">Blog Page</a></h1>
+<h2 id="projekt-ziel"><a class="header" href="#projekt-ziel">Projekt-Ziel</a></h2>
+<p>Wir bauen eine Page, die von einem News Artikel oder ähnlichem inspiriert ist.</p>
+<p>Die Page enthält:</p>
 <ul>
-<li><strong>HTML</strong> beschreibt den Inhalt und seine Struktur, zum Beispiel Überschriften, Bilder und Buttons.</li>
-<li><strong>CSS</strong> gestaltet diese Elemente: Farben, Abstände, Schrift und das Layout auf verschiedenen Bildschirmgrössen.</li>
-<li><strong>JavaScript</strong> macht die Seite interaktiv, zum Beispiel indem ein Button auf einen Klick reagiert.</li>
-<li><strong>React</strong> ist eine JavaScript-Bibliothek für Benutzeroberflächen. <strong>Angular</strong> ist ein umfassendes Webframework, das meist mit TypeScript verwendet wird. Beide helfen dabei, Oberflächen aus wiederverwendbaren Bausteinen, sogenannten Komponenten, aufzubauen und zu aktualisieren.</li>
+<li><strong>Video/Bild als Slide</strong></li>
+<li><strong>Fazit-Bereiche</strong></li>
+<li><strong>Tabellen und Bilder</strong></li>
+<li><strong>Produkt-Kacheln</strong></li>
+<li><strong>Empfohlene Blog-Pages</strong></li>
+<li><strong>Like- und Kommentar-Funktionen</strong></li>
 </ul>
-<p>Ein Like-Button macht das Zusammenspiel greifbar: HTML legt den Button an, CSS gestaltet ihn, und JavaScript zählt die Klicks. Mit React oder Angular lässt sich der Button als eigene Komponente bauen, die ihren Zählerstand selbst verwaltet.</p>
-<h2 id="wieso-lohnt-sich-das"><a class="header" href="#wieso-lohnt-sich-das">Wieso lohnt sich das?</a></h2>
-<p>Mit diesen Grundlagen kannst du eigene Webseiten bauen und besser verstehen, wie sie funktionieren. Du lernst, Probleme selbst zu finden und zu beheben, statt nur fertige Lösungen zu übernehmen. Das Wissen hilft dir auch später mit Werkzeugen wie React und Angular: Du erkennst, welche Aufgabe sie übernehmen und was im Browser passiert.</p>
-<p>Wir beginnen mit HTML und CSS und ergänzen danach JavaScript. So baust du dein Wissen Schritt für Schritt auf.</p>
-<p>Viel Spass beim Lernen und Ausprobieren!</p>
+<h3 id="entwicklungsansatz"><a class="header" href="#entwicklungsansatz">Entwicklungsansatz</a></h3>
+<p><strong>Struktur vor Design</strong>: Wir fokussieren uns zunächst auf das <strong>HTML-Grundgerüst</strong>. Das Design kommt später mit CSS.</p>
+<hr>
+<h2 id="mindest-anforderungen"><a class="header" href="#mindest-anforderungen">Mindest-Anforderungen</a></h2>
+<h3 id="kern-elemente-must-have"><a class="header" href="#kern-elemente-must-have">Kern-Elemente (Must-have)</a></h3>
+<ol>
+<li><strong>Video oder Bild</strong> als Slide (freie Tag-Wahl)</li>
+<li><strong>Rubrik</strong></li>
+<li><strong>Titel</strong> im H1-Format</li>
+<li><strong>Lead-Text</strong></li>
+<li><strong>Haupttext</strong></li>
+<li><strong>Weitere Überschriften</strong> im H2-Format (max. ein H1 pro Page!)</li>
+<li><strong>Weitere Bilder</strong></li>
+<li><strong>Gefällt mir Button</strong></li>
+<li><strong>Empfehlungen</strong> mit weiteren Blog Pages</li>
+</ol>
+<h3 id="erweiterte-elemente-nice-to-have"><a class="header" href="#erweiterte-elemente-nice-to-have">Erweiterte Elemente (Nice-to-have)</a></h3>
+<p>Wenn Zeit vorhanden:</p>
+<ol start="10">
+<li><strong>Autor:innen-Bereich</strong></li>
+<li><strong>Tabelle</strong></li>
+<li><strong>Fazit-Box</strong></li>
+<li><strong>Produkt-Kachel</strong></li>
+<li><strong>Autor:innen-Box</strong> mit Folgen-Button</li>
+<li><strong>Thema</strong> mit Folgen-Button</li>
+</ol>
+<hr>
+<h2 id="html-grundgerüst-erstellen"><a class="header" href="#html-grundgerüst-erstellen">HTML-Grundgerüst erstellen</a></h2>
+<h3 id="schritt-1-projekt-setup"><a class="header" href="#schritt-1-projekt-setup">Schritt 1: Projekt-Setup</a></h3>
+<ol>
+<li><strong>VS Code öffnen</strong></li>
+<li><strong>Ordner für Übungen</strong> anlegen</li>
+<li><strong>GitHub Repository</strong> für Referenz: <a href="https://github.com/rekoch/learnWebEngineering">learnWebEngineering</a></li>
+</ol>
+<h3 id="schritt-2-basis-datei-erstellen"><a class="header" href="#schritt-2-basis-datei-erstellen">Schritt 2: Basis-Datei erstellen</a></h3>
+<ol>
+<li><strong><code>index.html</code> anlegen</strong></li>
+<li><strong>Grundgerüst mit <code>!</code> + Tab</strong> erstellen</li>
+<li><strong>LiveServer starten</strong> für sofortige Änderungsanzeige</li>
+<li><strong>Titel definieren</strong></li>
+</ol>
+<h3 id="schritt-3-body-struktur-aufbauen"><a class="header" href="#schritt-3-body-struktur-aufbauen">Schritt 3: Body-Struktur aufbauen</a></h3>
+<h4 id="a-media-bereich"><a class="header" href="#a-media-bereich"><strong>A. Media-Bereich</strong></a></h4>
+<pre><code class="language-html">&lt;!-- Video/Image als Slide --&gt;
+&lt;iframe 
+  src="YOUTUBE_EMBED_URL" 
+  title="Video Titel"&gt;
+&lt;/iframe&gt;
+&lt;!-- ODER --&gt;
+&lt;img src="bild.jpg" alt="Beschreibung"&gt;
+</code></pre>
+<h4 id="b-content-header"><a class="header" href="#b-content-header"><strong>B. Content-Header</strong></a></h4>
+<pre><code class="language-html">&lt;!-- Rubrik --&gt;
+&lt;p class="category"&gt;Kategorie&lt;/p&gt;
+
+&lt;!-- Haupttitel --&gt;
+&lt;h1&gt;Artikel-Titel&lt;/h1&gt;
+
+&lt;!-- Lead-Text --&gt;
+&lt;h2&gt;Lead-Text oder Untertitel&lt;/h2&gt;
+</code></pre>
+<h4 id="c-hauptinhalt"><a class="header" href="#c-hauptinhalt"><strong>C. Hauptinhalt</strong></a></h4>
+<pre><code class="language-html">&lt;!-- Text-Abschnitte --&gt;
+&lt;p&gt;Erster Textabschnitt...&lt;/p&gt;
+
+&lt;!-- Gruppierte Inhalte --&gt;
+&lt;section&gt;
+  &lt;h3&gt;Zwischenüberschrift&lt;/h3&gt;
+  &lt;p&gt;Zugehöriger Text...&lt;/p&gt;
+  &lt;img src="bild.jpg" alt="Beschreibung"&gt;
+&lt;/section&gt;
+</code></pre>
+<h4 id="d-interaktions-elemente"><a class="header" href="#d-interaktions-elemente"><strong>D. Interaktions-Elemente</strong></a></h4>
+<pre><code class="language-html">&lt;!-- Gefällt mir Button --&gt;
+&lt;button&gt;❤️ Gefällt mir&lt;/button&gt;
+</code></pre>
+<h4 id="e-empfehlungen"><a class="header" href="#e-empfehlungen"><strong>E. Empfehlungen</strong></a></h4>
+<pre><code class="language-html">&lt;!-- Empfohlene Artikel --&gt;
+&lt;section&gt;
+  &lt;h2&gt;Diese Beiträge könnten dich auch interessieren&lt;/h2&gt;
+  &lt;!-- Struktur für empfohlene Pages --&gt;
+&lt;/section&gt;
+</code></pre>
+<hr>
+<h2 id="content-strategien"><a class="header" href="#content-strategien">Content-Strategien</a></h2>
+<h3 id="text-optionen"><a class="header" href="#text-optionen">Text-Optionen</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Methode</th><th>Beschreibung</th><th>Verwendung</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Lorem Ipsum</strong></td><td><code>lorem</code> + Tab in VS Code</td><td>Platzhalter-Text</td></tr>
+<tr><td><strong>Original-Content</strong></td><td>Von Beispiel-Seite kopieren</td><td>Realitätsnaher Content</td></tr>
+<tr><td><strong>Eigener Content</strong></td><td>Selbst geschriebene Texte</td><td>Personalisierte Inhalte</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="semantische-html-struktur"><a class="header" href="#semantische-html-struktur">Semantische HTML-Struktur</a></h3>
+<p><strong>Verwende logische Gruppierungen:</strong></p>
+<pre><code class="language-html">&lt;!-- Beispiel: Gruppierte Inhalte --&gt;
+&lt;article&gt;
+  &lt;section class="intro"&gt;
+    &lt;h1&gt;Titel&lt;/h1&gt;
+    &lt;p&gt;Lead&lt;/p&gt;
+  &lt;/section&gt;
+  
+  &lt;section class="content"&gt;
+    &lt;h2&gt;Abschnitt&lt;/h2&gt;
+    &lt;p&gt;Text&lt;/p&gt;
+  &lt;/section&gt;
+  
+  &lt;section class="recommendations"&gt;
+    &lt;h2&gt;Empfehlungen&lt;/h2&gt;
+    &lt;!-- Empfohlene Artikel --&gt;
+  &lt;/section&gt;
+&lt;/article&gt;
+</code></pre>
+<hr>
+<h2 id="best-practices"><a class="header" href="#best-practices">Best Practices</a></h2>
+<h3 id="html-struktur"><a class="header" href="#html-struktur">HTML-Struktur</a></h3>
+<ul>
+<li><strong>Einen H1</strong> pro Page</li>
+<li><strong>Logische Heading-Hierarchie</strong> (H1 → H2 → H3)</li>
+<li><strong>Semantische Tags</strong> verwenden (<code>article</code>, <code>section</code>, <code>aside</code>)</li>
+<li><strong>Alt-Attribute</strong> für alle Bilder</li>
+</ul>
+<h3 id="media-integration"><a class="header" href="#media-integration">Media-Integration</a></h3>
+<p><strong>YouTube-Video einbetten:</strong></p>
+<pre><code class="language-html">&lt;iframe 
+  width="560" 
+  height="315" 
+  src="https://www.youtube.com/embed/VIDEO_ID" 
+  title="Video Titel"
+  frameborder="0" 
+  allowfullscreen&gt;
+&lt;/iframe&gt;
+</code></pre>
+<p><strong>Responsive Bilder:</strong></p>
+<pre><code class="language-html">&lt;img 
+  src="bild.jpg" 
+  alt="Beschreibende Bildbeschreibung"
+  width="100%"&gt;
+</code></pre>
+<hr>
+<h2 id="entwicklungsworkflow"><a class="header" href="#entwicklungsworkflow">Entwicklungsworkflow</a></h2>
+<h3 id="schritt-für-schritt-checklist"><a class="header" href="#schritt-für-schritt-checklist">Schritt-für-Schritt-Checklist</a></h3>
+<ol>
+<li>✅ <strong>HTML-Grundgerüst</strong> erstellen</li>
+<li>✅ <strong>LiveServer</strong> starten</li>
+<li>✅ <strong>Media-Bereich</strong> implementieren</li>
+<li>✅ <strong>Content-Header</strong> aufbauen</li>
+<li>✅ <strong>Hauptinhalt</strong> strukturieren</li>
+<li>✅ <strong>Interaktions-Elemente</strong> hinzufügen</li>
+<li>✅ <strong>Empfehlungen-Bereich</strong> erstellen</li>
+<li>✅ <strong>Erweiterte Elemente</strong> (optional)</li>
+</ol>
+<h3 id="iterativer-ansatz"><a class="header" href="#iterativer-ansatz">Iterativer Ansatz</a></h3>
+<ol>
+<li><strong>Basis-Version</strong> mit Mindest-Elementen</li>
+<li><strong>Schritt-für-Schritt-Erweiterung</strong></li>
+<li><strong>Kontinuierliche Browser-Tests</strong></li>
+<li><strong>Spätere CSS-Integration</strong></li>
+</ol>
+<hr>
+<h2 id="nächste-schritte"><a class="header" href="#nächste-schritte">Nächste Schritte</a></h2>
+<p>Nach Fertigstellung der HTML-Struktur:</p>
+<ol>
+<li><strong>CSS-Styling</strong> hinzufügen</li>
+<li><strong>Responsive Design</strong> implementieren</li>
+<li><strong>JavaScript-Interaktivität</strong> einbauen</li>
+<li><strong>Performance-Optimierung</strong></li>
+</ol>
+<p><strong>Ziel erreicht</strong>: Solide HTML-Basis für eine professionelle Blog Page! 🎉</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../03_html/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
 
-                            <a rel="next prefetch" href="01_links/links.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../04_css/intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -212,8 +379,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../03_html/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
 
-                    <a rel="next prefetch" href="01_links/links.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../04_css/intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
@@ -233,13 +403,13 @@
         </script>
 
 
-        <script src="elasticlunr-ef4e11c1.min.js"></script>
-        <script src="mark-09e88c2c.min.js"></script>
-        <script src="searcher-09f2665d.js"></script>
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
-        <script src="clipboard-1626706a.min.js"></script>
-        <script src="highlight-abc7f01d.js"></script>
-        <script src="book-609e4cb8.js"></script>
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
 
         <!-- Custom JS scripts -->
 

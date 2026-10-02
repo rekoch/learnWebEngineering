@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Willkommen - Learn To Build A Web Page</title>
+        <title>Debug JS mit Chrome - Learn To Build A Web Page</title>
 
 
         <!-- Custom HTML head -->
@@ -12,33 +12,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon-de23e50b.svg">
-        <link rel="shortcut icon" href="favicon-8114d1fc.png">
-        <link rel="stylesheet" href="css/variables-8adf115d.css">
-        <link rel="stylesheet" href="css/general-e96d0476.css">
-        <link rel="stylesheet" href="css/chrome-d279d366.css">
-        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
-        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
-        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "";
+            const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-19de432b.js";
+            window.path_to_searchindex_js = "../searchindex-19de432b.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-ab2db50f.js"></script>
+        <script src="../toc-ab2db50f.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -105,7 +105,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
             </noscript>
             <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -140,7 +140,7 @@
                     <h1 class="menu-title">Learn To Build A Web Page</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
 
@@ -174,35 +174,82 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="willkommen"><a class="header" href="#willkommen">Willkommen</a></h1>
-<p>Dieser Kurs ermöglicht dir einen Einstieg in die Webentwicklung. Anhand einer beispielhaften Blogseite baust du Schritt für Schritt eine Webseite nach und lernst, wie Inhalt, Gestaltung und Interaktion zusammenspielen.</p>
-<h2 id="wie-hängt-das-zusammen"><a class="header" href="#wie-hängt-das-zusammen">Wie hängt das zusammen?</a></h2>
-<p>Eine Webseite im Browser entsteht aus mehreren Bausteinen:</p>
-<pre><code class="language-text">Webseite im Browser
-├── HTML        Inhalt und Struktur
-├── CSS         Aussehen und Layout
-└── JavaScript  Verhalten und Interaktion
-	├── React   UI-Bibliothek für Komponenten
-	└── Angular Webframework, meist mit TypeScript
-</code></pre>
-<ul>
-<li><strong>HTML</strong> beschreibt den Inhalt und seine Struktur, zum Beispiel Überschriften, Bilder und Buttons.</li>
-<li><strong>CSS</strong> gestaltet diese Elemente: Farben, Abstände, Schrift und das Layout auf verschiedenen Bildschirmgrössen.</li>
-<li><strong>JavaScript</strong> macht die Seite interaktiv, zum Beispiel indem ein Button auf einen Klick reagiert.</li>
-<li><strong>React</strong> ist eine JavaScript-Bibliothek für Benutzeroberflächen. <strong>Angular</strong> ist ein umfassendes Webframework, das meist mit TypeScript verwendet wird. Beide helfen dabei, Oberflächen aus wiederverwendbaren Bausteinen, sogenannten Komponenten, aufzubauen und zu aktualisieren.</li>
-</ul>
-<p>Ein Like-Button macht das Zusammenspiel greifbar: HTML legt den Button an, CSS gestaltet ihn, und JavaScript zählt die Klicks. Mit React oder Angular lässt sich der Button als eigene Komponente bauen, die ihren Zählerstand selbst verwaltet.</p>
-<h2 id="wieso-lohnt-sich-das"><a class="header" href="#wieso-lohnt-sich-das">Wieso lohnt sich das?</a></h2>
-<p>Mit diesen Grundlagen kannst du eigene Webseiten bauen und besser verstehen, wie sie funktionieren. Du lernst, Probleme selbst zu finden und zu beheben, statt nur fertige Lösungen zu übernehmen. Das Wissen hilft dir auch später mit Werkzeugen wie React und Angular: Du erkennst, welche Aufgabe sie übernehmen und was im Browser passiert.</p>
-<p>Wir beginnen mit HTML und CSS und ergänzen danach JavaScript. So baust du dein Wissen Schritt für Schritt auf.</p>
-<p>Viel Spass beim Lernen und Ausprobieren!</p>
+                        <h1 id="debug-js-mit-chrome"><a class="header" href="#debug-js-mit-chrome">Debug JS mit Chrome</a></h1>
+<p>Die Methode welche den einfachsten Zugang gewährt, ist der Browser selbst. Denn der Browser führt direkt JavaScript aus und unterstützt dich mit vielen sinnvollen Tools.</p>
+<ol>
+<li>Öffne die Seite <a href="https://learn-web-engineering.web.app/03_javascript/03_buttonReactive/index.html">02_buttonReactive</a> mit Chrome</li>
+<li>Öffne die Dev Tools (F12, rechtsklick im HTML -&gt; untersuchen)</li>
+<li>Scrolle zu den Buttons am Ende der Seite
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/BlogPageButtons.png" alt="Blog Page Buttons"><span class="img-wrapper"><img src="./images/BlogPageButtons.png" alt="Blog Page Buttons"></span></label></li>
+<li>Drücke bspw. auf den “Dieser Artikel gefällt mir!” Button. Du siehst, dass sich die Anzeige ändert und bspw. von “59 auf 60” bzw. zurück auf “59” wechselt</li>
+<li>Damit wir den dahinter liegenden JavaScript Code debuggen können, müsstest du schon fast wissen wie der heisst. Du kannst auch auf gut Glück die Dateien betrachten.</li>
+<li>Wähle im Dev-Tool das Tab “sources”
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/DevToolSources.png" alt="dev Tool Sources"><span class="img-wrapper"><img src="./images/DevToolSources.png" alt="dev Tool Sources"></span></label>
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/DevToolSourceButton.png" alt="dev Tool Sources"><span class="img-wrapper"><img src="./images/DevToolSourceButton.png" alt="dev Tool Sources"></span></label></li>
+<li>In diesem Fall haben wir “Glück” und es gibt den Folder “javascript” und die Datei “buttons.js” umd die es wohl geht. Klicke die Datei an. Der Source-Code wird auf der rechten Seite angezeigt
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/DevToolSourceButtonDetail.png" alt="dev Tool Sources"><span class="img-wrapper"><img src="./images/DevToolSourceButtonDetail.png" alt="dev Tool Sources"></span></label></li>
+<li>Wenn du weiter schaust findest du die Funktion <code>toggleLikeButtonState</code> was wohl unser gesuchtes Stück Code sein dürfte. Klicke danach links beim Zeilenmarker mit der Maus. Du solltest eine Markierung kriegen.</li>
+<li>Drücke jetzt nochmals auf den like button. Wenn es geklappt hat, siehst du im Dev Tool nun die Stelle umrandet. Zudem etwas weiter rechts noch die ganzen debug tools. Auf der Seite selbst steht ebenfalls eine Info.
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/DevToolScript.png" alt="dev Tool Break"><span class="img-wrapper"><img src="./images/DevToolScript.png" alt="dev Tool Break"></span></label>
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/DevToolStepper.png" alt="dev Tool Break"><span class="img-wrapper"><img src="./images/DevToolStepper.png" alt="dev Tool Break"></span></label></li>
+<li>Mit F10 oder dem button kannst du nun einzeln weiter gehen. Im Code kannst du bei fast allen Elementen mit der Maus darüber fahren und siehst die Details dazu</li>
+<li>Wir haben aktuell am Anfang gestoppt. Daher ist <code>currentState</code> noch nicht gefüllt
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/DevToolBreak.png" alt="dev Tool Break"><span class="img-wrapper"><img src="./images/DevToolBreak.png" alt="dev Tool Break"></span></label>
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/DevToolValues.png" alt="dev Tool Break"><span class="img-wrapper"><img src="./images/DevToolValues.png" alt="dev Tool Break"></span></label></li>
+<li>Drücke jetzt auf den Button oder F10 einmal
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/DevToolValuesInScript.png" alt="dev Tool Break"><span class="img-wrapper"><img src="./images/DevToolValuesInScript.png" alt="dev Tool Break"></span></label></li>
+<li>Jetzt siehst du das der Zeiger eins weiter gewandert ist und die Variable <code>currentState</code> den aktuellen Wert anzeigt. In diesem Fall <code>inactive</code></li>
+<li>Jetzt kannst du beliebig weiter steppen. Beispielsweise ist es dann spannend, ob beim ersten <code>if</code> im code das richtige passiert?</li>
+<li>Mit jedem Step siehst du auch, wie sich das HTML anpasst, vorausgesetzt, der Schritt ändert auch tatsächlich was. Bei Zeile 50+ werden die Texte, Farben etc. angepasst.</li>
+<li>Gehe mal ganz durch, bis du wieder “normal” bist und drücke denn Like-Button nochmals. Du solltest dann beim <code>if</code> in die andere Variante reinlaufen</li>
+</ol>
+<h2 id="was-kann-ich-tun-wenn-ich-nicht-weiss-in-welchem-file-die-änderung-gemacht-wird"><a class="header" href="#was-kann-ich-tun-wenn-ich-nicht-weiss-in-welchem-file-die-änderung-gemacht-wird">Was kann ich tun, wenn ich nicht weiss in welchem File die Änderung gemacht wird?</a></h2>
+<ol>
+<li>Wir hatten vorhin “glück” dass wir das File einfach so gefunden haben.</li>
+<li>Lösche den aktuellen Breakpoint im buttons.js file wieder. Dies kannst du auf verschiedene Wege. Das einfachste ist wohl einfach nochmals an der Stelle zu klicken und die Markierung sollte verschwinden</li>
+<li>Gehe dann im Dev-Tool zurück ins Tab “Elements” wo das html angezeigt</li>
+<li>Suche den Button (oder mit dem Fadenkreuz anwählen) damit du an der richtigen Stell im HTML bist</li>
+<li>Mache dann einen Rechtsklick und wähle “Break on” -&gt; “subtree modifications”
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/DevToolBreakOnSubtree.png" alt="dev Tool Break Subtree"><span class="img-wrapper"><img src="./images/DevToolBreakOnSubtree.png" alt="dev Tool Break Subtree"></span></label></li>
+<li>Klicke dann nochmals den Button</li>
+<li>Du solltest an genau der Stelle “breaken” -&gt; pausieren, wo durch das Javascript der Text geändert wird
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/DevToolPausedOnBreakpoint.png" alt="dev Tool Break"><span class="img-wrapper"><img src="./images/DevToolPausedOnBreakpoint.png" alt="dev Tool Break"></span></label></li>
+<li>Dies ist super hilfreich, wenn du ein Verhalten im HTML prüfen willst und durch welches Javascript das genau ausgelöst wird.</li>
+<li>Im Debug Tool siehst du alle aktiven Breakpoints. Die dom-Breakpoints kannst du so prüfen und auch wieder löschen
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/DevToolDomBreakpoints.png" alt="dev Tool Breakpoints"><span class="img-wrapper"><img src="./images/DevToolDomBreakpoints.png" alt="dev Tool Breakpoints"></span></label></li>
+</ol>
+<h2 id="was-wenn-ich-einfach-egal-wo-im-html-wenn-es-geklickt-wird-will-ich-das-javascript-finden"><a class="header" href="#was-wenn-ich-einfach-egal-wo-im-html-wenn-es-geklickt-wird-will-ich-das-javascript-finden">Was wenn ich einfach “egal wo im HTML, wenn es geklickt wird will ich das Javascript finden”?</a></h2>
+<p>Auch da hilft dir Chrome…</p>
+<ol>
+<li>Lösche allfällig vorhandene Breakpoints (inklusive den vorherigen DOM)</li>
+<li>Gehe dort wo du die DOM Breakpoints siehst weiter nach unten und klappe “Event Listener Breakpoints” auf</li>
+<li>Wähle “mouse” und dann “click”
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/DevToolBreakOnClick.png" alt="dev Tool Break on Listener"><span class="img-wrapper"><img src="./images/DevToolBreakOnClick.png" alt="dev Tool Break on Listener"></span></label></li>
+<li>Klicke nochmals auf den Button oder auch bewusst dieses Mal auf einen anderen</li>
+<li>Der Debugger sollte dich automatisch dorthin führen, wo tatsächlich der “Start” Code liegt
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/DevToolPausedOnClick.png" alt="dev Tool Break"><span class="img-wrapper"><img src="./images/DevToolPausedOnClick.png" alt="dev Tool Break"></span></label></li>
+</ol>
+<h2 id="und-wenn-ich-aus-meinen-code-heraus-genau-sagen-will-wo-es-stoppen-soll"><a class="header" href="#und-wenn-ich-aus-meinen-code-heraus-genau-sagen-will-wo-es-stoppen-soll">Und wenn ich aus meinen Code heraus genau sagen will, wo es stoppen soll?</a></h2>
+<p>Es kann sein, dass du Zugang zum Code hast, weil du gerade entwickelst. Dann weisst du ev. genau welchen Teil des Skripts du genauer untersuchen möchtest. Alternativ kannst du auch mit <a href="./debugVsCode.html">VS Code debuggen</a></p>
+<p>Öffne bei dir im VS Code einen Stand mit JavaScript. Entweder das gleiche Beispiel wie oben oder sonst irgendwas anderes. Öffne das JavaScript im VS Code. Gehe beispielsweise zum Buttons.js</p>
+<p>Schreibe an der Stelle, an der du den Debugger nutzen willst “debugger;” rein</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/DebbuggerStatement.png" alt="debugger statement"><span class="img-wrapper"><img src="./images/DebbuggerStatement.png" alt="debugger statement"></span></label></p>
+<p>Öffne die Page mit dem LiveServer und dann das Dev Tool wie vorhin. Drücke einen Button.
+Der Debugger stoppt an genau der Stelle.</p>
+<p>Das kann helfen, wenn du auch verstehen willst, wo dein File/Code genau liegt. Vor allem wenn du mit React, Angular oder ähnlichen Bibliotheken arbeitest, kann es sein, dass dein Code nochmals umgewandelt wird.</p>
+<p>Aber Achtung! Du darfst das “debugger” statement natürlich nicht produkiv ausliefern. Sonst stoppt die Page bei allen, die gleichzeitig das Dev Tool öffnen (wenigstens nur dann :D )</p>
+<h3 id="weitere-infos-zum-chrome-debug-tool"><a class="header" href="#weitere-infos-zum-chrome-debug-tool">Weitere Infos zum Chrome Debug Tool</a></h3>
+<p>Noch viel umfassender findest du die Debug Tools Erklärungen hier <a href="https://developer.chrome.com/docs/devtools/javascript?hl=de">Chrome Debug Tool</a></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../05_javascript/debugJs.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
 
-                            <a rel="next prefetch" href="01_links/links.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../05_javascript/debugVsCode.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -212,8 +259,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../05_javascript/debugJs.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
 
-                    <a rel="next prefetch" href="01_links/links.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../05_javascript/debugVsCode.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
@@ -233,13 +283,13 @@
         </script>
 
 
-        <script src="elasticlunr-ef4e11c1.min.js"></script>
-        <script src="mark-09e88c2c.min.js"></script>
-        <script src="searcher-09f2665d.js"></script>
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
-        <script src="clipboard-1626706a.min.js"></script>
-        <script src="highlight-abc7f01d.js"></script>
-        <script src="book-609e4cb8.js"></script>
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
 
         <!-- Custom JS scripts -->
 

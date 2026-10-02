@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Willkommen - Learn To Build A Web Page</title>
+        <title> Table auto design - Learn To Build A Web Page</title>
 
 
         <!-- Custom HTML head -->
@@ -12,33 +12,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon-de23e50b.svg">
-        <link rel="shortcut icon" href="favicon-8114d1fc.png">
-        <link rel="stylesheet" href="css/variables-8adf115d.css">
-        <link rel="stylesheet" href="css/general-e96d0476.css">
-        <link rel="stylesheet" href="css/chrome-d279d366.css">
-        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+        <link rel="icon" href="../../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+        <link rel="stylesheet" href="../../fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
-        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
-        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "";
+            const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-19de432b.js";
+            window.path_to_searchindex_js = "../../searchindex-19de432b.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-ab2db50f.js"></script>
+        <script src="../../toc-ab2db50f.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -105,7 +105,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
             </noscript>
             <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -140,7 +140,7 @@
                     <h1 class="menu-title">Learn To Build A Web Page</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
 
@@ -174,35 +174,219 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="willkommen"><a class="header" href="#willkommen">Willkommen</a></h1>
-<p>Dieser Kurs ermöglicht dir einen Einstieg in die Webentwicklung. Anhand einer beispielhaften Blogseite baust du Schritt für Schritt eine Webseite nach und lernst, wie Inhalt, Gestaltung und Interaktion zusammenspielen.</p>
-<h2 id="wie-hängt-das-zusammen"><a class="header" href="#wie-hängt-das-zusammen">Wie hängt das zusammen?</a></h2>
-<p>Eine Webseite im Browser entsteht aus mehreren Bausteinen:</p>
-<pre><code class="language-text">Webseite im Browser
-├── HTML        Inhalt und Struktur
-├── CSS         Aussehen und Layout
-└── JavaScript  Verhalten und Interaktion
-	├── React   UI-Bibliothek für Komponenten
-	└── Angular Webframework, meist mit TypeScript
+                        <h1 id="table-auto-design"><a class="header" href="#table-auto-design">Table auto design</a></h1>
+<h2 id="das-problem"><a class="header" href="#das-problem">Das Problem</a></h2>
+<p>Wenn du den letzten Stand aus dem <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/02_html_css/09_blog_page_completed">GitHub Repository</a> nimmst, findest du eine Tabelle für die Benchmark-Übersicht.</p>
+<p>Die Tabelle startet hier: <a href="https://github.com/rekoch/learnWebEngineering/blob/main/public/02_html_css/09_blog_page_completed/index.html#L202">index.html#L202</a></p>
+<h3 id="design-herausforderung"><a class="header" href="#design-herausforderung">Design-Herausforderung</a></h3>
+<p>Obwohl die Tabelle funktioniert, hat sie ein <strong>fundamentales Problem</strong>: Die Breite der Diagramm-Säulen ist fest im HTML hinterlegt.</p>
+<pre><code class="language-html">&lt;p
+  class="table-background-brown text-right mt-xxs mb-xxs pr-s py-xxs"
+  style="width: 24%"
+&gt;&lt;/p&gt;
 </code></pre>
+<p><strong>CSS hat hier seine Grenzen</strong> - Breiten und Höhen basierend auf “anderen” Elementen zu definieren, kann CSS nicht.</p>
+<h3 id="ziele-der-dynamischen-tabelle"><a class="header" href="#ziele-der-dynamischen-tabelle">Ziele der dynamischen Tabelle</a></h3>
+<p>Wir möchten eine Tabelle, die folgendes kann:</p>
+<ol>
+<li><strong>Automatische Berechnung</strong>: 100% Breite = höchster Wert, alle anderen prozentual abgeleitet</li>
+<li><strong>Dynamische Anpassung</strong>: Ändern sich Werte, passt sich das Design automatisch an</li>
+<li><strong>Wiederverwendbarkeit</strong>: Tabelle kann kopiert und mit neuen Werten verwendet werden</li>
+</ol>
+<hr>
+<h2 id="javascript-setup"><a class="header" href="#javascript-setup">JavaScript Setup</a></h2>
+<h3 id="grundlagen-javascript-einbinden"><a class="header" href="#grundlagen-javascript-einbinden">Grundlagen JavaScript einbinden</a></h3>
+<p>Informationen zum Einbinden findest du auf <a href="https://wiki.selfhtml.org/wiki/JavaScript_in_HTML_einbinden">SelfHTML</a>.</p>
+<p><strong>Unser Ansatz:</strong></p>
 <ul>
-<li><strong>HTML</strong> beschreibt den Inhalt und seine Struktur, zum Beispiel Überschriften, Bilder und Buttons.</li>
-<li><strong>CSS</strong> gestaltet diese Elemente: Farben, Abstände, Schrift und das Layout auf verschiedenen Bildschirmgrössen.</li>
-<li><strong>JavaScript</strong> macht die Seite interaktiv, zum Beispiel indem ein Button auf einen Klick reagiert.</li>
-<li><strong>React</strong> ist eine JavaScript-Bibliothek für Benutzeroberflächen. <strong>Angular</strong> ist ein umfassendes Webframework, das meist mit TypeScript verwendet wird. Beide helfen dabei, Oberflächen aus wiederverwendbaren Bausteinen, sogenannten Komponenten, aufzubauen und zu aktualisieren.</li>
+<li>Script am <strong>Ende der Seite</strong> laden (bessere Performance - First Contentful Paint)</li>
+<li><strong>Module-System</strong> für strukturierte Code-Organisation</li>
 </ul>
-<p>Ein Like-Button macht das Zusammenspiel greifbar: HTML legt den Button an, CSS gestaltet ihn, und JavaScript zählt die Klicks. Mit React oder Angular lässt sich der Button als eigene Komponente bauen, die ihren Zählerstand selbst verwaltet.</p>
-<h2 id="wieso-lohnt-sich-das"><a class="header" href="#wieso-lohnt-sich-das">Wieso lohnt sich das?</a></h2>
-<p>Mit diesen Grundlagen kannst du eigene Webseiten bauen und besser verstehen, wie sie funktionieren. Du lernst, Probleme selbst zu finden und zu beheben, statt nur fertige Lösungen zu übernehmen. Das Wissen hilft dir auch später mit Werkzeugen wie React und Angular: Du erkennst, welche Aufgabe sie übernehmen und was im Browser passiert.</p>
-<p>Wir beginnen mit HTML und CSS und ergänzen danach JavaScript. So baust du dein Wissen Schritt für Schritt auf.</p>
-<p>Viel Spass beim Lernen und Ausprobieren!</p>
+<h3 id="ordnerstruktur-erstellen"><a class="header" href="#ordnerstruktur-erstellen">Ordnerstruktur erstellen</a></h3>
+<p>Erstelle einen <code>javascript</code> Ordner mit folgenden Dateien:</p>
+<pre><code>javascript/
+├── main.js
+└── tables.js
+</code></pre>
+<h3 id="javascript-verknüpfen"><a class="header" href="#javascript-verknüpfen">JavaScript verknüpfen</a></h3>
+<p><strong>1. In <code>main.js</code> das tables.js importieren:</strong></p>
+<pre><code class="language-javascript">import "./tables.js";
+</code></pre>
+<p><strong>2. Am Ende von <code>index.html</code> (vor <code>&lt;/body&gt;</code>):</strong></p>
+<pre><code class="language-html">&lt;script src="javascript/main.js" type="module"&gt;&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<blockquote>
+<p>💡 <strong>Wichtig</strong>: <code>type="module"</code> ermöglicht das Importieren anderer Scripts</p>
+</blockquote>
+<h3 id="test-der-einbindung"><a class="header" href="#test-der-einbindung">Test der Einbindung</a></h3>
+<p><strong>In <code>tables.js</code> einfügen:</strong></p>
+<pre><code class="language-javascript">console.log("tables.js loaded");
+</code></pre>
+<p><strong>Testen:</strong></p>
+<ol>
+<li><code>index.html</code> über LiveServer öffnen</li>
+<li>Chrome DevTools → <strong>Console</strong></li>
+<li>Seite neu laden</li>
+</ol>
+<p>Du solltest den Text sehen! 🥳 Klick rechts auf das Script-Link - es führt direkt zur Datei.
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./images/ChromeWebTool.png" alt="Console log"><span class="img-wrapper"><img src="./images/ChromeWebTool.png" alt="Console log"></span></label></p>
+<hr>
+<h2 id="dom-manipulation"><a class="header" href="#dom-manipulation">DOM-Manipulation</a></h2>
+<h3 id="das-document-object-model-dom"><a class="header" href="#das-document-object-model-dom">Das Document Object Model (DOM)</a></h3>
+<p>Der Browser stellt JavaScript das <strong>DOM</strong> zur Verfügung - eine JavaScript-Repräsentation des gesamten HTML. Über diese Schnittstelle lassen sich Inhalte auslesen und manipulieren.</p>
+<h3 id="elemente-finden-mit-queryselectorall"><a class="header" href="#elemente-finden-mit-queryselectorall">Elemente finden mit <code>querySelectorAll</code></a></h3>
+<pre><code class="language-javascript">document.querySelectorAll("[selector]");
+</code></pre>
+<p>Findet alle Nodes mit dem angegebenen Selektor. Mehr dazu: <a href="https://developer.mozilla.org/de/docs/Web/API/Document/querySelectorAll">MDN querySelectorAll</a></p>
+<hr>
+<h2 id="data-attribute-for-the-win"><a class="header" href="#data-attribute-for-the-win">Data-Attribute for the Win</a></h2>
+<h3 id="das-problem-lösen"><a class="header" href="#das-problem-lösen">Das Problem lösen</a></h3>
+<p><strong>Problem</strong>: Suche nach <code>div</code> findet zu viele unnötige Elemente.<br><strong>Lösung</strong>: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/How_to/Use_data_attributes">Data-Attribute</a></p>
+<p><strong>Vorteile von Data-Attributen:</strong></p>
+<ul>
+<li>Werden von Screenreadern ignoriert</li>
+<li>Stören HTML-Struktur minimal</li>
+<li>Geben JavaScript mehr “Wissen”</li>
+</ul>
+<h3 id="tabelle-markieren"><a class="header" href="#tabelle-markieren">Tabelle markieren</a></h3>
+<p><strong>Tabellen-Container markieren:</strong>
+Dies ist ein neues <code>div</code> Element welches um die bestehende Tabelle erweitert werden muss. Achte darauf, dass du das <code>&lt;/div&gt;</code> nach der Tabelle schliesst.</p>
+<pre><code class="language-html">&lt;div data-table-name="benchmark"&gt;
+  &lt;h4 class="font-20 mb-s"&gt;XP-Pen Magic Notepad - CPU Benchmark&lt;/h4&gt;
+  &lt;!-- ... restliches HTML ... --&gt;
+  &lt;p class="font-13 font-color-light"&gt;Score (higher is better)&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>Jede Column markieren:</strong></p>
+<pre><code class="language-html">&lt;p
+  class="table-background-brown text-right mt-xxs mb-xxs pr-s py-xxs"
+  data-table-column
+&gt;
+  720
+&lt;/p&gt;
+</code></pre>
+<blockquote>
+<p><strong>Alternative</strong>: <code>data-table-type</code> statt <code>data-table-name</code> für verschiedene Tabellentypen</p>
+</blockquote>
+<hr>
+<h2 id="javascript-implementierung"><a class="header" href="#javascript-implementierung">JavaScript-Implementierung</a></h2>
+<h3 id="1-tabellen-finden"><a class="header" href="#1-tabellen-finden">1 Tabellen finden</a></h3>
+<pre><code class="language-javascript">document.querySelectorAll("[data-table-name]").forEach((table) =&gt; {
+  // Code für jede Tabelle
+});
+</code></pre>
+<p>Foreach siehe <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">foreach Erklärung</a></p>
+<h3 id="2-spalten-finden-und-höchsten-wert-ermitteln"><a class="header" href="#2-spalten-finden-und-höchsten-wert-ermitteln">2 Spalten finden und höchsten Wert ermitteln</a></h3>
+<p>Jetzt haben wir das Tabellen Element und können innerhalb wiederum all unsere Spalten finden. Wieso brauchen wir das? Damit die Breite der Spalten stimmt, müssen wir zuerst den höchsten Wert finden. Denn dieser bestimmt 100%. Davon abgeleitet können wir dann berechnen, wie viel % Breit die Spalte sein sollte.</p>
+<p>Zuerst suchen wir uns alle columns. Danach gehen wir durch alle Spalten durch und merken uns den höchsten Wert. Dass kannst du mit einer lokalen Variable machen. Diese muss mit <code>let</code> definiert sein, wenn du den Werte anpassen willst. Ist der Wert Schreibgeschützt kannst du <code>const</code> nutzen. In unserem Fall brauchen wir <code>let</code> da wir den Wert neu schreiben, wenn er grösser als der vorherige ist.</p>
+<pre><code class="language-javascript">document.querySelectorAll("[data-table-name]").forEach((table) =&gt; {
+  
+  // neuer Code
+  const columns = table.querySelectorAll("[data-table-column]");
+
+  let columnWidest = 0;
+  columns.forEach((col) =&gt; {
+    const colWidth = Number(col.innerText);
+    if (colWidth &gt; columnWidest) {
+      columnWidest = colWidth;
+    }
+  });
+  // neuer Code
+  
+});
+</code></pre>
+<p><strong>Erklärung:</strong></p>
+<ul>
+<li><code>col.innerText</code>: Nur Text, keine HTML-Tags oder Leerzeichen</li>
+<li><code>Number()</code>: Konvertiert Text zu Zahl für Vergleiche</li>
+<li>Optional: <code>trim()</code> für Leerzeichen entfernen</li>
+</ul>
+<h3 id="3-breiten-berechnen-und-setzen"><a class="header" href="#3-breiten-berechnen-und-setzen">3 Breiten berechnen und setzen</a></h3>
+<pre><code class="language-javascript">document.querySelectorAll("[data-table-name]").forEach((table) =&gt; {
+  const columns = table.querySelectorAll("[data-table-column]");
+
+  let columnWidest = 0;
+  columns.forEach((col) =&gt; {
+    const colWidth = Number(col.innerText);
+    if (colWidth &gt; columnWidest) {
+      columnWidest = colWidth;
+    }
+  });
+  // neuer Code
+  columns.forEach((col) =&gt; {
+    const colWidth = col.innerText;
+    const width = (100 / columnWidest) * colWidth;
+    col.style.width = `${width}%`;
+  });
+  // neuer Code
+});
+</code></pre>
+<h3 id="4-html-style-entfernen"><a class="header" href="#4-html-style-entfernen">4 HTML-Style entfernen</a></h3>
+<p>Da JavaScript die Breite berechnet, kannst du das <code>style="width: 24%"</code> im HTML entfernen:</p>
+<pre><code class="language-html">&lt;p
+  class="table-background-brown text-right mt-xxs mb-xxs pr-s py-xxs"
+  data-table-column
+&gt;&lt;/p&gt;
+</code></pre>
+<p>Im Prinzip kannst du es als Rückfall drin lassen, sollte das JavaScript nicht geladen werden.</p>
+<hr>
+<h2 id="erweiterte-version-kürzer-aber-komplexer"><a class="header" href="#erweiterte-version-kürzer-aber-komplexer">Erweiterte Version (Kürzer aber komplexer)</a></h2>
+<h3 id="kompakte-lösung"><a class="header" href="#kompakte-lösung">Kompakte Lösung</a></h3>
+<pre><code class="language-javascript">const maxWidth = Math.max(
+  ...Array.from(columns, (col) =&gt; Number(col.innerText))
+);
+columns.forEach((col) =&gt; {
+  col.style.width = `${(100 * Number(col.innerText)) / maxWidth}%`;
+});
+</code></pre>
+<h3 id="erklärung-der-neuen-konzepte"><a class="header" href="#erklärung-der-neuen-konzepte">Erklärung der neuen Konzepte</a></h3>
+<h4 id="mathmax"><a class="header" href="#mathmax"><code>Math.max()</code></a></h4>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max">MDN Math.max</a> - Gibt den höchsten Wert zurück.</p>
+<h4 id="arrayfrom"><a class="header" href="#arrayfrom"><code>Array.from()</code></a></h4>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from">MDN Array.from</a> - Erstellt Array aus Columns und deren innerText-Werten: <code>[720, 789, 1023]</code></p>
+<h4 id="spread-operator-"><a class="header" href="#spread-operator-">Spread Operator <code>...</code></a></h4>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax">MDN Spread Syntax</a> - “Spreaded” Array-Elemente als einzelne Parameter:</p>
+<ul>
+<li><code>Math.max([1,2,3])</code> ❌ funktioniert nicht</li>
+<li><code>Math.max(...[1,2,3])</code> ✅ funktioniert → <code>Math.max(1,2,3)</code></li>
+</ul>
+<h4 id="template-literals"><a class="header" href="#template-literals">Template Literals</a></h4>
+<pre><code class="language-javascript">`${(100 * Number(col.innerText)) / maxWidth}%`;
+</code></pre>
+<p>Mit <code>${}</code> können Variablen und Berechnungen direkt im String verwendet werden.</p>
+<hr>
+<h2 id="fazit"><a class="header" href="#fazit">Fazit</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Ansatz</th><th>Vorteile</th><th>Nachteile</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Ausführlich</strong></td><td>Gut verständlich, lernfreundlich</td><td>Mehr Code</td></tr>
+<tr><td><strong>Kompakt</strong></td><td>Weniger Code, eleganter</td><td>Erfordert mehr JS-Wissen</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="lernempfehlung"><a class="header" href="#lernempfehlung">Lernempfehlung</a></h3>
+<ol>
+<li><strong>Beginne</strong> mit der ausführlichen Version</li>
+<li><strong>Verstehe</strong> jeden Schritt</li>
+<li><strong>Erweitere</strong> Wissen schrittweise zu kompakteren Lösungen</li>
+</ol>
+<blockquote>
+<p>💡 <strong>AI &amp; Google</strong>: Du wirst oft auf kompakte Varianten stoßen - je mehr du lernst, desto verständlicher werden sie!</p>
+</blockquote>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../05_javascript/blogPageIntelligence/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
 
-                            <a rel="next prefetch" href="01_links/links.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../05_javascript/blogPageIntelligence/buttons.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -212,8 +396,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../05_javascript/blogPageIntelligence/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
 
-                    <a rel="next prefetch" href="01_links/links.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../05_javascript/blogPageIntelligence/buttons.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
@@ -233,13 +420,13 @@
         </script>
 
 
-        <script src="elasticlunr-ef4e11c1.min.js"></script>
-        <script src="mark-09e88c2c.min.js"></script>
-        <script src="searcher-09f2665d.js"></script>
+        <script src="../../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../../mark-09e88c2c.min.js"></script>
+        <script src="../../searcher-09f2665d.js"></script>
 
-        <script src="clipboard-1626706a.min.js"></script>
-        <script src="highlight-abc7f01d.js"></script>
-        <script src="book-609e4cb8.js"></script>
+        <script src="../../clipboard-1626706a.min.js"></script>
+        <script src="../../highlight-abc7f01d.js"></script>
+        <script src="../../book-609e4cb8.js"></script>
 
         <!-- Custom JS scripts -->
 
