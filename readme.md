@@ -27,8 +27,12 @@ Alle Seiten sind über Firebase Hosting erreichbar. Die Links führen direkt zu 
 
 **HTML, CSS und Javascript:**
 
-- [01 - table improvements](https://learn-web-engineering.web.app/03_javascript/01_tableImprovements/index.html)
-- [02 - buttons reactive](https://learn-web-engineering.web.app/03_javascript/02_buttonReactive/index.html)
+einige untenstehenden Referenzen können eingesehen werden, werden aber ohne laufendes Backend (lokal) funktionell nicht funktionieren.
+- [02 - table improvements](https://learn-web-engineering.web.app/03_javascript/02_tableImprovements/index.html)
+- [03 - buttons reactive](https://learn-web-engineering.web.app/03_javascript/03_buttonReactive/index.html)
+- [04 - backend](https://learn-web-engineering.web.app/03_javascript/04_02_connectBackend/index.html)
+- [05 - like with Backend](https://learn-web-engineering.web.app/03_javascript/05_likeWithBackendIntegration/index.html)
+- [06 - follow with Backend](https://learn-web-engineering.web.app/03_javascript/06_followButtonsWithBackendIntegration/index.html)
 
 ## Hinweise
 
