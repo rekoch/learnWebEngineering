@@ -1,6 +1,6 @@
 # React-Blogseite mit TypeScript
 
-Der Beispielstand zum Kapitel «Blogseite mit React und TypeScript». Die Seite ist vorerst eine einzige grosse `App`-Komponente. Like- und Follow-Zustände bleiben lokal im Browser; es gibt keine Backend-Anbindung.
+Der statische Beispielstand zum Kapitel «Blogseite mit React und TypeScript». Die Seite ist eine einzige grosse `App`-Komponente mit dem übertragenen HTML und CSS. Die Like- und Follow-Buttons haben noch keine Funktion. State und Click-Handler folgen in den nächsten Kapiteln; es gibt keine Backend-Anbindung.
 
 ## Starten
 
@@ -16,4 +16,3 @@ npm run build
 ```
 
 Die Styles werden vorerst direkt aus dem vorherigen JavaScript-Projekt eingebunden.
-```

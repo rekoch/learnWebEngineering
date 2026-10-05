@@ -1,6 +1,17 @@
+import { useState } from "react";
 import "../../../03_javascript/03_buttonReactive/main.css";
 
 function App() {
+  const [liked, setLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(59);
+  const [followsAuthor, setFollowsAuthor] = useState(false);
+  const [followsTopic, setFollowsTopic] = useState(false);
+
+  function toggleLike() {
+    setLiked(!liked);
+    setLikeCount(likeCount + (liked ? -1 : 1));
+  }
+
   return (
     <>
       <iframe
@@ -191,12 +202,14 @@ function App() {
         <section className="mt-xl mb-xxl text-center">
           <button
             type="button"
-            className="primary mb-s font-small align-items-center text-center"
+            aria-pressed={liked}
+            className={`mb-s font-small align-items-center text-center ${liked ? "" : "primary"}`}
+            onClick={toggleLike}
           >
-            Dieser Beitrag gefällt mir!
+            {liked ? "Dieser Beitrag gefällt mir nicht mehr" : "Dieser Beitrag gefällt mir!"}
           </button>
           <p className="mt-0 mb-m font-small">
-            <span>59</span> Personen gefällt dieser Beitrag
+            <span>{likeCount}</span> Personen gefällt dieser Beitrag
           </p>
         </section>
 
@@ -220,9 +233,11 @@ function App() {
           <div className="col-12 col-sm-start-auto col-sm-end-13 text-center">
             <button
               type="button"
-              className="primary"
+              aria-pressed={followsAuthor}
+              className={followsAuthor ? "" : "primary"}
+              onClick={() => setFollowsAuthor(!followsAuthor)}
             >
-              Autorin folgen
+              {followsAuthor ? "Autorin nicht mehr folgen" : "Autorin folgen"}
             </button>
           </div>
         </section>
@@ -235,9 +250,11 @@ function App() {
           <div className="col-12 col-sm-start-auto col-sm-end-13 text-center">
             <button
               type="button"
-              className="primary"
+              aria-pressed={followsTopic}
+              className={followsTopic ? "" : "primary"}
+              onClick={() => setFollowsTopic(!followsTopic)}
             >
-              Thema folgen
+              {followsTopic ? "Thema entfolgen" : "Thema folgen"}
             </button>
           </div>
         </section>

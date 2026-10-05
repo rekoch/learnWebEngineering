@@ -51,3 +51,5 @@
 # React
 - [Einstieg](./07_react/01_intro.md)
 - [Blogseite mit React und TypeScript](./07_react/02_umwandeln.md)
+- [State in React](./07_react/03_state.md)
+- [Buttons mit React](./07_react/04_buttons.md)
