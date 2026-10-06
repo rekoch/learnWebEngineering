@@ -1,6 +1,6 @@
 # Das Backend wieder anbinden
 
-Unsere Seite ist jetzt in Komponenten aufgeteilt. Bilder, Artikelvorschauen und Vergleichstabelle funktionieren bereits. Likes und Follow-Auswahl sind aber noch lokale Zustände, die beim Neuladen verloren gehen. Im letzten React-Kapitel ersetzen wir diese lokale Simulation durch die bestehende Backend-Anbindung.
+Unsere Seite ist jetzt in Komponenten aufgeteilt. Bilder, Artikelvorschauen und Vergleichstabelle funktionieren bereits. Likes und Follow-Auswahl sind aber noch lokale Zustände, die beim Neuladen verloren gehen. In diesem Kapitel ersetzen wir diese lokale Simulation durch die bestehende Backend-Anbindung.
 
 Ausgangspunkt ist dein Stand nach [Die Seite in Komponenten aufteilen](./06_components_abschliessen.md). Ziel ist dieselbe Funktionalität wie im [letzten JavaScript-Endstand mit Follow-Buttons](https://github.com/rekoch/learnWebEngineering/tree/main/public/03_javascript/06_followButtonsWithBackendIntegration): gespeicherte Likes, der tatsächliche Like-Zähler und die gespeicherten Follow-Zustände der Autorin und des Themas, jeweils für die ausgewählte Benutzer-ID.
 
@@ -220,3 +220,5 @@ Im Referenzstand prüfen `npm test`, `npm run build` und `npm run lint` zusätzl
 Die Funktionen des früheren JavaScript-Endstands sind jetzt wieder vorhanden: Vergleichsbalken, Like-Auswahl und Zähler sowie beide gespeicherten Follow-Zustände. Neu ist die Struktur: Die Oberfläche setzt sich aus Komponenten zusammen, die Anzeige entsteht aus State und Props, und die Backend-Arbeit ist getrennt von der Darstellung.
 
 Wir haben nicht einfach die alten DOM-Skripte in React geladen, sondern ihre Aufgaben in den React-Datenfluss übertragen. Die Component-Aufteilung ist damit abgeschlossen; weitere Bausteine sollten aus neuen Anforderungen entstehen, nicht aus dem Wunsch nach möglichst vielen Dateien.
+
+Im [Abschlusskapitel](./08_abschluss.md) vergleichen wir die beiden Endstände und fassen zusammen, was wir im React-Teil gelernt haben.

@@ -56,3 +56,4 @@
     - [Komponenten mit React](./07_react/05_components.md)
     - [Die Seite in Komponenten aufteilen](./07_react/06_components_abschliessen.md)
 - [Das Backend wieder anbinden](./07_react/07_backend.md)
+- [Abschluss: Von JavaScript zu React](./07_react/08_abschluss.md)

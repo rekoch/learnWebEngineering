@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-e6e2075b.js";
+            window.path_to_searchindex_js = "searchindex-0f58b274.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-73cb56ac.js"></script>
+        <script src="toc-6c46951c.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -5563,10 +5563,10 @@ export default function App() {
 <li>Prüfe die Seite auch bei schmalem Browserfenster: Texte und Werte dürfen nicht abgeschnitten werden.</li>
 </ul>
 <p>Entferne anschliessend die Probeänderungen. Im Referenzstand kannst du ausserdem <code>npm test</code>, <code>npm run build</code> und <code>npm run lint</code> ausführen. Die Tests prüfen die gemeinsame Skalierung, Nullwerte, leere Daten und unabhängige Instanzen.</p>
-<p>Im <a href="#das-backend-wieder-anbinden">letzten Kapitel</a> verbinden wir diese Komponenten wieder mit dem vorhandenen Backend.</p>
+<p>Im <a href="#das-backend-wieder-anbinden">nächsten Kapitel</a> verbinden wir diese Komponenten wieder mit dem vorhandenen Backend.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="das-backend-wieder-anbinden"><a class="header" href="#das-backend-wieder-anbinden">Das Backend wieder anbinden</a></h1>
-<p>Unsere Seite ist jetzt in Komponenten aufgeteilt. Bilder, Artikelvorschauen und Vergleichstabelle funktionieren bereits. Likes und Follow-Auswahl sind aber noch lokale Zustände, die beim Neuladen verloren gehen. Im letzten React-Kapitel ersetzen wir diese lokale Simulation durch die bestehende Backend-Anbindung.</p>
+<p>Unsere Seite ist jetzt in Komponenten aufgeteilt. Bilder, Artikelvorschauen und Vergleichstabelle funktionieren bereits. Likes und Follow-Auswahl sind aber noch lokale Zustände, die beim Neuladen verloren gehen. In diesem Kapitel ersetzen wir diese lokale Simulation durch die bestehende Backend-Anbindung.</p>
 <p>Ausgangspunkt ist dein Stand nach <a href="#die-seite-in-komponenten-aufteilen">Die Seite in Komponenten aufteilen</a>. Ziel ist dieselbe Funktionalität wie im <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/03_javascript/06_followButtonsWithBackendIntegration">letzten JavaScript-Endstand mit Follow-Buttons</a>: gespeicherte Likes, der tatsächliche Like-Zähler und die gespeicherten Follow-Zustände der Autorin und des Themas, jeweils für die ausgewählte Benutzer-ID.</p>
 <p>Der <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/07_react/07_backend-integration">React-Referenzstand mit Backend</a> liegt in <code>public/07_react/07_backend-integration</code>. Wir verwenden dasselbe Backend, keine neue Datenbank und keinen neuen API-Vertrag.</p>
 <h2 id="was-bleibt-was-ändert-sich"><a class="header" href="#was-bleibt-was-ändert-sich">Was bleibt, was ändert sich?</a></h2>
@@ -6000,6 +6000,41 @@ Klick auf einen ToggleButton
 <h2 id="abschluss"><a class="header" href="#abschluss">Abschluss</a></h2>
 <p>Die Funktionen des früheren JavaScript-Endstands sind jetzt wieder vorhanden: Vergleichsbalken, Like-Auswahl und Zähler sowie beide gespeicherten Follow-Zustände. Neu ist die Struktur: Die Oberfläche setzt sich aus Komponenten zusammen, die Anzeige entsteht aus State und Props, und die Backend-Arbeit ist getrennt von der Darstellung.</p>
 <p>Wir haben nicht einfach die alten DOM-Skripte in React geladen, sondern ihre Aufgaben in den React-Datenfluss übertragen. Die Component-Aufteilung ist damit abgeschlossen; weitere Bausteine sollten aus neuen Anforderungen entstehen, nicht aus dem Wunsch nach möglichst vielen Dateien.</p>
+<p>Im <a href="#abschluss-von-javascript-zu-react">Abschlusskapitel</a> vergleichen wir die beiden Endstände und fassen zusammen, was wir im React-Teil gelernt haben.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="abschluss-von-javascript-zu-react"><a class="header" href="#abschluss-von-javascript-zu-react">Abschluss: Von JavaScript zu React</a></h1>
+<p>Unsere Blogseite kann wieder alles, was sie am Ende des JavaScript-Teils konnte: Vergleichsbalken darstellen, Beiträge liken und einer Autorin oder einem Thema folgen. Die Zustände werden weiterhin im selben Backend gespeichert. Für die Benutzerinnen und Benutzer ist die Seite damit weitgehend dieselbe geblieben. Für uns als Entwicklerinnen und Entwickler hat sich ihr Aufbau deutlich verändert.</p>
+<p>Vergleiche dazu die beiden Endstände:</p>
+<ul>
+<li><a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/03_javascript/06_followButtonsWithBackendIntegration">JavaScript mit Backend und Follow-Buttons</a></li>
+<li><a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/07_react/07_backend-integration">React mit Komponenten und Backend</a></li>
+</ul>
+<h2 id="weniger-selbst-organisierter-datenfluss"><a class="header" href="#weniger-selbst-organisierter-datenfluss">Weniger selbst organisierter Datenfluss</a></h2>
+<p>Im JavaScript-Stand haben wir einen eigenen Observer eingesetzt. Ein Benutzerwechsel löste ein Event aus, verschiedene Handler abonnierten dieses Event und luden ihre Daten nach. Anschliessend mussten sie die passenden DOM-Elemente suchen und Buttontexte, CSS-Klassen und Zähler aktualisieren. Auch zuletzt ausgesendete Werte und das Zusammenspiel der Handler haben wir selbst verwaltet.</p>
+<p>Im React-Stand brauchen wir diese zusätzliche Observer-Schicht nicht mehr. Der ausgewählte Benutzer und die Blogseiten-ID liegen in State. Wir geben sie als Props weiter, laden die zugehörigen Backend-Daten und aktualisieren den Zustand. React leitet daraus die Anzeige ab.</p>
+<p>Statt bei jeder Änderung mehrere Stellen der Oberfläche von Hand anzupassen, beschreiben wir einmal, <strong>wie die Oberfläche für den aktuellen Zustand aussehen soll</strong>. Ein Button erhält beispielsweise seine Auswahl und seine Beschriftungen. Ändert sich die Auswahl, rendert React den passenden Text und das passende Aussehen.</p>
+<p>Das macht den Datenfluss unserer Seite einfacher nachvollziehbar: Wir sehen, wo ein Wert liegt, welche Komponente ihn erhält und welcher Callback ihn verändern kann. Einen eigenen globalen Event-Verteiler müssen wir dafür nicht mehr pflegen.</p>
+<h2 id="wiederverwendbare-bausteine-statt-wiederholter-blöcke"><a class="header" href="#wiederverwendbare-bausteine-statt-wiederholter-blöcke">Wiederverwendbare Bausteine statt wiederholter Blöcke</a></h2>
+<p>Die Seite ist nicht mehr ein grosser HTML- bzw. JSX-Block mit danebenliegenden DOM-Skripten. <code>App</code> setzt klar benannte Bausteine zusammen.</p>
+<p>Die Artikelvorschauen verwenden dieselbe Komponente mit unterschiedlichen Daten. <code>CaptionedImage</code> beschreibt den gemeinsamen Aufbau von Bild und Legende. <code>ComparisonTable</code> hält die Darstellung und die dazugehörige Balkenberechnung zusammen. <code>ToggleButton</code> kennt weder Autorinnen noch Themen, sondern nur Auswahl, Beschriftungen und eine Aktion.</p>
+<p>Dadurch müssen wir Änderungen am gemeinsamen Aufbau nur noch einmal vornehmen. Ein weiterer Artikel braucht einen Datensatz statt einer neuen JSX-Kopie. Eine andere Vergleichstabelle braucht andere Messreihen, nicht eine Kopie des Tabellen-Skripts.</p>
+<p>Die Komponenten haben dabei bewusst unterschiedlich viel Fachwissen. Eine Autorenanzeige darf wissen, was eine Autorin ist; der darin verwendete Toggle-Button muss es nicht wissen. Entscheidend sind klare Aufgaben und passende Schnittstellen, nicht möglichst viele kleine Dateien.</p>
+<h2 id="was-weiterhin-unsere-aufgabe-bleibt"><a class="header" href="#was-weiterhin-unsere-aufgabe-bleibt">Was weiterhin unsere Aufgabe bleibt</a></h2>
+<p>React nimmt uns nicht jede Entscheidung ab. Wir müssen weiterhin festlegen, wo State hingehört und welche Komponenten ihn gemeinsam verwenden. HTTP-Anfragen können fehlschlagen, Antworten verspätet eintreffen und Schreibvorgänge noch laufen.</p>
+<p>Diese Abläufe bündeln wir im API-Service und im Hook <code>useBlogInteractions</code>. Die Anzeigekomponenten bleiben davon unabhängig: Sie erhalten Werte und Callbacks, ohne die Backend-Endpunkte zu kennen.</p>
+<p>Auch ohne React könnte man JavaScript-Code sauber strukturieren und wiederverwenden. Der Vorteil in unserem React-Stand ist, dass Komponenten, State und Props einen gemeinsamen Rahmen für diese Arbeit bieten. Die Komplexität verschwindet nicht vollständig, aber wir müssen Darstellung und Datenänderungen weniger von Hand miteinander synchronisieren.</p>
+<h2 id="was-du-gelernt-hast-1"><a class="header" href="#was-du-gelernt-hast-1">Was du gelernt hast</a></h2>
+<p>Im React-Teil hast du die bestehende Seite schrittweise weiterentwickelt:</p>
+<ul>
+<li>Ein React-Projekt mit Vite und TypeScript aufbauen und HTML nach JSX übertragen.</li>
+<li>Mit <code>useState</code> Veränderungen darstellen und Klicks über Event-Handler verarbeiten.</li>
+<li>Komponenten mit klaren Aufgaben bilden und ihre Eingaben über typisierte Props beschreiben.</li>
+<li>Daten, Anzeige und Aktionen trennen; Bausteine über <code>children</code> und Callbacks zusammensetzen.</li>
+<li>Wiederholte Inhalte aus Daten mit <code>map</code> rendern und mit stabilen Keys identifizieren.</li>
+<li>Werte wie Balkenbreiten direkt aus Daten ableiten, statt sie aus dem DOM zu lesen oder unnötig als State zu speichern.</li>
+<li>Das vorhandene Backend über einen Service und einen eigenen Hook anbinden und dabei Laden, Fehler und Cleanup berücksichtigen.</li>
+</ul>
+<p>Wir haben also nicht nur dieselbe Seite mit einer anderen Syntax geschrieben. Wir haben ihren Aufbau verändert: <strong>Daten und Zustand beschreiben die Oberfläche, Komponenten machen ihre Bausteine wiederverwendbar.</strong> Das ist die wichtigste Grundlage, auf der du weitere React-Anwendungen aufbauen kannst.</p>
 
                     </main>
 

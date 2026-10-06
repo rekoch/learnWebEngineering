@@ -250,4 +250,4 @@ Damit ist die Aufteilung für diese Seite abgeschlossen. Wir lassen den redaktio
 
 Entferne anschliessend die Probeänderungen. Im Referenzstand kannst du ausserdem `npm test`, `npm run build` und `npm run lint` ausführen. Die Tests prüfen die gemeinsame Skalierung, Nullwerte, leere Daten und unabhängige Instanzen.
 
-Im [letzten Kapitel](./07_backend.md) verbinden wir diese Komponenten wieder mit dem vorhandenen Backend.
+Im [nächsten Kapitel](./07_backend.md) verbinden wir diese Komponenten wieder mit dem vorhandenen Backend.
