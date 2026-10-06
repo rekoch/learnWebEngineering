@@ -1,0 +1,33 @@
+.comparison-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.comparison-swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 6px;
+}
+
+.comparison-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 6em;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.comparison-track {
+  min-width: 0;
+}
+
+.comparison-bar {
+  height: 24px;
+}
+
+.comparison-value {
+  text-align: right;
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,754 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Die Seite in Komponenten aufteilen - Learn To Build A Web Page</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-e6e2075b.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-73cb56ac.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learn To Build A Web Page</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="die-seite-in-komponenten-aufteilen"><a class="header" href="#die-seite-in-komponenten-aufteilen">Die Seite in Komponenten aufteilen</a></h1>
+<p>Im <a href="./05_components.html">letzten Kapitel</a> haben wir die Artikelvorschauen herausgelöst. Jetzt schliessen wir die Aufteilung unserer Seite ab. Wir bauen einen Bildbaustein, führen Darstellung und Berechnung der Vergleichstabelle zusammen und trennen die interaktiven Bereiche vom redaktionellen Inhalt.</p>
+<p>Ausgangspunkt ist dein eigener Stand nach Kapitel 05. Du brauchst kein neues Vite-Projekt. Der <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/07_react/06_components-complete">Referenzstand zu diesem Kapitel</a> liegt im Ordner <code>public/07_react/06_components-complete</code>.</p>
+<h2 id="ein-bild-mit-bildlegende"><a class="header" href="#ein-bild-mit-bildlegende">Ein Bild mit Bildlegende</a></h2>
+<p>Unsere Seite enthält acht <code>&lt;figure&gt;</code>-Blöcke mit demselben Aufbau: ein Bild und eine Bildlegende. Nur Quelle, Alternativtext und Legende unterscheiden sich. Dieser Baustein braucht weder Artikelwissen noch State.</p>
+<p>Lege <code>src/components/CaptionedImage.tsx</code> an:</p>
+<pre><code class="language-tsx">type CaptionedImageProps = {
+  src: string;
+  alt: string;
+  caption: string;
+};
+
+export default function CaptionedImage({ src, alt, caption }: CaptionedImageProps) {
+  return (
+    &lt;figure className="my-0 mx-0"&gt;
+      &lt;img src={src} alt={alt} /&gt;
+      &lt;figcaption className="font-caption"&gt;{caption}&lt;/figcaption&gt;
+    &lt;/figure&gt;
+  );
+}
+</code></pre>
+<p>Die Komponente erhält alle drei Angaben als Props. <code>alt</code> und <code>caption</code> haben unterschiedliche Aufgaben: Der Alternativtext beschreibt das Bild für Menschen, die es nicht sehen können; die Legende gehört zum sichtbaren redaktionellen Inhalt. Deshalb machen wir daraus nicht dieselbe Eingabe.</p>
+<p>Importiere <code>CaptionedImage</code> in <code>App.tsx</code> und ersetze zuerst den ersten vollständigen <code>&lt;figure&gt;...&lt;/figure&gt;</code>-Block:</p>
+<pre><code class="language-tsx">&lt;CaptionedImage
+  src="https://picsum.photos/seed/beispiel-2645/1200/800"
+  alt="Beispielbild zum Stadtgarten"
+  caption="Ein Eindruck aus dem kleinen Stadtgarten."
+/&gt;
+</code></pre>
+<p>Prüfe Bild und Legende im Browser. Ersetze danach die sieben anderen Figures nach demselben Prinzip. Die kleinen Bilder in Artikelvorschauen sowie das Profil- und Produktbild gehören nicht zu diesen Figures und bleiben vorerst an ihren bisherigen Stellen.</p>
+<h2 id="die-tabelle-ist-mehr-als-ihr-html"><a class="header" href="#die-tabelle-ist-mehr-als-ihr-html">Die Tabelle ist mehr als ihr HTML</a></h2>
+<p>Die bisherige «Tabelle» ist eine Gruppe horizontaler Vergleichsbalken, keine klassische HTML-Tabelle mit Zellen. Wir behalten diese Darstellung und nennen den Baustein <code>ComparisonTable</code>.</p>
+<p>Im <a href="https://github.com/rekoch/learnWebEngineering/blob/main/public/03_javascript/06_followButtonsWithBackendIntegration/javascript/pages/blogPage/tables.js">JavaScript-Endstand</a> hat <code>tables.js</code>:</p>
+<ol>
+<li>über <code>querySelectorAll</code> die Tabelle und ihre Balken gesucht,</li>
+<li>über <code>innerText</code> die Zahlen aus dem DOM gelesen,</li>
+<li>den grössten Wert der ganzen Tabelle ermittelt,</li>
+<li>für jeden Balken <code>style.width</code> gesetzt.</li>
+</ol>
+<p>Die Regel behalten wir bei: Der grösste Wert entspricht <code>100 %</code>, alle anderen werden dazu ins Verhältnis gesetzt. Bei unseren Daten ist <code>2979</code> das Maximum. Der Balken für <code>720</code> ist damit ungefähr <code>24.2 %</code> breit.</p>
+<p>In React haben wir die Zahlen bereits als Daten. Wir müssen sie nicht erst als Text rendern und anschliessend wieder aus dem DOM auslesen. <strong>Die Komponente berechnet die Breiten aus ihren Props und gibt Zahlen, Legende und Styles gemeinsam zurück.</strong></p>
+<h2 id="ein-wiederverwendbarer-datenvertrag"><a class="header" href="#ein-wiederverwendbarer-datenvertrag">Ein wiederverwendbarer Datenvertrag</a></h2>
+<p>Welche Informationen gehören zur Tabelle, welche nur zu unserem konkreten Stadtgarten-Beispiel?</p>
+<ul>
+<li>Eine <strong>Messreihe</strong> hat eine stabile ID, eine Bezeichnung und eine Farbe. Sie erscheint in der Legende und in jeder Vergleichsgruppe.</li>
+<li>Eine <strong>Zeile bzw. Vergleichsgruppe</strong> hat eine stabile ID, eine Bezeichnung und Werte für die Messreihen.</li>
+<li>Titel und optionaler Hinweis kommen ebenfalls von aussen.</li>
+<li>Die Berechnung kennt keine Produktnamen und benötigt weder Benutzer-ID noch Backend.</li>
+</ul>
+<p>Wir schreiben die Typen direkt in <code>ComparisonTable.tsx</code>, weil sie die Schnittstelle der Komponente beschreiben:</p>
+<pre><code class="language-ts">export type ComparisonSeries = {
+  id: string;
+  label: string;
+  color: string;
+};
+
+export type ComparisonRow = {
+  id: string;
+  label: string;
+  values: Record&lt;string, number&gt;;
+};
+</code></pre>
+<p><code>Record&lt;string, number&gt;</code> beschreibt ein Objekt mit Zeichenketten als Schlüsseln und Zahlen als Werten. Wir verwenden die IDs der Messreihen als Schlüssel, zum Beispiel <code>values["garden-a"]</code>. So hängt die Zuordnung nicht von einer zufälligen Array-Reihenfolge ab.</p>
+<p>Lege <code>src/data/comparison.ts</code> mit unseren konkreten Daten an:</p>
+<pre><code class="language-ts">import type { ComparisonRow, ComparisonSeries } from "../components/ComparisonTable";
+
+export const gardenSeries: ComparisonSeries[] = [
+  { id: "garden-a", label: "Stadtgarten A", color: "#9b7653" },
+  { id: "garden-b", label: "Stadtgarten B", color: "#d8b530" },
+  { id: "garden-c", label: "Stadtgarten C", color: "#cf5656" },
+];
+
+export const gardenRows: ComparisonRow[] = [
+  { id: "variant-a", label: "Variante A", values: { "garden-a": 720, "garden-b": 789, "garden-c": 1023 } },
+  { id: "variant-b", label: "Variante B", values: { "garden-a": 1916, "garden-b": 1823, "garden-c": 2979 } },
+];
+</code></pre>
+<p>Die IDs jeder Messreihe und jeder Zeile müssen innerhalb ihrer jeweiligen Liste eindeutig sein. Ein Tippfehler in einem <code>values</code>-Schlüssel wird bei diesem offenen <code>Record</code>-Typ nicht automatisch erkannt; kontrolliere deshalb die Zuordnung. Für eine unbekannte Messreihe verwenden wir bewusst den Wert <code>0</code>.</p>
+<h2 id="darstellung-und-berechnung-zusammenführen"><a class="header" href="#darstellung-und-berechnung-zusammenführen">Darstellung und Berechnung zusammenführen</a></h2>
+<p>Lege <code>src/components/ComparisonTable.tsx</code> an:</p>
+<pre><code class="language-tsx">import "./ComparisonTable.css";
+
+export type ComparisonSeries = {
+  id: string;
+  label: string;
+  color: string;
+};
+
+export type ComparisonRow = {
+  id: string;
+  label: string;
+  values: Record&lt;string, number&gt;;
+};
+
+type ComparisonTableProps = {
+  title: string;
+  series: ComparisonSeries[];
+  rows: ComparisonRow[];
+  note?: string;
+};
+
+function getBarWidth(value: number, maximum: number) {
+  if (!Number.isFinite(value) || value &lt;= 0 || maximum &lt;= 0) return 0;
+  return Math.min(100, (value / maximum) * 100);
+}
+
+export default function ComparisonTable({ title, series, rows, note }: ComparisonTableProps) {
+  const maximum = Math.max(0, ...rows.flatMap(row =&gt;
+    series.map(item =&gt; {
+      const value = row.values[item.id] ?? 0;
+      return Number.isFinite(value) ? value : 0;
+    }),
+  ));
+
+  return (
+    &lt;section aria-label={title}&gt;
+      &lt;h4 className="font-20 mb-s"&gt;{title}&lt;/h4&gt;
+      &lt;div className="comparison-legend"&gt;
+        {series.map(item =&gt; (
+          &lt;span key={item.id} className="font-13"&gt;
+            &lt;span className="comparison-swatch" style={{ backgroundColor: item.color }} /&gt;
+            {item.label}
+          &lt;/span&gt;
+        ))}
+      &lt;/div&gt;
+      {rows.length === 0 || series.length === 0 ? (
+        &lt;p className="font-13"&gt;Keine Vergleichsdaten vorhanden.&lt;/p&gt;
+      ) : rows.map(row =&gt; (
+        &lt;div key={row.id}&gt;
+          &lt;h5 className="font-16 font-weight-medium mb-xxs"&gt;{row.label}&lt;/h5&gt;
+          {series.map(item =&gt; {
+            const rawValue = row.values[item.id] ?? 0;
+            const value = Number.isFinite(rawValue) ? Math.max(0, rawValue) : 0;
+            return (
+              &lt;div
+                key={item.id}
+                className="comparison-row"
+                role="img"
+                aria-label={`${row.label}, ${item.label}: ${value}`}
+              &gt;
+                &lt;div className="comparison-track"&gt;
+                  &lt;div
+                    className="comparison-bar"
+                    style={{ width: `${getBarWidth(value, maximum)}%`, backgroundColor: item.color }}
+                  /&gt;
+                &lt;/div&gt;
+                &lt;span className="font-13 comparison-value"&gt;{value}&lt;/span&gt;
+              &lt;/div&gt;
+            );
+          })}
+        &lt;/div&gt;
+      ))}
+      {note &amp;&amp; &lt;p className="font-13 font-color-light"&gt;{note}&lt;/p&gt;}
+    &lt;/section&gt;
+  );
+}
+</code></pre>
+<p>Die Berechnung steht vor der JSX-Rückgabe. <code>flatMap</code> sammelt die Werte aller Zeilen in einer flachen Liste. <code>Math.max(0, ...werte)</code> bestimmt daraus das gemeinsame Maximum; die zusätzliche <code>0</code> sorgt dafür, dass auch bei leeren Daten ein sinnvolles Ergebnis entsteht.</p>
+<p><code>getBarWidth</code> ist eine kleine Hilfsfunktion im selben Modul. Sie gehört zur Aufgabe der Tabelle, aber braucht keine eigene React-Komponente. Die Zahlen bleiben die Quelle der Wahrheit; die Balkenbreite ist ein <strong>abgeleiteter Wert</strong>.</p>
+<p>Wichtig sind die Randfälle:</p>
+<ul>
+<li>Bei einem Maximum von <code>0</code> ergeben alle Balken <code>0 %</code>, nicht <code>NaN</code> oder <code>Infinity</code>.</li>
+<li>Fehlende Werte werden als <code>0</code> behandelt.</li>
+<li>Negative und nicht endliche Zahlen werden für diese Darstellung als <code>0</code> behandelt. Der Baustein ist bewusst für nicht negative Vergleichswerte gedacht, nicht für Gewinn-und-Verlust-Diagramme.</li>
+<li>Bei leeren Zeilen oder Messreihen erscheint eine Meldung statt einer bedeutungslosen Grafik.</li>
+</ul>
+<p>Ein <code>useState</code> für das Maximum wäre unnötig: Es lässt sich jederzeit aus den Props berechnen. Auch ein <code>useEffect</code> wäre hier falsch angesetzt. Wir synchronisieren nichts mit einem externen System; wir berechnen lediglich die Ausgabe. Wenn sich die Daten ändern, berechnet der nächste Renderdurchlauf die Breiten neu.</p>
+<p>Das React-Attribut <code>style</code> erhält ein Objekt, etwa <code>style={{ width: "50%" }}</code>. Bei <code>backgroundColor</code> gilt die JavaScript-Schreibweise statt des CSS-Namens <code>background-color</code>.</p>
+<p>Lege daneben <code>src/components/ComparisonTable.css</code> an:</p>
+<pre><code class="language-css">.comparison-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.comparison-swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 6px;
+}
+
+.comparison-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 6em;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.comparison-track {
+  min-width: 0;
+}
+
+.comparison-bar {
+  height: 24px;
+}
+
+.comparison-value {
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+</code></pre>
+<p>Die Werte stehen neben dem Balken statt in ihm. Dadurch bleiben auch kleine Werte und Nullwerte lesbar. Jede Balkenzeile hat ausserdem eine zugängliche Beschriftung mit Gruppenname, Messreihe und Wert; die Farbe ist nicht die einzige Information. Die vorhandenen allgemeinen Schriftklassen verwenden wir weiter.</p>
+<p>Ersetze in <code>App.tsx</code> den bisherigen <code>&lt;div data-table-name="benchmark"&gt;...&lt;/div&gt;</code>-Block und ergänze die Imports für Komponente und Daten:</p>
+<pre><code class="language-tsx">&lt;ComparisonTable
+  title="Beispielwerte im Vergleich"
+  series={gardenSeries}
+  rows={gardenRows}
+  note="Beispielwerte (höher ist besser)"
+/&gt;
+</code></pre>
+<p>Importiere das alte <code>tables.js</code> nicht. Es würde erneut Elemente suchen und Styles ausserhalb von React verändern. Wir haben seine fachliche Berechnung übertragen, nicht seine DOM-Manipulation.</p>
+<h2 id="dieselbe-tabelle-für-andere-daten"><a class="header" href="#dieselbe-tabelle-für-andere-daten">Dieselbe Tabelle für andere Daten</a></h2>
+<p>Die Schnittstelle erlaubt andere Namen, Farben und beliebig viele Messreihen. Auch die Anzahl der Vergleichsgruppen ist nicht festgeschrieben:</p>
+<pre><code class="language-tsx">&lt;ComparisonTable
+  title="Ernte in Gramm"
+  series={[
+    { id: "herbs", label: "Kräuter", color: "#3a8561" },
+    { id: "tomatoes", label: "Tomaten", color: "#c95353" },
+  ]}
+  rows={[
+    { id: "june", label: "Juni", values: { herbs: 80, tomatoes: 120 } },
+    { id: "july", label: "Juli", values: { herbs: 100, tomatoes: 240 } },
+  ]}
+  note="Monatliche Ernte; alle Werte in Gramm"
+/&gt;
+</code></pre>
+<p>Diese zweite Instanz bestimmt ihr eigenes Maximum von <code>240</code>. Die erste Tabelle behält ihr Maximum von <code>2979</code>. Es gibt weder globale Variablen noch einen DOM-Selektor, der beide versehentlich zusammenfasst.</p>
+<p>Vergleiche nur Werte mit einer gemeinsamen Einheit und einer sinnvoll gemeinsamen Skala. Eine Tabelle mit Metern in einer Gruppe und Kilogramm in einer anderen würde durch die gemeinsame Skalierung eine irreführende Aussage machen. Wiederverwendbarkeit hebt fachliche Voraussetzungen nicht auf.</p>
+<h2 id="ein-button-ohne-follow-wissen"><a class="header" href="#ein-button-ohne-follow-wissen">Ein Button ohne Follow-Wissen</a></h2>
+<p>Unsere Buttons wiederholen die Entscheidung zwischen aktivem und inaktivem Text, <code>aria-pressed</code> und der CSS-Klasse <code>primary</code>. Das ist eine gute gemeinsame Aufgabe. Lege <code>src/components/ToggleButton.tsx</code> an:</p>
+<pre><code class="language-tsx">type ToggleButtonProps = {
+  active: boolean;
+  activeText: string;
+  inactiveText: string;
+  onToggle: () =&gt; void;
+  disabled?: boolean;
+  className?: string;
+};
+
+export default function ToggleButton({
+  active, activeText, inactiveText, onToggle, disabled = false, className = "",
+}: ToggleButtonProps) {
+  return (
+    &lt;button
+      type="button"
+      aria-pressed={active}
+      disabled={disabled}
+      className={`${className} ${active ? "" : "primary"}`}
+      onClick={onToggle}
+    &gt;
+      {active ? activeText : inactiveText}
+    &lt;/button&gt;
+  );
+}
+</code></pre>
+<p>Der Button kennt nur Auswahl, Beschriftungen und eine Aktion. Er weiss nicht, ob jemand einen Beitrag likt, einer Autorin folgt oder ein Thema auswählt. Er besitzt keinen eigenen State: Sonst hätten wir zwei konkurrierende Quellen für denselben Auswahlzustand.</p>
+<p><code>onToggle</code> ist eine Funktion als Prop. <code>onClick={onToggle}</code> führt sie nicht beim Rendern aus, sondern übergibt sie für den späteren Klick. <code>disabled</code> bereitet den Baustein auch auf Situationen vor, in denen eine Aktion noch nicht verfügbar ist.</p>
+<p>Lege den fachlichen Like-Bereich in <code>src/components/LikeSection.tsx</code> an:</p>
+<pre><code class="language-tsx">import ToggleButton from "./ToggleButton";
+
+type LikeSectionProps = {
+  liked: boolean;
+  count: number;
+  onToggle: () =&gt; void;
+  disabled?: boolean;
+};
+
+export default function LikeSection({ liked, count, onToggle, disabled }: LikeSectionProps) {
+  return (
+    &lt;section className="mt-xl mb-xxl text-center" aria-label="Beitrag liken"&gt;
+      &lt;ToggleButton
+        active={liked}
+        activeText="Dieser Beitrag gefällt mir nicht mehr"
+        inactiveText="Dieser Beitrag gefällt mir!"
+        onToggle={onToggle}
+        disabled={disabled}
+        className="mb-s font-small align-items-center text-center"
+      /&gt;
+      &lt;p className="mt-0 mb-m font-small" aria-live="polite"&gt;
+        &lt;span&gt;{count}&lt;/span&gt; Personen gefällt dieser Beitrag
+      &lt;/p&gt;
+    &lt;/section&gt;
+  );
+}
+</code></pre>
+<p><code>LikeSection</code> weiss, was Likes sind, und setzt Button und Zähler zusammen. <code>ToggleButton</code> weiss das nicht. Unterschiedlich viel Fachwissen auf verschiedenen Ebenen ist hier beabsichtigt.</p>
+<h2 id="profil-und-thema-mit-einem-platz-für-aktionen"><a class="header" href="#profil-und-thema-mit-einem-platz-für-aktionen">Profil und Thema mit einem Platz für Aktionen</a></h2>
+<p>Die Autorinnenanzeige braucht Namen, Bild, Kontakt und Beschreibung. Ob daneben ein lokaler Follow-Button, ein Backend-Button oder eine andere Aktion steht, muss sie nicht entscheiden.</p>
+<p>Lege <code>src/components/AuthorProfile.tsx</code> an:</p>
+<pre><code class="language-tsx">import type { ReactNode } from "react";
+
+type AuthorProfileProps = {
+  author: {
+    name: string;
+    email: string;
+    role: string;
+    imageSrc: string;
+    description: string;
+  };
+  children: ReactNode;
+};
+
+export default function AuthorProfile({ author, children }: AuthorProfileProps) {
+  return (
+    &lt;section className="row-fixed-start-medium py-s border-top" aria-label="Autorin"&gt;
+      &lt;img src={author.imageSrc} alt={author.name} className="col-1 profile" /&gt;
+      &lt;div className="col-12 col-sm-start-2 col-sm-end-11 d-flex flex-column"&gt;
+        &lt;p className="font-20 font-color-highlight mt-0 mb-xxs"&gt;{author.name}&lt;/p&gt;
+        &lt;p className="font-16 font-color-light my-0 mb-xxs"&gt;{author.role}&lt;/p&gt;
+        &lt;a className="font-16 font-hyperlink my-0" href={`mailto:${author.email}`}&gt;{author.email}&lt;/a&gt;
+        &lt;p className="font-16 mt-xxs mb-0"&gt;{author.description}&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div className="col-12 col-sm-start-auto col-sm-end-13 text-center"&gt;{children}&lt;/div&gt;
+    &lt;/section&gt;
+  );
+}
+</code></pre>
+<p>Über <code>children</code> füllen wir den Platz für die Aktion. Das ist <strong>Komposition</strong>: Ein Baustein setzt sich aus anderen zusammen, ohne alle ihre Einzelheiten zu kennen. Beim Thema verwenden wir dieselbe Idee in <code>src/components/TopicFollowSection.tsx</code>:</p>
+<pre><code class="language-tsx">import type { ReactNode } from "react";
+
+type TopicFollowSectionProps = {
+  topic: string;
+  children: ReactNode;
+};
+
+export default function TopicFollowSection({ topic, children }: TopicFollowSectionProps) {
+  return (
+    &lt;section className="row-fixed-start-medium border-top py-s" aria-label="Thema"&gt;
+      &lt;div className="col-12 col-sm-start-2 col-sm-end-11"&gt;
+        &lt;p className="font-20 font-color-highlight my-0"&gt;{topic}&lt;/p&gt;
+        &lt;p className="font-16 font-color-light my-0"&gt;Folge Themen, die dich interessieren.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div className="col-12 col-sm-start-auto col-sm-end-13 text-center"&gt;{children}&lt;/div&gt;
+    &lt;/section&gt;
+  );
+}
+</code></pre>
+<p>Für unsere eine Profilvariante brauchen wir noch keine weitere Ebene <code>PersonProfile</code> und keinen universellen Layout-Baustein. Die mögliche tiefere Aufteilung aus dem letzten Kapitel bleibt sinnvoll, sobald mehrere echte Einsatzfälle sie rechtfertigen.</p>
+<h2 id="state-und-seitendaten-zuordnen"><a class="header" href="#state-und-seitendaten-zuordnen">State und Seitendaten zuordnen</a></h2>
+<p>Lege die Anzeigedaten für Autorin, Thema und Produkt in <code>src/data/page.ts</code> ab:</p>
+<pre><code class="language-ts">export const author = {
+  name: "Nora Linden",
+  email: "nora.linden@example.org",
+  role: "Redaktorin",
+  imageSrc: "https://picsum.photos/seed/beispiel-5041/96/96",
+  description: "Ich sammle gern einfache Ideen für den Alltag und schreibe über kleine Projekte.",
+};
+
+export const topic = "Balkongarten";
+
+export const product = {
+  name: "Gartenbox",
+  brand: "Stadtgarten A",
+  price: "24.90",
+  details: "Klein, Grün",
+  rating: "★★★★☆ 4",
+  imageSrc: "https://picsum.photos/seed/beispiel-999/1200/800",
+  imageAlt: "Gartenbox für den Stadtgarten",
+};
+</code></pre>
+<p>Den Produktblock lösen wir als <code>src/components/ProductSummary.tsx</code> heraus. Er hat die eigene Aufgabe, ein Produkt kompakt darzustellen:</p>
+<pre><code class="language-tsx">type ProductSummaryProps = {
+  product: {
+    name: string;
+    brand: string;
+    price: string;
+    details: string;
+    rating: string;
+    imageSrc: string;
+    imageAlt: string;
+  };
+};
+
+export default function ProductSummary({ product }: ProductSummaryProps) {
+  return (
+    &lt;section className="border-top py-s px-s border-bottom row" aria-label="Produkt"&gt;
+      &lt;img src={product.imageSrc} alt={product.imageAlt} className="col-4" /&gt;
+      &lt;div className="col-8 d-flex flex-column"&gt;
+        &lt;p className="my-0 product-label"&gt;im Überblick&lt;/p&gt;
+        &lt;p className="mt-xxs mb-0 font-13 font-color-highlight"&gt;{product.name}&lt;/p&gt;
+        &lt;p className="my-0 font-16"&gt;&lt;strong&gt;{product.price}&lt;/strong&gt;&lt;/p&gt;
+        &lt;p className="my-0 font-16"&gt;&lt;strong&gt;{product.brand}&lt;/strong&gt; {product.name}&lt;/p&gt;
+        &lt;p className="my-0 font-13 font-color-light"&gt;{product.details}&lt;/p&gt;
+        &lt;p className="mt-xs font-13"&gt;{product.rating}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  );
+}
+</code></pre>
+<p>Verschiebe die vier bestehenden Zustände und die Like-Funktion aus <code>App</code> in die neue <code>src/components/BlogInteractions.tsx</code>. Hier setzen wir die fachlichen Bereiche und ihre Aktionen zusammen:</p>
+<pre><code class="language-tsx">import { useState } from "react";
+import { author, topic } from "../data/page";
+import AuthorProfile from "./AuthorProfile";
+import LikeSection from "./LikeSection";
+import ToggleButton from "./ToggleButton";
+import TopicFollowSection from "./TopicFollowSection";
+
+export default function BlogInteractions() {
+  const [liked, setLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(59);
+  const [followsAuthor, setFollowsAuthor] = useState(false);
+  const [followsTopic, setFollowsTopic] = useState(false);
+
+  function toggleLike() {
+    setLiked(!liked);
+    setLikeCount(likeCount + (liked ? -1 : 1));
+  }
+
+  return (
+    &lt;&gt;
+      &lt;LikeSection liked={liked} count={likeCount} onToggle={toggleLike} /&gt;
+      &lt;AuthorProfile author={author}&gt;
+        &lt;ToggleButton
+          active={followsAuthor}
+          activeText="Autorin nicht mehr folgen"
+          inactiveText="Autorin folgen"
+          onToggle={() =&gt; setFollowsAuthor(!followsAuthor)}
+        /&gt;
+      &lt;/AuthorProfile&gt;
+      &lt;TopicFollowSection topic={topic}&gt;
+        &lt;ToggleButton
+          active={followsTopic}
+          activeText="Thema entfolgen"
+          inactiveText="Thema folgen"
+          onToggle={() =&gt; setFollowsTopic(!followsTopic)}
+        /&gt;
+      &lt;/TopicFollowSection&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre>
+<p>Die Anzeigekomponenten erhalten Werte und Callbacks. Die Entscheidung, wie ein Zustand geändert wird, bleibt in <code>BlogInteractions</code>. Diese Grenze wird im nächsten Kapitel wichtig: Wir tauschen dort den lokalen Zustand gegen Backend-Daten aus, ohne Profil, Themenanzeige oder Toggle-Button neu zu schreiben.</p>
+<h2 id="app-stellt-die-seite-zusammen"><a class="header" href="#app-stellt-die-seite-zusammen">App stellt die Seite zusammen</a></h2>
+<p>Lege <code>src/components/BlogContent.tsx</code> an und verschiebe die redaktionellen Abschnitte vom ersten Balkonabschnitt bis einschliesslich Fazit dorthin. Dazu gehören auch die beiden Artikelvorschauen im Text, die acht <code>CaptionedImage</code>-Aufrufe und die <code>ComparisonTable</code>. Gib diese Abschnitte als Fragment zurück, ohne ein weiteres <code>&lt;main&gt;</code> um sie herum.</p>
+<p>Die Imports für Bilder, Tabelle und die zwei einzelnen Artikeldatensätze ziehen ebenfalls mit um. Innerhalb von <code>components</code> lautet der Import beispielsweise <code>./CaptionedImage</code>, für Daten <code>../data/comparison</code>. <code>BlogContent</code> braucht kein <code>useState</code>.</p>
+<p>Entferne die verschobenen Inhalte und Zustände aus <code>App.tsx</code>. Der Endstand sieht so aus:</p>
+<pre><code class="language-tsx">import ArticlePreview from "./components/ArticlePreview";
+import BlogContent from "./components/BlogContent";
+import BlogInteractions from "./components/BlogInteractions";
+import ProductSummary from "./components/ProductSummary";
+import { relatedArticles } from "./data/articles";
+import { product } from "./data/page";
+import "../../../03_javascript/03_buttonReactive/main.css";
+
+export default function App() {
+  return (
+    &lt;&gt;
+      &lt;iframe
+        src="https://www.youtube.com/embed/2DrxMxk-5Bk"
+        title="Musikalische Überraschung"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+      /&gt;
+      &lt;main className="content-max-width"&gt;
+        &lt;p className="content-category"&gt;Beispielbeitrag&lt;/p&gt;
+        &lt;h1&gt;Ein kleiner Garten mitten in der Stadt&lt;/h1&gt;
+        &lt;h2&gt;Ein paar Töpfe, etwas Erde und eine freie Ecke: Mehr braucht es für dieses kleine Balkonprojekt nicht.&lt;/h2&gt;
+        &lt;p&gt;Ich beginne mit Kräutern und schaue, wie sich die Ecke entwickelt.&lt;/p&gt;
+        &lt;BlogContent /&gt;
+        &lt;ProductSummary product={product} /&gt;
+        &lt;BlogInteractions /&gt;
+        &lt;section&gt;
+          &lt;h3&gt;Weitere Ideen für deinen Balkon&lt;/h3&gt;
+          {relatedArticles.map((article, index) =&gt; (
+            &lt;ArticlePreview key={article.id} article={article} withTopBorder={index === 0} /&gt;
+          ))}
+        &lt;/section&gt;
+      &lt;/main&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre>
+<p>Der Komponentenbaum macht die Zuständigkeiten sichtbar:</p>
+<pre><code class="language-text">App
+  BlogContent
+    CaptionedImage (mehrfach)
+    ArticlePreview (mehrfach)
+    ComparisonTable
+  ProductSummary
+  BlogInteractions (lokaler State)
+    LikeSection
+      ToggleButton
+    AuthorProfile
+      ToggleButton als children
+    TopicFollowSection
+      ToggleButton als children
+  ArticlePreview (Liste)
+</code></pre>
+<p>Damit ist die Aufteilung für diese Seite abgeschlossen. Wir lassen den redaktionellen Text bewusst als zusammengehörigen Inhalt stehen. Es gibt keinen Nutzen darin, jede Überschrift oder jeden Absatz in eine eigene Datei zu verschieben.</p>
+<h2 id="deinen-stand-prüfen"><a class="header" href="#deinen-stand-prüfen">Deinen Stand prüfen</a></h2>
+<ul>
+<li>Alle acht Bilder mit Legende und alle fünf Artikelvorschauen sind weiterhin vorhanden.</li>
+<li>Die Tabelle zeigt sechs Werte; <code>2979</code> hat den längsten Balken. Die anderen Gruppen verwenden dasselbe Maximum.</li>
+<li>Setze probeweise alle Vergleichswerte auf <code>0</code>: Die Werte bleiben lesbar, und es entstehen keine ungültigen Breiten.</li>
+<li>Setze <code>rows</code> auf <code>[]</code>: Die Komponente zeigt die Meldung für fehlende Daten.</li>
+<li>Ergänze probeweise die zweite Vergleichstabelle: Beide skalieren unabhängig voneinander.</li>
+<li>Like und beide Follow-Buttons funktionieren wie zuvor. Ein Neuladen setzt ihre lokalen Zustände weiterhin zurück.</li>
+<li>Prüfe die Seite auch bei schmalem Browserfenster: Texte und Werte dürfen nicht abgeschnitten werden.</li>
+</ul>
+<p>Entferne anschliessend die Probeänderungen. Im Referenzstand kannst du ausserdem <code>npm test</code>, <code>npm run build</code> und <code>npm run lint</code> ausführen. Die Tests prüfen die gemeinsame Skalierung, Nullwerte, leere Daten und unabhängige Instanzen.</p>
+<p>Im <a href="./07_backend.html">letzten Kapitel</a> verbinden wir diese Komponenten wieder mit dem vorhandenen Backend.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../07_react/05_components.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../07_react/07_backend.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../07_react/05_components.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../07_react/07_backend.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

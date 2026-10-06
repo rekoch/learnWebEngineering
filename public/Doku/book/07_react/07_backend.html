@@ -1,0 +1,679 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Das Backend wieder anbinden - Learn To Build A Web Page</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-e6e2075b.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-73cb56ac.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learn To Build A Web Page</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="das-backend-wieder-anbinden"><a class="header" href="#das-backend-wieder-anbinden">Das Backend wieder anbinden</a></h1>
+<p>Unsere Seite ist jetzt in Komponenten aufgeteilt. Bilder, Artikelvorschauen und Vergleichstabelle funktionieren bereits. Likes und Follow-Auswahl sind aber noch lokale Zustände, die beim Neuladen verloren gehen. Im letzten React-Kapitel ersetzen wir diese lokale Simulation durch die bestehende Backend-Anbindung.</p>
+<p>Ausgangspunkt ist dein Stand nach <a href="./06_components_abschliessen.html">Die Seite in Komponenten aufteilen</a>. Ziel ist dieselbe Funktionalität wie im <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/03_javascript/06_followButtonsWithBackendIntegration">letzten JavaScript-Endstand mit Follow-Buttons</a>: gespeicherte Likes, der tatsächliche Like-Zähler und die gespeicherten Follow-Zustände der Autorin und des Themas, jeweils für die ausgewählte Benutzer-ID.</p>
+<p>Der <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/07_react/07_backend-integration">React-Referenzstand mit Backend</a> liegt in <code>public/07_react/07_backend-integration</code>. Wir verwenden dasselbe Backend, keine neue Datenbank und keinen neuen API-Vertrag.</p>
+<h2 id="was-bleibt-was-ändert-sich"><a class="header" href="#was-bleibt-was-ändert-sich">Was bleibt, was ändert sich?</a></h2>
+<p><code>CaptionedImage</code>, <code>ComparisonTable</code>, <code>ArticlePreview</code>, <code>ProductSummary</code>, <code>AuthorProfile</code>, <code>TopicFollowSection</code>, <code>LikeSection</code> und <code>ToggleButton</code> bleiben unverändert. Keine dieser Anzeigekomponenten muss HTTP verstehen.</p>
+<p>Neu kommen hinzu:</p>
+<ul>
+<li>ein API-Service für die vorhandenen Endpunkte,</li>
+<li>ein eigener Hook für Request-Abläufe, State, Ladezustand und Fehler,</li>
+<li>eine Auswahl für Benutzer- und Blogseiten-ID,</li>
+<li>die Verbindung zwischen diesem Hook und den vorhandenen Props in <code>BlogInteractions</code>.</li>
+</ul>
+<p>Die früheren Observer und DOM-Handler importieren wir nicht. React-State und Props übernehmen den Datenfluss innerhalb der Oberfläche. HTTP bleibt weiterhin die Verbindung zum Backend.</p>
+<h2 id="backend-starten-und-die-adresse-prüfen"><a class="header" href="#backend-starten-und-die-adresse-prüfen">Backend starten und die Adresse prüfen</a></h2>
+<p>Starte das Backend in einem separaten Terminal. Verwende die in <code>public/00_backend/.nvmrc</code> festgelegte Node-Version; weitere Hinweise stehen in der Backend-Anleitung:</p>
+<pre><code class="language-sh">cd public/00_backend
+nvm install
+nvm use
+npm ci
+npm run dev
+</code></pre>
+<p>Die Standardadresse ist <code>http://localhost:3000</code>. Unter <code>http://localhost:3000/api-docs/</code> findest du die API-Dokumentation. Prüfe auch <code>http://localhost:3000/likes/2</code>: Die Antwort muss JSON mit <code>likeCount</code> sein, nicht eine HTML-Seite eines anderen Servers.</p>
+<p>Ist Port <code>3000</code> beispielsweise durch mdBook belegt, starte das Backend stattdessen mit:</p>
+<pre><code class="language-sh">PORT=3001 npm run dev
+</code></pre>
+<p>Lege dann im <strong>React-Projektordner</strong>, neben <code>package.json</code>, eine <code>.env.local</code> an:</p>
+<pre><code class="language-dotenv">VITE_API_URL=http://localhost:3001
+</code></pre>
+<p>Ohne diese Angabe verwendet der Service <code>http://localhost:3000</code>. Im Referenzstand zeigt <code>.env.example</code> die Standardkonfiguration. Nach einer Änderung an den Umgebungsvariablen musst du den Vite-Server neu starten.</p>
+<p><code>VITE_</code>-Variablen sind im Browser sichtbar und werden beim Build eingebunden. Die API-Adresse darf darin stehen; Passwörter und andere Geheimnisse nicht. Auch für einen Produktionsbuild musst du die korrekte API-Adresse vor dem Build setzen.</p>
+<p>In der Entwicklungsumgebung erlaubt das bestehende Backend Zugriffe von <code>localhost</code> und <code>127.0.0.1</code> mit verschiedenen Ports. Für einen späteren produktiven Betrieb muss dessen erlaubte Frontend-Adresse entsprechend konfiguriert werden. Wir ändern diese Backend-Regeln hier nicht.</p>
+<h2 id="die-vorhandenen-api-verträge"><a class="header" href="#die-vorhandenen-api-verträge">Die vorhandenen API-Verträge</a></h2>
+<p>Die IDs starten wie im JavaScript-Beispiel bei Benutzer <code>1</code> und Blogseite <code>2</code>. Die Autorin wird über <code>nora.linden@example.org</code>, das Thema über <code>Balkongarten</code> identifiziert.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Funktion</th><th>HTTP-Anfrage</th><th>Relevante Antwort</th></tr>
+</thead>
+<tbody>
+<tr><td>Like-Zähler laden</td><td><code>GET /likes/{blogPageId}</code></td><td><code>{ likeCount: number }</code></td></tr>
+<tr><td>Like-Auswahl laden</td><td><code>GET /likes/state/{blogPageId}/user/{userId}</code></td><td><code>{ liked: boolean }</code></td></tr>
+<tr><td>Liken / Like entfernen</td><td><code>POST</code> / <code>DELETE /likes/{blogPageId}</code></td><td>Bestätigung des Backends</td></tr>
+<tr><td>Autorinnen-Follow laden</td><td><code>GET /author-follow/{authorEmail}/user/{userId}</code></td><td><code>{ isFollowedAuthor: boolean }</code></td></tr>
+<tr><td>Autorin folgen / entfolgen</td><td><code>POST</code> / <code>DELETE /author-follow/{authorEmail}/user/{userId}</code></td><td>Bestätigung des Backends</td></tr>
+<tr><td>Themen-Follow laden</td><td><code>GET /topic-follow/{topicName}/user/{userId}</code></td><td><code>{ isFollowedTopic: boolean }</code></td></tr>
+<tr><td>Thema folgen / entfolgen</td><td><code>POST</code> / <code>DELETE /topic-follow/{topicName}/user/{userId}</code></td><td>Bestätigung des Backends</td></tr>
+</tbody>
+</table>
+</div>
+<p>Beim Liken und Entfernen des Likes gehören <code>blogPageId</code> und <code>userId</code> auch in den JSON-Body. Die Follow-Endpunkte verwenden ihre Pfadparameter; wir schicken dieselben Daten wie die früheren Services zusätzlich als JSON mit.</p>
+<p>Autorinnen- und Themen-Follows sind benutzerbezogen, nicht blogseitenbezogen. Wechsle die Blogseiten-ID: Der Like-Zähler und die Like-Auswahl können wechseln, aber derselbe Benutzer folgt weiterhin derselben Autorin und demselben Thema.</p>
+<p>Die IDs simulieren wie bisher einen Benutzerkontext. Sie sind <strong>kein Login und keine Authentifizierung</strong>. Auch die Blogseiten-ID wählt hier nur den Backend-Kontext; die lokale redaktionelle Beispielseite wird dadurch nicht zu einem anderen Artikel.</p>
+<h2 id="schritt-1-http-in-einen-service-kapseln"><a class="header" href="#schritt-1-http-in-einen-service-kapseln">Schritt 1: HTTP in einen Service kapseln</a></h2>
+<p>Lege <code>src/services/blogApi.ts</code> an:</p>
+<pre><code class="language-ts">const apiUrl = import.meta.env.VITE_API_URL ?? "http://localhost:3000";
+
+export type BlogContext = {
+  userId: string;
+  blogPageId: string;
+  authorEmail: string;
+  topicName: string;
+};
+
+export type InteractionData = {
+  liked: boolean;
+  likeCount: number;
+  followsAuthor: boolean;
+  followsTopic: boolean;
+};
+
+async function request&lt;Result&gt;(path: string, signal: AbortSignal, method = "GET", body?: object): Promise&lt;Result&gt; {
+  const response = await fetch(new URL(path, `${apiUrl.replace(/\/$/, "")}/`), {
+    method,
+    signal,
+    ...(body &amp;&amp; { headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }),
+  });
+  if (!response.ok) throw new Error(`Backend-Anfrage fehlgeschlagen (HTTP ${response.status}).`);
+  return response.json();
+}
+
+function paths(context: BlogContext) {
+  const user = encodeURIComponent(context.userId);
+  const page = encodeURIComponent(context.blogPageId);
+  return {
+    likes: `likes/${page}`,
+    likeState: `likes/state/${page}/user/${user}`,
+    author: `author-follow/${encodeURIComponent(context.authorEmail)}/user/${user}`,
+    topic: `topic-follow/${encodeURIComponent(context.topicName)}/user/${user}`,
+  };
+}
+
+export async function loadInteractions(context: BlogContext, signal: AbortSignal): Promise&lt;InteractionData&gt; {
+  const path = paths(context);
+  const [count, like, author, topic] = await Promise.all([
+    request&lt;{ likeCount: number }&gt;(path.likes, signal),
+    request&lt;{ liked: boolean }&gt;(path.likeState, signal),
+    request&lt;{ isFollowedAuthor: boolean }&gt;(path.author, signal),
+    request&lt;{ isFollowedTopic: boolean }&gt;(path.topic, signal),
+  ]);
+  if (
+    !Number.isInteger(count.likeCount) || count.likeCount &lt; 0 ||
+    typeof like.liked !== "boolean" || typeof author.isFollowedAuthor !== "boolean" ||
+    typeof topic.isFollowedTopic !== "boolean"
+  ) throw new Error("Das Backend hat ungültige Zustandsdaten geliefert.");
+  return {
+    liked: like.liked,
+    likeCount: count.likeCount,
+    followsAuthor: author.isFollowedAuthor,
+    followsTopic: topic.isFollowedTopic,
+  };
+}
+
+export async function toggleLike(context: BlogContext, signal: AbortSignal) {
+  const path = paths(context);
+  const state = await request&lt;{ liked: boolean }&gt;(path.likeState, signal);
+  if (typeof state.liked !== "boolean") throw new Error("Ungültiger Like-Zustand.");
+  await request(path.likes, signal, state.liked ? "DELETE" : "POST", {
+    blogPageId: context.blogPageId, userId: context.userId,
+  });
+}
+
+export async function toggleAuthorFollow(context: BlogContext, signal: AbortSignal) {
+  const path = paths(context).author;
+  const state = await request&lt;{ isFollowedAuthor: boolean }&gt;(path, signal);
+  if (typeof state.isFollowedAuthor !== "boolean") throw new Error("Ungültiger Autoren-Follow-Zustand.");
+  await request(path, signal, state.isFollowedAuthor ? "DELETE" : "POST", {
+    authorEmail: context.authorEmail, userId: context.userId,
+  });
+}
+
+export async function toggleTopicFollow(context: BlogContext, signal: AbortSignal) {
+  const path = paths(context).topic;
+  const state = await request&lt;{ isFollowedTopic: boolean }&gt;(path, signal);
+  if (typeof state.isFollowedTopic !== "boolean") throw new Error("Ungültiger Themen-Follow-Zustand.");
+  await request(path, signal, state.isFollowedTopic ? "DELETE" : "POST", {
+    topicName: context.topicName, userId: context.userId,
+  });
+}
+</code></pre>
+<p>Der Service importiert kein React. Er kennt nur Kontextdaten, URLs, Request-Methoden und Antworten.</p>
+<p>Einige Entscheidungen sind wichtig:</p>
+<ul>
+<li><code>request</code> prüft <code>response.ok</code>. <code>fetch</code> lehnt sein Promise bei einem HTTP-Fehler wie <code>500</code> nicht automatisch ab.</li>
+<li><code>encodeURIComponent</code> schützt die einzelnen Pfadwerte, etwa eine E-Mail-Adresse oder ein Thema mit Leerzeichen und Umlauten.</li>
+<li><code>loadInteractions</code> lädt die vier unabhängigen Zustandswerte mit <code>Promise.all</code>. Erst ein vollständiges Ergebnis wird an die Oberfläche übergeben.</li>
+<li>Der interne Typ <code>InteractionData</code> vereinheitlicht die unterschiedlichen Backend-Namen zu <code>followsAuthor</code> und <code>followsTopic</code>.</li>
+<li>TypeScript-Typen alleine überprüfen kein empfangenes JSON. Deshalb kontrollieren wir die verwendeten Werte zusätzlich zur Laufzeit.</li>
+<li>Der <code>AbortSignal</code> wird an <code>fetch</code> weitergegeben. Ein nicht mehr benötigter Request kann dadurch abgebrochen werden.</li>
+</ul>
+<p>Wie im alten JavaScript-Stand fragen wir vor einer Änderung den aktuellen Auswahlzustand erneut ab. Daraus ergibt sich <code>POST</code> oder <code>DELETE</code>. Nach der bestätigten Änderung laden wir Auswahl und Zähler wieder vom Server. Wir berechnen den gespeicherten Zähler nicht einfach aus einem möglicherweise veralteten lokalen Wert.</p>
+<p>Das ist keine atomare Transaktion zwischen mehreren Browsern: Zwischen Lesen und Schreiben kann ein anderer Client etwas ändern. Für unser Beispiel übernehmen wir den vorhandenen Backend-Vertrag; eine serverseitige atomare Toggle-Operation wäre eine separate API-Änderung.</p>
+<h2 id="schritt-2-requests-und-state-in-einem-hook-zusammenhalten"><a class="header" href="#schritt-2-requests-und-state-in-einem-hook-zusammenhalten">Schritt 2: Requests und State in einem Hook zusammenhalten</a></h2>
+<p>Ein <strong>Custom Hook</strong> ist eine Funktion, die mit <code>use</code> beginnt und andere Hooks verwenden darf. Er gibt hier keine Oberfläche zurück, sondern Zustandswerte und Aktionen, die eine Komponente verwenden kann.</p>
+<p>Lege <code>src/hooks/useBlogInteractions.ts</code> an:</p>
+<pre><code class="language-ts">import { useEffect, useRef, useState } from "react";
+import { loadInteractions, toggleAuthorFollow, toggleLike, toggleTopicFollow } from "../services/blogApi";
+import type { BlogContext, InteractionData } from "../services/blogApi";
+
+type RequestState = {
+  data: InteractionData | null;
+  pending: boolean;
+  error: string;
+};
+
+function errorMessage(error: unknown) {
+  return error instanceof Error ? error.message : "Die Backend-Anfrage ist fehlgeschlagen.";
+}
+
+export default function useBlogInteractions({ userId, blogPageId, authorEmail, topicName }: BlogContext) {
+  const [state, setState] = useState&lt;RequestState&gt;({ data: null, pending: true, error: "" });
+  const controllerRef = useRef&lt;AbortController | null&gt;(null);
+  const busyRef = useRef(false);
+
+  useEffect(() =&gt; {
+    const controller = new AbortController();
+    controllerRef.current = controller;
+    busyRef.current = true;
+    loadInteractions({ userId, blogPageId, authorEmail, topicName }, controller.signal)
+      .then(data =&gt; {
+        if (!controller.signal.aborted) setState({ data, pending: false, error: "" });
+      })
+      .catch(error =&gt; {
+        if (!controller.signal.aborted) setState({ data: null, pending: false, error: errorMessage(error) });
+      })
+      .finally(() =&gt; {
+        if (!controller.signal.aborted) busyRef.current = false;
+      });
+    return () =&gt; controller.abort();
+  }, [userId, blogPageId, authorEmail, topicName]);
+
+  async function runRequest(action?: (signal: AbortSignal) =&gt; Promise&lt;void&gt;) {
+    const controller = controllerRef.current;
+    if (!controller || controller.signal.aborted || busyRef.current) return;
+    busyRef.current = true;
+    setState(previous =&gt; ({ ...previous, pending: true, error: "" }));
+    try {
+      if (action) await action(controller.signal);
+      const data = await loadInteractions({ userId, blogPageId, authorEmail, topicName }, controller.signal);
+      if (!controller.signal.aborted) setState({ data, pending: false, error: "" });
+    } catch (error) {
+      if (!controller.signal.aborted) {
+        setState(previous =&gt; ({ ...previous, pending: false, error: errorMessage(error) }));
+      }
+    } finally {
+      if (!controller.signal.aborted) busyRef.current = false;
+    }
+  }
+
+  const context = { userId, blogPageId, authorEmail, topicName };
+  return {
+    ...state,
+    reload: () =&gt; void runRequest(),
+    toggleLike: () =&gt; { if (state.data) void runRequest(signal =&gt; toggleLike(context, signal)); },
+    toggleAuthor: () =&gt; { if (state.data) void runRequest(signal =&gt; toggleAuthorFollow(context, signal)); },
+    toggleTopic: () =&gt; { if (state.data) void runRequest(signal =&gt; toggleTopicFollow(context, signal)); },
+  };
+}
+</code></pre>
+<p><code>data</code> beginnt als <code>null</code>: Wir kennen den gespeicherten Zustand noch nicht. Wir tun deshalb weder so, als wären alle Buttons sicher inaktiv, noch zeigen wir den früheren festen Zähler <code>59</code> als Backend-Ergebnis an.</p>
+<p><code>pending</code> zeigt an, dass ein Request läuft. <code>error</code> enthält eine verständliche Fehlermeldung. Diese Angaben sind State, weil sich die sichtbare Oberfläche danach richtet.</p>
+<h3 id="warum-hier-ein-effect-nötig-ist"><a class="header" href="#warum-hier-ein-effect-nötig-ist">Warum hier ein Effect nötig ist</a></h3>
+<p>Anders als bei der Tabelle synchronisieren wir jetzt mit einem <strong>externen System</strong>. Beim Einhängen der Komponente und bei einem geänderten Kontext müssen die gespeicherten Daten geladen werden. Das ist die Aufgabe von <code>useEffect</code>.</p>
+<p>Die Effect-Funktion selbst ist nicht <code>async</code>, weil React von ihr eine Cleanup-Funktion erwartet, kein Promise. Sie startet <code>loadInteractions</code> und verarbeitet dessen Ergebnis. Ihre Abhängigkeiten nennen alle Kontextwerte, die für diese Anfrage relevant sind.</p>
+<p>Beim Aufräumen ruft React <code>controller.abort()</code> auf. Zusätzlich prüfen die Promise-Handler <code>signal.aborted</code>, bevor sie State setzen. Eine späte Antwort für Benutzer <code>1</code> darf nicht die Anzeige für Benutzer <code>2</code> überschreiben.</p>
+<p>Im Entwicklungsmodus kann <code>StrictMode</code> den Effect zum Prüfen starten, aufräumen und erneut starten. Das ist kein Grund, <code>StrictMode</code> zu entfernen. Unsere Cleanup-Funktion macht den Ablauf verträglich; Schreibzugriffe erfolgen nur nach einer Benutzeraktion, nicht im Effect.</p>
+<h3 id="warum-klicks-kein-effect-sind"><a class="header" href="#warum-klicks-kein-effect-sind">Warum Klicks kein Effect sind</a></h3>
+<p>Ein Klick startet direkt eine Aktion. Der Handler sperrt weitere Aktionen, schreibt über den Service und lädt danach den bestätigten Zustand. Dafür brauchen wir keinen zusätzlichen Effect, der einen «Button wurde geklickt»-State beobachtet.</p>
+<p><code>busyRef</code> verhindert auch zwei unmittelbar aufeinanderfolgende Aufrufe, bevor React den deaktivierten Button gerendert hat. Eine Ref behält einen Wert zwischen Renderdurchläufen, ohne selbst ein Rendern auszulösen. Die sichtbare Sperre kommt weiterhin aus <code>pending</code> im State. <code>controllerRef</code> hält den Controller für die laufende Instanz bereit.</p>
+<p>Bei einem Fehler bleibt eine bereits bestätigte Anzeige erhalten; die Oberfläche erfindet keinen erfolgreichen neuen Zustand. «Erneut laden» holt den tatsächlichen Serverzustand. Das ist besonders wichtig, wenn der Schreibrequest erfolgreich war, aber das anschliessende Nachladen fehlschlug.</p>
+<p>Ein Abbruch auf Clientseite kann eine bereits auf dem Server gespeicherte Änderung nicht zurücknehmen. Er verhindert vor allem, dass deren späte Antwort die inzwischen gewechselte Oberfläche überschreibt.</p>
+<h2 id="schritt-3-die-bestehenden-anzeigekomponenten-verbinden"><a class="header" href="#schritt-3-die-bestehenden-anzeigekomponenten-verbinden">Schritt 3: Die bestehenden Anzeigekomponenten verbinden</a></h2>
+<p>Ersetze <code>src/components/BlogInteractions.tsx</code> durch:</p>
+<pre><code class="language-tsx">import { author, topic } from "../data/page";
+import useBlogInteractions from "../hooks/useBlogInteractions";
+import AuthorProfile from "./AuthorProfile";
+import LikeSection from "./LikeSection";
+import ToggleButton from "./ToggleButton";
+import TopicFollowSection from "./TopicFollowSection";
+
+type BlogInteractionsProps = {
+  userId: string;
+  blogPageId: string;
+};
+
+export default function BlogInteractions({ userId, blogPageId }: BlogInteractionsProps) {
+  const { data, pending, error, reload, toggleLike, toggleAuthor, toggleTopic } = useBlogInteractions({
+    userId, blogPageId, authorEmail: author.email, topicName: topic,
+  });
+  const disabled = pending || !data;
+
+  return (
+    &lt;div aria-busy={pending}&gt;
+      {pending &amp;&amp; &lt;p role="status"&gt;Backend-Daten werden geladen …&lt;/p&gt;}
+      {error &amp;&amp; (
+        &lt;div role="alert"&gt;
+          &lt;p&gt;{error}&lt;/p&gt;
+          &lt;button type="button" disabled={pending} onClick={reload}&gt;Erneut laden&lt;/button&gt;
+        &lt;/div&gt;
+      )}
+      {data &amp;&amp; &lt;LikeSection liked={data.liked} count={data.likeCount} onToggle={toggleLike} disabled={disabled} /&gt;}
+      &lt;AuthorProfile author={author}&gt;
+        &lt;ToggleButton
+          active={data?.followsAuthor ?? false}
+          activeText="Autorin nicht mehr folgen"
+          inactiveText="Autorin folgen"
+          onToggle={toggleAuthor}
+          disabled={disabled}
+        /&gt;
+      &lt;/AuthorProfile&gt;
+      &lt;TopicFollowSection topic={topic}&gt;
+        &lt;ToggleButton
+          active={data?.followsTopic ?? false}
+          activeText="Thema entfolgen"
+          inactiveText="Thema folgen"
+          onToggle={toggleTopic}
+          disabled={disabled}
+        /&gt;
+      &lt;/TopicFollowSection&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p>Die vier lokalen <code>useState</code>-Aufrufe und die lokale Zählerberechnung sind weg. Der Hook liefert stattdessen Daten und Aktionen. <code>LikeSection</code> bekommt wie vorher Auswahl, Anzahl und Callback. Die beiden <code>ToggleButton</code>-Instanzen bekommen wie vorher Auswahl, Beschriftungen und Callback.</p>
+<p>Genau dafür haben wir die Grenzen im letzten Kapitel gewählt. Die Anzeige muss nicht entscheiden, ob die Aktion lokalen State verändert oder eine HTTP-Anfrage ausführt.</p>
+<p>Während des Ladens und Speicherns sind die Aktionen deaktiviert. Ohne erfolgreich geladene Daten bleibt der Like-Zähler verborgen. Fehler werden mit <code>role="alert"</code>, Ladehinweise mit <code>role="status"</code> zugänglich angezeigt.</p>
+<p>Falls dasselbe Thema später an zwei Stellen angezeigt wird, verwende für beide Buttons denselben <code>data.followsTopic</code>-Wert und denselben <code>toggleTopic</code>-Callback aus <strong>einer gemeinsamen Hook-Instanz</strong>. Zwei getrennte Hooks würden eigene lokale Anzeigen besitzen und sich nach einem Klick nicht automatisch gegenseitig aktualisieren. In React lösen wir die frühere Suche nach allen passenden DOM-Buttons durch gemeinsam verwendeten State.</p>
+<h2 id="schritt-4-benutzer--und-blogseitenwechsel"><a class="header" href="#schritt-4-benutzer--und-blogseitenwechsel">Schritt 4: Benutzer- und Blogseitenwechsel</a></h2>
+<p>Lege <code>src/components/ContextSelection.tsx</code> an:</p>
+<pre><code class="language-tsx">import { useState } from "react";
+import type { SubmitEvent } from "react";
+import "./ContextSelection.css";
+
+type ContextSelectionProps = {
+  userId: string;
+  blogPageId: string;
+  onSelect: (selection: { userId: string; blogPageId: string }) =&gt; void;
+};
+
+export default function ContextSelection({ userId, blogPageId, onSelect }: ContextSelectionProps) {
+  const [userInput, setUserInput] = useState(userId);
+  const [pageInput, setPageInput] = useState(blogPageId);
+  const [error, setError] = useState("");
+
+  function submit(event: SubmitEvent&lt;HTMLFormElement&gt;) {
+    event.preventDefault();
+    if (![userInput, pageInput].every(value =&gt; Number.isSafeInteger(Number(value)) &amp;&amp; Number(value) &gt; 0)) {
+      setError("Die IDs müssen positive ganze Zahlen sein.");
+      return;
+    }
+    setError("");
+    onSelect({ userId: String(Number(userInput)), blogPageId: String(Number(pageInput)) });
+  }
+
+  return (
+    &lt;form className="context-selection" aria-label="Daten simulieren" onSubmit={submit}&gt;
+      &lt;label&gt;Benutzer-ID
+        &lt;input type="number" min="1" step="1" required value={userInput} onChange={event =&gt; setUserInput(event.target.value)} /&gt;
+      &lt;/label&gt;
+      &lt;label&gt;Blogseiten-ID
+        &lt;input type="number" min="1" step="1" required value={pageInput} onChange={event =&gt; setPageInput(event.target.value)} /&gt;
+      &lt;/label&gt;
+      &lt;button type="submit"&gt;Daten simulieren&lt;/button&gt;
+      {error &amp;&amp; &lt;p role="alert"&gt;{error}&lt;/p&gt;}
+    &lt;/form&gt;
+  );
+}
+</code></pre>
+<p>Die beiden Eingaben sind kontrolliert: Ihr Wert kommt aus State, <code>onChange</code> aktualisiert ihn. Erst beim Absenden des Formulars mit «Daten simulieren» oder Enter wird der neue Kontext übernommen. So lösen einzelne Tastendrücke nicht sofort Backend-Anfragen aus.</p>
+<p>Das Formular akzeptiert positive ganze IDs. Es simuliert die Auswahl für die Übung und ist weiterhin kein Login. Ergänze daneben <code>src/components/ContextSelection.css</code>:</p>
+<pre><code class="language-css">.context-selection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.context-selection label {
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.context-selection input {
+  box-sizing: border-box;
+  width: 120px;
+  max-width: 100%;
+  padding: 6px;
+  font: inherit;
+}
+</code></pre>
+<p>Ersetze <code>App.tsx</code> durch den zusammengesetzten Endstand:</p>
+<pre><code class="language-tsx">import { useState } from "react";
+import ArticlePreview from "./components/ArticlePreview";
+import BlogContent from "./components/BlogContent";
+import BlogInteractions from "./components/BlogInteractions";
+import ProductSummary from "./components/ProductSummary";
+import ContextSelection from "./components/ContextSelection";
+import { relatedArticles } from "./data/articles";
+import { product } from "./data/page";
+import "../../../03_javascript/03_buttonReactive/main.css";
+
+export default function App() {
+  const [selection, setSelection] = useState({ userId: "1", blogPageId: "2" });
+  return (
+    &lt;&gt;
+      &lt;ContextSelection {...selection} onSelect={setSelection} /&gt;
+      &lt;iframe
+        src="https://www.youtube.com/embed/2DrxMxk-5Bk"
+        title="Musikalische Überraschung"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+      /&gt;
+      &lt;main className="content-max-width"&gt;
+        &lt;p className="content-category"&gt;Beispielbeitrag&lt;/p&gt;
+        &lt;h1&gt;Ein kleiner Garten mitten in der Stadt&lt;/h1&gt;
+        &lt;h2&gt;Ein paar Töpfe, etwas Erde und eine freie Ecke: Mehr braucht es für dieses kleine Balkonprojekt nicht.&lt;/h2&gt;
+        &lt;p&gt;Ich beginne mit Kräutern und schaue, wie sich die Ecke entwickelt.&lt;/p&gt;
+        &lt;BlogContent /&gt;
+        &lt;ProductSummary product={product} /&gt;
+        &lt;BlogInteractions key={`${selection.userId}:${selection.blogPageId}`} {...selection} /&gt;
+        &lt;section&gt;
+          &lt;h3&gt;Weitere Ideen für deinen Balkon&lt;/h3&gt;
+          {relatedArticles.map((article, index) =&gt; (
+            &lt;ArticlePreview key={article.id} article={article} withTopBorder={index === 0} /&gt;
+          ))}
+        &lt;/section&gt;
+      &lt;/main&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre>
+<p><code>selection</code> gehört nach <code>App</code>, weil sowohl Formular als auch Interaktionsbereich diesen Kontext brauchen. Der redaktionelle Inhalt bleibt davon unabhängig.</p>
+<p>Das Simulationsformular steht oberhalb des Videos und ausserhalb von <code>&lt;main&gt;</code>. Es dient nur zum Testen unterschiedlicher Benutzer- und Blogseiten-IDs und ist kein Bestandteil der eigentlichen Blogseite. «Daten simulieren» wechselt diesen Testkontext; die Zustandsdaten kommen weiterhin vom echten Backend.</p>
+<p>Der <code>key</code> am Interaktionsbereich kombiniert Benutzer- und Blogseiten-ID. Bei einem Wechsel ersetzt React bewusst die bisherige Instanz: Deren Requests werden aufgeräumt, und die neue beginnt mit <code>data: null</code>. So erscheint nicht vorübergehend der alte Auswahlzustand als Zustand des neuen Benutzers.</p>
+<p>Im aktuellen Beispiel sind Autorin und Thema feste Seitendaten. Würden auch sie auswählbar, müssten ihre Identitäten ebenfalls in diesen Key einfliessen. Der Hook wird hier zusammen mit dieser gezielten Instanzgrenze verwendet.</p>
+<p>Ein Neuladen startet die Kontextauswahl wieder bei Benutzer <code>1</code> und Seite <code>2</code>, wie im alten Beispiel. Die Backend-Daten sind trotzdem gespeichert. Für einen zuvor ausgewählten anderen Benutzer oder eine andere Seite musst du denselben Kontext erneut auswählen.</p>
+<h2 id="der-vollständige-datenfluss"><a class="header" href="#der-vollständige-datenfluss">Der vollständige Datenfluss</a></h2>
+<pre><code class="language-text">App: ausgewählter Benutzer und Blogseite
+  -&gt; BlogInteractions
+     -&gt; useBlogInteractions
+        -&gt; blogApi -&gt; vorhandenes Backend -&gt; SQLite
+        &lt;- bestätigte Daten
+     -&gt; Props an LikeSection und ToggleButton
+
+Klick auf einen ToggleButton
+  -&gt; Callback aus BlogInteractions
+  -&gt; Hook sperrt Aktionen
+  -&gt; aktuellen Serverzustand lesen
+  -&gt; POST oder DELETE
+  -&gt; bestätigte Daten erneut laden
+  -&gt; State aktualisieren
+  -&gt; React rendert die neue Auswahl und den neuen Zähler
+</code></pre>
+<p>Die Tabelle bleibt dagegen rein datengetrieben und braucht weiterhin keinen Effect. Dass beide Komponenten JavaScript-Logik enthalten, bedeutet nicht, dass beide denselben Hook benötigen.</p>
+<h2 id="deinen-stand-prüfen"><a class="header" href="#deinen-stand-prüfen">Deinen Stand prüfen</a></h2>
+<p>Starte Backend und React-Projekt in getrennten Terminals. Prüfe zuerst in den Browser-Entwicklerwerkzeugen die Requests und anschliessend das Verhalten:</p>
+<ol>
+<li><strong>Initiales Laden:</strong> Für Benutzer <code>1</code> und Seite <code>2</code> erscheinen der tatsächliche Zähler und die gespeicherten Auswahlzustände. Keine feste <code>59</code> wird angenommen.</li>
+<li><strong>Likes:</strong> Ein Klick setzt oder entfernt den Like. Die Anzeige übernimmt den danach vom Backend gelieferten Zähler.</li>
+<li><strong>Follow:</strong> Autorinnen- und Themen-Follow lassen sich unabhängig ein- und ausschalten.</li>
+<li><strong>Persistenz:</strong> Lade die Seite neu. Für denselben Kontext bleibt die gespeicherte Auswahl bestehen.</li>
+<li><strong>Benutzerwechsel:</strong> Wechsle die Benutzer-ID. Der neue Benutzer bekommt seine eigenen Zustände; der Zähler bleibt die Anzahl aller Likes dieser Blogseite.</li>
+<li><strong>Seitenwechsel:</strong> Wechsle die Blogseiten-ID. Likes gehören zur neuen Seite; Autorinnen- und Themen-Follows bleiben für denselben Benutzer erhalten.</li>
+<li><strong>Schnelle Wechsel:</strong> Mit gedrosseltem Netzwerk darf eine alte Antwort nicht den neu gewählten Kontext überschreiben.</li>
+<li><strong>Mehrfachklicks:</strong> Während einer Anfrage sind die Buttons gesperrt. Ein schneller Doppelklick löst nicht zwei Schreibabläufe aus.</li>
+<li><strong>Fehler:</strong> Stoppe das Backend oder blockiere einen Request. Eine Fehlermeldung erscheint, ohne einen erfolgreichen Klick vorzutäuschen. Nach Wiederherstellung lädt «Erneut laden» den tatsächlichen Zustand.</li>
+<li><strong>Darstellung:</strong> Bilder, Vorschauen und Balken funktionieren weiterhin auch bei schmalem Fenster. Die Backend-Arbeit verändert die Vergleichstabelle nicht.</li>
+</ol>
+<p>Im Referenzstand prüfen <code>npm test</code>, <code>npm run build</code> und <code>npm run lint</code> zusätzlich die verwendeten API-Verträge, HTTP-Fehler und ungültige Antworten. Die Service-Tests verwenden simulierte Antworten; die Persistenzprüfung oben benötigt ausdrücklich das echte Backend.</p>
+<h2 id="abschluss"><a class="header" href="#abschluss">Abschluss</a></h2>
+<p>Die Funktionen des früheren JavaScript-Endstands sind jetzt wieder vorhanden: Vergleichsbalken, Like-Auswahl und Zähler sowie beide gespeicherten Follow-Zustände. Neu ist die Struktur: Die Oberfläche setzt sich aus Komponenten zusammen, die Anzeige entsteht aus State und Props, und die Backend-Arbeit ist getrennt von der Darstellung.</p>
+<p>Wir haben nicht einfach die alten DOM-Skripte in React geladen, sondern ihre Aufgaben in den React-Datenfluss übertragen. Die Component-Aufteilung ist damit abgeschlossen; weitere Bausteine sollten aus neuen Anforderungen entstehen, nicht aus dem Wunsch nach möglichst vielen Dateien.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../07_react/06_components_abschliessen.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../07_react/06_components_abschliessen.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

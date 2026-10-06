@@ -51,5 +51,8 @@
 # React
 - [Einstieg](./07_react/01_intro.md)
 - [Blogseite mit React und TypeScript](./07_react/02_umwandeln.md)
-- [State in React](./07_react/03_state.md)
-- [Buttons mit React](./07_react/04_buttons.md)
+    - [State in React](./07_react/03_state.md)
+    - [Buttons mit React](./07_react/04_buttons.md)
+    - [Komponenten mit React](./07_react/05_components.md)
+    - [Die Seite in Komponenten aufteilen](./07_react/06_components_abschliessen.md)
+- [Das Backend wieder anbinden](./07_react/07_backend.md)

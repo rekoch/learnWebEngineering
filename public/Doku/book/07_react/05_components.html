@@ -1,0 +1,538 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Komponenten mit React - Learn To Build A Web Page</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-e6e2075b.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-73cb56ac.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learn To Build A Web Page</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="komponenten-mit-react"><a class="header" href="#komponenten-mit-react">Komponenten mit React</a></h1>
+<p>Unsere Blogseite reagiert inzwischen auf Klicks. Allerdings stehen der gesamte Inhalt und alle Buttons noch in <code>App</code>. Auch die Artikelvorschauen haben wir mehrmals als fast gleiches JSX geschrieben. Jetzt teilen wir die Seite in wiederverwendbare Bausteine auf.</p>
+<p>Ausgangspunkt ist dein Endstand aus <a href="./04_buttons.html">Buttons mit React</a>. Du entwickelst dasselbe Projekt weiter. Zuerst überlegen wir, welche Grenzen sinnvoll sind. Danach setzen wir einen dieser Schnitte um: Die Artikelvorschauen werden zu einer eigenen Komponente mit einer gemeinsamen Datenstruktur.</p>
+<h2 id="was-ist-eine-komponente"><a class="header" href="#was-ist-eine-komponente">Was ist eine Komponente?</a></h2>
+<p>Eine Komponente beschreibt einen Teil der Oberfläche. In React schreiben wir dafür eine Funktion, die JSX zurückgibt. <code>App</code> ist also bereits eine Komponente. Neu ist, dass sie weitere, selbst geschriebene Komponenten verwendet.</p>
+<p>Ein kleines Beispiel:</p>
+<pre><code class="language-tsx">type SectionTitleProps = {
+  title: string;
+};
+
+function SectionTitle({ title }: SectionTitleProps) {
+  return &lt;h3&gt;{title}&lt;/h3&gt;;
+}
+</code></pre>
+<p>In <code>App</code> könnten wir sie so einsetzen:</p>
+<pre><code class="language-tsx">&lt;SectionTitle title="Drei Ideen für wenig Platz" /&gt;
+&lt;SectionTitle title="Einfach anfangen" /&gt;
+</code></pre>
+<p><code>SectionTitle</code> ist die gemeinsame Beschreibung. Die beiden Verwendungen sind zwei Instanzen mit unterschiedlichen Eingaben. React rendert daraus zwei Überschriften; es erzeugt kein zusätzliches HTML-Element namens <code>&lt;SectionTitle&gt;</code>.</p>
+<ul>
+<li>Komponentennamen beginnen mit einem Grossbuchstaben. <code>&lt;section&gt;</code> bezeichnet ein HTML-Element, <code>&lt;SectionTitle&gt;</code> unsere Funktion.</li>
+<li>Die Eingaben heissen <strong>Props</strong>. Hier ist <code>title</code> eine Prop vom Typ <code>string</code>.</li>
+<li><code>{ title }</code> im Funktionsparameter ist Destructuring: Wir holen <code>title</code> aus dem übergebenen Props-Objekt.</li>
+<li><code>{title}</code> im JSX setzt den übergebenen Wert in die Ausgabe ein.</li>
+</ul>
+<p>Wir verwenden die Komponente als <code>&lt;SectionTitle ... /&gt;</code>, nicht als normalen Funktionsaufruf <code>SectionTitle(...)</code>. Definiere Komponenten ausserhalb von <code>App</code>, später am besten in eigenen Dateien. So bleibt ihre Definition über Renderdurchläufe hinweg dieselbe.</p>
+<p>Props sind Eingaben und werden von der empfangenden Komponente nicht verändert. Soll sie eine Aktion auslösen, kann die übergeordnete Komponente ihr eine Funktion als Prop übergeben, beispielsweise <code>onToggle</code>. State beschreibt dagegen Werte, die sich während der Verwendung ändern. Jede Instanz einer Komponente mit eigenem State besitzt ihren eigenen Zustand.</p>
+<p>Für eine einzelne Überschrift müssen wir nicht wirklich eine Komponente anlegen. Das Beispiel zeigt nur den Mechanismus. Ein sinnvoller Baustein braucht eine erkennbare Aufgabe, nicht bloss eine eigene Datei.</p>
+<h2 id="wo-könnten-wir-unsere-seite-aufteilen"><a class="header" href="#wo-könnten-wir-unsere-seite-aufteilen">Wo könnten wir unsere Seite aufteilen?</a></h2>
+<p>Schau dir <code>App.tsx</code> an, bevor du etwas verschiebst. Suche wiederholtes JSX, zusammengehörige Inhalte und Bereiche mit einer eigenen Aufgabe.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Bereich</th><th>Mögliche Komponente</th><th>Aufgabe</th></tr>
+</thead>
+<tbody>
+<tr><td>Die fünf kleinen Artikelvorschauen</td><td><code>ArticlePreview</code></td><td>Bild, Rubrik, Titel und Autorenzeile darstellen</td></tr>
+<tr><td>Bilder mit Bildlegende</td><td><code>CaptionedImage</code></td><td>Ein Bild mit Alternativtext und Legende darstellen</td></tr>
+<tr><td>Like-Bereich</td><td><code>LikeSection</code></td><td>Like-Auswahl und Zähler zusammenhalten</td></tr>
+<tr><td>Autorinnenbereich</td><td><code>AuthorProfile</code></td><td>Die Informationen zur Autorin zusammenstellen</td></tr>
+<tr><td>Themenbereich</td><td><code>TopicFollowSection</code></td><td>Thema und Follow-Aktion zusammenstellen</td></tr>
+<tr><td>Die beiden Follow-Buttons</td><td><code>ToggleButton</code></td><td>Auswahl, Texte und Klickaktion anzeigen bzw. weitergeben</td></tr>
+</tbody>
+</table>
+</div>
+<p>Das sind Möglichkeiten, keine Liste, die wir sofort vollständig umsetzen müssen. Auch ein einmal verwendeter Bereich kann eine gute Komponente sein, wenn er eine klare Aufgabe kapselt. Umgekehrt muss nicht jedes <code>&lt;p&gt;</code> eine Komponente werden.</p>
+<p>Überlege für jeden Vorschlag:</p>
+<ol>
+<li>Welche Aufgabe hat der Baustein? Kannst du sie in einem Satz benennen?</li>
+<li>Welche Eingaben braucht er? Welche Informationen braucht er ausdrücklich nicht?</li>
+<li>Woher kommen die Daten und wer entscheidet, was beim Klick passiert?</li>
+<li>Könnte derselbe Baustein an einer anderen Stelle mit anderen Daten funktionieren?</li>
+</ol>
+<h2 id="je-dümmer-desto-wiederverwendbarer"><a class="header" href="#je-dümmer-desto-wiederverwendbarer">«Je dümmer, desto wiederverwendbarer»</a></h2>
+<p>Mit «dumm» meinen wir hier: Eine Komponente weiss möglichst wenig über den konkreten Einsatzort. Sie bekommt die benötigten Werte und stellt sie dar. Sie muss nicht wissen, auf welcher Seite sie steht, woher die Daten kommen oder wie ein Backend funktioniert.</p>
+<p>Eine <code>ArticlePreview</code> braucht beispielsweise Titel, Rubrik, Autorenname und Bild. Sie braucht weder den kompletten Blogbeitrag noch dessen Like-State. Sie sucht auch nicht selbst in einer globalen Artikelliste nach ihren Daten.</p>
+<p>Bei einem generischen <code>ToggleButton</code> könnten der aktuelle Zustand, die beiden Beschriftungen und ein <code>onToggle</code>-Callback als Props ankommen. Ob damit einer Autorin oder einem Thema gefolgt wird, entscheidet der Aufrufer. Der Button zeigt die Auswahl an und meldet den Klick zurück.</p>
+<p>Die Richtung ist also: <strong>Daten nach unten, Aktionen über Callbacks zurück nach oben.</strong></p>
+<p>Das ist eine Faustregel, kein Verbot von State oder Fachwissen. Ein <code>LikeSection</code> darf einen lokalen Like-Zustand verwalten; ein <code>AuthorProfile</code> darf eine Autorin kennen. State gehört dorthin, wo er gebraucht wird. Müssen mehrere Komponenten denselben Zustand verwenden, liegt er in einem gemeinsamen Elternbaustein. Wir versuchen nicht, jede Komponente um jeden Preis vollständig generisch zu machen.</p>
+<h2 id="autorin-person-oder-nur-bild-und-text"><a class="header" href="#autorin-person-oder-nur-bild-und-text">Autorin, Person oder nur Bild und Text?</a></h2>
+<p>Am Autorinnenbereich sieht man, wie die gewählte Grenze das nötige Wissen verändert:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Schnitt</th><th>Was die Komponente weiss</th><th>Wo sie wiederverwendbar ist</th></tr>
+</thead>
+<tbody>
+<tr><td><code>AuthorProfile</code></td><td>Autorin, redaktionelle Rolle, Kontakt und Follow-Aktion</td><td>Bei anderen Blogbeiträgen</td></tr>
+<tr><td><code>PersonProfile</code></td><td>Eine Person mit Namen, Bild und Beschreibung</td><td>Auch bei Teammitgliedern oder Kontakten</td></tr>
+<tr><td><code>ImageText</code></td><td>Ein Bild und daneben übergebener Inhalt</td><td>Auch bei Produkten oder Themen; nicht nur bei Personen</td></tr>
+</tbody>
+</table>
+</div>
+<p>Eine <code>AuthorProfile</code> könnte die Follow-Aktion und die Autoreninformationen zusammenstellen. Eine darunterliegende <code>PersonProfile</code> müsste nicht mehr wissen, dass die Person Artikel schreibt. Noch eine Ebene tiefer braucht das Layout nicht einmal mehr das Konzept «Person».</p>
+<p>So könnte ein solcher generischer Layout-Baustein aussehen. Das ist ein Entwurfsbeispiel, noch kein Umbau unserer Seite:</p>
+<pre><code class="language-tsx">import type { ReactNode } from "react";
+
+type ImageTextProps = {
+  imageSrc: string;
+  imageAlt: string;
+  children: ReactNode;
+};
+
+function ImageText({ imageSrc, imageAlt, children }: ImageTextProps) {
+  return (
+    &lt;div className="d-flex flex-row"&gt;
+      &lt;img src={imageSrc} alt={imageAlt} className="flex-image-aside mr-s" /&gt;
+      &lt;div className="d-flex flex-column"&gt;{children}&lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p><code>children</code> ist der Inhalt zwischen dem öffnenden und schliessenden Komponenten-Tag. <code>ReactNode</code> erlaubt React-Inhalte wie Text und JSX. Die Komponente legt nur das Bild-Text-Layout fest; was der Text bedeutet, entscheidet die aufrufende Stelle:</p>
+<pre><code class="language-tsx">&lt;ImageText
+  imageSrc="https://picsum.photos/seed/beispiel-5041/96/96"
+  imageAlt="Nora Linden"
+&gt;
+  &lt;p&gt;Nora Linden&lt;/p&gt;
+  &lt;p&gt;Redaktorin&lt;/p&gt;
+&lt;/ImageText&gt;
+
+&lt;ImageText
+  imageSrc="https://picsum.photos/seed/beispiel-999/1200/800"
+  imageAlt="Gartenbox für den Stadtgarten"
+&gt;
+  &lt;p&gt;Gartenbox&lt;/p&gt;
+  &lt;p&gt;24.90&lt;/p&gt;
+&lt;/ImageText&gt;
+</code></pre>
+<p>Die Inhalte sind verschieden, die Anordnung ist dieselbe. Ob das Layout ein Profilbild rund darstellt oder ein Produktbild rechteckig, wäre eine weitere bewusste Designentscheidung. Unser vereinfachtes Beispiel übernimmt noch nicht das vollständige responsive Profil-Layout.</p>
+<p>Mehr Ebenen sind nicht automatisch besser. Wenn eine universelle Komponente viele Sonderfälle wie <code>isAuthor</code>, <code>isProduct</code> und <code>showPrice</code> braucht, hat sie wieder viel Fachwissen angesammelt. Dann sind getrennte fachliche Komponenten oft verständlicher, die bei Bedarf einen kleinen Layout-Baustein teilen.</p>
+<p>Für unser erstes Refactoring bleiben wir bei einer fachlichen <code>ArticlePreview</code>. Wir haben bereits fünf konkrete Verwendungen, und deren Aufbau ist fast gleich. Die generischen Profil- und Layout-Komponenten bleiben zunächst eine mögliche spätere Erweiterung.</p>
+<h2 id="schritt-1-die-artikeldaten-beschreiben"><a class="header" href="#schritt-1-die-artikeldaten-beschreiben">Schritt 1: Die Artikeldaten beschreiben</a></h2>
+<p>Mit «Artikel» meinen wir in diesem Refactoring die <strong>kleinen Vorschauen</strong>, nicht den gesamten langen Blogbeitrag. Für eine Vorschau brauchen wir nur die Werte, die sie anzeigt, sowie eine stabile Kennung für die spätere Liste.</p>
+<p>Lege <code>src/data/articles.ts</code> an. Eine <code>.ts</code>-Datei reicht, weil sie kein JSX enthält:</p>
+<pre><code class="language-ts">export type ArticlePreviewData = {
+  id: string;
+  category: string;
+  title: string;
+  author: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+};
+
+export const cornerArticle: ArticlePreviewData = {
+  id: "lieblingsplatz",
+  category: "Ideen &amp; Alltag",
+  title: "So wird aus einer Ecke ein Lieblingsplatz",
+  author: "Nora Linden",
+  image: {
+    src: "https://picsum.photos/seed/beispiel-6834/1200/800",
+    alt: "Beispielbild zum Stadtgarten",
+  },
+};
+</code></pre>
+<p>Der Typ legt die gemeinsame Struktur fest. TypeScript prüft beispielsweise, dass jeder Datensatz einen Titel und beide Bildangaben besitzt. <code>image</code> fasst zusammengehörige Werte in einem Objekt zusammen. <code>author</code> ist hier nur der angezeigte Name; wir brauchen dafür noch kein vollständiges Personenobjekt.</p>
+<p><code>id</code> bleibt für denselben Artikel gleich, auch wenn sein Titel oder seine Position geändert wird. Sie muss innerhalb der späteren Liste eindeutig sein. Unsere Daten bleiben vorerst lokal; wir führen weder einen Backend-Aufruf noch neuen State ein.</p>
+<h2 id="schritt-2-die-vorschau-herauslösen"><a class="header" href="#schritt-2-die-vorschau-herauslösen">Schritt 2: Die Vorschau herauslösen</a></h2>
+<p>Lege <code>src/components/ArticlePreview.tsx</code> an. Diese Datei enthält JSX und hat deshalb die Endung <code>.tsx</code>:</p>
+<pre><code class="language-tsx">import type { ArticlePreviewData } from "../data/articles";
+
+type ArticlePreviewProps = {
+  article: ArticlePreviewData;
+  withTopBorder?: boolean;
+};
+
+export default function ArticlePreview({
+  article,
+  withTopBorder = true,
+}: ArticlePreviewProps) {
+  return (
+    &lt;article
+      className={`d-flex flex-row border-bottom py-s ${withTopBorder ? "border-top" : ""}`}
+    &gt;
+      &lt;img
+        src={article.image.src}
+        alt={article.image.alt}
+        className="flex-image-aside mr-s"
+      /&gt;
+      &lt;div className="d-flex flex-column"&gt;
+        &lt;p className="content-category my-0 font-13"&gt;{article.category}&lt;/p&gt;
+        &lt;h4 className="mt-xxs mb-0 font-20 font-weight-regular"&gt;
+          {article.title}
+        &lt;/h4&gt;
+        &lt;p className="mt-xxs mb-0 font-13"&gt;von {article.author}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+  );
+}
+</code></pre>
+<p>Das ist das bisherige Vorschau-JSX mit einer Änderung: Die festen Inhalte kommen jetzt aus <code>article</code>. Wir übernehmen die CSS-Klassen, damit das Aussehen gleich bleibt.</p>
+<p><code>import type</code> importiert nur die TypeScript-Typbeschreibung. <code>ArticlePreviewProps</code> beschreibt die Schnittstelle der Komponente; <code>ArticlePreviewData</code> beschreibt dagegen die Daten eines Artikels. Nicht jede Prop muss Teil der Artikeldaten sein: Ob oben eine Trennlinie erscheint, ist eine Darstellungsentscheidung.</p>
+<p>Das Fragezeichen in <code>withTopBorder?: boolean</code> macht die Prop optional. Ohne Angabe gilt der Standardwert <code>true</code>. Diese kleine Variante brauchen wir, weil die Vorschauen im Text und die erste Vorschau am Seitenende einen oberen Rand haben, die folgenden Listeneinträge aber nicht. So entstehen zwischen den Listeneinträgen keine doppelten Rahmen.</p>
+<p>Die Komponente liest nur ihre Props. Sie hat keinen eigenen State, kennt keine Follow-Funktion und entscheidet nicht, welcher Artikel auf der Seite erscheint.</p>
+<h2 id="schritt-3-die-erste-verwendung-ersetzen"><a class="header" href="#schritt-3-die-erste-verwendung-ersetzen">Schritt 3: Die erste Verwendung ersetzen</a></h2>
+<p>Ergänze oben in <code>App.tsx</code> die Imports. <code>useState</code> und der bisherige CSS-Import bleiben erhalten:</p>
+<pre><code class="language-tsx">import ArticlePreview from "./components/ArticlePreview";
+import { cornerArticle } from "./data/articles";
+</code></pre>
+<p>Ersetze im Abschnitt «Drei Ideen für wenig Platz» nur den bisherigen <code>&lt;article&gt;...&lt;/article&gt;</code>-Block durch:</p>
+<pre><code class="language-tsx">&lt;ArticlePreview article={cornerArticle} /&gt;
+</code></pre>
+<p>Die Überschrift, der Absatz davor und die Inhalte danach bleiben in <code>App</code>. Mit <code>{cornerArticle}</code> übergeben wir das Objekt, nicht den Text <code>"cornerArticle"</code>.</p>
+<p>Prüfe diese erste Stelle im Browser: Bild, Rubrik, Titel und Autorenname müssen wie vorher aussehen. Die Buttons müssen weiterhin funktionieren. Das ist ein Refactoring: Wir ändern die Struktur des Codes, nicht das sichtbare Verhalten.</p>
+<h2 id="schritt-4-dieselbe-komponente-wiederverwenden"><a class="header" href="#schritt-4-dieselbe-komponente-wiederverwenden">Schritt 4: Dieselbe Komponente wiederverwenden</a></h2>
+<p>Ergänze in <code>src/data/articles.ts</code> den Datensatz für die zweite Vorschau:</p>
+<pre><code class="language-ts">export const eveningArticle: ArticlePreviewData = {
+  id: "gruener-feierabend",
+  category: "Beispielbeitrag",
+  title: "Fünf Ideen für einen grünen Feierabend",
+  author: "Nora Linden",
+  image: {
+    src: "https://picsum.photos/seed/beispiel-2727/1200/800",
+    alt: "Beispielbild zum Stadtgarten",
+  },
+};
+</code></pre>
+<p>Erweitere den Datenimport in <code>App.tsx</code>:</p>
+<pre><code class="language-tsx">import { cornerArticle, eveningArticle } from "./data/articles";
+</code></pre>
+<p>Ersetze im Abschnitt «Kleine Helfer für grosse Pläne» ebenfalls nur den <code>&lt;article&gt;...&lt;/article&gt;</code>-Block:</p>
+<pre><code class="language-tsx">&lt;ArticlePreview article={eveningArticle} /&gt;
+</code></pre>
+<p>Beide Stellen verwenden nun dieselbe Komponente mit verschiedenen Daten. Wenn wir später den Aufbau der Vorschau ändern, ändern wir ihn nur noch in <code>ArticlePreview.tsx</code>.</p>
+<h2 id="schritt-5-mehrere-artikel-aus-einer-liste-rendern"><a class="header" href="#schritt-5-mehrere-artikel-aus-einer-liste-rendern">Schritt 5: Mehrere Artikel aus einer Liste rendern</a></h2>
+<p>Am Seitenende stehen drei weitere Vorschauen. Statt drei Komponentenaufrufe einzeln zu schreiben, beschreiben wir die Daten als Array. Ergänze in <code>src/data/articles.ts</code>:</p>
+<pre><code class="language-ts">export const relatedArticles: ArticlePreviewData[] = [
+  {
+    id: "kleines-beet",
+    category: "Beispielbeitrag",
+    title: "Ein kleines Beet, viele Möglichkeiten",
+    author: "Nora Linden",
+    image: {
+      src: "https://picsum.photos/seed/beispiel-6917/1200/800",
+      alt: "Beispielbild zum Stadtgarten",
+    },
+  },
+  {
+    id: "stadtgarten",
+    category: "Beispielbeitrag",
+    title: "Ein kleiner Garten mitten in der Stadt",
+    author: "Nora Linden",
+    image: {
+      src: "https://picsum.photos/seed/beispiel-8022/1200/800",
+      alt: "Beispielbild zum Stadtgarten",
+    },
+  },
+  {
+    id: "sonnige-fenster",
+    category: "Beispielbeitrag",
+    title: "Pflanzen für sonnige Fenster",
+    author: "Nora Linden",
+    image: {
+      src: "https://picsum.photos/seed/beispiel-6731/1200/800",
+      alt: "Beispielbild zum Stadtgarten",
+    },
+  },
+];
+</code></pre>
+<p><code>ArticlePreviewData[]</code> bedeutet: ein Array, dessen Einträge alle diese Datenstruktur besitzen. Vervollständige den Datenimport in <code>App.tsx</code>:</p>
+<pre><code class="language-tsx">import { cornerArticle, eveningArticle, relatedArticles } from "./data/articles";
+</code></pre>
+<p>Ersetze den Abschnitt «Weitere Ideen für deinen Balkon» durch:</p>
+<pre><code class="language-tsx">&lt;section&gt;
+  &lt;h3&gt;Weitere Ideen für deinen Balkon&lt;/h3&gt;
+  {relatedArticles.map((article, index) =&gt; (
+    &lt;ArticlePreview
+      key={article.id}
+      article={article}
+      withTopBorder={index === 0}
+    /&gt;
+  ))}
+&lt;/section&gt;
+</code></pre>
+<p><code>map</code> ruft die übergebene Funktion für jeden Eintrag auf und sammelt deren Rückgaben in einem neuen Array. Hier entsteht aus jedem Artikelobjekt ein JSX-Element. React rendert diese Elemente nacheinander.</p>
+<p><code>key</code> ist eine besondere Angabe für React: Sie hilft, Einträge über Renderdurchläufe hinweg wiederzuerkennen, etwa wenn sie umsortiert werden. Sie wird nicht als normale Prop an <code>ArticlePreview</code> weitergegeben. Verwende eine stabile Kennung aus den Daten, nicht <code>Math.random()</code> oder den Array-Index. Sonst kann React bei Änderungen den Zustand einer Instanz dem falschen Eintrag zuordnen.</p>
+<p>Den <code>index</code> verwenden wir hier nur für das Layout: Der erste Eintrag bekommt einen oberen Rand. Das ist eine Positionsfrage, keine Identität. Die Identität bleibt <code>article.id</code>.</p>
+<h2 id="was-gehört-jetzt-wohin"><a class="header" href="#was-gehört-jetzt-wohin">Was gehört jetzt wohin?</a></h2>
+<p>Der neue Aufbau ist:</p>
+<pre><code class="language-text">src/
+  App.tsx
+  main.tsx
+  components/
+    ArticlePreview.tsx
+  data/
+    articles.ts
+</code></pre>
+<ul>
+<li><code>App</code> stellt die Seite zusammen und entscheidet, welche Vorschauen an welcher Stelle erscheinen. Die bestehenden Button-Zustände bleiben hier.</li>
+<li><code>articles.ts</code> enthält die typisierten Anzeigedaten, ohne JSX oder Interaktionslogik.</li>
+<li><code>ArticlePreview</code> beschreibt einmalig, wie diese Daten angezeigt werden. Sie kennt den Einsatzort nicht.</li>
+</ul>
+<p>Die Komponente weiss weiterhin, was eine Artikelvorschau ist. Das ist hier sinnvoll und macht ihren Namen und ihre Props verständlich. Sie ist nicht so generisch wie das frühere <code>ImageText</code>-Beispiel, aber deutlich unabhängiger als der fest eingebaute JSX-Block in <code>App</code>.</p>
+<h2 id="deinen-stand-prüfen"><a class="header" href="#deinen-stand-prüfen">Deinen Stand prüfen</a></h2>
+<p>Starte dein Projekt mit <code>npm run dev</code> und prüfe:</p>
+<ul>
+<li>Alle fünf Artikelvorschauen zeigen weiterhin dieselben Bilder und Texte an.</li>
+<li>Die Liste am Seitenende hat keine doppelten Trennlinien.</li>
+<li>Like und beide Follow-Buttons funktionieren unverändert und unabhängig voneinander. Ein Neuladen setzt ihren lokalen State weiterhin zurück.</li>
+<li>In der Browser-Konsole erscheint keine Warnung wegen fehlender Keys.</li>
+<li><code>npm run build</code> und <code>npm run lint</code> laufen ohne Fehler durch.</li>
+</ul>
+<p>Ergänze probeweise einen vierten Artikel in <code>relatedArticles</code>, mit eigener <code>id</code>. Er muss ohne zusätzliche JSX-Kopie am Seitenende erscheinen. Ändere dann seinen Titel im Datenobjekt: Nur diese Vorschau soll sich ändern. Entferne den Probeeintrag anschliessend wieder.</p>
+<p>Überlege zum Abschluss am Autorinnenbereich: Welche Props hätte eine <code>AuthorProfile</code>? Was davon würde eine <code>PersonProfile</code> noch benötigen? Was bliebe für ein reines <code>ImageText</code> übrig? Entscheide bewusst, wie viel Wissen du auf welcher Ebene brauchst, statt möglichst viele kleine Dateien anzulegen.</p>
+<p>Den <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/07_react/05_components">vollständigen Referenzstand mit Komponenten und Artikeldaten findest du hier</a>. Wir haben in diesem Schritt nur die Artikelvorschauen herausgelöst; weitere Komponenten können darauf aufbauen.</p>
+<p>Im <a href="./06_components_abschliessen.html">nächsten Kapitel</a> schliessen wir die Aufteilung mit Bildern, Vergleichstabelle und den interaktiven Bereichen ab.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../07_react/04_buttons.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../07_react/06_components_abschliessen.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../07_react/04_buttons.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../07_react/06_components_abschliessen.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

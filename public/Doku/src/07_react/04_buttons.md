@@ -111,6 +111,6 @@ Für `className` verwenden wir hier einen Template-String mit Backticks. Die fes
 - Die beiden Follow-Buttons lassen sich unabhängig voneinander ein- und ausschalten.
 - Nach dem Neuladen stehen alle Buttons und der Zähler wieder auf ihren Startwerten. Das ist ohne Speicherung beabsichtigt.
 
-Die ganze Seite bleibt vorerst in `App`. Das Aufteilen in wiederverwendbare Komponenten folgt später.
+Die ganze Seite bleibt vorerst in `App`. Im [nächsten Kapitel](./05_components.md) teilen wir die Artikelvorschauen in wiederverwendbare Komponenten auf.
 
 Den [Endstand mit reaktiven Buttons findest du hier](https://github.com/rekoch/learnWebEngineering/tree/main/public/07_react/04_buttons-mit-state). Im Referenzcode stehen die kurzen Follow-Handler direkt in `onClick`, zum Beispiel `onClick={() => setFollowsAuthor(!followsAuthor)}`. Diese Pfeilfunktion wird ebenfalls erst beim Klick ausgeführt und hat dieselbe Wirkung wie der benannte Handler oben.
