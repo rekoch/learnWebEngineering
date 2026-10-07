@@ -1,0 +1,7 @@
+{
+  "name": "learn-web-engineering",
+  "private": true,
+  "scripts": {
+    "build:hosting": "node scripts/build-hosting.mjs"
+  }
+}

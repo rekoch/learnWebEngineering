@@ -1,6 +1,6 @@
 # Buttons mit React
 
-Im letzten Kapitel hast du State an einem Zähler kennengelernt. Jetzt verwenden wir ihn für die drei Buttons unserer Blogseite. Ausgangspunkt ist deine statische `App` aus Kapitel 02; das Zählerexperiment gehört nicht mehr hinein.
+Im Kapitel [State in React](./03_state.md) hast du State an einem Zähler kennengelernt. Jetzt verwenden wir ihn für die drei Buttons unserer Blogseite. Ausgangspunkt ist deine statische `App` aus [Blogseite mit React und TypeScript](./02_umwandeln.md); das Zählerexperiment gehört nicht mehr hinein.
 
 Wir beginnen mit einem Follow-Button, der nur einen booleschen Zustand braucht. Danach ergänzen wir den Like-Button mit seinem Zähler. Alle Zustände bleiben vorerst lokal, ohne Backend-Anbindung.
 

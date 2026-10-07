@@ -27,4 +27,10 @@ Mit diesen Grundlagen kannst du eigene Webseiten bauen und besser verstehen, wie
 
 Wir beginnen mit HTML und CSS und ergänzen danach JavaScript. So baust du dein Wissen Schritt für Schritt auf.
 
+## Orientierung im Buch und im Code
+
+Die Kapitelnummern in der Navigation werden automatisch aus der Buchstruktur erzeugt. Die Zahlen in den Code-Ordnernamen kennzeichnen dagegen die Reihenfolge der Referenzstände. Beide Nummerierungen sind unabhängig voneinander: `public/07_react/06_components-complete` ist ein Code-Stand, keine Kapitelnummer des Buchs.
+
+Verweise auf Buchkapitel verwenden deshalb den verlinkten Kapiteltitel. Den zugehörigen Code-Stand findest du über die im jeweiligen Kapitel angegebenen Ordner oder Referenzlinks. Arbeite in deinem eigenen Projekt weiter; die Referenzstände dienen zum Vergleichen.
+
 Viel Spass beim Lernen und Ausprobieren!

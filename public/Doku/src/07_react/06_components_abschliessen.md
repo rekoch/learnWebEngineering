@@ -2,7 +2,15 @@
 
 Im [letzten Kapitel](./05_components.md) haben wir die Artikelvorschauen herausgelöst. Jetzt schliessen wir die Aufteilung unserer Seite ab. Wir bauen einen Bildbaustein, führen Darstellung und Berechnung der Vergleichstabelle zusammen und trennen die interaktiven Bereiche vom redaktionellen Inhalt.
 
-Ausgangspunkt ist dein eigener Stand nach Kapitel 05. Du brauchst kein neues Vite-Projekt. Der [Referenzstand zu diesem Kapitel](https://github.com/rekoch/learnWebEngineering/tree/main/public/07_react/06_components-complete) liegt im Ordner `public/07_react/06_components-complete`.
+Ausgangspunkt ist dein eigener Stand nach [Komponenten mit React](./05_components.md). Du brauchst kein neues Vite-Projekt. Der [Referenzstand zu diesem Kapitel](https://github.com/rekoch/learnWebEngineering/tree/main/public/07_react/06_components-complete) liegt im Ordner `public/07_react/06_components-complete`. Er enthält auch die Lösungen zu den Übungen. Arbeite zunächst in deinem eigenen Projekt und öffne die jeweiligen Lösungsdateien erst nach deinem eigenen Versuch und den angegebenen Prüfungen.
+
+In diesem Kapitel nimmt die Hilfestellung schrittweise ab:
+
+- **Nachbauen und verstehen:** Bildbaustein, Tabelle, Toggle-Button und Autorinnenprofil setzen wir gemeinsam um.
+- **Mit Anleitung umsetzen:** Den Like-Bereich löst du mit vorgegebenen Props und Arbeitsschritten selbst heraus.
+- **Eigenständig lösen:** Für Themenbereich und Produktübersicht erhältst du Anforderungen und Prüfkriterien, aber kein fertiges Komponenten-JSX.
+
+Bei den Übungen übernimmst du das vorhandene HTML und die CSS-Klassen aus deinem bisherigen `App.tsx`. Die Aufgabe ist nicht, das Design neu zu erfinden, sondern die Komponentengrenze festzulegen, feste Werte durch Props zu ersetzen und den Baustein einzubinden. Notiere jeweils vor dem Programmieren seine Aufgabe und seine Eingaben.
 
 ## Ein Bild mit Bildlegende
 
@@ -157,13 +165,28 @@ Der Button kennt nur Auswahl, Beschriftungen und eine Aktion. Er weiss nicht, ob
 
 `onToggle` ist eine Funktion als Prop. `onClick={onToggle}` führt sie nicht beim Rendern aus, sondern übergibt sie für den späteren Klick. `disabled` bereitet den Baustein auch auf Situationen vor, in denen eine Aktion noch nicht verfügbar ist.
 
-Lege den fachlichen Like-Bereich in `src/components/LikeSection.tsx` an:
+## Übung 1: Den Like-Bereich mit Anleitung herauslösen
 
-```tsx
-{{#include ../../../07_react/06_components-complete/src/components/LikeSection.tsx}}
+Erstelle `src/components/LikeSection.tsx`. Der Baustein soll den vorhandenen Like-Button und den Zähler zusammen darstellen. Die Zustandsänderung bleibt ausserhalb der Komponente. Diese Schnittstelle ist vorgegeben:
+
+```ts
+type LikeSectionProps = {
+  liked: boolean;
+  count: number;
+  onToggle: () => void;
+  disabled?: boolean;
+};
 ```
 
-`LikeSection` weiss, was Likes sind, und setzt Button und Zähler zusammen. `ToggleButton` weiss das nicht. Unterschiedlich viel Fachwissen auf verschiedenen Ebenen ist hier beabsichtigt.
+1. Suche in `App.tsx` den Abschnitt mit Like-Button und Zähler. Verschiebe sein JSX in die neue Komponente und exportiere sie als Standardexport.
+2. Ersetze den bisherigen Button durch `ToggleButton`. Ordne `liked`, `onToggle` und `disabled` den passenden Props zu. Die beiden Beschriftungen bleiben die bisherigen Like-Texte.
+3. Zeige beim Zähler `count` an. Die Komponente berechnet keine neue Anzahl und enthält weder `useState` noch die Like-Funktion.
+4. Kennzeichne den Bereich mit `aria-label="Beitrag liken"` und den Zähler mit `aria-live="polite"`, damit Änderungen angekündigt werden können.
+5. Importiere `LikeSection` in `App.tsx` und übergib die bestehenden Zustände sowie die bestehende Like-Funktion. Entferne dort das ersetzte JSX, aber noch nicht den State.
+
+**Prüfe deinen Baustein:** Ein Klick erhöht den Zähler von `59` auf `60`, ein weiterer setzt ihn auf `59` zurück. Beschriftung und Auswahl wechseln mit. Übergib probeweise `disabled`: Der Button darf dann weder Auswahl noch Zähler verändern. Entferne diese Probe danach wieder.
+
+Erkläre anschliessend in eigenen Worten: Warum braucht `LikeSection` keinen eigenen Like-State? Warum erhält `ToggleButton` keinen Zähler? `LikeSection` weiss, was Likes sind, und setzt Button und Zähler zusammen. `ToggleButton` weiss das nicht. Unterschiedlich viel Fachwissen auf verschiedenen Ebenen ist hier beabsichtigt.
 
 ## Profil und Thema mit einem Platz für Aktionen
 
@@ -175,13 +198,30 @@ Lege `src/components/AuthorProfile.tsx` an:
 {{#include ../../../07_react/06_components-complete/src/components/AuthorProfile.tsx}}
 ```
 
-Über `children` füllen wir den Platz für die Aktion. Das ist **Komposition**: Ein Baustein setzt sich aus anderen zusammen, ohne alle ihre Einzelheiten zu kennen. Beim Thema verwenden wir dieselbe Idee in `src/components/TopicFollowSection.tsx`:
-
-```tsx
-{{#include ../../../07_react/06_components-complete/src/components/TopicFollowSection.tsx}}
-```
+Über `children` füllen wir den Platz für die Aktion. Das ist **Komposition**: Ein Baustein setzt sich aus anderen zusammen, ohne alle ihre Einzelheiten zu kennen.
 
 Für unsere eine Profilvariante brauchen wir noch keine weitere Ebene `PersonProfile` und keinen universellen Layout-Baustein. Die mögliche tiefere Aufteilung aus dem letzten Kapitel bleibt sinnvoll, sobald mehrere echte Einsatzfälle sie rechtfertigen.
+
+## Übung 2: Den Themenbereich eigenständig aufteilen
+
+Setze jetzt `src/components/TopicFollowSection.tsx` ohne Lösungsvorlage um. Untersuche dafür den bestehenden Themenabschnitt in deinem `App.tsx` und wende die Idee der Komposition an.
+
+**Anforderungen:**
+
+- Die Komponente erhält den Themennamen als `topic: string` und einen Aktionsplatz als `children: ReactNode`. Sie hat einen Standardexport.
+- Sie zeigt den übergebenen Namen und den bestehenden Hinweistext an. Behalte das responsive Layout und die CSS-Klassen des Themenabschnitts bei; beschrifte den Abschnitt mit `aria-label="Thema"`.
+- Der Aufrufer setzt den Follow-Button in den Aktionsplatz ein. Der Baustein selbst importiert weder `ToggleButton` noch `useState` und kennt keine Follow-Funktion.
+- Ersetze den bisherigen Themenabschnitt in `App.tsx` durch deine Komponente. Der bestehende Follow-State und sein Callback bleiben zunächst in `App`.
+
+Entscheide selbst, welche HTML-Elemente zur Themenanzeige gehören und welche zur übergebenen Aktion. Schreibe den Props-Typ, die JSX-Rückgabe und die Verwendung selbst; für diese Aufgabe gibt es hier keinen fertigen Codeblock.
+
+**Prüfe deinen Baustein:**
+
+1. Übergib vorübergehend einen anderen Themennamen. Er muss ohne Änderung an der Komponente erscheinen.
+2. Ersetze am Aufruf den Follow-Button vorübergehend durch einen einfachen Link. Er muss im selben Aktionsbereich erscheinen, ohne dass du `TopicFollowSection` anpasst.
+3. Setze den Follow-Button wieder ein. Themen-Follow und Autorinnen-Follow müssen unabhängig funktionieren, auch bei schmalem Browserfenster.
+
+Entferne die Probeänderungen. Begründe, warum eine zusätzliche Prop `followsTopic` hier nicht nötig ist.
 
 ## State und Seitendaten zuordnen
 
@@ -191,11 +231,23 @@ Lege die Anzeigedaten für Autorin, Thema und Produkt in `src/data/page.ts` ab:
 {{#include ../../../07_react/06_components-complete/src/data/page.ts}}
 ```
 
-Den Produktblock lösen wir als `src/components/ProductSummary.tsx` heraus. Er hat die eigene Aufgabe, ein Produkt kompakt darzustellen:
+## Übung 3: Eine Produktübersicht eigenständig entwerfen
 
-```tsx
-{{#include ../../../07_react/06_components-complete/src/components/ProductSummary.tsx}}
-```
+Löse den bisherigen Produktblock als `src/components/ProductSummary.tsx` heraus. Anders als bei der ersten Übung bestimmst du den Props-Typ und die Umsetzung selbst. Für die spätere Zusammenstellung ist nur vereinbart: Die Komponente hat einen Standardexport und erhält das Produktobjekt über eine Prop namens `product`.
+
+**Anforderungen:**
+
+- Stelle Produktname, Marke, Preis, Details, Bewertung und Bild aus dem übergebenen Objekt dar. Verwende den Alternativtext aus den Daten.
+- Definiere einen passenden TypeScript-Typ für die benötigten Produktfelder. Orientiere dich an `product` aus `src/data/page.ts`; die vorhandenen Preis- und Bewertungsangaben sind bereits formatierte Zeichenketten.
+- Behalte die bisherigen HTML-Elemente und CSS-Klassen des Produktblocks bei und beschrifte den Abschnitt mit `aria-label="Produkt"`.
+- Importiere den konkreten Produktdatensatz nicht in der Komponente. Sie erhält ihn vom Aufrufer und enthält keinen State, keine Backend-Abfrage und keine fest eingebauten Angaben zur Gartenbox.
+- Ersetze den Produktblock in `App.tsx` durch deine Komponente und übergib dort den Datensatz.
+
+**Prüfe deinen Baustein:** Lege am Aufruf vorübergehend ein zweites Produktobjekt mit anderen Angaben an und rendere beide Produkte gleichzeitig. Alle Angaben einschliesslich Bild und Alternativtext müssen zum jeweiligen Produkt gehören. Dafür darfst du die Komponente nicht verändern. Prüfe ausserdem das Layout bei schmalem Browserfenster und entferne danach die zusätzliche Instanz.
+
+Erkläre zum Abschluss: Weshalb erhält die Produktübersicht Daten über Props, obwohl wir auf unserer Seite nur ein Produkt zeigen? Welche Angaben wären für ihre Darstellungsaufgabe unnötig?
+
+## Die Interaktionen zusammenführen
 
 Verschiebe die vier bestehenden Zustände und die Like-Funktion aus `App` in die neue `src/components/BlogInteractions.tsx`. Hier setzen wir die fachlichen Bereiche und ihre Aktionen zusammen:
 
@@ -211,7 +263,7 @@ Lege `src/components/BlogContent.tsx` an und verschiebe die redaktionellen Absch
 
 Die Imports für Bilder, Tabelle und die zwei einzelnen Artikeldatensätze ziehen ebenfalls mit um. Innerhalb von `components` lautet der Import beispielsweise `./CaptionedImage`, für Daten `../data/comparison`. `BlogContent` braucht kein `useState`.
 
-Entferne die verschobenen Inhalte und Zustände aus `App.tsx`. Der Endstand sieht so aus:
+Entferne die verschobenen Inhalte und Zustände aus `App.tsx`. Vergleiche den folgenden Endstand erst, wenn deine drei Übungskomponenten eingebunden sind und ihre Prüfungen bestehen. Er zeigt die Zusammenstellung, nicht die Implementierung deiner Bausteine:
 
 ```tsx
 {{#include ../../../07_react/06_components-complete/src/App.tsx}}
@@ -240,6 +292,7 @@ Damit ist die Aufteilung für diese Seite abgeschlossen. Wir lassen den redaktio
 
 ## Deinen Stand prüfen
 
+- Die drei Übungskomponenten bestehen ihre jeweiligen Prüfungen. Du kannst ihre Props und die Platzierung des State begründen, bevor du sie mit dem Referenzstand vergleichst.
 - Alle acht Bilder mit Legende und alle fünf Artikelvorschauen sind weiterhin vorhanden.
 - Die Tabelle zeigt sechs Werte; `2979` hat den längsten Balken. Die anderen Gruppen verwenden dasselbe Maximum.
 - Setze probeweise alle Vergleichswerte auf `0`: Die Werte bleiben lesbar, und es entstehen keine ungültigen Breiten.

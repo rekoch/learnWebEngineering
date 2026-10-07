@@ -2,6 +2,8 @@
 
 Der Referenzstand zum Kapitel «Die Seite in Komponenten aufteilen». Ausgangspunkt ist `../05_components`.
 
+Dieser Ordner ist der vollständige Lösungsstand, nicht die Übungsvorlage. Entwickle im eigenen Stand aus [Komponenten mit React](../../Doku/src/07_react/05_components.md) weiter. Das Buch führt `LikeSection` als angeleitete Übung ein; `TopicFollowSection` und `ProductSummary` setzt du nur anhand der Anforderungen und Prüfkriterien um. Öffne diese drei Lösungsdateien erst nach deinem eigenen Versuch und den Prüfungen im Kapitel. Vergleiche danach besonders die Props, die Zuständigkeit für State und die Verwendung von `children`; identisches JSX ist nicht das Ziel.
+
 `CaptionedImage` bündelt Bild und Legende. `ComparisonTable` rendert beliebige Messreihen und Vergleichsgruppen und berechnet ihre Balkenbreiten aus den Daten. Sie behandelt Nullwerte und leere Daten ohne DOM-Manipulation. `ToggleButton`, `LikeSection`, `AuthorProfile`, `TopicFollowSection` und `ProductSummary` haben klar getrennte Darstellungsaufgaben. `BlogContent` enthält den redaktionellen Inhalt.
 
 Die lokalen Like- und Follow-Zustände liegen in `BlogInteractions`. Eine Backend-Anbindung folgt erst im nächsten Referenzstand `../07_backend-integration`.
