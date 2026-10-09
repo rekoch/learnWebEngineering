@@ -1,9 +1,9 @@
 import type { ComparisonRow, ComparisonSeries } from "../components/ComparisonTable";
 
 export const gardenSeries: ComparisonSeries[] = [
-  { id: "garden-a", label: "Stadtgarten A", color: "#9b7653" },
-  { id: "garden-b", label: "Stadtgarten B", color: "#d8b530" },
-  { id: "garden-c", label: "Stadtgarten C", color: "#cf5656" },
+  { id: "garden-a", label: "Stadtgarten A", color: "var(--brand-brown)" },
+  { id: "garden-b", label: "Stadtgarten B", color: "var(--brand-yellow)" },
+  { id: "garden-c", label: "Stadtgarten C", color: "var(--brand-red)" },
 ];
 
 export const gardenRows: ComparisonRow[] = [

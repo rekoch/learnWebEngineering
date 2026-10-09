@@ -60,7 +60,8 @@ Welche Informationen gehören zur Tabelle, welche nur zu unserem konkreten Stadt
 - Titel und optionaler Hinweis kommen ebenfalls von aussen.
 - Die Berechnung kennt keine Produktnamen und benötigt weder Benutzer-ID noch Backend.
 
-Wir schreiben die Typen direkt in `ComparisonTable.tsx`, weil sie die Schnittstelle der Komponente beschreiben:
+Wir schreiben die Typen direkt in `ComparisonTable.tsx`, weil sie die Schnittstelle der Komponente beschreiben. Lege dazu `src/components/ComparisonTable.tsx` mit unseren konkreten Typen an:
+
 
 ```ts
 export type ComparisonSeries = {
@@ -84,11 +85,13 @@ Lege `src/data/comparison.ts` mit unseren konkreten Daten an:
 {{#include ../../../07_react/06_components-complete/src/data/comparison.ts}}
 ```
 
+Für die Farben verwenden wir die bestehenden CSS-Variablen aus `src/css/variables.css`: `var(--brand-brown)`, `var(--brand-yellow)` und `var(--brand-red)`. So behalten Balken und Legende die Farben des bisherigen HTML- und CSS-Stands. Die wiederverwendbare Komponente erhält weiterhin nur eine CSS-Farbe als Prop; auch ein Hexwert wäre möglich.
+
 Die IDs jeder Messreihe und jeder Zeile müssen innerhalb ihrer jeweiligen Liste eindeutig sein. Ein Tippfehler in einem `values`-Schlüssel wird bei diesem offenen `Record`-Typ nicht automatisch erkannt; kontrolliere deshalb die Zuordnung. Für eine unbekannte Messreihe verwenden wir bewusst den Wert `0`.
 
 ## Darstellung und Berechnung zusammenführen
 
-Lege `src/components/ComparisonTable.tsx` an:
+Ergänze `src/components/ComparisonTable.tsx`:
 
 ```tsx
 {{#include ../../../07_react/06_components-complete/src/components/ComparisonTable.tsx}}
@@ -115,13 +118,19 @@ Lege für die Tabellenstyles den Unterordner `src/css/components` und darin `Com
 {{#include ../../../07_react/06_components-complete/src/css/components/ComparisonTable.css}}
 ```
 
-Ergänze am Anfang von `src/css/main.css` nach den bestehenden Imports:
+Lege im selben Ordner die Einstiegsdatei `src/css/components/components.css` an. Sie bündelt die Styles dieses Ordners, genau wie `utilities/utilities.css`:
 
 ```css
-@import url("components/ComparisonTable.css");
+{{#include ../../../07_react/06_components-complete/src/css/components/components.css}}
 ```
 
-Der einzige CSS-Import in TypeScript bleibt `import "./css/main.css";` in `main.tsx`. Die Komponente selbst importiert keine CSS-Datei.
+Importiere in `src/css/main.css` nach den bestehenden Imports nur diese Einstiegsdatei:
+
+```css
+@import url("components/components.css");
+```
+
+Weitere Komponentenstyles werden später in `components/components.css` ergänzt, nicht einzeln in `main.css`. Jeder CSS-Ordner verwaltet seine eigenen Imports. Der einzige CSS-Import in TypeScript bleibt `import "./css/main.css";` in `main.tsx`. Die Komponente selbst importiert keine CSS-Datei.
 
 Die Werte stehen neben dem Balken statt in ihm. Dadurch bleiben auch kleine Werte und Nullwerte lesbar. Jede Balkenzeile hat ausserdem eine zugängliche Beschriftung mit Gruppenname, Messreihe und Wert; die Farbe ist nicht die einzige Information. Die vorhandenen allgemeinen Schriftklassen verwenden wir weiter.
 

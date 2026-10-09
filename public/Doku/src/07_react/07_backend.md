@@ -160,13 +160,13 @@ Das Formular akzeptiert positive ganze IDs. Es simuliert die Auswahl für die Ü
 {{#include ../../../07_react/07_backend-integration/src/css/components/ContextSelection.css}}
 ```
 
-Ergänze am Anfang von `src/css/main.css` nach den bestehenden Imports:
+Ergänze in der bestehenden Einstiegsdatei `src/css/components/components.css` nach dem Import der Tabellenstyles:
 
 ```css
-@import url("components/ContextSelection.css");
+@import url("ContextSelection.css");
 ```
 
-Alle Styles bleiben unter `src/css` und werden über den bestehenden Import in `main.tsx` geladen. In `ContextSelection.tsx` ist kein CSS-Import nötig.
+Der Import von `components/components.css` in `src/css/main.css` bleibt unverändert. Alle Styles bleiben unter `src/css`; jeder Unterordner bündelt seine eigenen Imports. In `ContextSelection.tsx` ist kein CSS-Import nötig.
 
 Ersetze `App.tsx` durch den zusammengesetzten Endstand:
 

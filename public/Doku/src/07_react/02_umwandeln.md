@@ -79,7 +79,7 @@ Entferne die Vite-Beispiel-CSS-Imports aus `App.tsx` und `main.tsx` und lösche 
 import "./css/main.css";
 ```
 
-Diese Struktur behalten wir in allen folgenden React-Kapiteln bei. Weitere Styles kommen ebenfalls unter `src/css`; komponentenspezifische Styles legen wir später im Unterordner `components` ab und binden sie über `css/main.css` ein.
+Diese Struktur behalten wir in allen folgenden React-Kapiteln bei. Weitere Styles kommen ebenfalls unter `src/css`; komponentenspezifische Styles legen wir später im Unterordner `components` ab. Wie bei `utilities/utilities.css` bündelt dort eine Einstiegsdatei `components/components.css` die Imports des Ordners. In `css/main.css` importieren wir nur diese Einstiegsdatei.
 
 ## Statische Buttons
 
@@ -101,7 +101,7 @@ Diese Struktur behalten wir in allen folgenden React-Kapiteln bei. Weitere Style
 
 Auch «Autorin folgen» und «Thema folgen» bleiben zunächst statisch. Du brauchst hier weder `useState` noch `onClick` oder eigene Event-Listener.
 
-Du kannst akutell die ganzen Imports und "use" am Anfang `app.tsx` entfernen. Achte darauf, dass du am Schluss keine Errors mehr hast. Visual Studio Code sollte dich gut untersützen können, die Fehler zu korrigieren die es nach dem kopieren-einfügen geben wird.
+Du kannst akutell die ganzen Imports und "use" am Anfang `app.tsx` entfernen. Achte darauf, dass du am Schluss keine Errors mehr hast. Visual Studio Code sollte dich gut unterstützen können, die Fehler zu korrigieren die es nach dem kopieren-einfügen geben wird.
 
 ## Deinen Stand prüfen
 
