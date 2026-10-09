@@ -17,6 +17,15 @@ describe("ComparisonTable", () => {
     expect(markup).toContain('aria-label="Eins, Erste Reihe: 25"');
   });
 
+  it("renders each value inside its bar", () => {
+    const markup = renderToStaticMarkup(<ComparisonTable title="Test" series={series} rows={[
+      { id: "one", label: "Eins", values: { first: 25, second: 50 } },
+    ]} />);
+    for (const value of [25, 50]) {
+      expect(markup).toMatch(new RegExp(`<div class="comparison-bar"[^>]*><span class="font-13 comparison-value">${value}</span></div>`));
+    }
+  });
+
   it("keeps zero, missing, negative and non-finite values safe", () => {
     const markup = renderToStaticMarkup(<ComparisonTable title="Test" series={series} rows={[
       { id: "zero", label: "Null", values: { first: 0 } },

@@ -12,10 +12,6 @@
 }
 
 .comparison-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 6em;
-  align-items: center;
-  gap: 8px;
   margin: 4px 0;
 }
 
@@ -24,10 +20,14 @@
 }
 
 .comparison-bar {
+  display: flex;
+  justify-content: safe flex-end;
+  align-items: center;
   height: 24px;
 }
 
 .comparison-value {
-  text-align: right;
-  overflow-wrap: anywhere;
+  flex-shrink: 0;
+  padding: 0 8px;
+  white-space: nowrap;
 }

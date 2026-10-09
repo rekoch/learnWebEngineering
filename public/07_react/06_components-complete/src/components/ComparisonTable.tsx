@@ -61,9 +61,10 @@ export default function ComparisonTable({ title, series, rows, note }: Compariso
                   <div
                     className="comparison-bar"
                     style={{ width: `${getBarWidth(value, maximum)}%`, backgroundColor: item.color }}
-                  />
+                  >
+                    <span className="font-13 comparison-value">{value}</span>
+                  </div>
                 </div>
-                <span className="font-13 comparison-value">{value}</span>
               </div>
             );
           })}

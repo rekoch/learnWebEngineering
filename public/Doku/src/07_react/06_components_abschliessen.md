@@ -132,7 +132,7 @@ Importiere in `src/css/main.css` nach den bestehenden Imports nur diese Einstieg
 
 Weitere Komponentenstyles werden später in `components/components.css` ergänzt, nicht einzeln in `main.css`. Jeder CSS-Ordner verwaltet seine eigenen Imports. Der einzige CSS-Import in TypeScript bleibt `import "./css/main.css";` in `main.tsx`. Die Komponente selbst importiert keine CSS-Datei.
 
-Die Werte stehen neben dem Balken statt in ihm. Dadurch bleiben auch kleine Werte und Nullwerte lesbar. Jede Balkenzeile hat ausserdem eine zugängliche Beschriftung mit Gruppenname, Messreihe und Wert; die Farbe ist nicht die einzige Information. Die vorhandenen allgemeinen Schriftklassen verwenden wir weiter.
+Die Werte stehen wie bisher im Balken, rechts mit etwas Abstand zum Rand. `justify-content: safe flex-end` richtet sie rechts aus, solange sie hineinpassen. Bei sehr kurzen Balken und Nullwerten beginnt die Zahl stattdessen links und darf über den Balken hinausragen. So bleibt sie lesbar, ohne die berechnete Balkenbreite zu verändern. Jede Balkenzeile hat ausserdem eine zugängliche Beschriftung mit Gruppenname, Messreihe und Wert; die Farbe ist nicht die einzige Information. Die vorhandenen allgemeinen Schriftklassen verwenden wir weiter.
 
 Ersetze in `App.tsx` den bisherigen `<div data-table-name="benchmark">...</div>`-Block und ergänze die Imports für Komponente und Daten:
 
