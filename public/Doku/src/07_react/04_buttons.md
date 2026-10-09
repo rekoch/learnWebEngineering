@@ -6,7 +6,7 @@ Wir beginnen mit einem Follow-Button, der nur einen booleschen Zustand braucht. 
 
 ## Autorin folgen
 
-Importiere `useState` am Anfang von `App.tsx`, zusätzlich zum vorhandenen CSS-Import:
+Importiere `useState` am Anfang von `App.tsx`. Der zentrale CSS-Import `import "./css/main.css";` bleibt in `main.tsx`:
 
 ```tsx
 import { useState } from "react";

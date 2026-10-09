@@ -154,11 +154,19 @@ Lege `src/components/ContextSelection.tsx` an:
 
 Die beiden Eingaben sind kontrolliert: Ihr Wert kommt aus State, `onChange` aktualisiert ihn. Erst beim Absenden des Formulars mit «Daten simulieren» oder Enter wird der neue Kontext übernommen. So lösen einzelne Tastendrücke nicht sofort Backend-Anfragen aus.
 
-Das Formular akzeptiert positive ganze IDs. Es simuliert die Auswahl für die Übung und ist weiterhin kein Login. Ergänze daneben `src/components/ContextSelection.css`:
+Das Formular akzeptiert positive ganze IDs. Es simuliert die Auswahl für die Übung und ist weiterhin kein Login. Ergänze die Styles in `src/css/components/ContextSelection.css`:
 
 ```css
-{{#include ../../../07_react/07_backend-integration/src/components/ContextSelection.css}}
+{{#include ../../../07_react/07_backend-integration/src/css/components/ContextSelection.css}}
 ```
+
+Ergänze am Anfang von `src/css/main.css` nach den bestehenden Imports:
+
+```css
+@import url("components/ContextSelection.css");
+```
+
+Alle Styles bleiben unter `src/css` und werden über den bestehenden Import in `main.tsx` geladen. In `ContextSelection.tsx` ist kein CSS-Import nötig.
 
 Ersetze `App.tsx` durch den zusammengesetzten Endstand:
 

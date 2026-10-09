@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ArticlePreview from "./components/ArticlePreview";
 import { cornerArticle, eveningArticle, relatedArticles } from "./data/articles";
-import "../../../03_javascript/03_buttonReactive/main.css";
 
 function App() {
   const [liked, setLiked] = useState(false);

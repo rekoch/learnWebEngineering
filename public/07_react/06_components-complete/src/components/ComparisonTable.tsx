@@ -1,4 +1,3 @@
-import "./ComparisonTable.css";
 
 export type ComparisonSeries = {
   id: string;

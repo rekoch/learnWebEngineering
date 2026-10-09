@@ -214,7 +214,7 @@ Die Komponente liest nur ihre Props. Sie hat keinen eigenen State, kennt keine F
 
 ## Schritt 3: Die erste Verwendung ersetzen
 
-Ergänze oben in `App.tsx` die Imports. `useState` und der bisherige CSS-Import bleiben erhalten:
+Ergänze oben in `App.tsx` die Imports. `useState` bleibt erhalten; die Styles werden weiterhin zentral in `main.tsx` über `./css/main.css` eingebunden:
 
 ```tsx
 import ArticlePreview from "./components/ArticlePreview";

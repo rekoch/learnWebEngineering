@@ -1,6 +1,5 @@
 import { useState } from "react";
 import type { SubmitEvent } from "react";
-import "./ContextSelection.css";
 
 type ContextSelectionProps = {
   userId: string;

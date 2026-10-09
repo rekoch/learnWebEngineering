@@ -4,7 +4,6 @@ import BlogInteractions from "./components/BlogInteractions";
 import ProductSummary from "./components/ProductSummary";
 import { relatedArticles } from "./data/articles";
 import { product } from "./data/page";
-import "../../../03_javascript/03_buttonReactive/main.css";
 
 export default function App() {
   return (

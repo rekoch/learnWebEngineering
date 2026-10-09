@@ -1,0 +1,116 @@
+@import url("variables.css");
+@import url("buttons.css");
+@import url("utilities/utilities.css");
+@import url("fonts.css");
+@import url("grid.css");
+@import url("components/ComparisonTable.css");
+
+* {
+  text-wrap-mode: wrap;
+  text-wrap-style: pretty;
+  overflow-wrap: break-word;
+  color-scheme: light;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 20px;
+  font-family: "Lato", Arial, sans-serif;
+}
+
+.content-category {
+  color: rgb(147, 83, 185);
+  text-transform: uppercase;
+}
+
+.full-ratio {
+  width: 100%;
+  height: 100%;
+}
+
+iframe {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  display: block;
+  margin: 0 auto 80px auto;
+}
+
+@media (max-width: 699px) {
+  iframe {
+    min-width: 100%;
+    max-width: 800px;
+  }
+}
+
+@media (min-width: 700px) {
+  .content-max-width {
+    width: 700px;
+    padding: 0 80px;
+    margin: 0 auto;
+  }
+  iframe {
+    width: 700px;
+  }
+}
+
+@media (min-width: 800px) {
+  iframe {
+    width: 800px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  &.profile {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+  }
+  @media (min-width: 992px) {
+    &.profile {
+      width: 96px;
+      height: 96px;
+    }
+  }
+}
+
+h1 {
+  font-weight: 650;
+  font-stretch: normal;
+  line-height: 36px;
+  font-size: 30px;
+}
+
+h2 {
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 36px;
+  font-size: 24px;
+}
+
+h3 {
+  font-weight: 650;
+  font-stretch: 100%;
+  line-height: 36px;
+  font-size: 24px;
+}
+
+p {
+  font-weight: 400;
+  font-stretch: normal;
+  line-height: 28px;
+  font-size: 18px;
+  letter-spacing: 0.005em;
+}
+
+.product-label {
+ border: 1px solid rgb(86, 86, 86);
+ padding: 4px 8px;
+ text-transform: uppercase;
+ font-size: 13px;
+ width: fit-content;
+ line-height: unset;
+ font-weight: 650;
+ color: #565656;
+}

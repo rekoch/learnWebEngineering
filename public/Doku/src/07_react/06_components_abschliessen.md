@@ -109,11 +109,19 @@ Ein `useState` für das Maximum wäre unnötig: Es lässt sich jederzeit aus den
 
 Das React-Attribut `style` erhält ein Objekt, etwa `style={{ width: "50%" }}`. Bei `backgroundColor` gilt die JavaScript-Schreibweise statt des CSS-Namens `background-color`.
 
-Lege daneben `src/components/ComparisonTable.css` an:
+Lege für die Tabellenstyles den Unterordner `src/css/components` und darin `ComparisonTable.css` an:
 
 ```css
-{{#include ../../../07_react/06_components-complete/src/components/ComparisonTable.css}}
+{{#include ../../../07_react/06_components-complete/src/css/components/ComparisonTable.css}}
 ```
+
+Ergänze am Anfang von `src/css/main.css` nach den bestehenden Imports:
+
+```css
+@import url("components/ComparisonTable.css");
+```
+
+Der einzige CSS-Import in TypeScript bleibt `import "./css/main.css";` in `main.tsx`. Die Komponente selbst importiert keine CSS-Datei.
 
 Die Werte stehen neben dem Balken statt in ihm. Dadurch bleiben auch kleine Werte und Nullwerte lesbar. Jede Balkenzeile hat ausserdem eine zugängliche Beschriftung mit Gruppenname, Messreihe und Wert; die Farbe ist nicht die einzige Information. Die vorhandenen allgemeinen Schriftklassen verwenden wir weiter.
 

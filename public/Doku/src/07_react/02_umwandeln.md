@@ -19,6 +19,8 @@ npm install
 npm run dev
 ```
 
+Wähle "esLint" als Linter und bestätige die Ausführung mit npm.
+
 Vite erstellt unter anderem `src/main.tsx` und `src/App.tsx`. `main.tsx` verbindet React mit dem HTML-Element `#root` in `index.html`. In `App.tsx` bauen wir die Seite.
 
 ## HTML nach JSX übertragen
@@ -48,13 +50,36 @@ export default App;
 
 `App` ist eine Komponente: eine Funktion, die die Oberfläche als JSX zurückgibt. Die leeren Klammern `<>` und `</>` bilden ein Fragment. Damit kannst du mehrere Elemente zusammen zurückgeben, ohne ein zusätzliches HTML-Element um sie herum einzufügen. So können das Video und das `<main>`-Element wie bisher nebeneinander stehen.
 
-Die vorhandenen Styles kannst du zunächst weiterverwenden. Im Beispielprojekt werden sie in `App.tsx` aus dem Starter-Ordner importiert:
+## Styles
+Lege in deinem React-Projekt den Ordner `src/css` an. Kopiere alle CSS-Dateien aus `public/03_javascript/03_buttonReactive/` dorthin, einschliesslich des vollständigen Unterordners `utilities`. Kopiere auch den ganzen Fontordner `public/02_html_css/fonts/` nach `src/css/fonts/`, inklusive der Fontdateien und ihrer Lizenz.
 
-```tsx
-import "../../../03_javascript/03_buttonReactive/main.css";
+Die Struktur sieht danach so aus:
+
+```text
+src/
+	css/
+		main.css
+		buttons.css
+		fonts.css
+		grid.css
+		variables.css
+		utilities/
+		fonts/
+			lato.css
+			Lato-latin.woff2
+			Lato-latin-ext.woff2
+			OFL.txt
 ```
 
-Dieser relative Pfad passt, wenn dein Projekt wie oben unter `public/07_react/mein-react-projekt` liegt. Füge den Import oben in `App.tsx` ein. Entferne ausserdem die Imports der Vite-Beispielstyles, etwa `App.css` in `App.tsx` und `index.css` in `main.tsx`, falls sie noch vorhanden sind. Sonst können sie das Aussehen deiner Blogseite verändern.
+Passe in `src/css/fonts.css` den bisherigen Import auf `@import url("fonts/lato.css");` an. Die anderen CSS-Imports und die Fontpfade in `fonts/lato.css` bleiben relativ zu ihrer jeweiligen CSS-Datei. So liegen alle Styles und Fonts im React-Projekt, ohne Verweise auf die früheren Projektstände.
+
+Entferne die Vite-Beispiel-CSS-Imports aus `App.tsx` und `main.tsx` und lösche die zugehörigen Dateien `src/App.css` und `src/index.css`. Importiere stattdessen nur in `main.tsx` unsere zentrale CSS-Datei:
+
+```tsx
+import "./css/main.css";
+```
+
+Diese Struktur behalten wir in allen folgenden React-Kapiteln bei. Weitere Styles kommen ebenfalls unter `src/css`; komponentenspezifische Styles legen wir später im Unterordner `components` ab und binden sie über `css/main.css` ein.
 
 ## Statische Buttons
 
@@ -75,6 +100,8 @@ Dieser relative Pfad passt, wenn dein Projekt wie oben unter `public/07_react/me
 ```
 
 Auch «Autorin folgen» und «Thema folgen» bleiben zunächst statisch. Du brauchst hier weder `useState` noch `onClick` oder eigene Event-Listener.
+
+Du kannst akutell die ganzen Imports und "use" am Anfang `app.tsx` entfernen. Achte darauf, dass du am Schluss keine Errors mehr hast. Visual Studio Code sollte dich gut untersützen können, die Fehler zu korrigieren die es nach dem kopieren-einfügen geben wird.
 
 ## Deinen Stand prüfen
 

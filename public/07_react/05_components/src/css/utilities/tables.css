@@ -1,0 +1,40 @@
+table {
+  border: 8px;
+}
+
+.table-background-brown {
+  background: var(--brand-brown);
+}
+
+.table-background-yellow {
+  background: var(--brand-yellow);
+}
+
+.table-background-red {
+  background: var(--brand-red);
+}
+
+.legend span {
+  display: inline-block;
+  position: relative;
+}
+
+.legend span::before {
+    content: '';
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    border-radius: 3px;
+}
+
+.legend span.legend-color-brown::before {
+    background: var(--brand-brown);
+}
+.legend span.legend-color-yellow::before {
+    background: var(--brand-yellow);
+}
+.legend span.legend-color-red::before {
+    background: var(--brand-red);
+}

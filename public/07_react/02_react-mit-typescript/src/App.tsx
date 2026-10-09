@@ -1,4 +1,3 @@
-import "../../../03_javascript/03_buttonReactive/main.css";
 
 function App() {
   return (
