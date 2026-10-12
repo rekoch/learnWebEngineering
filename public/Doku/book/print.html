@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-4e0e16b0.js";
+            window.path_to_searchindex_js = "searchindex-5663d769.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-6c46951c.js"></script>
@@ -4586,7 +4586,7 @@ npm run dev
 <li>Übernimm die bisherige Einbindung von <code>javascript/main.js</code> nicht. Die Interaktionen bauen wir später mit React neu. Vites Einstieg über <code>src/main.tsx</code> bleibt erhalten.</li>
 </ul>
 <p>Ersetze den Beispielinhalt von <code>App.tsx</code> zunächst durch dieses Gerüst und füge das HTML anstelle des Absatzes ein:</p>
-<pre><code class="language-tsx">function App() {
+<pre><code class="language-typescript">function App() {
 	return (
 		&lt;&gt;
 			&lt;p&gt;Hier kommt der Inhalt der Blogseite hin.&lt;/p&gt;
@@ -4616,12 +4616,12 @@ export default App;
 </code></pre>
 <p>Passe in <code>src/css/fonts.css</code> den bisherigen Import auf <code>@import url("fonts/lato.css");</code> an. Die anderen CSS-Imports und die Fontpfade in <code>fonts/lato.css</code> bleiben relativ zu ihrer jeweiligen CSS-Datei. So liegen alle Styles und Fonts im React-Projekt, ohne Verweise auf die früheren Projektstände.</p>
 <p>Entferne die Vite-Beispiel-CSS-Imports aus <code>App.tsx</code> und <code>main.tsx</code> und lösche die zugehörigen Dateien <code>src/App.css</code> und <code>src/index.css</code>. Importiere stattdessen nur in <code>main.tsx</code> unsere zentrale CSS-Datei:</p>
-<pre><code class="language-tsx">import "./css/main.css";
+<pre><code class="language-typescript">import "./css/main.css";
 </code></pre>
 <p>Diese Struktur behalten wir in allen folgenden React-Kapiteln bei. Weitere Styles kommen ebenfalls unter <code>src/css</code>; komponentenspezifische Styles legen wir später im Unterordner <code>components</code> ab. Wie bei <code>utilities/utilities.css</code> bündelt dort eine Einstiegsdatei <code>components/components.css</code> die Imports des Ordners. In <code>css/main.css</code> importieren wir nur diese Einstiegsdatei.</p>
 <h2 id="statische-buttons"><a class="header" href="#statische-buttons">Statische Buttons</a></h2>
 <p>Übernimm die Buttons mit ihren festen Texten und CSS-Klassen. Für den Like-Bereich sieht das zum Beispiel so aus:</p>
-<pre><code class="language-tsx">&lt;section className="mt-xl mb-xxl text-center"&gt;
+<pre><code class="language-typescript">&lt;section className="mt-xl mb-xxl text-center"&gt;
 	&lt;button
 		type="button"
 		className="primary mb-s font-small align-items-center text-center"
@@ -4655,7 +4655,7 @@ export default App;
 <p>Im bisherigen JavaScript hast du nach einem Klick direkt Elemente im DOM verändert. In React änderst du stattdessen den State. React ruft die Komponente erneut auf, berechnet daraus die Oberfläche und aktualisiert die nötigen Stellen im DOM. Dieses Berechnen der Oberfläche nennt man Rendern.</p>
 <h2 id="ein-kleiner-zähler"><a class="header" href="#ein-kleiner-zähler">Ein kleiner Zähler</a></h2>
 <p>Sichere den Inhalt deiner bisherigen <code>App.tsx</code>, damit du danach zur Blogseite zurückkehren kannst. Ersetze ihn für dieses Experiment durch:</p>
-<pre><code class="language-tsx">import { useState } from "react";
+<pre><code class="language-typescript">import { useState } from "react";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -4679,7 +4679,7 @@ export default App;
 <p>Öffne die Seite im Browser. Der Zähler beginnt bei <code>0</code> und steigt mit jedem Klick um eins.</p>
 <h2 id="einen-zustand-anlegen"><a class="header" href="#einen-zustand-anlegen">Einen Zustand anlegen</a></h2>
 <p><code>useState</code> ist eine Funktion von React. Solche Funktionen, mit denen du React-Funktionen in einer Komponente nutzt, heissen Hooks. Du importierst <code>useState</code> aus <code>react</code> und rufst es direkt am Anfang deiner Komponente auf, nicht innerhalb einer Bedingung, Schleife oder eines Click-Handlers.</p>
-<pre><code class="language-tsx">const [count, setCount] = useState(0);
+<pre><code class="language-typescript">const [count, setCount] = useState(0);
 </code></pre>
 <p><code>0</code> ist der Startwert. <code>useState</code> gibt ein Array mit zwei Einträgen zurück, die wir mit der Array-Destrukturierung in zwei Variablen aufteilen:</p>
 <ul>
@@ -4689,11 +4689,11 @@ export default App;
 <p>Die Namen wählst du selbst. Üblich ist, die Änderungsfunktion mit <code>set</code> zu beginnen. TypeScript erkennt anhand des Startwerts, dass <code>count</code> eine Zahl ist.</p>
 <h2 id="den-wert-anzeigen"><a class="header" href="#den-wert-anzeigen">Den Wert anzeigen</a></h2>
 <p>Mit geschweiften Klammern kannst du einen JavaScript-Ausdruck in JSX einsetzen:</p>
-<pre><code class="language-tsx">&lt;p&gt;Zählerstand: {count}&lt;/p&gt;
+<pre><code class="language-typescript">&lt;p&gt;Zählerstand: {count}&lt;/p&gt;
 </code></pre>
 <p>React zeigt dort den aktuellen Wert von <code>count</code> an. Du musst den Absatz weder mit <code>querySelector</code> suchen noch seinen Text selbst ändern.</p>
 <h2 id="auf-einen-klick-reagieren"><a class="header" href="#auf-einen-klick-reagieren">Auf einen Klick reagieren</a></h2>
-<pre><code class="language-tsx">&lt;button type="button" onClick={increment}&gt;
+<pre><code class="language-typescript">&lt;button type="button" onClick={increment}&gt;
   Erhöhen
 &lt;/button&gt;
 </code></pre>
@@ -4716,10 +4716,10 @@ export default App;
 <p>Wir beginnen mit einem Follow-Button, der nur einen booleschen Zustand braucht. Danach ergänzen wir den Like-Button mit seinem Zähler. Alle Zustände bleiben vorerst lokal, ohne Backend-Anbindung.</p>
 <h2 id="autorin-folgen-1"><a class="header" href="#autorin-folgen-1">Autorin folgen</a></h2>
 <p>Importiere <code>useState</code> am Anfang von <code>App.tsx</code>. Der zentrale CSS-Import <code>import "./css/main.css";</code> bleibt in <code>main.tsx</code>:</p>
-<pre><code class="language-tsx">import { useState } from "react";
+<pre><code class="language-typescript">import { useState } from "react";
 </code></pre>
 <p>Lege in der Funktion <code>App</code>, vor dem <code>return</code>, einen Zustand an:</p>
-<pre><code class="language-tsx">const [followsAuthor, setFollowsAuthor] = useState(false);
+<pre><code class="language-typescript">const [followsAuthor, setFollowsAuthor] = useState(false);
 
 function toggleAuthorFollow() {
   setFollowsAuthor(!followsAuthor);
@@ -4727,7 +4727,7 @@ function toggleAuthorFollow() {
 </code></pre>
 <p><code>false</code> bedeutet, dass du der Autorin noch nicht folgst. Das Ausrufezeichen kehrt den booleschen Wert um: Aus <code>false</code> wird <code>true</code>, aus <code>true</code> wird <code>false</code>.</p>
 <p>Ersetze den bisherigen Button «Autorin folgen» durch:</p>
-<pre><code class="language-tsx">&lt;button
+<pre><code class="language-typescript">&lt;button
   type="button"
   aria-pressed={followsAuthor}
   className={followsAuthor ? "" : "primary"}
@@ -4740,14 +4740,14 @@ function toggleAuthorFollow() {
 <p>Klicke zweimal auf den Button: Zuerst muss er den Folgezustand anzeigen, danach wieder den Ausgangszustand. Dafür ändern wir weder <code>textContent</code> noch <code>classList</code> direkt. React leitet beides aus <code>followsAuthor</code> ab.</p>
 <h2 id="thema-folgen-1"><a class="header" href="#thema-folgen-1">Thema folgen</a></h2>
 <p>Setze «Thema folgen» nach demselben Prinzip um. Verwende dafür einen eigenen Zustand, damit die beiden Buttons unabhängig voneinander funktionieren:</p>
-<pre><code class="language-tsx">const [followsTopic, setFollowsTopic] = useState(false);
+<pre><code class="language-typescript">const [followsTopic, setFollowsTopic] = useState(false);
 
 function toggleTopicFollow() {
   setFollowsTopic(!followsTopic);
 }
 </code></pre>
 <p>Der zugehörige Button sieht so aus:</p>
-<pre><code class="language-tsx">&lt;button
+<pre><code class="language-typescript">&lt;button
   type="button"
   aria-pressed={followsTopic}
   className={followsTopic ? "" : "primary"}
@@ -4759,7 +4759,7 @@ function toggleTopicFollow() {
 <p>Prüfe, dass ein Klick auf diesen Button den Autorinnen-Button nicht verändert.</p>
 <h2 id="beitrag-liken"><a class="header" href="#beitrag-liken">Beitrag liken</a></h2>
 <p>Beim Like-Bereich verändern sich sowohl die Auswahl als auch der Zähler. Lege dafür zwei weitere Zustände und einen Handler in <code>App</code> vor dem <code>return</code> an:</p>
-<pre><code class="language-tsx">const [liked, setLiked] = useState(false);
+<pre><code class="language-typescript">const [liked, setLiked] = useState(false);
 const [likeCount, setLikeCount] = useState(59);
 
 function toggleLike() {
@@ -4769,7 +4769,7 @@ function toggleLike() {
 </code></pre>
 <p>Beim Klick beschreibt <code>liked</code> noch den Zustand des aktuellen Renderdurchlaufs. War der Beitrag bereits gelikt, ziehen wir eins ab. War er nicht gelikt, zählen wir eins dazu. <code>setLiked(!liked)</code> fordert die neue Auswahl an, verändert aber die Variable <code>liked</code> in diesem Handler nicht sofort.</p>
 <p>Ersetze den statischen Like-Bereich durch:</p>
-<pre><code class="language-tsx">&lt;section className="mt-xl mb-xxl text-center"&gt;
+<pre><code class="language-typescript">&lt;section className="mt-xl mb-xxl text-center"&gt;
   &lt;button
     type="button"
     aria-pressed={liked}
@@ -4800,7 +4800,7 @@ function toggleLike() {
 <h2 id="was-ist-eine-komponente"><a class="header" href="#was-ist-eine-komponente">Was ist eine Komponente?</a></h2>
 <p>Eine Komponente beschreibt einen Teil der Oberfläche. In React schreiben wir dafür eine Funktion, die JSX zurückgibt. <code>App</code> ist also bereits eine Komponente. Neu ist, dass sie weitere, selbst geschriebene Komponenten verwendet.</p>
 <p>Ein kleines Beispiel:</p>
-<pre><code class="language-tsx">type SectionTitleProps = {
+<pre><code class="language-typescript">type SectionTitleProps = {
   title: string;
 };
 
@@ -4809,7 +4809,7 @@ function SectionTitle({ title }: SectionTitleProps) {
 }
 </code></pre>
 <p>In <code>App</code> könnten wir sie so einsetzen:</p>
-<pre><code class="language-tsx">&lt;SectionTitle title="Drei Ideen für wenig Platz" /&gt;
+<pre><code class="language-typescript">&lt;SectionTitle title="Drei Ideen für wenig Platz" /&gt;
 &lt;SectionTitle title="Einfach anfangen" /&gt;
 </code></pre>
 <p><code>SectionTitle</code> ist die gemeinsame Beschreibung. Die beiden Verwendungen sind zwei Instanzen mit unterschiedlichen Eingaben. React rendert daraus zwei Überschriften; es erzeugt kein zusätzliches HTML-Element namens <code>&lt;SectionTitle&gt;</code>.</p>
@@ -4869,7 +4869,7 @@ function SectionTitle({ title }: SectionTitleProps) {
 </div>
 <p>Eine <code>AuthorProfile</code> könnte die Follow-Aktion und die Autoreninformationen zusammenstellen. Eine darunterliegende <code>PersonProfile</code> müsste nicht mehr wissen, dass die Person Artikel schreibt. Noch eine Ebene tiefer braucht das Layout nicht einmal mehr das Konzept «Person».</p>
 <p>So könnte ein solcher generischer Layout-Baustein aussehen. Das ist ein Entwurfsbeispiel, noch kein Umbau unserer Seite:</p>
-<pre><code class="language-tsx">import type { ReactNode } from "react";
+<pre><code class="language-typescript">import type { ReactNode } from "react";
 
 type ImageTextProps = {
   imageSrc: string;
@@ -4887,7 +4887,7 @@ function ImageText({ imageSrc, imageAlt, children }: ImageTextProps) {
 }
 </code></pre>
 <p><code>children</code> ist der Inhalt zwischen dem öffnenden und schliessenden Komponenten-Tag. <code>ReactNode</code> erlaubt React-Inhalte wie Text und JSX. Die Komponente legt nur das Bild-Text-Layout fest; was der Text bedeutet, entscheidet die aufrufende Stelle:</p>
-<pre><code class="language-tsx">&lt;ImageText
+<pre><code class="language-typescript">&lt;ImageText
   imageSrc="https://picsum.photos/seed/beispiel-5041/96/96"
   imageAlt="Nora Linden"
 &gt;
@@ -4936,7 +4936,7 @@ export const cornerArticle: ArticlePreviewData = {
 <p><code>id</code> bleibt für denselben Artikel gleich, auch wenn sein Titel oder seine Position geändert wird. Sie muss innerhalb der späteren Liste eindeutig sein. Unsere Daten bleiben vorerst lokal; wir führen weder einen Backend-Aufruf noch neuen State ein.</p>
 <h2 id="schritt-2-die-vorschau-herauslösen"><a class="header" href="#schritt-2-die-vorschau-herauslösen">Schritt 2: Die Vorschau herauslösen</a></h2>
 <p>Lege <code>src/components/ArticlePreview.tsx</code> an. Diese Datei enthält JSX und hat deshalb die Endung <code>.tsx</code>:</p>
-<pre><code class="language-tsx">import type { ArticlePreviewData } from "../data/articles";
+<pre><code class="language-typescript">import type { ArticlePreviewData } from "../data/articles";
 
 type ArticlePreviewProps = {
   article: ArticlePreviewData;
@@ -4973,11 +4973,11 @@ export default function ArticlePreview({
 <p>Die Komponente liest nur ihre Props. Sie hat keinen eigenen State, kennt keine Follow-Funktion und entscheidet nicht, welcher Artikel auf der Seite erscheint.</p>
 <h2 id="schritt-3-die-erste-verwendung-ersetzen"><a class="header" href="#schritt-3-die-erste-verwendung-ersetzen">Schritt 3: Die erste Verwendung ersetzen</a></h2>
 <p>Ergänze oben in <code>App.tsx</code> die Imports. <code>useState</code> bleibt erhalten; die Styles werden weiterhin zentral in <code>main.tsx</code> über <code>./css/main.css</code> eingebunden:</p>
-<pre><code class="language-tsx">import ArticlePreview from "./components/ArticlePreview";
+<pre><code class="language-typescript">import ArticlePreview from "./components/ArticlePreview";
 import { cornerArticle } from "./data/articles";
 </code></pre>
 <p>Ersetze im Abschnitt «Drei Ideen für wenig Platz» nur den bisherigen <code>&lt;article&gt;...&lt;/article&gt;</code>-Block durch:</p>
-<pre><code class="language-tsx">&lt;ArticlePreview article={cornerArticle} /&gt;
+<pre><code class="language-typescript">&lt;ArticlePreview article={cornerArticle} /&gt;
 </code></pre>
 <p>Die Überschrift, der Absatz davor und die Inhalte danach bleiben in <code>App</code>. Mit <code>{cornerArticle}</code> übergeben wir das Objekt, nicht den Text <code>"cornerArticle"</code>.</p>
 <p>Prüfe diese erste Stelle im Browser: Bild, Rubrik, Titel und Autorenname müssen wie vorher aussehen. Die Buttons müssen weiterhin funktionieren. Das ist ein Refactoring: Wir ändern die Struktur des Codes, nicht das sichtbare Verhalten.</p>
@@ -4995,10 +4995,10 @@ import { cornerArticle } from "./data/articles";
 };
 </code></pre>
 <p>Erweitere den Datenimport in <code>App.tsx</code>:</p>
-<pre><code class="language-tsx">import { cornerArticle, eveningArticle } from "./data/articles";
+<pre><code class="language-typescript">import { cornerArticle, eveningArticle } from "./data/articles";
 </code></pre>
 <p>Ersetze im Abschnitt «Kleine Helfer für grosse Pläne» ebenfalls nur den <code>&lt;article&gt;...&lt;/article&gt;</code>-Block:</p>
-<pre><code class="language-tsx">&lt;ArticlePreview article={eveningArticle} /&gt;
+<pre><code class="language-typescript">&lt;ArticlePreview article={eveningArticle} /&gt;
 </code></pre>
 <p>Beide Stellen verwenden nun dieselbe Komponente mit verschiedenen Daten. Wenn wir später den Aufbau der Vorschau ändern, ändern wir ihn nur noch in <code>ArticlePreview.tsx</code>.</p>
 <h2 id="schritt-5-mehrere-artikel-aus-einer-liste-rendern"><a class="header" href="#schritt-5-mehrere-artikel-aus-einer-liste-rendern">Schritt 5: Mehrere Artikel aus einer Liste rendern</a></h2>
@@ -5037,10 +5037,10 @@ import { cornerArticle } from "./data/articles";
 ];
 </code></pre>
 <p><code>ArticlePreviewData[]</code> bedeutet: ein Array, dessen Einträge alle diese Datenstruktur besitzen. Vervollständige den Datenimport in <code>App.tsx</code>:</p>
-<pre><code class="language-tsx">import { cornerArticle, eveningArticle, relatedArticles } from "./data/articles";
+<pre><code class="language-typescript">import { cornerArticle, eveningArticle, relatedArticles } from "./data/articles";
 </code></pre>
 <p>Ersetze den Abschnitt «Weitere Ideen für deinen Balkon» durch:</p>
-<pre><code class="language-tsx">&lt;section&gt;
+<pre><code class="language-typescript">&lt;section&gt;
   &lt;h3&gt;Weitere Ideen für deinen Balkon&lt;/h3&gt;
   {relatedArticles.map((article, index) =&gt; (
     &lt;ArticlePreview
@@ -5098,7 +5098,7 @@ import { cornerArticle } from "./data/articles";
 <h2 id="ein-bild-mit-bildlegende"><a class="header" href="#ein-bild-mit-bildlegende">Ein Bild mit Bildlegende</a></h2>
 <p>Unsere Seite enthält acht <code>&lt;figure&gt;</code>-Blöcke mit demselben Aufbau: ein Bild und eine Bildlegende. Nur Quelle, Alternativtext und Legende unterscheiden sich. Dieser Baustein braucht weder Artikelwissen noch State.</p>
 <p>Lege <code>src/components/CaptionedImage.tsx</code> an:</p>
-<pre><code class="language-tsx">type CaptionedImageProps = {
+<pre><code class="language-typescript">type CaptionedImageProps = {
   src: string;
   alt: string;
   caption: string;
@@ -5115,7 +5115,7 @@ export default function CaptionedImage({ src, alt, caption }: CaptionedImageProp
 </code></pre>
 <p>Die Komponente erhält alle drei Angaben als Props. <code>alt</code> und <code>caption</code> haben unterschiedliche Aufgaben: Der Alternativtext beschreibt das Bild für Menschen, die es nicht sehen können; die Legende gehört zum sichtbaren redaktionellen Inhalt. Deshalb machen wir daraus nicht dieselbe Eingabe.</p>
 <p>Importiere <code>CaptionedImage</code> in <code>App.tsx</code> und ersetze zuerst den ersten vollständigen <code>&lt;figure&gt;...&lt;/figure&gt;</code>-Block:</p>
-<pre><code class="language-tsx">&lt;CaptionedImage
+<pre><code class="language-typescript">&lt;CaptionedImage
   src="https://picsum.photos/seed/beispiel-2645/1200/800"
   alt="Beispielbild zum Stadtgarten"
   caption="Ein Eindruck aus dem kleinen Stadtgarten."
@@ -5173,7 +5173,7 @@ export const gardenRows: ComparisonRow[] = [
 <p>Die IDs jeder Messreihe und jeder Zeile müssen innerhalb ihrer jeweiligen Liste eindeutig sein. Ein Tippfehler in einem <code>values</code>-Schlüssel wird bei diesem offenen <code>Record</code>-Typ nicht automatisch erkannt; kontrolliere deshalb die Zuordnung. Für eine unbekannte Messreihe verwenden wir bewusst den Wert <code>0</code>.</p>
 <h2 id="darstellung-und-berechnung-zusammenführen"><a class="header" href="#darstellung-und-berechnung-zusammenführen">Darstellung und Berechnung zusammenführen</a></h2>
 <p>Ergänze <code>src/components/ComparisonTable.tsx</code>:</p>
-<pre><code class="language-tsx">
+<pre><code class="language-typescript">
 export type ComparisonSeries = {
   id: string;
   label: string;
@@ -5305,7 +5305,7 @@ export default function ComparisonTable({ title, series, rows, note }: Compariso
 <p>Weitere Komponentenstyles werden später in <code>components/components.css</code> ergänzt, nicht einzeln in <code>main.css</code>. Jeder CSS-Ordner verwaltet seine eigenen Imports. Der einzige CSS-Import in TypeScript bleibt <code>import "./css/main.css";</code> in <code>main.tsx</code>. Die Komponente selbst importiert keine CSS-Datei.</p>
 <p>Die Werte stehen wie bisher im Balken, rechts mit etwas Abstand zum Rand. <code>justify-content: safe flex-end</code> richtet sie rechts aus, solange sie hineinpassen. Bei sehr kurzen Balken und Nullwerten beginnt die Zahl stattdessen links und darf über den Balken hinausragen. So bleibt sie lesbar, ohne die berechnete Balkenbreite zu verändern. Jede Balkenzeile hat ausserdem eine zugängliche Beschriftung mit Gruppenname, Messreihe und Wert; die Farbe ist nicht die einzige Information. Die vorhandenen allgemeinen Schriftklassen verwenden wir weiter.</p>
 <p>Ersetze in <code>App.tsx</code> den bisherigen <code>&lt;div data-table-name="benchmark"&gt;...&lt;/div&gt;</code>-Block und ergänze die Imports für Komponente und Daten:</p>
-<pre><code class="language-tsx">&lt;ComparisonTable
+<pre><code class="language-typescript">&lt;ComparisonTable
   title="Beispielwerte im Vergleich"
   series={gardenSeries}
   rows={gardenRows}
@@ -5315,7 +5315,7 @@ export default function ComparisonTable({ title, series, rows, note }: Compariso
 <p>Importiere das alte <code>tables.js</code> nicht. Es würde erneut Elemente suchen und Styles ausserhalb von React verändern. Wir haben seine fachliche Berechnung übertragen, nicht seine DOM-Manipulation.</p>
 <h2 id="dieselbe-tabelle-für-andere-daten"><a class="header" href="#dieselbe-tabelle-für-andere-daten">Dieselbe Tabelle für andere Daten</a></h2>
 <p>Die Schnittstelle erlaubt andere Namen, Farben und beliebig viele Messreihen. Auch die Anzahl der Vergleichsgruppen ist nicht festgeschrieben:</p>
-<pre><code class="language-tsx">&lt;ComparisonTable
+<pre><code class="language-typescript">&lt;ComparisonTable
   title="Ernte in Gramm"
   series={[
     { id: "herbs", label: "Kräuter", color: "#3a8561" },
@@ -5332,7 +5332,7 @@ export default function ComparisonTable({ title, series, rows, note }: Compariso
 <p>Vergleiche nur Werte mit einer gemeinsamen Einheit und einer sinnvoll gemeinsamen Skala. Eine Tabelle mit Metern in einer Gruppe und Kilogramm in einer anderen würde durch die gemeinsame Skalierung eine irreführende Aussage machen. Wiederverwendbarkeit hebt fachliche Voraussetzungen nicht auf.</p>
 <h2 id="ein-button-ohne-follow-wissen"><a class="header" href="#ein-button-ohne-follow-wissen">Ein Button ohne Follow-Wissen</a></h2>
 <p>Unsere Buttons wiederholen die Entscheidung zwischen aktivem und inaktivem Text, <code>aria-pressed</code> und der CSS-Klasse <code>primary</code>. Das ist eine gute gemeinsame Aufgabe. Lege <code>src/components/ToggleButton.tsx</code> an:</p>
-<pre><code class="language-tsx">type ToggleButtonProps = {
+<pre><code class="language-typescript">type ToggleButtonProps = {
   active: boolean;
   activeText: string;
   inactiveText: string;
@@ -5382,7 +5382,7 @@ export default function ToggleButton({
 <p>Die Angaben Name, E-Mail, Rolle, Bild und Beschreibung gehören zusammen: Sie beschreiben eine Autorin. Lege sie als exportiertes <code>author</code>-Objekt (<code>export const author = ...</code>) in <code>src/data/page.ts</code> ab. Das ist hier eine lokale Daten-Entität für die Seitendarstellung, keine Datenbanktabelle und kein Backend-Modell. Der Follow-Zustand und die Klickfunktion gehören ausdrücklich nicht in dieses Objekt.</p>
 <p>Leite aus den fünf Angaben einen Props-Typ für <code>AuthorProfile</code> ab. Die Komponente soll das Profil darstellen und zusätzlich einen Platz für eine Aktion anbieten. Versuche zuerst, die vorhandenen Profilelemente in die neue Datei zu verschieben. Vergleiche deinen Entwurf danach mit dem Referenzstand:</p>
 <p>Lege <code>src/components/AuthorProfile.tsx</code> an:</p>
-<pre><code class="language-tsx">import type { ReactNode } from "react";
+<pre><code class="language-typescript">import type { ReactNode } from "react";
 
 export type AuthorData = {
   name: string;
@@ -5415,7 +5415,7 @@ export default function AuthorProfile({ author, children }: AuthorProfileProps) 
 <p>Über <code>children</code> füllen wir den Platz für die Aktion. Das ist <strong>Komposition</strong>: Ein Baustein setzt sich aus anderen zusammen, ohne alle ihre Einzelheiten zu kennen.</p>
 <p>Setze <code>AuthorProfile</code> nun anstelle des bisherigen Profilabschnitts in <code>App.tsx</code> ein. Importiere dort <code>author</code> aus <code>./data/page</code> sowie <code>AuthorProfile</code>. Überlege vor dem Einsetzen: Welche Angaben gehen als <code>author</code>-Prop hinein, und welches JSX wird als <code>children</code> übergeben? Wenn du die Interaktionen später nach <code>components/BlogInteractions.tsx</code> verschiebst, ändert sich der Datenimport dort zu <code>../data/page</code>.</p>
 <p>Der Aufruf soll diesem Muster folgen; übertrage die Werte und den Callback aus deinem bisherigen <code>App.tsx</code>:</p>
-<pre><code class="language-tsx">&lt;AuthorProfile author={author}&gt;
+<pre><code class="language-typescript">&lt;AuthorProfile author={author}&gt;
   &lt;ToggleButton
     active={followsAuthor}
     activeText="Autorin nicht mehr folgen"
@@ -5448,11 +5448,11 @@ export default function AuthorProfile({ author, children }: AuthorProfileProps) 
 <p>Ergänze <code>src/data/page.ts</code> um den Themennamen. Die Autorin hast du dort bereits im vorherigen Zwischenschritt als zusammengehörigen Datensatz abgelegt:</p>
 <pre><code class="language-ts">export const topic: string = "Balkongarten";
 </code></pre>
-<p>Importiere <code>topic</code> in <code>App.tsx</code> und übergib es deiner Themenkomponente. Die Produktdaten ergänzen wir erst in Übung 3, nachdem du ihren Typ definiert hast.</p>
+<p>Importiere <code>topic</code> in <code>App.tsx</code> und übergib es deiner Themenkomponente.</p>
 <h2 id="gemeinsamer-kartenrahmen-verschiedene-inhalte"><a class="header" href="#gemeinsamer-kartenrahmen-verschiedene-inhalte">Gemeinsamer Kartenrahmen, verschiedene Inhalte</a></h2>
 <p>Vergleiche <code>ArticlePreview</code> mit dem bisherigen Produktblock: Beide zeigen ein Bild neben Inhalt. Die fachlichen Angaben sind jedoch verschieden. Ein Artikel hat zum Beispiel Rubrik, Titel und Autorin; beim Produkt gehören Kategorie, Name, Preis und Produktbewertung dazu. Die beiden Datenmodelle werden nicht zu einem gemeinsamen Artikel-oder-Produkt-Typ vermischt.</p>
 <p>Wiederverwenden lässt sich die <strong>Darstellung</strong>: Bild, Raster und ein Platz für den jeweiligen Inhalt. Lege dafür <code>src/components/SummaryCard.tsx</code> an:</p>
-<pre><code class="language-tsx">import type { ReactNode } from "react";
+<pre><code class="language-typescript">import type { ReactNode } from "react";
 
 type SummaryCardProps = {
   image: {
@@ -5481,7 +5481,7 @@ export default function SummaryCard({ image, children, className = "" }: Summary
 </ul>
 <p>Der Inhalt von <code>children</code> erscheint in der Textspalte, weil <code>SummaryCard</code> ihn innerhalb ihres <code>col-8</code>-Elements rendert. Das Bild wird separat über <code>image</code> an die andere Spalte übergeben.</p>
 <p>Als Gerüst kannst du diese Verschachtelung verwenden:</p>
-<pre><code class="language-tsx">&lt;article&gt;
+<pre><code class="language-typescript">&lt;article&gt;
   &lt;SummaryCard
     image={article.image}
     className={withTopBorder ? "border-top" : ""}
@@ -5540,7 +5540,7 @@ export const product: ProductData = {
 <p>Erkläre zum Abschluss: Weshalb erhält die Produktübersicht Daten über Props, obwohl wir auf unserer Seite nur ein Produkt zeigen? Weshalb sind Artikel-Likes und Produkt-Sterne unterschiedliche Angaben, obwohl beide Rückmeldungen ausdrücken? Welche Daten braucht <code>SummaryCard</code> selbst nicht?</p>
 <h2 id="die-interaktionen-zusammenführen"><a class="header" href="#die-interaktionen-zusammenführen">Die Interaktionen zusammenführen</a></h2>
 <p>Verschiebe die vier bestehenden Zustände und die Like-Funktion aus <code>App</code> in die neue <code>src/components/BlogInteractions.tsx</code>. Hier setzen wir die fachlichen Bereiche und ihre Aktionen zusammen:</p>
-<pre><code class="language-tsx">import { useState } from "react";
+<pre><code class="language-typescript">import { useState } from "react";
 import { author, topic } from "../data/page";
 import AuthorProfile from "./AuthorProfile";
 import LikeSection from "./LikeSection";
@@ -5586,7 +5586,7 @@ export default function BlogInteractions() {
 <p>Lege <code>src/components/BlogContent.tsx</code> an und verschiebe die redaktionellen Abschnitte vom ersten Balkonabschnitt bis einschliesslich Fazit dorthin. Dazu gehören auch die beiden Artikelvorschauen im Text, die acht <code>CaptionedImage</code>-Aufrufe und die <code>ComparisonTable</code>. Gib diese Abschnitte als Fragment zurück, ohne ein weiteres <code>&lt;main&gt;</code> um sie herum.</p>
 <p>Die Imports für Bilder, Tabelle und die zwei einzelnen Artikeldatensätze ziehen ebenfalls mit um. Innerhalb von <code>components</code> lautet der Import beispielsweise <code>./CaptionedImage</code>, für Daten <code>../data/comparison</code>. <code>BlogContent</code> braucht kein <code>useState</code>.</p>
 <p>Entferne die verschobenen Inhalte und Zustände aus <code>App.tsx</code>. Vergleiche den folgenden Endstand erst, wenn deine drei Übungskomponenten eingebunden sind und ihre Prüfungen bestehen. Er zeigt die Zusammenstellung, nicht die Implementierung deiner Bausteine:</p>
-<pre><code class="language-tsx">import ArticlePreview from "./components/ArticlePreview";
+<pre><code class="language-typescript">import ArticlePreview from "./components/ArticlePreview";
 import BlogContent from "./components/BlogContent";
 import BlogInteractions from "./components/BlogInteractions";
 import ProductSummary from "./components/ProductSummary";
@@ -5888,7 +5888,7 @@ export default function useBlogInteractions({ userId, blogPageId, authorEmail, t
 <p>Ein Abbruch auf Clientseite kann eine bereits auf dem Server gespeicherte Änderung nicht zurücknehmen. Er verhindert vor allem, dass deren späte Antwort die inzwischen gewechselte Oberfläche überschreibt.</p>
 <h2 id="schritt-3-die-bestehenden-anzeigekomponenten-verbinden"><a class="header" href="#schritt-3-die-bestehenden-anzeigekomponenten-verbinden">Schritt 3: Die bestehenden Anzeigekomponenten verbinden</a></h2>
 <p>Ersetze <code>src/components/BlogInteractions.tsx</code> durch:</p>
-<pre><code class="language-tsx">import { author, topic } from "../data/page";
+<pre><code class="language-typescript">import { author, topic } from "../data/page";
 import useBlogInteractions from "../hooks/useBlogInteractions";
 import AuthorProfile from "./AuthorProfile";
 import LikeSection from "./LikeSection";
@@ -5944,7 +5944,7 @@ export default function BlogInteractions({ userId, blogPageId }: BlogInteraction
 <p>Falls dasselbe Thema später an zwei Stellen angezeigt wird, verwende für beide Buttons denselben <code>data.followsTopic</code>-Wert und denselben <code>toggleTopic</code>-Callback aus <strong>einer gemeinsamen Hook-Instanz</strong>. Zwei getrennte Hooks würden eigene lokale Anzeigen besitzen und sich nach einem Klick nicht automatisch gegenseitig aktualisieren. In React lösen wir die frühere Suche nach allen passenden DOM-Buttons durch gemeinsam verwendeten State.</p>
 <h2 id="schritt-4-benutzer--und-blogseitenwechsel"><a class="header" href="#schritt-4-benutzer--und-blogseitenwechsel">Schritt 4: Benutzer- und Blogseitenwechsel</a></h2>
 <p>Lege <code>src/components/ContextSelection.tsx</code> an:</p>
-<pre><code class="language-tsx">import { useState } from "react";
+<pre><code class="language-typescript">import { useState } from "react";
 import type { SubmitEvent } from "react";
 
 type ContextSelectionProps = {
@@ -6011,7 +6011,7 @@ export default function ContextSelection({ userId, blogPageId, onSelect }: Conte
 </code></pre>
 <p>Der Import von <code>components/components.css</code> in <code>src/css/main.css</code> bleibt unverändert. Alle Styles bleiben unter <code>src/css</code>; jeder Unterordner bündelt seine eigenen Imports. In <code>ContextSelection.tsx</code> ist kein CSS-Import nötig.</p>
 <p>Ersetze <code>App.tsx</code> durch den zusammengesetzten Endstand:</p>
-<pre><code class="language-tsx">import { useState } from "react";
+<pre><code class="language-typescript">import { useState } from "react";
 import ArticlePreview from "./components/ArticlePreview";
 import BlogContent from "./components/BlogContent";
 import BlogInteractions from "./components/BlogInteractions";

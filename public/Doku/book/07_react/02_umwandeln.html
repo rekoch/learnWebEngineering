@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-4e0e16b0.js";
+            window.path_to_searchindex_js = "../searchindex-5663d769.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-6c46951c.js"></script>
@@ -198,7 +198,7 @@ npm run dev
 <li>Übernimm die bisherige Einbindung von <code>javascript/main.js</code> nicht. Die Interaktionen bauen wir später mit React neu. Vites Einstieg über <code>src/main.tsx</code> bleibt erhalten.</li>
 </ul>
 <p>Ersetze den Beispielinhalt von <code>App.tsx</code> zunächst durch dieses Gerüst und füge das HTML anstelle des Absatzes ein:</p>
-<pre><code class="language-tsx">function App() {
+<pre><code class="language-typescript">function App() {
 	return (
 		&lt;&gt;
 			&lt;p&gt;Hier kommt der Inhalt der Blogseite hin.&lt;/p&gt;
@@ -228,12 +228,12 @@ export default App;
 </code></pre>
 <p>Passe in <code>src/css/fonts.css</code> den bisherigen Import auf <code>@import url("fonts/lato.css");</code> an. Die anderen CSS-Imports und die Fontpfade in <code>fonts/lato.css</code> bleiben relativ zu ihrer jeweiligen CSS-Datei. So liegen alle Styles und Fonts im React-Projekt, ohne Verweise auf die früheren Projektstände.</p>
 <p>Entferne die Vite-Beispiel-CSS-Imports aus <code>App.tsx</code> und <code>main.tsx</code> und lösche die zugehörigen Dateien <code>src/App.css</code> und <code>src/index.css</code>. Importiere stattdessen nur in <code>main.tsx</code> unsere zentrale CSS-Datei:</p>
-<pre><code class="language-tsx">import "./css/main.css";
+<pre><code class="language-typescript">import "./css/main.css";
 </code></pre>
 <p>Diese Struktur behalten wir in allen folgenden React-Kapiteln bei. Weitere Styles kommen ebenfalls unter <code>src/css</code>; komponentenspezifische Styles legen wir später im Unterordner <code>components</code> ab. Wie bei <code>utilities/utilities.css</code> bündelt dort eine Einstiegsdatei <code>components/components.css</code> die Imports des Ordners. In <code>css/main.css</code> importieren wir nur diese Einstiegsdatei.</p>
 <h2 id="statische-buttons"><a class="header" href="#statische-buttons">Statische Buttons</a></h2>
 <p>Übernimm die Buttons mit ihren festen Texten und CSS-Klassen. Für den Like-Bereich sieht das zum Beispiel so aus:</p>
-<pre><code class="language-tsx">&lt;section className="mt-xl mb-xxl text-center"&gt;
+<pre><code class="language-typescript">&lt;section className="mt-xl mb-xxl text-center"&gt;
 	&lt;button
 		type="button"
 		className="primary mb-s font-small align-items-center text-center"

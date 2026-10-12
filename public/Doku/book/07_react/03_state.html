@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-4e0e16b0.js";
+            window.path_to_searchindex_js = "../searchindex-5663d769.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-6c46951c.js"></script>
@@ -181,7 +181,7 @@
 <p>Im bisherigen JavaScript hast du nach einem Klick direkt Elemente im DOM verändert. In React änderst du stattdessen den State. React ruft die Komponente erneut auf, berechnet daraus die Oberfläche und aktualisiert die nötigen Stellen im DOM. Dieses Berechnen der Oberfläche nennt man Rendern.</p>
 <h2 id="ein-kleiner-zähler"><a class="header" href="#ein-kleiner-zähler">Ein kleiner Zähler</a></h2>
 <p>Sichere den Inhalt deiner bisherigen <code>App.tsx</code>, damit du danach zur Blogseite zurückkehren kannst. Ersetze ihn für dieses Experiment durch:</p>
-<pre><code class="language-tsx">import { useState } from "react";
+<pre><code class="language-typescript">import { useState } from "react";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -205,7 +205,7 @@ export default App;
 <p>Öffne die Seite im Browser. Der Zähler beginnt bei <code>0</code> und steigt mit jedem Klick um eins.</p>
 <h2 id="einen-zustand-anlegen"><a class="header" href="#einen-zustand-anlegen">Einen Zustand anlegen</a></h2>
 <p><code>useState</code> ist eine Funktion von React. Solche Funktionen, mit denen du React-Funktionen in einer Komponente nutzt, heissen Hooks. Du importierst <code>useState</code> aus <code>react</code> und rufst es direkt am Anfang deiner Komponente auf, nicht innerhalb einer Bedingung, Schleife oder eines Click-Handlers.</p>
-<pre><code class="language-tsx">const [count, setCount] = useState(0);
+<pre><code class="language-typescript">const [count, setCount] = useState(0);
 </code></pre>
 <p><code>0</code> ist der Startwert. <code>useState</code> gibt ein Array mit zwei Einträgen zurück, die wir mit der Array-Destrukturierung in zwei Variablen aufteilen:</p>
 <ul>
@@ -215,11 +215,11 @@ export default App;
 <p>Die Namen wählst du selbst. Üblich ist, die Änderungsfunktion mit <code>set</code> zu beginnen. TypeScript erkennt anhand des Startwerts, dass <code>count</code> eine Zahl ist.</p>
 <h2 id="den-wert-anzeigen"><a class="header" href="#den-wert-anzeigen">Den Wert anzeigen</a></h2>
 <p>Mit geschweiften Klammern kannst du einen JavaScript-Ausdruck in JSX einsetzen:</p>
-<pre><code class="language-tsx">&lt;p&gt;Zählerstand: {count}&lt;/p&gt;
+<pre><code class="language-typescript">&lt;p&gt;Zählerstand: {count}&lt;/p&gt;
 </code></pre>
 <p>React zeigt dort den aktuellen Wert von <code>count</code> an. Du musst den Absatz weder mit <code>querySelector</code> suchen noch seinen Text selbst ändern.</p>
 <h2 id="auf-einen-klick-reagieren"><a class="header" href="#auf-einen-klick-reagieren">Auf einen Klick reagieren</a></h2>
-<pre><code class="language-tsx">&lt;button type="button" onClick={increment}&gt;
+<pre><code class="language-typescript">&lt;button type="button" onClick={increment}&gt;
   Erhöhen
 &lt;/button&gt;
 </code></pre>

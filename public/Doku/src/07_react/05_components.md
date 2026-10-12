@@ -10,7 +10,7 @@ Eine Komponente beschreibt einen Teil der Oberfläche. In React schreiben wir da
 
 Ein kleines Beispiel:
 
-```tsx
+```typescript
 type SectionTitleProps = {
   title: string;
 };
@@ -22,7 +22,7 @@ function SectionTitle({ title }: SectionTitleProps) {
 
 In `App` könnten wir sie so einsetzen:
 
-```tsx
+```typescript
 <SectionTitle title="Drei Ideen für wenig Platz" />
 <SectionTitle title="Einfach anfangen" />
 ```
@@ -88,7 +88,7 @@ Eine `AuthorProfile` könnte die Follow-Aktion und die Autoreninformationen zusa
 
 So könnte ein solcher generischer Layout-Baustein aussehen. Das ist ein Entwurfsbeispiel, noch kein Umbau unserer Seite:
 
-```tsx
+```typescript
 import type { ReactNode } from "react";
 
 type ImageTextProps = {
@@ -109,7 +109,7 @@ function ImageText({ imageSrc, imageAlt, children }: ImageTextProps) {
 
 `children` ist der Inhalt zwischen dem öffnenden und schliessenden Komponenten-Tag. `ReactNode` erlaubt React-Inhalte wie Text und JSX. Die Komponente legt nur das Bild-Text-Layout fest; was der Text bedeutet, entscheidet die aufrufende Stelle:
 
-```tsx
+```typescript
 <ImageText
   imageSrc="https://picsum.photos/seed/beispiel-5041/96/96"
   imageAlt="Nora Linden"
@@ -172,7 +172,7 @@ Der Typ legt die gemeinsame Struktur fest. TypeScript prüft beispielsweise, das
 
 Lege `src/components/ArticlePreview.tsx` an. Diese Datei enthält JSX und hat deshalb die Endung `.tsx`:
 
-```tsx
+```typescript
 import type { ArticlePreviewData } from "../data/articles";
 
 type ArticlePreviewProps = {
@@ -217,14 +217,14 @@ Die Komponente liest nur ihre Props. Sie hat keinen eigenen State, kennt keine F
 
 Ergänze oben in `App.tsx` die Imports. `useState` bleibt erhalten; die Styles werden weiterhin zentral in `main.tsx` über `./css/main.css` eingebunden:
 
-```tsx
+```typescript
 import ArticlePreview from "./components/ArticlePreview";
 import { cornerArticle } from "./data/articles";
 ```
 
 Ersetze im Abschnitt «Drei Ideen für wenig Platz» nur den bisherigen `<article>...</article>`-Block durch:
 
-```tsx
+```typescript
 <ArticlePreview article={cornerArticle} />
 ```
 
@@ -251,13 +251,13 @@ export const eveningArticle: ArticlePreviewData = {
 
 Erweitere den Datenimport in `App.tsx`:
 
-```tsx
+```typescript
 import { cornerArticle, eveningArticle } from "./data/articles";
 ```
 
 Ersetze im Abschnitt «Kleine Helfer für grosse Pläne» ebenfalls nur den `<article>...</article>`-Block:
 
-```tsx
+```typescript
 <ArticlePreview article={eveningArticle} />
 ```
 
@@ -304,13 +304,13 @@ export const relatedArticles: ArticlePreviewData[] = [
 
 `ArticlePreviewData[]` bedeutet: ein Array, dessen Einträge alle diese Datenstruktur besitzen. Vervollständige den Datenimport in `App.tsx`:
 
-```tsx
+```typescript
 import { cornerArticle, eveningArticle, relatedArticles } from "./data/articles";
 ```
 
 Ersetze den Abschnitt «Weitere Ideen für deinen Balkon» durch:
 
-```tsx
+```typescript
 <section>
   <h3>Weitere Ideen für deinen Balkon</h3>
   {relatedArticles.map((article, index) => (

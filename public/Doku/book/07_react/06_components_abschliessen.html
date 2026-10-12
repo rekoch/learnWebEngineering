@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-4e0e16b0.js";
+            window.path_to_searchindex_js = "../searchindex-5663d769.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-6c46951c.js"></script>
@@ -188,7 +188,7 @@
 <h2 id="ein-bild-mit-bildlegende"><a class="header" href="#ein-bild-mit-bildlegende">Ein Bild mit Bildlegende</a></h2>
 <p>Unsere Seite enthält acht <code>&lt;figure&gt;</code>-Blöcke mit demselben Aufbau: ein Bild und eine Bildlegende. Nur Quelle, Alternativtext und Legende unterscheiden sich. Dieser Baustein braucht weder Artikelwissen noch State.</p>
 <p>Lege <code>src/components/CaptionedImage.tsx</code> an:</p>
-<pre><code class="language-tsx">type CaptionedImageProps = {
+<pre><code class="language-typescript">type CaptionedImageProps = {
   src: string;
   alt: string;
   caption: string;
@@ -205,7 +205,7 @@ export default function CaptionedImage({ src, alt, caption }: CaptionedImageProp
 </code></pre>
 <p>Die Komponente erhält alle drei Angaben als Props. <code>alt</code> und <code>caption</code> haben unterschiedliche Aufgaben: Der Alternativtext beschreibt das Bild für Menschen, die es nicht sehen können; die Legende gehört zum sichtbaren redaktionellen Inhalt. Deshalb machen wir daraus nicht dieselbe Eingabe.</p>
 <p>Importiere <code>CaptionedImage</code> in <code>App.tsx</code> und ersetze zuerst den ersten vollständigen <code>&lt;figure&gt;...&lt;/figure&gt;</code>-Block:</p>
-<pre><code class="language-tsx">&lt;CaptionedImage
+<pre><code class="language-typescript">&lt;CaptionedImage
   src="https://picsum.photos/seed/beispiel-2645/1200/800"
   alt="Beispielbild zum Stadtgarten"
   caption="Ein Eindruck aus dem kleinen Stadtgarten."
@@ -263,7 +263,7 @@ export const gardenRows: ComparisonRow[] = [
 <p>Die IDs jeder Messreihe und jeder Zeile müssen innerhalb ihrer jeweiligen Liste eindeutig sein. Ein Tippfehler in einem <code>values</code>-Schlüssel wird bei diesem offenen <code>Record</code>-Typ nicht automatisch erkannt; kontrolliere deshalb die Zuordnung. Für eine unbekannte Messreihe verwenden wir bewusst den Wert <code>0</code>.</p>
 <h2 id="darstellung-und-berechnung-zusammenführen"><a class="header" href="#darstellung-und-berechnung-zusammenführen">Darstellung und Berechnung zusammenführen</a></h2>
 <p>Ergänze <code>src/components/ComparisonTable.tsx</code>:</p>
-<pre><code class="language-tsx">
+<pre><code class="language-typescript">
 export type ComparisonSeries = {
   id: string;
   label: string;
@@ -395,7 +395,7 @@ export default function ComparisonTable({ title, series, rows, note }: Compariso
 <p>Weitere Komponentenstyles werden später in <code>components/components.css</code> ergänzt, nicht einzeln in <code>main.css</code>. Jeder CSS-Ordner verwaltet seine eigenen Imports. Der einzige CSS-Import in TypeScript bleibt <code>import "./css/main.css";</code> in <code>main.tsx</code>. Die Komponente selbst importiert keine CSS-Datei.</p>
 <p>Die Werte stehen wie bisher im Balken, rechts mit etwas Abstand zum Rand. <code>justify-content: safe flex-end</code> richtet sie rechts aus, solange sie hineinpassen. Bei sehr kurzen Balken und Nullwerten beginnt die Zahl stattdessen links und darf über den Balken hinausragen. So bleibt sie lesbar, ohne die berechnete Balkenbreite zu verändern. Jede Balkenzeile hat ausserdem eine zugängliche Beschriftung mit Gruppenname, Messreihe und Wert; die Farbe ist nicht die einzige Information. Die vorhandenen allgemeinen Schriftklassen verwenden wir weiter.</p>
 <p>Ersetze in <code>App.tsx</code> den bisherigen <code>&lt;div data-table-name="benchmark"&gt;...&lt;/div&gt;</code>-Block und ergänze die Imports für Komponente und Daten:</p>
-<pre><code class="language-tsx">&lt;ComparisonTable
+<pre><code class="language-typescript">&lt;ComparisonTable
   title="Beispielwerte im Vergleich"
   series={gardenSeries}
   rows={gardenRows}
@@ -405,7 +405,7 @@ export default function ComparisonTable({ title, series, rows, note }: Compariso
 <p>Importiere das alte <code>tables.js</code> nicht. Es würde erneut Elemente suchen und Styles ausserhalb von React verändern. Wir haben seine fachliche Berechnung übertragen, nicht seine DOM-Manipulation.</p>
 <h2 id="dieselbe-tabelle-für-andere-daten"><a class="header" href="#dieselbe-tabelle-für-andere-daten">Dieselbe Tabelle für andere Daten</a></h2>
 <p>Die Schnittstelle erlaubt andere Namen, Farben und beliebig viele Messreihen. Auch die Anzahl der Vergleichsgruppen ist nicht festgeschrieben:</p>
-<pre><code class="language-tsx">&lt;ComparisonTable
+<pre><code class="language-typescript">&lt;ComparisonTable
   title="Ernte in Gramm"
   series={[
     { id: "herbs", label: "Kräuter", color: "#3a8561" },
@@ -422,7 +422,7 @@ export default function ComparisonTable({ title, series, rows, note }: Compariso
 <p>Vergleiche nur Werte mit einer gemeinsamen Einheit und einer sinnvoll gemeinsamen Skala. Eine Tabelle mit Metern in einer Gruppe und Kilogramm in einer anderen würde durch die gemeinsame Skalierung eine irreführende Aussage machen. Wiederverwendbarkeit hebt fachliche Voraussetzungen nicht auf.</p>
 <h2 id="ein-button-ohne-follow-wissen"><a class="header" href="#ein-button-ohne-follow-wissen">Ein Button ohne Follow-Wissen</a></h2>
 <p>Unsere Buttons wiederholen die Entscheidung zwischen aktivem und inaktivem Text, <code>aria-pressed</code> und der CSS-Klasse <code>primary</code>. Das ist eine gute gemeinsame Aufgabe. Lege <code>src/components/ToggleButton.tsx</code> an:</p>
-<pre><code class="language-tsx">type ToggleButtonProps = {
+<pre><code class="language-typescript">type ToggleButtonProps = {
   active: boolean;
   activeText: string;
   inactiveText: string;
@@ -472,7 +472,7 @@ export default function ToggleButton({
 <p>Die Angaben Name, E-Mail, Rolle, Bild und Beschreibung gehören zusammen: Sie beschreiben eine Autorin. Lege sie als exportiertes <code>author</code>-Objekt (<code>export const author = ...</code>) in <code>src/data/page.ts</code> ab. Das ist hier eine lokale Daten-Entität für die Seitendarstellung, keine Datenbanktabelle und kein Backend-Modell. Der Follow-Zustand und die Klickfunktion gehören ausdrücklich nicht in dieses Objekt.</p>
 <p>Leite aus den fünf Angaben einen Props-Typ für <code>AuthorProfile</code> ab. Die Komponente soll das Profil darstellen und zusätzlich einen Platz für eine Aktion anbieten. Versuche zuerst, die vorhandenen Profilelemente in die neue Datei zu verschieben. Vergleiche deinen Entwurf danach mit dem Referenzstand:</p>
 <p>Lege <code>src/components/AuthorProfile.tsx</code> an:</p>
-<pre><code class="language-tsx">import type { ReactNode } from "react";
+<pre><code class="language-typescript">import type { ReactNode } from "react";
 
 export type AuthorData = {
   name: string;
@@ -505,7 +505,7 @@ export default function AuthorProfile({ author, children }: AuthorProfileProps) 
 <p>Über <code>children</code> füllen wir den Platz für die Aktion. Das ist <strong>Komposition</strong>: Ein Baustein setzt sich aus anderen zusammen, ohne alle ihre Einzelheiten zu kennen.</p>
 <p>Setze <code>AuthorProfile</code> nun anstelle des bisherigen Profilabschnitts in <code>App.tsx</code> ein. Importiere dort <code>author</code> aus <code>./data/page</code> sowie <code>AuthorProfile</code>. Überlege vor dem Einsetzen: Welche Angaben gehen als <code>author</code>-Prop hinein, und welches JSX wird als <code>children</code> übergeben? Wenn du die Interaktionen später nach <code>components/BlogInteractions.tsx</code> verschiebst, ändert sich der Datenimport dort zu <code>../data/page</code>.</p>
 <p>Der Aufruf soll diesem Muster folgen; übertrage die Werte und den Callback aus deinem bisherigen <code>App.tsx</code>:</p>
-<pre><code class="language-tsx">&lt;AuthorProfile author={author}&gt;
+<pre><code class="language-typescript">&lt;AuthorProfile author={author}&gt;
   &lt;ToggleButton
     active={followsAuthor}
     activeText="Autorin nicht mehr folgen"
@@ -538,11 +538,11 @@ export default function AuthorProfile({ author, children }: AuthorProfileProps) 
 <p>Ergänze <code>src/data/page.ts</code> um den Themennamen. Die Autorin hast du dort bereits im vorherigen Zwischenschritt als zusammengehörigen Datensatz abgelegt:</p>
 <pre><code class="language-ts">export const topic: string = "Balkongarten";
 </code></pre>
-<p>Importiere <code>topic</code> in <code>App.tsx</code> und übergib es deiner Themenkomponente. Die Produktdaten ergänzen wir erst in Übung 3, nachdem du ihren Typ definiert hast.</p>
+<p>Importiere <code>topic</code> in <code>App.tsx</code> und übergib es deiner Themenkomponente.</p>
 <h2 id="gemeinsamer-kartenrahmen-verschiedene-inhalte"><a class="header" href="#gemeinsamer-kartenrahmen-verschiedene-inhalte">Gemeinsamer Kartenrahmen, verschiedene Inhalte</a></h2>
 <p>Vergleiche <code>ArticlePreview</code> mit dem bisherigen Produktblock: Beide zeigen ein Bild neben Inhalt. Die fachlichen Angaben sind jedoch verschieden. Ein Artikel hat zum Beispiel Rubrik, Titel und Autorin; beim Produkt gehören Kategorie, Name, Preis und Produktbewertung dazu. Die beiden Datenmodelle werden nicht zu einem gemeinsamen Artikel-oder-Produkt-Typ vermischt.</p>
 <p>Wiederverwenden lässt sich die <strong>Darstellung</strong>: Bild, Raster und ein Platz für den jeweiligen Inhalt. Lege dafür <code>src/components/SummaryCard.tsx</code> an:</p>
-<pre><code class="language-tsx">import type { ReactNode } from "react";
+<pre><code class="language-typescript">import type { ReactNode } from "react";
 
 type SummaryCardProps = {
   image: {
@@ -571,7 +571,7 @@ export default function SummaryCard({ image, children, className = "" }: Summary
 </ul>
 <p>Der Inhalt von <code>children</code> erscheint in der Textspalte, weil <code>SummaryCard</code> ihn innerhalb ihres <code>col-8</code>-Elements rendert. Das Bild wird separat über <code>image</code> an die andere Spalte übergeben.</p>
 <p>Als Gerüst kannst du diese Verschachtelung verwenden:</p>
-<pre><code class="language-tsx">&lt;article&gt;
+<pre><code class="language-typescript">&lt;article&gt;
   &lt;SummaryCard
     image={article.image}
     className={withTopBorder ? "border-top" : ""}
@@ -630,7 +630,7 @@ export const product: ProductData = {
 <p>Erkläre zum Abschluss: Weshalb erhält die Produktübersicht Daten über Props, obwohl wir auf unserer Seite nur ein Produkt zeigen? Weshalb sind Artikel-Likes und Produkt-Sterne unterschiedliche Angaben, obwohl beide Rückmeldungen ausdrücken? Welche Daten braucht <code>SummaryCard</code> selbst nicht?</p>
 <h2 id="die-interaktionen-zusammenführen"><a class="header" href="#die-interaktionen-zusammenführen">Die Interaktionen zusammenführen</a></h2>
 <p>Verschiebe die vier bestehenden Zustände und die Like-Funktion aus <code>App</code> in die neue <code>src/components/BlogInteractions.tsx</code>. Hier setzen wir die fachlichen Bereiche und ihre Aktionen zusammen:</p>
-<pre><code class="language-tsx">import { useState } from "react";
+<pre><code class="language-typescript">import { useState } from "react";
 import { author, topic } from "../data/page";
 import AuthorProfile from "./AuthorProfile";
 import LikeSection from "./LikeSection";
@@ -676,7 +676,7 @@ export default function BlogInteractions() {
 <p>Lege <code>src/components/BlogContent.tsx</code> an und verschiebe die redaktionellen Abschnitte vom ersten Balkonabschnitt bis einschliesslich Fazit dorthin. Dazu gehören auch die beiden Artikelvorschauen im Text, die acht <code>CaptionedImage</code>-Aufrufe und die <code>ComparisonTable</code>. Gib diese Abschnitte als Fragment zurück, ohne ein weiteres <code>&lt;main&gt;</code> um sie herum.</p>
 <p>Die Imports für Bilder, Tabelle und die zwei einzelnen Artikeldatensätze ziehen ebenfalls mit um. Innerhalb von <code>components</code> lautet der Import beispielsweise <code>./CaptionedImage</code>, für Daten <code>../data/comparison</code>. <code>BlogContent</code> braucht kein <code>useState</code>.</p>
 <p>Entferne die verschobenen Inhalte und Zustände aus <code>App.tsx</code>. Vergleiche den folgenden Endstand erst, wenn deine drei Übungskomponenten eingebunden sind und ihre Prüfungen bestehen. Er zeigt die Zusammenstellung, nicht die Implementierung deiner Bausteine:</p>
-<pre><code class="language-tsx">import ArticlePreview from "./components/ArticlePreview";
+<pre><code class="language-typescript">import ArticlePreview from "./components/ArticlePreview";
 import BlogContent from "./components/BlogContent";
 import BlogInteractions from "./components/BlogInteractions";
 import ProductSummary from "./components/ProductSummary";

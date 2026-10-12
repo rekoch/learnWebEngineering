@@ -132,7 +132,7 @@ Ein Abbruch auf Clientseite kann eine bereits auf dem Server gespeicherte Änder
 
 Ersetze `src/components/BlogInteractions.tsx` durch:
 
-```tsx
+```typescript
 {{#include ../../../07_react/07_backend-integration/src/components/BlogInteractions.tsx}}
 ```
 
@@ -148,7 +148,7 @@ Falls dasselbe Thema später an zwei Stellen angezeigt wird, verwende für beide
 
 Lege `src/components/ContextSelection.tsx` an:
 
-```tsx
+```typescript
 {{#include ../../../07_react/07_backend-integration/src/components/ContextSelection.tsx}}
 ```
 
@@ -170,7 +170,7 @@ Der Import von `components/components.css` in `src/css/main.css` bleibt unverän
 
 Ersetze `App.tsx` durch den zusammengesetzten Endstand:
 
-```tsx
+```typescript
 {{#include ../../../07_react/07_backend-integration/src/App.tsx}}
 ```
 

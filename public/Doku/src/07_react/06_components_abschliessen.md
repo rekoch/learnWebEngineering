@@ -19,7 +19,7 @@ Unsere Seite enthält acht `<figure>`-Blöcke mit demselben Aufbau: ein Bild und
 
 Lege `src/components/CaptionedImage.tsx` an:
 
-```tsx
+```typescript
 {{#include ../../../07_react/06_components-complete/src/components/CaptionedImage.tsx}}
 ```
 
@@ -27,7 +27,7 @@ Die Komponente erhält alle drei Angaben als Props. `alt` und `caption` haben un
 
 Importiere `CaptionedImage` in `App.tsx` und ersetze zuerst den ersten vollständigen `<figure>...</figure>`-Block:
 
-```tsx
+```typescript
 <CaptionedImage
   src="https://picsum.photos/seed/beispiel-2645/1200/800"
   alt="Beispielbild zum Stadtgarten"
@@ -94,7 +94,7 @@ Die IDs jeder Messreihe und jeder Zeile müssen innerhalb ihrer jeweiligen Liste
 
 Ergänze `src/components/ComparisonTable.tsx`:
 
-```tsx
+```typescript
 {{#include ../../../07_react/06_components-complete/src/components/ComparisonTable.tsx}}
 ```
 
@@ -137,7 +137,7 @@ Die Werte stehen wie bisher im Balken, rechts mit etwas Abstand zum Rand. `justi
 
 Ersetze in `App.tsx` den bisherigen `<div data-table-name="benchmark">...</div>`-Block und ergänze die Imports für Komponente und Daten:
 
-```tsx
+```typescript
 <ComparisonTable
   title="Beispielwerte im Vergleich"
   series={gardenSeries}
@@ -152,7 +152,7 @@ Importiere das alte `tables.js` nicht. Es würde erneut Elemente suchen und Styl
 
 Die Schnittstelle erlaubt andere Namen, Farben und beliebig viele Messreihen. Auch die Anzahl der Vergleichsgruppen ist nicht festgeschrieben:
 
-```tsx
+```typescript
 <ComparisonTable
   title="Ernte in Gramm"
   series={[
@@ -175,7 +175,7 @@ Vergleiche nur Werte mit einer gemeinsamen Einheit und einer sinnvoll gemeinsame
 
 Unsere Buttons wiederholen die Entscheidung zwischen aktivem und inaktivem Text, `aria-pressed` und der CSS-Klasse `primary`. Das ist eine gute gemeinsame Aufgabe. Lege `src/components/ToggleButton.tsx` an:
 
-```tsx
+```typescript
 {{#include ../../../07_react/06_components-complete/src/components/ToggleButton.tsx}}
 ```
 
@@ -216,7 +216,7 @@ Leite aus den fünf Angaben einen Props-Typ für `AuthorProfile` ab. Die Kompone
 
 Lege `src/components/AuthorProfile.tsx` an:
 
-```tsx
+```typescript
 {{#include ../../../07_react/06_components-complete/src/components/AuthorProfile.tsx}}
 ```
 
@@ -226,7 +226,7 @@ Setze `AuthorProfile` nun anstelle des bisherigen Profilabschnitts in `App.tsx` 
 
 Der Aufruf soll diesem Muster folgen; übertrage die Werte und den Callback aus deinem bisherigen `App.tsx`:
 
-```tsx
+```typescript
 <AuthorProfile author={author}>
   <ToggleButton
     active={followsAuthor}
@@ -280,7 +280,7 @@ Vergleiche `ArticlePreview` mit dem bisherigen Produktblock: Beide zeigen ein Bi
 
 Wiederverwenden lässt sich die **Darstellung**: Bild, Raster und ein Platz für den jeweiligen Inhalt. Lege dafür `src/components/SummaryCard.tsx` an:
 
-```tsx
+```typescript
 {{#include ../../../07_react/06_components-complete/src/components/SummaryCard.tsx}}
 ```
 
@@ -296,7 +296,7 @@ Der Inhalt von `children` erscheint in der Textspalte, weil `SummaryCard` ihn in
 
 Als Gerüst kannst du diese Verschachtelung verwenden:
 
-```tsx
+```typescript
 <article>
   <SummaryCard
     image={article.image}
@@ -344,7 +344,7 @@ Erkläre zum Abschluss: Weshalb erhält die Produktübersicht Daten über Props,
 
 Verschiebe die vier bestehenden Zustände und die Like-Funktion aus `App` in die neue `src/components/BlogInteractions.tsx`. Hier setzen wir die fachlichen Bereiche und ihre Aktionen zusammen:
 
-```tsx
+```typescript
 {{#include ../../../07_react/06_components-complete/src/components/BlogInteractions.tsx}}
 ```
 
@@ -358,7 +358,7 @@ Die Imports für Bilder, Tabelle und die zwei einzelnen Artikeldatensätze ziehe
 
 Entferne die verschobenen Inhalte und Zustände aus `App.tsx`. Vergleiche den folgenden Endstand erst, wenn deine drei Übungskomponenten eingebunden sind und ihre Prüfungen bestehen. Er zeigt die Zusammenstellung, nicht die Implementierung deiner Bausteine:
 
-```tsx
+```typescript
 {{#include ../../../07_react/06_components-complete/src/App.tsx}}
 ```
 

@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-4e0e16b0.js";
+            window.path_to_searchindex_js = "../searchindex-5663d769.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-6c46951c.js"></script>
@@ -407,7 +407,7 @@ export default function useBlogInteractions({ userId, blogPageId, authorEmail, t
 <p>Ein Abbruch auf Clientseite kann eine bereits auf dem Server gespeicherte Änderung nicht zurücknehmen. Er verhindert vor allem, dass deren späte Antwort die inzwischen gewechselte Oberfläche überschreibt.</p>
 <h2 id="schritt-3-die-bestehenden-anzeigekomponenten-verbinden"><a class="header" href="#schritt-3-die-bestehenden-anzeigekomponenten-verbinden">Schritt 3: Die bestehenden Anzeigekomponenten verbinden</a></h2>
 <p>Ersetze <code>src/components/BlogInteractions.tsx</code> durch:</p>
-<pre><code class="language-tsx">import { author, topic } from "../data/page";
+<pre><code class="language-typescript">import { author, topic } from "../data/page";
 import useBlogInteractions from "../hooks/useBlogInteractions";
 import AuthorProfile from "./AuthorProfile";
 import LikeSection from "./LikeSection";
@@ -463,7 +463,7 @@ export default function BlogInteractions({ userId, blogPageId }: BlogInteraction
 <p>Falls dasselbe Thema später an zwei Stellen angezeigt wird, verwende für beide Buttons denselben <code>data.followsTopic</code>-Wert und denselben <code>toggleTopic</code>-Callback aus <strong>einer gemeinsamen Hook-Instanz</strong>. Zwei getrennte Hooks würden eigene lokale Anzeigen besitzen und sich nach einem Klick nicht automatisch gegenseitig aktualisieren. In React lösen wir die frühere Suche nach allen passenden DOM-Buttons durch gemeinsam verwendeten State.</p>
 <h2 id="schritt-4-benutzer--und-blogseitenwechsel"><a class="header" href="#schritt-4-benutzer--und-blogseitenwechsel">Schritt 4: Benutzer- und Blogseitenwechsel</a></h2>
 <p>Lege <code>src/components/ContextSelection.tsx</code> an:</p>
-<pre><code class="language-tsx">import { useState } from "react";
+<pre><code class="language-typescript">import { useState } from "react";
 import type { SubmitEvent } from "react";
 
 type ContextSelectionProps = {
@@ -530,7 +530,7 @@ export default function ContextSelection({ userId, blogPageId, onSelect }: Conte
 </code></pre>
 <p>Der Import von <code>components/components.css</code> in <code>src/css/main.css</code> bleibt unverändert. Alle Styles bleiben unter <code>src/css</code>; jeder Unterordner bündelt seine eigenen Imports. In <code>ContextSelection.tsx</code> ist kein CSS-Import nötig.</p>
 <p>Ersetze <code>App.tsx</code> durch den zusammengesetzten Endstand:</p>
-<pre><code class="language-tsx">import { useState } from "react";
+<pre><code class="language-typescript">import { useState } from "react";
 import ArticlePreview from "./components/ArticlePreview";
 import BlogContent from "./components/BlogContent";
 import BlogInteractions from "./components/BlogInteractions";

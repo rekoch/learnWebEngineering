@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-4e0e16b0.js";
+            window.path_to_searchindex_js = "../searchindex-5663d769.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-6c46951c.js"></script>
@@ -179,10 +179,10 @@
 <p>Wir beginnen mit einem Follow-Button, der nur einen booleschen Zustand braucht. Danach ergänzen wir den Like-Button mit seinem Zähler. Alle Zustände bleiben vorerst lokal, ohne Backend-Anbindung.</p>
 <h2 id="autorin-folgen"><a class="header" href="#autorin-folgen">Autorin folgen</a></h2>
 <p>Importiere <code>useState</code> am Anfang von <code>App.tsx</code>. Der zentrale CSS-Import <code>import "./css/main.css";</code> bleibt in <code>main.tsx</code>:</p>
-<pre><code class="language-tsx">import { useState } from "react";
+<pre><code class="language-typescript">import { useState } from "react";
 </code></pre>
 <p>Lege in der Funktion <code>App</code>, vor dem <code>return</code>, einen Zustand an:</p>
-<pre><code class="language-tsx">const [followsAuthor, setFollowsAuthor] = useState(false);
+<pre><code class="language-typescript">const [followsAuthor, setFollowsAuthor] = useState(false);
 
 function toggleAuthorFollow() {
   setFollowsAuthor(!followsAuthor);
@@ -190,7 +190,7 @@ function toggleAuthorFollow() {
 </code></pre>
 <p><code>false</code> bedeutet, dass du der Autorin noch nicht folgst. Das Ausrufezeichen kehrt den booleschen Wert um: Aus <code>false</code> wird <code>true</code>, aus <code>true</code> wird <code>false</code>.</p>
 <p>Ersetze den bisherigen Button «Autorin folgen» durch:</p>
-<pre><code class="language-tsx">&lt;button
+<pre><code class="language-typescript">&lt;button
   type="button"
   aria-pressed={followsAuthor}
   className={followsAuthor ? "" : "primary"}
@@ -203,14 +203,14 @@ function toggleAuthorFollow() {
 <p>Klicke zweimal auf den Button: Zuerst muss er den Folgezustand anzeigen, danach wieder den Ausgangszustand. Dafür ändern wir weder <code>textContent</code> noch <code>classList</code> direkt. React leitet beides aus <code>followsAuthor</code> ab.</p>
 <h2 id="thema-folgen"><a class="header" href="#thema-folgen">Thema folgen</a></h2>
 <p>Setze «Thema folgen» nach demselben Prinzip um. Verwende dafür einen eigenen Zustand, damit die beiden Buttons unabhängig voneinander funktionieren:</p>
-<pre><code class="language-tsx">const [followsTopic, setFollowsTopic] = useState(false);
+<pre><code class="language-typescript">const [followsTopic, setFollowsTopic] = useState(false);
 
 function toggleTopicFollow() {
   setFollowsTopic(!followsTopic);
 }
 </code></pre>
 <p>Der zugehörige Button sieht so aus:</p>
-<pre><code class="language-tsx">&lt;button
+<pre><code class="language-typescript">&lt;button
   type="button"
   aria-pressed={followsTopic}
   className={followsTopic ? "" : "primary"}
@@ -222,7 +222,7 @@ function toggleTopicFollow() {
 <p>Prüfe, dass ein Klick auf diesen Button den Autorinnen-Button nicht verändert.</p>
 <h2 id="beitrag-liken"><a class="header" href="#beitrag-liken">Beitrag liken</a></h2>
 <p>Beim Like-Bereich verändern sich sowohl die Auswahl als auch der Zähler. Lege dafür zwei weitere Zustände und einen Handler in <code>App</code> vor dem <code>return</code> an:</p>
-<pre><code class="language-tsx">const [liked, setLiked] = useState(false);
+<pre><code class="language-typescript">const [liked, setLiked] = useState(false);
 const [likeCount, setLikeCount] = useState(59);
 
 function toggleLike() {
@@ -232,7 +232,7 @@ function toggleLike() {
 </code></pre>
 <p>Beim Klick beschreibt <code>liked</code> noch den Zustand des aktuellen Renderdurchlaufs. War der Beitrag bereits gelikt, ziehen wir eins ab. War er nicht gelikt, zählen wir eins dazu. <code>setLiked(!liked)</code> fordert die neue Auswahl an, verändert aber die Variable <code>liked</code> in diesem Handler nicht sofort.</p>
 <p>Ersetze den statischen Like-Bereich durch:</p>
-<pre><code class="language-tsx">&lt;section className="mt-xl mb-xxl text-center"&gt;
+<pre><code class="language-typescript">&lt;section className="mt-xl mb-xxl text-center"&gt;
   &lt;button
     type="button"
     aria-pressed={liked}

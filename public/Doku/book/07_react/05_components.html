@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-4e0e16b0.js";
+            window.path_to_searchindex_js = "../searchindex-5663d769.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-6c46951c.js"></script>
@@ -180,7 +180,7 @@
 <h2 id="was-ist-eine-komponente"><a class="header" href="#was-ist-eine-komponente">Was ist eine Komponente?</a></h2>
 <p>Eine Komponente beschreibt einen Teil der Oberfläche. In React schreiben wir dafür eine Funktion, die JSX zurückgibt. <code>App</code> ist also bereits eine Komponente. Neu ist, dass sie weitere, selbst geschriebene Komponenten verwendet.</p>
 <p>Ein kleines Beispiel:</p>
-<pre><code class="language-tsx">type SectionTitleProps = {
+<pre><code class="language-typescript">type SectionTitleProps = {
   title: string;
 };
 
@@ -189,7 +189,7 @@ function SectionTitle({ title }: SectionTitleProps) {
 }
 </code></pre>
 <p>In <code>App</code> könnten wir sie so einsetzen:</p>
-<pre><code class="language-tsx">&lt;SectionTitle title="Drei Ideen für wenig Platz" /&gt;
+<pre><code class="language-typescript">&lt;SectionTitle title="Drei Ideen für wenig Platz" /&gt;
 &lt;SectionTitle title="Einfach anfangen" /&gt;
 </code></pre>
 <p><code>SectionTitle</code> ist die gemeinsame Beschreibung. Die beiden Verwendungen sind zwei Instanzen mit unterschiedlichen Eingaben. React rendert daraus zwei Überschriften; es erzeugt kein zusätzliches HTML-Element namens <code>&lt;SectionTitle&gt;</code>.</p>
@@ -249,7 +249,7 @@ function SectionTitle({ title }: SectionTitleProps) {
 </div>
 <p>Eine <code>AuthorProfile</code> könnte die Follow-Aktion und die Autoreninformationen zusammenstellen. Eine darunterliegende <code>PersonProfile</code> müsste nicht mehr wissen, dass die Person Artikel schreibt. Noch eine Ebene tiefer braucht das Layout nicht einmal mehr das Konzept «Person».</p>
 <p>So könnte ein solcher generischer Layout-Baustein aussehen. Das ist ein Entwurfsbeispiel, noch kein Umbau unserer Seite:</p>
-<pre><code class="language-tsx">import type { ReactNode } from "react";
+<pre><code class="language-typescript">import type { ReactNode } from "react";
 
 type ImageTextProps = {
   imageSrc: string;
@@ -267,7 +267,7 @@ function ImageText({ imageSrc, imageAlt, children }: ImageTextProps) {
 }
 </code></pre>
 <p><code>children</code> ist der Inhalt zwischen dem öffnenden und schliessenden Komponenten-Tag. <code>ReactNode</code> erlaubt React-Inhalte wie Text und JSX. Die Komponente legt nur das Bild-Text-Layout fest; was der Text bedeutet, entscheidet die aufrufende Stelle:</p>
-<pre><code class="language-tsx">&lt;ImageText
+<pre><code class="language-typescript">&lt;ImageText
   imageSrc="https://picsum.photos/seed/beispiel-5041/96/96"
   imageAlt="Nora Linden"
 &gt;
@@ -316,7 +316,7 @@ export const cornerArticle: ArticlePreviewData = {
 <p><code>id</code> bleibt für denselben Artikel gleich, auch wenn sein Titel oder seine Position geändert wird. Sie muss innerhalb der späteren Liste eindeutig sein. Unsere Daten bleiben vorerst lokal; wir führen weder einen Backend-Aufruf noch neuen State ein.</p>
 <h2 id="schritt-2-die-vorschau-herauslösen"><a class="header" href="#schritt-2-die-vorschau-herauslösen">Schritt 2: Die Vorschau herauslösen</a></h2>
 <p>Lege <code>src/components/ArticlePreview.tsx</code> an. Diese Datei enthält JSX und hat deshalb die Endung <code>.tsx</code>:</p>
-<pre><code class="language-tsx">import type { ArticlePreviewData } from "../data/articles";
+<pre><code class="language-typescript">import type { ArticlePreviewData } from "../data/articles";
 
 type ArticlePreviewProps = {
   article: ArticlePreviewData;
@@ -353,11 +353,11 @@ export default function ArticlePreview({
 <p>Die Komponente liest nur ihre Props. Sie hat keinen eigenen State, kennt keine Follow-Funktion und entscheidet nicht, welcher Artikel auf der Seite erscheint.</p>
 <h2 id="schritt-3-die-erste-verwendung-ersetzen"><a class="header" href="#schritt-3-die-erste-verwendung-ersetzen">Schritt 3: Die erste Verwendung ersetzen</a></h2>
 <p>Ergänze oben in <code>App.tsx</code> die Imports. <code>useState</code> bleibt erhalten; die Styles werden weiterhin zentral in <code>main.tsx</code> über <code>./css/main.css</code> eingebunden:</p>
-<pre><code class="language-tsx">import ArticlePreview from "./components/ArticlePreview";
+<pre><code class="language-typescript">import ArticlePreview from "./components/ArticlePreview";
 import { cornerArticle } from "./data/articles";
 </code></pre>
 <p>Ersetze im Abschnitt «Drei Ideen für wenig Platz» nur den bisherigen <code>&lt;article&gt;...&lt;/article&gt;</code>-Block durch:</p>
-<pre><code class="language-tsx">&lt;ArticlePreview article={cornerArticle} /&gt;
+<pre><code class="language-typescript">&lt;ArticlePreview article={cornerArticle} /&gt;
 </code></pre>
 <p>Die Überschrift, der Absatz davor und die Inhalte danach bleiben in <code>App</code>. Mit <code>{cornerArticle}</code> übergeben wir das Objekt, nicht den Text <code>"cornerArticle"</code>.</p>
 <p>Prüfe diese erste Stelle im Browser: Bild, Rubrik, Titel und Autorenname müssen wie vorher aussehen. Die Buttons müssen weiterhin funktionieren. Das ist ein Refactoring: Wir ändern die Struktur des Codes, nicht das sichtbare Verhalten.</p>
@@ -375,10 +375,10 @@ import { cornerArticle } from "./data/articles";
 };
 </code></pre>
 <p>Erweitere den Datenimport in <code>App.tsx</code>:</p>
-<pre><code class="language-tsx">import { cornerArticle, eveningArticle } from "./data/articles";
+<pre><code class="language-typescript">import { cornerArticle, eveningArticle } from "./data/articles";
 </code></pre>
 <p>Ersetze im Abschnitt «Kleine Helfer für grosse Pläne» ebenfalls nur den <code>&lt;article&gt;...&lt;/article&gt;</code>-Block:</p>
-<pre><code class="language-tsx">&lt;ArticlePreview article={eveningArticle} /&gt;
+<pre><code class="language-typescript">&lt;ArticlePreview article={eveningArticle} /&gt;
 </code></pre>
 <p>Beide Stellen verwenden nun dieselbe Komponente mit verschiedenen Daten. Wenn wir später den Aufbau der Vorschau ändern, ändern wir ihn nur noch in <code>ArticlePreview.tsx</code>.</p>
 <h2 id="schritt-5-mehrere-artikel-aus-einer-liste-rendern"><a class="header" href="#schritt-5-mehrere-artikel-aus-einer-liste-rendern">Schritt 5: Mehrere Artikel aus einer Liste rendern</a></h2>
@@ -417,10 +417,10 @@ import { cornerArticle } from "./data/articles";
 ];
 </code></pre>
 <p><code>ArticlePreviewData[]</code> bedeutet: ein Array, dessen Einträge alle diese Datenstruktur besitzen. Vervollständige den Datenimport in <code>App.tsx</code>:</p>
-<pre><code class="language-tsx">import { cornerArticle, eveningArticle, relatedArticles } from "./data/articles";
+<pre><code class="language-typescript">import { cornerArticle, eveningArticle, relatedArticles } from "./data/articles";
 </code></pre>
 <p>Ersetze den Abschnitt «Weitere Ideen für deinen Balkon» durch:</p>
-<pre><code class="language-tsx">&lt;section&gt;
+<pre><code class="language-typescript">&lt;section&gt;
   &lt;h3&gt;Weitere Ideen für deinen Balkon&lt;/h3&gt;
   {relatedArticles.map((article, index) =&gt; (
     &lt;ArticlePreview

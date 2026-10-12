@@ -36,7 +36,7 @@ JSX sieht HTML ähnlich, hat aber ein paar eigene Regeln:
 
 Ersetze den Beispielinhalt von `App.tsx` zunächst durch dieses Gerüst und füge das HTML anstelle des Absatzes ein:
 
-```tsx
+```typescript
 function App() {
 	return (
 		<>
@@ -75,7 +75,7 @@ Passe in `src/css/fonts.css` den bisherigen Import auf `@import url("fonts/lato.
 
 Entferne die Vite-Beispiel-CSS-Imports aus `App.tsx` und `main.tsx` und lösche die zugehörigen Dateien `src/App.css` und `src/index.css`. Importiere stattdessen nur in `main.tsx` unsere zentrale CSS-Datei:
 
-```tsx
+```typescript
 import "./css/main.css";
 ```
 
@@ -85,7 +85,7 @@ Diese Struktur behalten wir in allen folgenden React-Kapiteln bei. Weitere Style
 
 Übernimm die Buttons mit ihren festen Texten und CSS-Klassen. Für den Like-Bereich sieht das zum Beispiel so aus:
 
-```tsx
+```typescript
 <section className="mt-xl mb-xxl text-center">
 	<button
 		type="button"

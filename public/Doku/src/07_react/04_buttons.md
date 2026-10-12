@@ -8,13 +8,13 @@ Wir beginnen mit einem Follow-Button, der nur einen booleschen Zustand braucht. 
 
 Importiere `useState` am Anfang von `App.tsx`. Der zentrale CSS-Import `import "./css/main.css";` bleibt in `main.tsx`:
 
-```tsx
+```typescript
 import { useState } from "react";
 ```
 
 Lege in der Funktion `App`, vor dem `return`, einen Zustand an:
 
-```tsx
+```typescript
 const [followsAuthor, setFollowsAuthor] = useState(false);
 
 function toggleAuthorFollow() {
@@ -26,7 +26,7 @@ function toggleAuthorFollow() {
 
 Ersetze den bisherigen Button «Autorin folgen» durch:
 
-```tsx
+```typescript
 <button
   type="button"
   aria-pressed={followsAuthor}
@@ -45,7 +45,7 @@ Klicke zweimal auf den Button: Zuerst muss er den Folgezustand anzeigen, danach 
 
 Setze «Thema folgen» nach demselben Prinzip um. Verwende dafür einen eigenen Zustand, damit die beiden Buttons unabhängig voneinander funktionieren:
 
-```tsx
+```typescript
 const [followsTopic, setFollowsTopic] = useState(false);
 
 function toggleTopicFollow() {
@@ -55,7 +55,7 @@ function toggleTopicFollow() {
 
 Der zugehörige Button sieht so aus:
 
-```tsx
+```typescript
 <button
   type="button"
   aria-pressed={followsTopic}
@@ -72,7 +72,7 @@ Prüfe, dass ein Klick auf diesen Button den Autorinnen-Button nicht verändert.
 
 Beim Like-Bereich verändern sich sowohl die Auswahl als auch der Zähler. Lege dafür zwei weitere Zustände und einen Handler in `App` vor dem `return` an:
 
-```tsx
+```typescript
 const [liked, setLiked] = useState(false);
 const [likeCount, setLikeCount] = useState(59);
 
@@ -86,7 +86,7 @@ Beim Klick beschreibt `liked` noch den Zustand des aktuellen Renderdurchlaufs. W
 
 Ersetze den statischen Like-Bereich durch:
 
-```tsx
+```typescript
 <section className="mt-xl mb-xxl text-center">
   <button
     type="button"

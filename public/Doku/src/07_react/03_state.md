@@ -12,7 +12,7 @@ Im bisherigen JavaScript hast du nach einem Klick direkt Elemente im DOM veränd
 
 Sichere den Inhalt deiner bisherigen `App.tsx`, damit du danach zur Blogseite zurückkehren kannst. Ersetze ihn für dieses Experiment durch:
 
-```tsx
+```typescript
 import { useState } from "react";
 
 function App() {
@@ -41,7 +41,7 @@ export default App;
 
 `useState` ist eine Funktion von React. Solche Funktionen, mit denen du React-Funktionen in einer Komponente nutzt, heissen Hooks. Du importierst `useState` aus `react` und rufst es direkt am Anfang deiner Komponente auf, nicht innerhalb einer Bedingung, Schleife oder eines Click-Handlers.
 
-```tsx
+```typescript
 const [count, setCount] = useState(0);
 ```
 
@@ -56,7 +56,7 @@ Die Namen wählst du selbst. Üblich ist, die Änderungsfunktion mit `set` zu be
 
 Mit geschweiften Klammern kannst du einen JavaScript-Ausdruck in JSX einsetzen:
 
-```tsx
+```typescript
 <p>Zählerstand: {count}</p>
 ```
 
@@ -64,7 +64,7 @@ React zeigt dort den aktuellen Wert von `count` an. Du musst den Absatz weder mi
 
 ## Auf einen Klick reagieren
 
-```tsx
+```typescript
 <button type="button" onClick={increment}>
   Erhöhen
 </button>
