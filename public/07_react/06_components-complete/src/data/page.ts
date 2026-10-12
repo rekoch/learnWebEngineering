@@ -1,4 +1,7 @@
-export const author = {
+import type { AuthorData } from "../components/AuthorProfile";
+import type { ProductData } from "../components/ProductSummary";
+
+export const author: AuthorData = {
   name: "Nora Linden",
   email: "nora.linden@example.org",
   role: "Redaktorin",
@@ -6,9 +9,9 @@ export const author = {
   description: "Ich sammle gern einfache Ideen für den Alltag und schreibe über kleine Projekte.",
 };
 
-export const topic = "Balkongarten";
+export const topic: string = "Balkongarten";
 
-export const product = {
+export const product: ProductData = {
   category: "Gartenschaukeln",
   name: "Holzschaukel",
   price: "24.90 CHF",

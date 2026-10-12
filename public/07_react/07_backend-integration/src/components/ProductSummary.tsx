@@ -1,18 +1,22 @@
 import SummaryCard from "./SummaryCard";
 
+export type ProductRating = {
+  average: number;
+  count: number;
+};
+
+export type ProductData = {
+  category: string;
+  name: string;
+  price: string;
+  details: string;
+  rating: ProductRating;
+  imageSrc: string;
+  imageAlt: string;
+};
+
 type ProductSummaryProps = {
-  product: {
-    category: string;
-    name: string;
-    price: string;
-    details: string;
-    rating: {
-      average: number;
-      count: number;
-    };
-    imageSrc: string;
-    imageAlt: string;
-  };
+  product: ProductData;
 };
 
 export default function ProductSummary({ product }: ProductSummaryProps) {

@@ -1,13 +1,15 @@
 import type { ReactNode } from "react";
 
+export type AuthorData = {
+  name: string;
+  email: string;
+  role: string;
+  imageSrc: string;
+  description: string;
+};
+
 type AuthorProfileProps = {
-  author: {
-    name: string;
-    email: string;
-    role: string;
-    imageSrc: string;
-    description: string;
-  };
+  author: AuthorData;
   children: ReactNode;
 };
 
