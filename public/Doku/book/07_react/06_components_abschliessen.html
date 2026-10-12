@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-7e9f91f9.js";
+            window.path_to_searchindex_js = "../searchindex-4e0e16b0.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-6c46951c.js"></script>
@@ -474,14 +474,16 @@ export default function ToggleButton({
 <p>Lege <code>src/components/AuthorProfile.tsx</code> an:</p>
 <pre><code class="language-tsx">import type { ReactNode } from "react";
 
+export type AuthorData = {
+  name: string;
+  email: string;
+  role: string;
+  imageSrc: string;
+  description: string;
+};
+
 type AuthorProfileProps = {
-  author: {
-    name: string;
-    email: string;
-    role: string;
-    imageSrc: string;
-    description: string;
-  };
+  author: AuthorData;
   children: ReactNode;
 };
 
@@ -533,30 +535,10 @@ export default function AuthorProfile({ author, children }: AuthorProfileProps) 
 </ol>
 <p>Entferne die Probeänderungen. Begründe, warum eine zusätzliche Prop <code>followsTopic</code> hier nicht nötig ist.</p>
 <h2 id="seitendaten-ergänzen"><a class="header" href="#seitendaten-ergänzen">Seitendaten ergänzen</a></h2>
-<p>Ergänze <code>src/data/page.ts</code> um die Daten für das Thema und das Produkt. Die Autorin hast du dort bereits im vorherigen Zwischenschritt als zusammengehörigen Datensatz abgelegt. Vergleiche die Datei erst nach deinem eigenen Versuch mit dem Referenzstand:</p>
-<pre><code class="language-ts">export const author = {
-  name: "Nora Linden",
-  email: "nora.linden@example.org",
-  role: "Redaktorin",
-  imageSrc: "https://picsum.photos/seed/beispiel-5041/96/96",
-  description: "Ich sammle gern einfache Ideen für den Alltag und schreibe über kleine Projekte.",
-};
-
-export const topic = "Balkongarten";
-
-export const product = {
-  category: "Gartenschaukeln",
-  name: "Holzschaukel",
-  price: "24.90 CHF",
-  details: "Zur festen Montage im Garten",
-  rating: {
-    average: 4,
-    count: 18,
-  },
-  imageSrc: "https://picsum.photos/id/71/1200/800",
-  imageAlt: "Eine Holzschaukel im Garten",
-};
+<p>Ergänze <code>src/data/page.ts</code> um den Themennamen. Die Autorin hast du dort bereits im vorherigen Zwischenschritt als zusammengehörigen Datensatz abgelegt:</p>
+<pre><code class="language-ts">export const topic: string = "Balkongarten";
 </code></pre>
+<p>Importiere <code>topic</code> in <code>App.tsx</code> und übergib es deiner Themenkomponente. Die Produktdaten ergänzen wir erst in Übung 3, nachdem du ihren Typ definiert hast.</p>
 <h2 id="gemeinsamer-kartenrahmen-verschiedene-inhalte"><a class="header" href="#gemeinsamer-kartenrahmen-verschiedene-inhalte">Gemeinsamer Kartenrahmen, verschiedene Inhalte</a></h2>
 <p>Vergleiche <code>ArticlePreview</code> mit dem bisherigen Produktblock: Beide zeigen ein Bild neben Inhalt. Die fachlichen Angaben sind jedoch verschieden. Ein Artikel hat zum Beispiel Rubrik, Titel und Autorin; beim Produkt gehören Kategorie, Name, Preis und Produktbewertung dazu. Die beiden Datenmodelle werden nicht zu einem gemeinsamen Artikel-oder-Produkt-Typ vermischt.</p>
 <p>Wiederverwenden lässt sich die <strong>Darstellung</strong>: Bild, Raster und ein Platz für den jeweiligen Inhalt. Lege dafür <code>src/components/SummaryCard.tsx</code> an:</p>
@@ -605,12 +587,45 @@ export default function SummaryCard({ image, children, className = "" }: Summary
 <p><strong>Anforderungen:</strong></p>
 <ul>
 <li>Stelle Kategorie, Produktname, Preis, Details, Sterne-Durchschnitt, Anzahl Bewertungen und Bild aus dem übergebenen Objekt dar. Verwende den Alternativtext aus den Daten.</li>
-<li>Definiere einen passenden TypeScript-Typ für die benötigten Produktfelder. Orientiere dich an <code>product</code> aus <code>src/data/page.ts</code>: Kategorie und Name sind getrennte Zeichenketten, der Preis ist formatiert; <code>rating.average</code> und <code>rating.count</code> sind getrennte Zahlen.</li>
+<li>Definiere und exportiere in <code>ProductSummary.tsx</code> einen passenden TypeScript-Typ namens <code>ProductData</code> für die benötigten Produktfelder. Leite die Felder aus dem bisherigen Produktabschnitt in <code>App.tsx</code> ab: Kategorie und Name sind getrennte Zeichenketten, der Preis ist formatiert; <code>rating.average</code> und <code>rating.count</code> sind getrennte Zahlen. Für das Bild brauchst du <code>imageSrc</code> und <code>imageAlt</code>.</li>
 <li>Verwende <code>SummaryCard</code> für Bild und Inhaltslayout. Die Produktdarstellung enthält keine Autorin und übernimmt keine Artikel-Likes.</li>
 <li>Beschrifte den Abschnitt mit <code>aria-label="Produkt"</code> und gib den Sternen eine zugängliche Textalternative.</li>
 <li>Importiere den konkreten Produktdatensatz nicht in die Komponente. Sie erhält ihn vom Aufrufer und enthält keinen State, keine Backend-Abfrage und keine fest eingebauten Angaben zur Gartenschaukel.</li>
 <li>Ersetze den Produktblock in <code>App.tsx</code> durch deine Komponente und übergib dort den Datensatz.</li>
 </ul>
+<p>Gehe in dieser Reihenfolge vor:</p>
+<ol>
+<li>Lege <code>ProductSummary.tsx</code> an, definiere dort zuerst <code>ProductData</code> und verwende den Typ für die Prop <code>product</code>. Setze anschliessend die Darstellung um.</li>
+<li>Ergänze jetzt <code>src/data/page.ts</code>: Importiere <code>ProductData</code> mit <code>import type { ProductData } from "../components/ProductSummary";</code> und lege das exportierte Objekt <code>product: ProductData</code> mit den Angaben aus dem bisherigen Produktabschnitt an. Vergleiche die Datendatei erst nach deinem eigenen Versuch mit dem folgenden Referenzstand.</li>
+<li>Importiere <code>product</code> und <code>ProductSummary</code> in <code>App.tsx</code> und ersetze den bisherigen Produktblock durch <code>&lt;ProductSummary product={product} /&gt;</code>.</li>
+</ol>
+<p>Der Referenzstand für die nun vollständigen Seitendaten:</p>
+<pre><code class="language-ts">import type { AuthorData } from "../components/AuthorProfile";
+import type { ProductData } from "../components/ProductSummary";
+
+export const author: AuthorData = {
+  name: "Nora Linden",
+  email: "nora.linden@example.org",
+  role: "Redaktorin",
+  imageSrc: "https://picsum.photos/seed/beispiel-5041/96/96",
+  description: "Ich sammle gern einfache Ideen für den Alltag und schreibe über kleine Projekte.",
+};
+
+export const topic: string = "Balkongarten";
+
+export const product: ProductData = {
+  category: "Gartenschaukeln",
+  name: "Holzschaukel",
+  price: "24.90 CHF",
+  details: "Zur festen Montage im Garten",
+  rating: {
+    average: 4,
+    count: 18,
+  },
+  imageSrc: "https://picsum.photos/id/71/1200/800",
+  imageAlt: "Eine Holzschaukel im Garten",
+};
+</code></pre>
 <p><strong>Prüfe deinen Baustein:</strong> Lege am Aufruf vorübergehend ein zweites Produktobjekt mit anderen Angaben an und rendere beide Produkte gleichzeitig. Alle Angaben einschliesslich Bild und Alternativtext müssen zum jeweiligen Produkt gehören. Dafür darfst du die Komponente nicht verändern. Prüfe ausserdem das Layout bei schmalem Browserfenster und entferne danach die zusätzliche Instanz.</p>
 <p>Erkläre zum Abschluss: Weshalb erhält die Produktübersicht Daten über Props, obwohl wir auf unserer Seite nur ein Produkt zeigen? Weshalb sind Artikel-Likes und Produkt-Sterne unterschiedliche Angaben, obwohl beide Rückmeldungen ausdrücken? Welche Daten braucht <code>SummaryCard</code> selbst nicht?</p>
 <h2 id="die-interaktionen-zusammenführen"><a class="header" href="#die-interaktionen-zusammenführen">Die Interaktionen zusammenführen</a></h2>

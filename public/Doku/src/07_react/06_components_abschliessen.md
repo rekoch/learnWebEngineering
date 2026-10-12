@@ -266,11 +266,13 @@ Entferne die Probeänderungen. Begründe, warum eine zusätzliche Prop `followsT
 
 ## Seitendaten ergänzen
 
-Ergänze `src/data/page.ts` um die Daten für das Thema und das Produkt. Die Autorin hast du dort bereits im vorherigen Zwischenschritt als zusammengehörigen Datensatz abgelegt. Vergleiche die Datei erst nach deinem eigenen Versuch mit dem Referenzstand:
+Ergänze `src/data/page.ts` um den Themennamen. Die Autorin hast du dort bereits im vorherigen Zwischenschritt als zusammengehörigen Datensatz abgelegt:
 
 ```ts
-{{#include ../../../07_react/06_components-complete/src/data/page.ts}}
+export const topic: string = "Balkongarten";
 ```
+
+Importiere `topic` in `App.tsx` und übergib es deiner Themenkomponente.
 
 ## Gemeinsamer Kartenrahmen, verschiedene Inhalte
 
@@ -316,11 +318,23 @@ Löse den bisherigen Produktabschnitt als `src/components/ProductSummary.tsx` he
 **Anforderungen:**
 
 - Stelle Kategorie, Produktname, Preis, Details, Sterne-Durchschnitt, Anzahl Bewertungen und Bild aus dem übergebenen Objekt dar. Verwende den Alternativtext aus den Daten.
-- Definiere einen passenden TypeScript-Typ für die benötigten Produktfelder. Orientiere dich an `product` aus `src/data/page.ts`: Kategorie und Name sind getrennte Zeichenketten, der Preis ist formatiert; `rating.average` und `rating.count` sind getrennte Zahlen.
+- Definiere und exportiere in `ProductSummary.tsx` einen passenden TypeScript-Typ namens `ProductData` für die benötigten Produktfelder. Leite die Felder aus dem bisherigen Produktabschnitt in `App.tsx` ab: Kategorie und Name sind getrennte Zeichenketten, der Preis ist formatiert; `rating.average` und `rating.count` sind getrennte Zahlen. Für das Bild brauchst du `imageSrc` und `imageAlt`.
 - Verwende `SummaryCard` für Bild und Inhaltslayout. Die Produktdarstellung enthält keine Autorin und übernimmt keine Artikel-Likes.
 - Beschrifte den Abschnitt mit `aria-label="Produkt"` und gib den Sternen eine zugängliche Textalternative.
 - Importiere den konkreten Produktdatensatz nicht in die Komponente. Sie erhält ihn vom Aufrufer und enthält keinen State, keine Backend-Abfrage und keine fest eingebauten Angaben zur Gartenschaukel.
 - Ersetze den Produktblock in `App.tsx` durch deine Komponente und übergib dort den Datensatz.
+
+Gehe in dieser Reihenfolge vor:
+
+1. Lege `ProductSummary.tsx` an, definiere dort zuerst `ProductData` und verwende den Typ für die Prop `product`. Setze anschliessend die Darstellung um.
+2. Ergänze jetzt `src/data/page.ts`: Importiere `ProductData` mit `import type { ProductData } from "../components/ProductSummary";` und lege das exportierte Objekt `product: ProductData` mit den Angaben aus dem bisherigen Produktabschnitt an. Vergleiche die Datendatei erst nach deinem eigenen Versuch mit dem folgenden Referenzstand.
+3. Importiere `product` und `ProductSummary` in `App.tsx` und ersetze den bisherigen Produktblock durch `<ProductSummary product={product} />`.
+
+Der Referenzstand für die nun vollständigen Seitendaten:
+
+```ts
+{{#include ../../../07_react/06_components-complete/src/data/page.ts}}
+```
 
 **Prüfe deinen Baustein:** Lege am Aufruf vorübergehend ein zweites Produktobjekt mit anderen Angaben an und rendere beide Produkte gleichzeitig. Alle Angaben einschliesslich Bild und Alternativtext müssen zum jeweiligen Produkt gehören. Dafür darfst du die Komponente nicht verändern. Prüfe ausserdem das Layout bei schmalem Browserfenster und entferne danach die zusätzliche Instanz.
 
