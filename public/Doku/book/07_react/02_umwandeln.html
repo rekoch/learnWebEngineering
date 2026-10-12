@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-0f58b274.js";
+            window.path_to_searchindex_js = "../searchindex-fa5093f4.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-6c46951c.js"></script>
@@ -186,6 +186,7 @@ cd public/07_react/mein-react-projekt
 npm install
 npm run dev
 </code></pre>
+<p>Wähle “esLint” als Linter und bestätige die Ausführung mit npm.</p>
 <p>Vite erstellt unter anderem <code>src/main.tsx</code> und <code>src/App.tsx</code>. <code>main.tsx</code> verbindet React mit dem HTML-Element <code>#root</code> in <code>index.html</code>. In <code>App.tsx</code> bauen wir die Seite.</p>
 <h2 id="html-nach-jsx-übertragen"><a class="header" href="#html-nach-jsx-übertragen">HTML nach JSX übertragen</a></h2>
 <p>Übernimm den Inhalt aus dem <code>&lt;body&gt;</code> des Starters in die Rückgabe von <code>App</code>. Die äussere HTML-Datei brauchst du nicht zu kopieren: <code>index.html</code> enthält weiterhin nur den Einstiegspunkt, und React rendert die Oberfläche in <code>#root</code>.</p>
@@ -208,10 +209,28 @@ npm run dev
 export default App;
 </code></pre>
 <p><code>App</code> ist eine Komponente: eine Funktion, die die Oberfläche als JSX zurückgibt. Die leeren Klammern <code>&lt;&gt;</code> und <code>&lt;/&gt;</code> bilden ein Fragment. Damit kannst du mehrere Elemente zusammen zurückgeben, ohne ein zusätzliches HTML-Element um sie herum einzufügen. So können das Video und das <code>&lt;main&gt;</code>-Element wie bisher nebeneinander stehen.</p>
-<p>Die vorhandenen Styles kannst du zunächst weiterverwenden. Im Beispielprojekt werden sie in <code>App.tsx</code> aus dem Starter-Ordner importiert:</p>
-<pre><code class="language-tsx">import "../../../03_javascript/03_buttonReactive/main.css";
+<h2 id="styles"><a class="header" href="#styles">Styles</a></h2>
+<p>Lege in deinem React-Projekt den Ordner <code>src/css</code> an. Kopiere alle CSS-Dateien aus <code>public/03_javascript/03_buttonReactive/</code> dorthin, einschliesslich des vollständigen Unterordners <code>utilities</code>. Kopiere auch den ganzen Fontordner <code>public/02_html_css/fonts/</code> nach <code>src/css/fonts/</code>, inklusive der Fontdateien und ihrer Lizenz.</p>
+<p>Die Struktur sieht danach so aus:</p>
+<pre><code class="language-text">src/
+	css/
+		main.css
+		buttons.css
+		fonts.css
+		grid.css
+		variables.css
+		utilities/
+		fonts/
+			lato.css
+			Lato-latin.woff2
+			Lato-latin-ext.woff2
+			OFL.txt
 </code></pre>
-<p>Dieser relative Pfad passt, wenn dein Projekt wie oben unter <code>public/07_react/mein-react-projekt</code> liegt. Füge den Import oben in <code>App.tsx</code> ein. Entferne ausserdem die Imports der Vite-Beispielstyles, etwa <code>App.css</code> in <code>App.tsx</code> und <code>index.css</code> in <code>main.tsx</code>, falls sie noch vorhanden sind. Sonst können sie das Aussehen deiner Blogseite verändern.</p>
+<p>Passe in <code>src/css/fonts.css</code> den bisherigen Import auf <code>@import url("fonts/lato.css");</code> an. Die anderen CSS-Imports und die Fontpfade in <code>fonts/lato.css</code> bleiben relativ zu ihrer jeweiligen CSS-Datei. So liegen alle Styles und Fonts im React-Projekt, ohne Verweise auf die früheren Projektstände.</p>
+<p>Entferne die Vite-Beispiel-CSS-Imports aus <code>App.tsx</code> und <code>main.tsx</code> und lösche die zugehörigen Dateien <code>src/App.css</code> und <code>src/index.css</code>. Importiere stattdessen nur in <code>main.tsx</code> unsere zentrale CSS-Datei:</p>
+<pre><code class="language-tsx">import "./css/main.css";
+</code></pre>
+<p>Diese Struktur behalten wir in allen folgenden React-Kapiteln bei. Weitere Styles kommen ebenfalls unter <code>src/css</code>; komponentenspezifische Styles legen wir später im Unterordner <code>components</code> ab. Wie bei <code>utilities/utilities.css</code> bündelt dort eine Einstiegsdatei <code>components/components.css</code> die Imports des Ordners. In <code>css/main.css</code> importieren wir nur diese Einstiegsdatei.</p>
 <h2 id="statische-buttons"><a class="header" href="#statische-buttons">Statische Buttons</a></h2>
 <p>Übernimm die Buttons mit ihren festen Texten und CSS-Klassen. Für den Like-Bereich sieht das zum Beispiel so aus:</p>
 <pre><code class="language-tsx">&lt;section className="mt-xl mb-xxl text-center"&gt;
@@ -227,6 +246,7 @@ export default App;
 &lt;/section&gt;
 </code></pre>
 <p>Auch «Autorin folgen» und «Thema folgen» bleiben zunächst statisch. Du brauchst hier weder <code>useState</code> noch <code>onClick</code> oder eigene Event-Listener.</p>
+<p>Du kannst akutell die ganzen Imports und “use” am Anfang <code>app.tsx</code> entfernen. Achte darauf, dass du am Schluss keine Errors mehr hast. Visual Studio Code sollte dich gut unterstützen können, die Fehler zu korrigieren die es nach dem kopieren-einfügen geben wird.</p>
 <h2 id="deinen-stand-prüfen"><a class="header" href="#deinen-stand-prüfen">Deinen Stand prüfen</a></h2>
 <p>Öffne die von <code>npm run dev</code> angezeigte Adresse im Browser und prüfe:</p>
 <ul>
@@ -275,22 +295,6 @@ export default App;
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
         <script>

@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-0f58b274.js";
+            window.path_to_searchindex_js = "searchindex-fa5093f4.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-6c46951c.js"></script>
@@ -196,6 +196,9 @@
 <h2 id="wieso-lohnt-sich-das"><a class="header" href="#wieso-lohnt-sich-das">Wieso lohnt sich das?</a></h2>
 <p>Mit diesen Grundlagen kannst du eigene Webseiten bauen und besser verstehen, wie sie funktionieren. Du lernst, Probleme selbst zu finden und zu beheben, statt nur fertige Lösungen zu übernehmen. Das Wissen hilft dir auch später mit Werkzeugen wie React und Angular: Du erkennst, welche Aufgabe sie übernehmen und was im Browser passiert.</p>
 <p>Wir beginnen mit HTML und CSS und ergänzen danach JavaScript. So baust du dein Wissen Schritt für Schritt auf.</p>
+<h2 id="orientierung-im-buch-und-im-code"><a class="header" href="#orientierung-im-buch-und-im-code">Orientierung im Buch und im Code</a></h2>
+<p>Die Kapitelnummern in der Navigation werden automatisch aus der Buchstruktur erzeugt. Die Zahlen in den Code-Ordnernamen kennzeichnen dagegen die Reihenfolge der Referenzstände. Beide Nummerierungen sind unabhängig voneinander: <code>public/07_react/06_components-complete</code> ist ein Code-Stand, keine Kapitelnummer des Buchs.</p>
+<p>Verweise auf Buchkapitel verwenden deshalb den verlinkten Kapiteltitel. Den zugehörigen Code-Stand findest du über die im jeweiligen Kapitel angegebenen Ordner oder Referenzlinks. Arbeite in deinem eigenen Projekt weiter; die Referenzstände dienen zum Vergleichen.</p>
 <p>Viel Spass beim Lernen und Ausprobieren!</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="hilfreiche-links"><a class="header" href="#hilfreiche-links">Hilfreiche Links</a></h1>
@@ -4571,6 +4574,7 @@ cd public/07_react/mein-react-projekt
 npm install
 npm run dev
 </code></pre>
+<p>Wähle “esLint” als Linter und bestätige die Ausführung mit npm.</p>
 <p>Vite erstellt unter anderem <code>src/main.tsx</code> und <code>src/App.tsx</code>. <code>main.tsx</code> verbindet React mit dem HTML-Element <code>#root</code> in <code>index.html</code>. In <code>App.tsx</code> bauen wir die Seite.</p>
 <h2 id="html-nach-jsx-übertragen"><a class="header" href="#html-nach-jsx-übertragen">HTML nach JSX übertragen</a></h2>
 <p>Übernimm den Inhalt aus dem <code>&lt;body&gt;</code> des Starters in die Rückgabe von <code>App</code>. Die äussere HTML-Datei brauchst du nicht zu kopieren: <code>index.html</code> enthält weiterhin nur den Einstiegspunkt, und React rendert die Oberfläche in <code>#root</code>.</p>
@@ -4593,10 +4597,28 @@ npm run dev
 export default App;
 </code></pre>
 <p><code>App</code> ist eine Komponente: eine Funktion, die die Oberfläche als JSX zurückgibt. Die leeren Klammern <code>&lt;&gt;</code> und <code>&lt;/&gt;</code> bilden ein Fragment. Damit kannst du mehrere Elemente zusammen zurückgeben, ohne ein zusätzliches HTML-Element um sie herum einzufügen. So können das Video und das <code>&lt;main&gt;</code>-Element wie bisher nebeneinander stehen.</p>
-<p>Die vorhandenen Styles kannst du zunächst weiterverwenden. Im Beispielprojekt werden sie in <code>App.tsx</code> aus dem Starter-Ordner importiert:</p>
-<pre><code class="language-tsx">import "../../../03_javascript/03_buttonReactive/main.css";
+<h2 id="styles"><a class="header" href="#styles">Styles</a></h2>
+<p>Lege in deinem React-Projekt den Ordner <code>src/css</code> an. Kopiere alle CSS-Dateien aus <code>public/03_javascript/03_buttonReactive/</code> dorthin, einschliesslich des vollständigen Unterordners <code>utilities</code>. Kopiere auch den ganzen Fontordner <code>public/02_html_css/fonts/</code> nach <code>src/css/fonts/</code>, inklusive der Fontdateien und ihrer Lizenz.</p>
+<p>Die Struktur sieht danach so aus:</p>
+<pre><code class="language-text">src/
+	css/
+		main.css
+		buttons.css
+		fonts.css
+		grid.css
+		variables.css
+		utilities/
+		fonts/
+			lato.css
+			Lato-latin.woff2
+			Lato-latin-ext.woff2
+			OFL.txt
 </code></pre>
-<p>Dieser relative Pfad passt, wenn dein Projekt wie oben unter <code>public/07_react/mein-react-projekt</code> liegt. Füge den Import oben in <code>App.tsx</code> ein. Entferne ausserdem die Imports der Vite-Beispielstyles, etwa <code>App.css</code> in <code>App.tsx</code> und <code>index.css</code> in <code>main.tsx</code>, falls sie noch vorhanden sind. Sonst können sie das Aussehen deiner Blogseite verändern.</p>
+<p>Passe in <code>src/css/fonts.css</code> den bisherigen Import auf <code>@import url("fonts/lato.css");</code> an. Die anderen CSS-Imports und die Fontpfade in <code>fonts/lato.css</code> bleiben relativ zu ihrer jeweiligen CSS-Datei. So liegen alle Styles und Fonts im React-Projekt, ohne Verweise auf die früheren Projektstände.</p>
+<p>Entferne die Vite-Beispiel-CSS-Imports aus <code>App.tsx</code> und <code>main.tsx</code> und lösche die zugehörigen Dateien <code>src/App.css</code> und <code>src/index.css</code>. Importiere stattdessen nur in <code>main.tsx</code> unsere zentrale CSS-Datei:</p>
+<pre><code class="language-tsx">import "./css/main.css";
+</code></pre>
+<p>Diese Struktur behalten wir in allen folgenden React-Kapiteln bei. Weitere Styles kommen ebenfalls unter <code>src/css</code>; komponentenspezifische Styles legen wir später im Unterordner <code>components</code> ab. Wie bei <code>utilities/utilities.css</code> bündelt dort eine Einstiegsdatei <code>components/components.css</code> die Imports des Ordners. In <code>css/main.css</code> importieren wir nur diese Einstiegsdatei.</p>
 <h2 id="statische-buttons"><a class="header" href="#statische-buttons">Statische Buttons</a></h2>
 <p>Übernimm die Buttons mit ihren festen Texten und CSS-Klassen. Für den Like-Bereich sieht das zum Beispiel so aus:</p>
 <pre><code class="language-tsx">&lt;section className="mt-xl mb-xxl text-center"&gt;
@@ -4612,6 +4634,7 @@ export default App;
 &lt;/section&gt;
 </code></pre>
 <p>Auch «Autorin folgen» und «Thema folgen» bleiben zunächst statisch. Du brauchst hier weder <code>useState</code> noch <code>onClick</code> oder eigene Event-Listener.</p>
+<p>Du kannst akutell die ganzen Imports und “use” am Anfang <code>app.tsx</code> entfernen. Achte darauf, dass du am Schluss keine Errors mehr hast. Visual Studio Code sollte dich gut unterstützen können, die Fehler zu korrigieren die es nach dem kopieren-einfügen geben wird.</p>
 <h2 id="deinen-stand-prüfen"><a class="header" href="#deinen-stand-prüfen">Deinen Stand prüfen</a></h2>
 <p>Öffne die von <code>npm run dev</code> angezeigte Adresse im Browser und prüfe:</p>
 <ul>
@@ -4689,10 +4712,10 @@ export default App;
 <p>Stelle nach dem Experiment deine statische Blogseite in <code>App.tsx</code> wieder her. Im <a href="#buttons-mit-react">nächsten Kapitel</a> verwenden wir State für ihre Like- und Follow-Buttons. Du bleibst dafür im selben React-Projekt.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="buttons-mit-react"><a class="header" href="#buttons-mit-react">Buttons mit React</a></h1>
-<p>Im letzten Kapitel hast du State an einem Zähler kennengelernt. Jetzt verwenden wir ihn für die drei Buttons unserer Blogseite. Ausgangspunkt ist deine statische <code>App</code> aus Kapitel 02; das Zählerexperiment gehört nicht mehr hinein.</p>
+<p>Im Kapitel <a href="#state-in-react">State in React</a> hast du State an einem Zähler kennengelernt. Jetzt verwenden wir ihn für die drei Buttons unserer Blogseite. Ausgangspunkt ist deine statische <code>App</code> aus <a href="#blogseite-mit-react-und-typescript">Blogseite mit React und TypeScript</a>; das Zählerexperiment gehört nicht mehr hinein.</p>
 <p>Wir beginnen mit einem Follow-Button, der nur einen booleschen Zustand braucht. Danach ergänzen wir den Like-Button mit seinem Zähler. Alle Zustände bleiben vorerst lokal, ohne Backend-Anbindung.</p>
 <h2 id="autorin-folgen-1"><a class="header" href="#autorin-folgen-1">Autorin folgen</a></h2>
-<p>Importiere <code>useState</code> am Anfang von <code>App.tsx</code>, zusätzlich zum vorhandenen CSS-Import:</p>
+<p>Importiere <code>useState</code> am Anfang von <code>App.tsx</code>. Der zentrale CSS-Import <code>import "./css/main.css";</code> bleibt in <code>main.tsx</code>:</p>
 <pre><code class="language-tsx">import { useState } from "react";
 </code></pre>
 <p>Lege in der Funktion <code>App</code>, vor dem <code>return</code>, einen Zustand an:</p>
@@ -4948,7 +4971,7 @@ export default function ArticlePreview({
 <p>Das Fragezeichen in <code>withTopBorder?: boolean</code> macht die Prop optional. Ohne Angabe gilt der Standardwert <code>true</code>. Diese kleine Variante brauchen wir, weil die Vorschauen im Text und die erste Vorschau am Seitenende einen oberen Rand haben, die folgenden Listeneinträge aber nicht. So entstehen zwischen den Listeneinträgen keine doppelten Rahmen.</p>
 <p>Die Komponente liest nur ihre Props. Sie hat keinen eigenen State, kennt keine Follow-Funktion und entscheidet nicht, welcher Artikel auf der Seite erscheint.</p>
 <h2 id="schritt-3-die-erste-verwendung-ersetzen"><a class="header" href="#schritt-3-die-erste-verwendung-ersetzen">Schritt 3: Die erste Verwendung ersetzen</a></h2>
-<p>Ergänze oben in <code>App.tsx</code> die Imports. <code>useState</code> und der bisherige CSS-Import bleiben erhalten:</p>
+<p>Ergänze oben in <code>App.tsx</code> die Imports. <code>useState</code> bleibt erhalten; die Styles werden weiterhin zentral in <code>main.tsx</code> über <code>./css/main.css</code> eingebunden:</p>
 <pre><code class="language-tsx">import ArticlePreview from "./components/ArticlePreview";
 import { cornerArticle } from "./data/articles";
 </code></pre>
@@ -5062,7 +5085,15 @@ import { cornerArticle } from "./data/articles";
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="die-seite-in-komponenten-aufteilen"><a class="header" href="#die-seite-in-komponenten-aufteilen">Die Seite in Komponenten aufteilen</a></h1>
 <p>Im <a href="#komponenten-mit-react">letzten Kapitel</a> haben wir die Artikelvorschauen herausgelöst. Jetzt schliessen wir die Aufteilung unserer Seite ab. Wir bauen einen Bildbaustein, führen Darstellung und Berechnung der Vergleichstabelle zusammen und trennen die interaktiven Bereiche vom redaktionellen Inhalt.</p>
-<p>Ausgangspunkt ist dein eigener Stand nach Kapitel 05. Du brauchst kein neues Vite-Projekt. Der <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/07_react/06_components-complete">Referenzstand zu diesem Kapitel</a> liegt im Ordner <code>public/07_react/06_components-complete</code>.</p>
+<p>Ausgangspunkt ist dein eigener Stand nach <a href="#komponenten-mit-react">Komponenten mit React</a>. Du brauchst kein neues Vite-Projekt. Der <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/07_react/06_components-complete">Referenzstand zu diesem Kapitel</a> liegt im Ordner <code>public/07_react/06_components-complete</code>. Er enthält auch die Lösungen zu den Übungen. Arbeite zunächst in deinem eigenen Projekt und öffne die jeweiligen Lösungsdateien erst nach deinem eigenen Versuch und den angegebenen Prüfungen.</p>
+<p>In diesem Kapitel nimmt die Hilfestellung schrittweise ab:</p>
+<ul>
+<li><strong>Nachbauen und verstehen:</strong> Bildbaustein, Tabelle, Toggle-Button und Autorinnenprofil setzen wir gemeinsam um.</li>
+<li><strong>Mit Anleitung umsetzen:</strong> Den Like-Bereich löst du mit vorgegebenen Props und Arbeitsschritten selbst heraus.</li>
+<li><strong>Übertragen:</strong> Beim Autorinnenprofil leitest du die Daten aus dem vorhandenen JSX ab, gruppierst sie als Datensatz und setzt die Komponente an der bisherigen Stelle ein.</li>
+<li><strong>Eigenständig lösen:</strong> Beim Themenbereich erhältst du Schnittstelle und Prüfkriterien, aber kein Komponenten-JSX. Bei der Produktübersicht entwirfst du zusätzlich den Props-Typ.</li>
+</ul>
+<p>Bei den Übungen übernimmst du das vorhandene HTML und die CSS-Klassen aus deinem bisherigen <code>App.tsx</code>. Die Aufgabe ist nicht, das Design neu zu erfinden, sondern die Komponentengrenze festzulegen, feste Werte durch Props zu ersetzen und den Baustein einzubinden. Notiere jeweils vor dem Programmieren seine Aufgabe und seine Eingaben.</p>
 <h2 id="ein-bild-mit-bildlegende"><a class="header" href="#ein-bild-mit-bildlegende">Ein Bild mit Bildlegende</a></h2>
 <p>Unsere Seite enthält acht <code>&lt;figure&gt;</code>-Blöcke mit demselben Aufbau: ein Bild und eine Bildlegende. Nur Quelle, Alternativtext und Legende unterscheiden sich. Dieser Baustein braucht weder Artikelwissen noch State.</p>
 <p>Lege <code>src/components/CaptionedImage.tsx</code> an:</p>
@@ -5109,7 +5140,7 @@ export default function CaptionedImage({ src, alt, caption }: CaptionedImageProp
 <li>Titel und optionaler Hinweis kommen ebenfalls von aussen.</li>
 <li>Die Berechnung kennt keine Produktnamen und benötigt weder Benutzer-ID noch Backend.</li>
 </ul>
-<p>Wir schreiben die Typen direkt in <code>ComparisonTable.tsx</code>, weil sie die Schnittstelle der Komponente beschreiben:</p>
+<p>Wir schreiben die Typen direkt in <code>ComparisonTable.tsx</code>, weil sie die Schnittstelle der Komponente beschreiben. Lege dazu <code>src/components/ComparisonTable.tsx</code> mit unseren konkreten Typen an:</p>
 <pre><code class="language-ts">export type ComparisonSeries = {
   id: string;
   label: string;
@@ -5127,9 +5158,9 @@ export type ComparisonRow = {
 <pre><code class="language-ts">import type { ComparisonRow, ComparisonSeries } from "../components/ComparisonTable";
 
 export const gardenSeries: ComparisonSeries[] = [
-  { id: "garden-a", label: "Stadtgarten A", color: "#9b7653" },
-  { id: "garden-b", label: "Stadtgarten B", color: "#d8b530" },
-  { id: "garden-c", label: "Stadtgarten C", color: "#cf5656" },
+  { id: "garden-a", label: "Stadtgarten A", color: "var(--brand-brown)" },
+  { id: "garden-b", label: "Stadtgarten B", color: "var(--brand-yellow)" },
+  { id: "garden-c", label: "Stadtgarten C", color: "var(--brand-red)" },
 ];
 
 export const gardenRows: ComparisonRow[] = [
@@ -5137,11 +5168,11 @@ export const gardenRows: ComparisonRow[] = [
   { id: "variant-b", label: "Variante B", values: { "garden-a": 1916, "garden-b": 1823, "garden-c": 2979 } },
 ];
 </code></pre>
+<p>Für die Farben verwenden wir die bestehenden CSS-Variablen aus <code>src/css/variables.css</code>: <code>var(--brand-brown)</code>, <code>var(--brand-yellow)</code> und <code>var(--brand-red)</code>. So behalten Balken und Legende die Farben des bisherigen HTML- und CSS-Stands. Die wiederverwendbare Komponente erhält weiterhin nur eine CSS-Farbe als Prop; auch ein Hexwert wäre möglich.</p>
 <p>Die IDs jeder Messreihe und jeder Zeile müssen innerhalb ihrer jeweiligen Liste eindeutig sein. Ein Tippfehler in einem <code>values</code>-Schlüssel wird bei diesem offenen <code>Record</code>-Typ nicht automatisch erkannt; kontrolliere deshalb die Zuordnung. Für eine unbekannte Messreihe verwenden wir bewusst den Wert <code>0</code>.</p>
 <h2 id="darstellung-und-berechnung-zusammenführen"><a class="header" href="#darstellung-und-berechnung-zusammenführen">Darstellung und Berechnung zusammenführen</a></h2>
-<p>Lege <code>src/components/ComparisonTable.tsx</code> an:</p>
-<pre><code class="language-tsx">import "./ComparisonTable.css";
-
+<p>Ergänze <code>src/components/ComparisonTable.tsx</code>:</p>
+<pre><code class="language-tsx">
 export type ComparisonSeries = {
   id: string;
   label: string;
@@ -5204,9 +5235,10 @@ export default function ComparisonTable({ title, series, rows, note }: Compariso
                   &lt;div
                     className="comparison-bar"
                     style={{ width: `${getBarWidth(value, maximum)}%`, backgroundColor: item.color }}
-                  /&gt;
+                  &gt;
+                    &lt;span className="font-13 comparison-value"&gt;{value}&lt;/span&gt;
+                  &lt;/div&gt;
                 &lt;/div&gt;
-                &lt;span className="font-13 comparison-value"&gt;{value}&lt;/span&gt;
               &lt;/div&gt;
             );
           })}
@@ -5228,7 +5260,7 @@ export default function ComparisonTable({ title, series, rows, note }: Compariso
 </ul>
 <p>Ein <code>useState</code> für das Maximum wäre unnötig: Es lässt sich jederzeit aus den Props berechnen. Auch ein <code>useEffect</code> wäre hier falsch angesetzt. Wir synchronisieren nichts mit einem externen System; wir berechnen lediglich die Ausgabe. Wenn sich die Daten ändern, berechnet der nächste Renderdurchlauf die Breiten neu.</p>
 <p>Das React-Attribut <code>style</code> erhält ein Objekt, etwa <code>style={{ width: "50%" }}</code>. Bei <code>backgroundColor</code> gilt die JavaScript-Schreibweise statt des CSS-Namens <code>background-color</code>.</p>
-<p>Lege daneben <code>src/components/ComparisonTable.css</code> an:</p>
+<p>Lege für die Tabellenstyles den Unterordner <code>src/css/components</code> und darin <code>ComparisonTable.css</code> an:</p>
 <pre><code class="language-css">.comparison-legend {
   display: flex;
   flex-wrap: wrap;
@@ -5243,10 +5275,6 @@ export default function ComparisonTable({ title, series, rows, note }: Compariso
 }
 
 .comparison-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 6em;
-  align-items: center;
-  gap: 8px;
   margin: 4px 0;
 }
 
@@ -5255,15 +5283,26 @@ export default function ComparisonTable({ title, series, rows, note }: Compariso
 }
 
 .comparison-bar {
+  display: flex;
+  justify-content: safe flex-end;
+  align-items: center;
   height: 24px;
 }
 
 .comparison-value {
-  text-align: right;
-  overflow-wrap: anywhere;
+  flex-shrink: 0;
+  padding: 0 8px;
+  white-space: nowrap;
 }
 </code></pre>
-<p>Die Werte stehen neben dem Balken statt in ihm. Dadurch bleiben auch kleine Werte und Nullwerte lesbar. Jede Balkenzeile hat ausserdem eine zugängliche Beschriftung mit Gruppenname, Messreihe und Wert; die Farbe ist nicht die einzige Information. Die vorhandenen allgemeinen Schriftklassen verwenden wir weiter.</p>
+<p>Lege im selben Ordner die Einstiegsdatei <code>src/css/components/components.css</code> an. Sie bündelt die Styles dieses Ordners, genau wie <code>utilities/utilities.css</code>:</p>
+<pre><code class="language-css">@import url("ComparisonTable.css");
+</code></pre>
+<p>Importiere in <code>src/css/main.css</code> nach den bestehenden Imports nur diese Einstiegsdatei:</p>
+<pre><code class="language-css">@import url("components/components.css");
+</code></pre>
+<p>Weitere Komponentenstyles werden später in <code>components/components.css</code> ergänzt, nicht einzeln in <code>main.css</code>. Jeder CSS-Ordner verwaltet seine eigenen Imports. Der einzige CSS-Import in TypeScript bleibt <code>import "./css/main.css";</code> in <code>main.tsx</code>. Die Komponente selbst importiert keine CSS-Datei.</p>
+<p>Die Werte stehen wie bisher im Balken, rechts mit etwas Abstand zum Rand. <code>justify-content: safe flex-end</code> richtet sie rechts aus, solange sie hineinpassen. Bei sehr kurzen Balken und Nullwerten beginnt die Zahl stattdessen links und darf über den Balken hinausragen. So bleibt sie lesbar, ohne die berechnete Balkenbreite zu verändern. Jede Balkenzeile hat ausserdem eine zugängliche Beschriftung mit Gruppenname, Messreihe und Wert; die Farbe ist nicht die einzige Information. Die vorhandenen allgemeinen Schriftklassen verwenden wir weiter.</p>
 <p>Ersetze in <code>App.tsx</code> den bisherigen <code>&lt;div data-table-name="benchmark"&gt;...&lt;/div&gt;</code>-Block und ergänze die Imports für Komponente und Daten:</p>
 <pre><code class="language-tsx">&lt;ComparisonTable
   title="Beispielwerte im Vergleich"
@@ -5319,37 +5358,28 @@ export default function ToggleButton({
 </code></pre>
 <p>Der Button kennt nur Auswahl, Beschriftungen und eine Aktion. Er weiss nicht, ob jemand einen Beitrag likt, einer Autorin folgt oder ein Thema auswählt. Er besitzt keinen eigenen State: Sonst hätten wir zwei konkurrierende Quellen für denselben Auswahlzustand.</p>
 <p><code>onToggle</code> ist eine Funktion als Prop. <code>onClick={onToggle}</code> führt sie nicht beim Rendern aus, sondern übergibt sie für den späteren Klick. <code>disabled</code> bereitet den Baustein auch auf Situationen vor, in denen eine Aktion noch nicht verfügbar ist.</p>
-<p>Lege den fachlichen Like-Bereich in <code>src/components/LikeSection.tsx</code> an:</p>
-<pre><code class="language-tsx">import ToggleButton from "./ToggleButton";
-
-type LikeSectionProps = {
+<h2 id="übung-1-den-like-bereich-mit-anleitung-herauslösen"><a class="header" href="#übung-1-den-like-bereich-mit-anleitung-herauslösen">Übung 1: Den Like-Bereich mit Anleitung herauslösen</a></h2>
+<p>Erstelle <code>src/components/LikeSection.tsx</code>. Der Baustein soll den vorhandenen Like-Button und den Zähler zusammen darstellen. Die Zustandsänderung bleibt ausserhalb der Komponente. Diese Schnittstelle ist vorgegeben:</p>
+<pre><code class="language-ts">type LikeSectionProps = {
   liked: boolean;
   count: number;
   onToggle: () =&gt; void;
   disabled?: boolean;
 };
-
-export default function LikeSection({ liked, count, onToggle, disabled }: LikeSectionProps) {
-  return (
-    &lt;section className="mt-xl mb-xxl text-center" aria-label="Beitrag liken"&gt;
-      &lt;ToggleButton
-        active={liked}
-        activeText="Dieser Beitrag gefällt mir nicht mehr"
-        inactiveText="Dieser Beitrag gefällt mir!"
-        onToggle={onToggle}
-        disabled={disabled}
-        className="mb-s font-small align-items-center text-center"
-      /&gt;
-      &lt;p className="mt-0 mb-m font-small" aria-live="polite"&gt;
-        &lt;span&gt;{count}&lt;/span&gt; Personen gefällt dieser Beitrag
-      &lt;/p&gt;
-    &lt;/section&gt;
-  );
-}
 </code></pre>
-<p><code>LikeSection</code> weiss, was Likes sind, und setzt Button und Zähler zusammen. <code>ToggleButton</code> weiss das nicht. Unterschiedlich viel Fachwissen auf verschiedenen Ebenen ist hier beabsichtigt.</p>
-<h2 id="profil-und-thema-mit-einem-platz-für-aktionen"><a class="header" href="#profil-und-thema-mit-einem-platz-für-aktionen">Profil und Thema mit einem Platz für Aktionen</a></h2>
-<p>Die Autorinnenanzeige braucht Namen, Bild, Kontakt und Beschreibung. Ob daneben ein lokaler Follow-Button, ein Backend-Button oder eine andere Aktion steht, muss sie nicht entscheiden.</p>
+<ol>
+<li>Suche in <code>App.tsx</code> den Abschnitt mit Like-Button und Zähler. Verschiebe sein JSX in die neue Komponente und exportiere sie als Standardexport.</li>
+<li>Ersetze den bisherigen Button durch <code>ToggleButton</code>. Ordne <code>liked</code>, <code>onToggle</code> und <code>disabled</code> den passenden Props zu. Die beiden Beschriftungen bleiben die bisherigen Like-Texte.</li>
+<li>Zeige beim Zähler <code>count</code> an. Die Komponente berechnet keine neue Anzahl und enthält weder <code>useState</code> noch die Like-Funktion.</li>
+<li>Kennzeichne den Bereich mit <code>aria-label="Beitrag liken"</code> und den Zähler mit <code>aria-live="polite"</code>, damit Änderungen angekündigt werden können.</li>
+<li>Importiere <code>LikeSection</code> in <code>App.tsx</code> und übergib die bestehenden Zustände sowie die bestehende Like-Funktion. Entferne dort das ersetzte JSX, aber noch nicht den State.</li>
+</ol>
+<p><strong>Prüfe deinen Baustein:</strong> Ein Klick erhöht den Zähler von <code>59</code> auf <code>60</code>, ein weiterer setzt ihn auf <code>59</code> zurück. Beschriftung und Auswahl wechseln mit. Übergib probeweise <code>disabled</code>: Der Button darf dann weder Auswahl noch Zähler verändern. Entferne diese Probe danach wieder.</p>
+<p>Erkläre anschliessend in eigenen Worten: Warum braucht <code>LikeSection</code> keinen eigenen Like-State? Warum erhält <code>ToggleButton</code> keinen Zähler? <code>LikeSection</code> weiss, was Likes sind, und setzt Button und Zähler zusammen. <code>ToggleButton</code> weiss das nicht. Unterschiedlich viel Fachwissen auf verschiedenen Ebenen ist hier beabsichtigt.</p>
+<h2 id="zwischenschritt-das-autorinnenprofil-einsetzen"><a class="header" href="#zwischenschritt-das-autorinnenprofil-einsetzen">Zwischenschritt: Das Autorinnenprofil einsetzen</a></h2>
+<p>Der Like-Baustein ist jetzt in <code>App.tsx</code> eingebunden. Als Nächstes wenden wir die gleiche Trennung von Darstellung und Aktion auf das Autorinnenprofil an. Suche in <code>App.tsx</code> den bisherigen Profilabschnitt und notiere, welche Angaben dort fest eingetragen sind und welcher Teil auf einen Klick reagiert.</p>
+<p>Die Angaben Name, E-Mail, Rolle, Bild und Beschreibung gehören zusammen: Sie beschreiben eine Autorin. Lege sie als exportiertes <code>author</code>-Objekt (<code>export const author = ...</code>) in <code>src/data/page.ts</code> ab. Das ist hier eine lokale Daten-Entität für die Seitendarstellung, keine Datenbanktabelle und kein Backend-Modell. Der Follow-Zustand und die Klickfunktion gehören ausdrücklich nicht in dieses Objekt.</p>
+<p>Leite aus den fünf Angaben einen Props-Typ für <code>AuthorProfile</code> ab. Die Komponente soll das Profil darstellen und zusätzlich einen Platz für eine Aktion anbieten. Versuche zuerst, die vorhandenen Profilelemente in die neue Datei zu verschieben. Vergleiche deinen Entwurf danach mit dem Referenzstand:</p>
 <p>Lege <code>src/components/AuthorProfile.tsx</code> an:</p>
 <pre><code class="language-tsx">import type { ReactNode } from "react";
 
@@ -5379,29 +5409,40 @@ export default function AuthorProfile({ author, children }: AuthorProfileProps) 
   );
 }
 </code></pre>
-<p>Über <code>children</code> füllen wir den Platz für die Aktion. Das ist <strong>Komposition</strong>: Ein Baustein setzt sich aus anderen zusammen, ohne alle ihre Einzelheiten zu kennen. Beim Thema verwenden wir dieselbe Idee in <code>src/components/TopicFollowSection.tsx</code>:</p>
-<pre><code class="language-tsx">import type { ReactNode } from "react";
-
-type TopicFollowSectionProps = {
-  topic: string;
-  children: ReactNode;
-};
-
-export default function TopicFollowSection({ topic, children }: TopicFollowSectionProps) {
-  return (
-    &lt;section className="row-fixed-start-medium border-top py-s" aria-label="Thema"&gt;
-      &lt;div className="col-12 col-sm-start-2 col-sm-end-11"&gt;
-        &lt;p className="font-20 font-color-highlight my-0"&gt;{topic}&lt;/p&gt;
-        &lt;p className="font-16 font-color-light my-0"&gt;Folge Themen, die dich interessieren.&lt;/p&gt;
-      &lt;/div&gt;
-      &lt;div className="col-12 col-sm-start-auto col-sm-end-13 text-center"&gt;{children}&lt;/div&gt;
-    &lt;/section&gt;
-  );
-}
+<p>Über <code>children</code> füllen wir den Platz für die Aktion. Das ist <strong>Komposition</strong>: Ein Baustein setzt sich aus anderen zusammen, ohne alle ihre Einzelheiten zu kennen.</p>
+<p>Setze <code>AuthorProfile</code> nun anstelle des bisherigen Profilabschnitts in <code>App.tsx</code> ein. Importiere dort <code>author</code> aus <code>./data/page</code> sowie <code>AuthorProfile</code>. Überlege vor dem Einsetzen: Welche Angaben gehen als <code>author</code>-Prop hinein, und welches JSX wird als <code>children</code> übergeben? Wenn du die Interaktionen später nach <code>components/BlogInteractions.tsx</code> verschiebst, ändert sich der Datenimport dort zu <code>../data/page</code>.</p>
+<p>Der Aufruf soll diesem Muster folgen; übertrage die Werte und den Callback aus deinem bisherigen <code>App.tsx</code>:</p>
+<pre><code class="language-tsx">&lt;AuthorProfile author={author}&gt;
+  &lt;ToggleButton
+    active={followsAuthor}
+    activeText="Autorin nicht mehr folgen"
+    inactiveText="Autorin folgen"
+    onToggle={() =&gt; setFollowsAuthor(!followsAuthor)}
+  /&gt;
+&lt;/AuthorProfile&gt;
 </code></pre>
-<p>Für unsere eine Profilvariante brauchen wir noch keine weitere Ebene <code>PersonProfile</code> und keinen universellen Layout-Baustein. Die mögliche tiefere Aufteilung aus dem letzten Kapitel bleibt sinnvoll, sobald mehrere echte Einsatzfälle sie rechtfertigen.</p>
-<h2 id="state-und-seitendaten-zuordnen"><a class="header" href="#state-und-seitendaten-zuordnen">State und Seitendaten zuordnen</a></h2>
-<p>Lege die Anzeigedaten für Autorin, Thema und Produkt in <code>src/data/page.ts</code> ab:</p>
+<p>Damit ist auch klar, was mit der neu angelegten Komponente passiert: Sie ersetzt den bisherigen Profilabschnitt an derselben Stelle. Sie erhält die Autorinnendaten als Objekt und setzt den Follow-Button in den Aktionsplatz. <code>AuthorProfile</code> muss weder wissen, wie Follow funktioniert, noch den Follow-State verwalten.</p>
+<p><strong>Prüfe den Einbau:</strong> Name, Bild, Kontakt und Beschreibung müssen wie zuvor erscheinen. Der Button muss unabhängig vom Like-Button funktionieren. Ersetze ihn am Aufruf vorübergehend durch einen einfachen Link: Der Link muss im Aktionsplatz erscheinen, ohne dass du <code>AuthorProfile</code> änderst. Setze danach den Button wieder ein.</p>
+<p>Für diese eine Profilvariante brauchen wir noch keine weitere Ebene <code>PersonProfile</code> und keinen universellen Layout-Baustein. Die mögliche tiefere Aufteilung aus dem letzten Kapitel bleibt sinnvoll, sobald mehrere echte Einsatzfälle sie rechtfertigen.</p>
+<h2 id="übung-2-den-themenbereich-eigenständig-aufteilen"><a class="header" href="#übung-2-den-themenbereich-eigenständig-aufteilen">Übung 2: Den Themenbereich eigenständig aufteilen</a></h2>
+<p>Das Autorinnenprofil hast du mit einer konkreten Datenstruktur und einem Aufruf eingebunden. Jetzt bestimmst du beim Themenbereich die JSX-Struktur selbst. Die Anforderungen geben weiterhin die Schnittstelle und das Verhalten vor, aber keine Lösungsvorlage für den Komponentenrumpf. Untersuche dafür den bestehenden Themenabschnitt in deinem <code>App.tsx</code> und wende die Idee der Komposition an.</p>
+<p><strong>Anforderungen:</strong></p>
+<ul>
+<li>Die Komponente erhält den Themennamen als <code>topic: string</code> und einen Aktionsplatz als <code>children: ReactNode</code>. Sie hat einen Standardexport.</li>
+<li>Sie zeigt den übergebenen Namen und den bestehenden Hinweistext an. Behalte das responsive Layout und die CSS-Klassen des Themenabschnitts bei; beschrifte den Abschnitt mit <code>aria-label="Thema"</code>.</li>
+<li>Der Aufrufer setzt den Follow-Button in den Aktionsplatz ein. Der Baustein selbst importiert weder <code>ToggleButton</code> noch <code>useState</code> und kennt keine Follow-Funktion.</li>
+<li>Ersetze den bisherigen Themenabschnitt in <code>App.tsx</code> durch deine Komponente. Der bestehende Follow-State und sein Callback bleiben zunächst in <code>App</code>.</li>
+</ul>
+<p>Entscheide selbst, welche HTML-Elemente zur Themenanzeige gehören und welche zur übergebenen Aktion. Schreibe den Props-Typ, die JSX-Rückgabe und die Verwendung selbst; für diese Aufgabe gibt es hier keinen fertigen Codeblock.</p>
+<p><strong>Prüfe deinen Baustein:</strong></p>
+<ol>
+<li>Übergib vorübergehend einen anderen Themennamen. Er muss ohne Änderung an der Komponente erscheinen.</li>
+<li>Ersetze am Aufruf den Follow-Button vorübergehend durch einen einfachen Link. Er muss im selben Aktionsbereich erscheinen, ohne dass du <code>TopicFollowSection</code> anpasst.</li>
+<li>Setze den Follow-Button wieder ein. Themen-Follow und Autorinnen-Follow müssen unabhängig funktionieren, auch bei schmalem Browserfenster.</li>
+</ol>
+<p>Entferne die Probeänderungen. Begründe, warum eine zusätzliche Prop <code>followsTopic</code> hier nicht nötig ist.</p>
+<h2 id="seitendaten-ergänzen"><a class="header" href="#seitendaten-ergänzen">Seitendaten ergänzen</a></h2>
+<p>Ergänze <code>src/data/page.ts</code> um die Daten für das Thema und das Produkt. Die Autorin hast du dort bereits im vorherigen Zwischenschritt als zusammengehörigen Datensatz abgelegt. Vergleiche die Datei erst nach deinem eigenen Versuch mit dem Referenzstand:</p>
 <pre><code class="language-ts">export const author = {
   name: "Nora Linden",
   email: "nora.linden@example.org",
@@ -5422,35 +5463,19 @@ export const product = {
   imageAlt: "Gartenbox für den Stadtgarten",
 };
 </code></pre>
-<p>Den Produktblock lösen wir als <code>src/components/ProductSummary.tsx</code> heraus. Er hat die eigene Aufgabe, ein Produkt kompakt darzustellen:</p>
-<pre><code class="language-tsx">type ProductSummaryProps = {
-  product: {
-    name: string;
-    brand: string;
-    price: string;
-    details: string;
-    rating: string;
-    imageSrc: string;
-    imageAlt: string;
-  };
-};
-
-export default function ProductSummary({ product }: ProductSummaryProps) {
-  return (
-    &lt;section className="border-top py-s px-s border-bottom row" aria-label="Produkt"&gt;
-      &lt;img src={product.imageSrc} alt={product.imageAlt} className="col-4" /&gt;
-      &lt;div className="col-8 d-flex flex-column"&gt;
-        &lt;p className="my-0 product-label"&gt;im Überblick&lt;/p&gt;
-        &lt;p className="mt-xxs mb-0 font-13 font-color-highlight"&gt;{product.name}&lt;/p&gt;
-        &lt;p className="my-0 font-16"&gt;&lt;strong&gt;{product.price}&lt;/strong&gt;&lt;/p&gt;
-        &lt;p className="my-0 font-16"&gt;&lt;strong&gt;{product.brand}&lt;/strong&gt; {product.name}&lt;/p&gt;
-        &lt;p className="my-0 font-13 font-color-light"&gt;{product.details}&lt;/p&gt;
-        &lt;p className="mt-xs font-13"&gt;{product.rating}&lt;/p&gt;
-      &lt;/div&gt;
-    &lt;/section&gt;
-  );
-}
-</code></pre>
+<h2 id="übung-3-eine-produktübersicht-eigenständig-entwerfen"><a class="header" href="#übung-3-eine-produktübersicht-eigenständig-entwerfen">Übung 3: Eine Produktübersicht eigenständig entwerfen</a></h2>
+<p>Löse den bisherigen Produktblock als <code>src/components/ProductSummary.tsx</code> heraus. Anders als bei der ersten Übung bestimmst du den Props-Typ und die Umsetzung selbst. Für die spätere Zusammenstellung ist nur vereinbart: Die Komponente hat einen Standardexport und erhält das Produktobjekt über eine Prop namens <code>product</code>.</p>
+<p><strong>Anforderungen:</strong></p>
+<ul>
+<li>Stelle Produktname, Marke, Preis, Details, Bewertung und Bild aus dem übergebenen Objekt dar. Verwende den Alternativtext aus den Daten.</li>
+<li>Definiere einen passenden TypeScript-Typ für die benötigten Produktfelder. Orientiere dich an <code>product</code> aus <code>src/data/page.ts</code>; die vorhandenen Preis- und Bewertungsangaben sind bereits formatierte Zeichenketten.</li>
+<li>Behalte die bisherigen HTML-Elemente und CSS-Klassen des Produktblocks bei und beschrifte den Abschnitt mit <code>aria-label="Produkt"</code>.</li>
+<li>Importiere den konkreten Produktdatensatz nicht in der Komponente. Sie erhält ihn vom Aufrufer und enthält keinen State, keine Backend-Abfrage und keine fest eingebauten Angaben zur Gartenbox.</li>
+<li>Ersetze den Produktblock in <code>App.tsx</code> durch deine Komponente und übergib dort den Datensatz.</li>
+</ul>
+<p><strong>Prüfe deinen Baustein:</strong> Lege am Aufruf vorübergehend ein zweites Produktobjekt mit anderen Angaben an und rendere beide Produkte gleichzeitig. Alle Angaben einschliesslich Bild und Alternativtext müssen zum jeweiligen Produkt gehören. Dafür darfst du die Komponente nicht verändern. Prüfe ausserdem das Layout bei schmalem Browserfenster und entferne danach die zusätzliche Instanz.</p>
+<p>Erkläre zum Abschluss: Weshalb erhält die Produktübersicht Daten über Props, obwohl wir auf unserer Seite nur ein Produkt zeigen? Welche Angaben wären für ihre Darstellungsaufgabe unnötig?</p>
+<h2 id="die-interaktionen-zusammenführen"><a class="header" href="#die-interaktionen-zusammenführen">Die Interaktionen zusammenführen</a></h2>
 <p>Verschiebe die vier bestehenden Zustände und die Like-Funktion aus <code>App</code> in die neue <code>src/components/BlogInteractions.tsx</code>. Hier setzen wir die fachlichen Bereiche und ihre Aktionen zusammen:</p>
 <pre><code class="language-tsx">import { useState } from "react";
 import { author, topic } from "../data/page";
@@ -5497,14 +5522,13 @@ export default function BlogInteractions() {
 <h2 id="app-stellt-die-seite-zusammen"><a class="header" href="#app-stellt-die-seite-zusammen">App stellt die Seite zusammen</a></h2>
 <p>Lege <code>src/components/BlogContent.tsx</code> an und verschiebe die redaktionellen Abschnitte vom ersten Balkonabschnitt bis einschliesslich Fazit dorthin. Dazu gehören auch die beiden Artikelvorschauen im Text, die acht <code>CaptionedImage</code>-Aufrufe und die <code>ComparisonTable</code>. Gib diese Abschnitte als Fragment zurück, ohne ein weiteres <code>&lt;main&gt;</code> um sie herum.</p>
 <p>Die Imports für Bilder, Tabelle und die zwei einzelnen Artikeldatensätze ziehen ebenfalls mit um. Innerhalb von <code>components</code> lautet der Import beispielsweise <code>./CaptionedImage</code>, für Daten <code>../data/comparison</code>. <code>BlogContent</code> braucht kein <code>useState</code>.</p>
-<p>Entferne die verschobenen Inhalte und Zustände aus <code>App.tsx</code>. Der Endstand sieht so aus:</p>
+<p>Entferne die verschobenen Inhalte und Zustände aus <code>App.tsx</code>. Vergleiche den folgenden Endstand erst, wenn deine drei Übungskomponenten eingebunden sind und ihre Prüfungen bestehen. Er zeigt die Zusammenstellung, nicht die Implementierung deiner Bausteine:</p>
 <pre><code class="language-tsx">import ArticlePreview from "./components/ArticlePreview";
 import BlogContent from "./components/BlogContent";
 import BlogInteractions from "./components/BlogInteractions";
 import ProductSummary from "./components/ProductSummary";
 import { relatedArticles } from "./data/articles";
 import { product } from "./data/page";
-import "../../../03_javascript/03_buttonReactive/main.css";
 
 export default function App() {
   return (
@@ -5554,6 +5578,7 @@ export default function App() {
 <p>Damit ist die Aufteilung für diese Seite abgeschlossen. Wir lassen den redaktionellen Text bewusst als zusammengehörigen Inhalt stehen. Es gibt keinen Nutzen darin, jede Überschrift oder jeden Absatz in eine eigene Datei zu verschieben.</p>
 <h2 id="deinen-stand-prüfen-3"><a class="header" href="#deinen-stand-prüfen-3">Deinen Stand prüfen</a></h2>
 <ul>
+<li>Die drei Übungskomponenten bestehen ihre jeweiligen Prüfungen. Du kannst ihre Props und die Platzierung des State begründen, bevor du sie mit dem Referenzstand vergleichst.</li>
 <li>Alle acht Bilder mit Legende und alle fünf Artikelvorschauen sind weiterhin vorhanden.</li>
 <li>Die Tabelle zeigt sechs Werte; <code>2979</code> hat den längsten Balken. Die anderen Gruppen verwenden dasselbe Maximum.</li>
 <li>Setze probeweise alle Vergleichswerte auf <code>0</code>: Die Werte bleiben lesbar, und es entstehen keine ungültigen Breiten.</li>
@@ -5856,7 +5881,6 @@ export default function BlogInteractions({ userId, blogPageId }: BlogInteraction
 <p>Lege <code>src/components/ContextSelection.tsx</code> an:</p>
 <pre><code class="language-tsx">import { useState } from "react";
 import type { SubmitEvent } from "react";
-import "./ContextSelection.css";
 
 type ContextSelectionProps = {
   userId: string;
@@ -5894,7 +5918,7 @@ export default function ContextSelection({ userId, blogPageId, onSelect }: Conte
 }
 </code></pre>
 <p>Die beiden Eingaben sind kontrolliert: Ihr Wert kommt aus State, <code>onChange</code> aktualisiert ihn. Erst beim Absenden des Formulars mit «Daten simulieren» oder Enter wird der neue Kontext übernommen. So lösen einzelne Tastendrücke nicht sofort Backend-Anfragen aus.</p>
-<p>Das Formular akzeptiert positive ganze IDs. Es simuliert die Auswahl für die Übung und ist weiterhin kein Login. Ergänze daneben <code>src/components/ContextSelection.css</code>:</p>
+<p>Das Formular akzeptiert positive ganze IDs. Es simuliert die Auswahl für die Übung und ist weiterhin kein Login. Ergänze die Styles in <code>src/css/components/ContextSelection.css</code>:</p>
 <pre><code class="language-css">.context-selection {
   display: flex;
   flex-wrap: wrap;
@@ -5917,6 +5941,10 @@ export default function ContextSelection({ userId, blogPageId, onSelect }: Conte
   font: inherit;
 }
 </code></pre>
+<p>Ergänze in der bestehenden Einstiegsdatei <code>src/css/components/components.css</code> nach dem Import der Tabellenstyles:</p>
+<pre><code class="language-css">@import url("ContextSelection.css");
+</code></pre>
+<p>Der Import von <code>components/components.css</code> in <code>src/css/main.css</code> bleibt unverändert. Alle Styles bleiben unter <code>src/css</code>; jeder Unterordner bündelt seine eigenen Imports. In <code>ContextSelection.tsx</code> ist kein CSS-Import nötig.</p>
 <p>Ersetze <code>App.tsx</code> durch den zusammengesetzten Endstand:</p>
 <pre><code class="language-tsx">import { useState } from "react";
 import ArticlePreview from "./components/ArticlePreview";
@@ -5926,7 +5954,6 @@ import ProductSummary from "./components/ProductSummary";
 import ContextSelection from "./components/ContextSelection";
 import { relatedArticles } from "./data/articles";
 import { product } from "./data/page";
-import "../../../03_javascript/03_buttonReactive/main.css";
 
 export default function App() {
   const [selection, setSelection] = useState({ userId: "1", blogPageId: "2" });
@@ -6059,22 +6086,6 @@ Klick auf einen ToggleButton
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
         <script>

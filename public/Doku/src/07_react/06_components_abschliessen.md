@@ -8,7 +8,8 @@ In diesem Kapitel nimmt die Hilfestellung schrittweise ab:
 
 - **Nachbauen und verstehen:** Bildbaustein, Tabelle, Toggle-Button und Autorinnenprofil setzen wir gemeinsam um.
 - **Mit Anleitung umsetzen:** Den Like-Bereich löst du mit vorgegebenen Props und Arbeitsschritten selbst heraus.
-- **Eigenständig lösen:** Für Themenbereich und Produktübersicht erhältst du Anforderungen und Prüfkriterien, aber kein fertiges Komponenten-JSX.
+- **Übertragen:** Beim Autorinnenprofil leitest du die Daten aus dem vorhandenen JSX ab, gruppierst sie als Datensatz und setzt die Komponente an der bisherigen Stelle ein.
+- **Eigenständig lösen:** Beim Themenbereich erhältst du Schnittstelle und Prüfkriterien, aber kein Komponenten-JSX. Bei der Produktübersicht entwirfst du zusätzlich den Props-Typ.
 
 Bei den Übungen übernimmst du das vorhandene HTML und die CSS-Klassen aus deinem bisherigen `App.tsx`. Die Aufgabe ist nicht, das Design neu zu erfinden, sondern die Komponentengrenze festzulegen, feste Werte durch Props zu ersetzen und den Baustein einzubinden. Notiere jeweils vor dem Programmieren seine Aufgabe und seine Eingaben.
 
@@ -205,9 +206,13 @@ type LikeSectionProps = {
 
 Erkläre anschliessend in eigenen Worten: Warum braucht `LikeSection` keinen eigenen Like-State? Warum erhält `ToggleButton` keinen Zähler? `LikeSection` weiss, was Likes sind, und setzt Button und Zähler zusammen. `ToggleButton` weiss das nicht. Unterschiedlich viel Fachwissen auf verschiedenen Ebenen ist hier beabsichtigt.
 
-## Profil und Thema mit einem Platz für Aktionen
+## Zwischenschritt: Das Autorinnenprofil einsetzen
 
-Die Autorinnenanzeige braucht Namen, Bild, Kontakt und Beschreibung. Ob daneben ein lokaler Follow-Button, ein Backend-Button oder eine andere Aktion steht, muss sie nicht entscheiden.
+Der Like-Baustein ist jetzt in `App.tsx` eingebunden. Als Nächstes wenden wir die gleiche Trennung von Darstellung und Aktion auf das Autorinnenprofil an. Suche in `App.tsx` den bisherigen Profilabschnitt und notiere, welche Angaben dort fest eingetragen sind und welcher Teil auf einen Klick reagiert.
+
+Die Angaben Name, E-Mail, Rolle, Bild und Beschreibung gehören zusammen: Sie beschreiben eine Autorin. Lege sie als exportiertes `author`-Objekt (`export const author = ...`) in `src/data/page.ts` ab. Das ist hier eine lokale Daten-Entität für die Seitendarstellung, keine Datenbanktabelle und kein Backend-Modell. Der Follow-Zustand und die Klickfunktion gehören ausdrücklich nicht in dieses Objekt.
+
+Leite aus den fünf Angaben einen Props-Typ für `AuthorProfile` ab. Die Komponente soll das Profil darstellen und zusätzlich einen Platz für eine Aktion anbieten. Versuche zuerst, die vorhandenen Profilelemente in die neue Datei zu verschieben. Vergleiche deinen Entwurf danach mit dem Referenzstand:
 
 Lege `src/components/AuthorProfile.tsx` an:
 
@@ -217,11 +222,30 @@ Lege `src/components/AuthorProfile.tsx` an:
 
 Über `children` füllen wir den Platz für die Aktion. Das ist **Komposition**: Ein Baustein setzt sich aus anderen zusammen, ohne alle ihre Einzelheiten zu kennen.
 
-Für unsere eine Profilvariante brauchen wir noch keine weitere Ebene `PersonProfile` und keinen universellen Layout-Baustein. Die mögliche tiefere Aufteilung aus dem letzten Kapitel bleibt sinnvoll, sobald mehrere echte Einsatzfälle sie rechtfertigen.
+Setze `AuthorProfile` nun anstelle des bisherigen Profilabschnitts in `App.tsx` ein. Importiere dort `author` aus `./data/page` sowie `AuthorProfile`. Überlege vor dem Einsetzen: Welche Angaben gehen als `author`-Prop hinein, und welches JSX wird als `children` übergeben? Wenn du die Interaktionen später nach `components/BlogInteractions.tsx` verschiebst, ändert sich der Datenimport dort zu `../data/page`.
+
+Der Aufruf soll diesem Muster folgen; übertrage die Werte und den Callback aus deinem bisherigen `App.tsx`:
+
+```tsx
+<AuthorProfile author={author}>
+  <ToggleButton
+    active={followsAuthor}
+    activeText="Autorin nicht mehr folgen"
+    inactiveText="Autorin folgen"
+    onToggle={() => setFollowsAuthor(!followsAuthor)}
+  />
+</AuthorProfile>
+```
+
+Damit ist auch klar, was mit der neu angelegten Komponente passiert: Sie ersetzt den bisherigen Profilabschnitt an derselben Stelle. Sie erhält die Autorinnendaten als Objekt und setzt den Follow-Button in den Aktionsplatz. `AuthorProfile` muss weder wissen, wie Follow funktioniert, noch den Follow-State verwalten.
+
+**Prüfe den Einbau:** Name, Bild, Kontakt und Beschreibung müssen wie zuvor erscheinen. Der Button muss unabhängig vom Like-Button funktionieren. Ersetze ihn am Aufruf vorübergehend durch einen einfachen Link: Der Link muss im Aktionsplatz erscheinen, ohne dass du `AuthorProfile` änderst. Setze danach den Button wieder ein.
+
+Für diese eine Profilvariante brauchen wir noch keine weitere Ebene `PersonProfile` und keinen universellen Layout-Baustein. Die mögliche tiefere Aufteilung aus dem letzten Kapitel bleibt sinnvoll, sobald mehrere echte Einsatzfälle sie rechtfertigen.
 
 ## Übung 2: Den Themenbereich eigenständig aufteilen
 
-Setze jetzt `src/components/TopicFollowSection.tsx` ohne Lösungsvorlage um. Untersuche dafür den bestehenden Themenabschnitt in deinem `App.tsx` und wende die Idee der Komposition an.
+Das Autorinnenprofil hast du mit einer konkreten Datenstruktur und einem Aufruf eingebunden. Jetzt bestimmst du beim Themenbereich die JSX-Struktur selbst. Die Anforderungen geben weiterhin die Schnittstelle und das Verhalten vor, aber keine Lösungsvorlage für den Komponentenrumpf. Untersuche dafür den bestehenden Themenabschnitt in deinem `App.tsx` und wende die Idee der Komposition an.
 
 **Anforderungen:**
 
@@ -240,9 +264,9 @@ Entscheide selbst, welche HTML-Elemente zur Themenanzeige gehören und welche zu
 
 Entferne die Probeänderungen. Begründe, warum eine zusätzliche Prop `followsTopic` hier nicht nötig ist.
 
-## State und Seitendaten zuordnen
+## Seitendaten ergänzen
 
-Lege die Anzeigedaten für Autorin, Thema und Produkt in `src/data/page.ts` ab:
+Ergänze `src/data/page.ts` um die Daten für das Thema und das Produkt. Die Autorin hast du dort bereits im vorherigen Zwischenschritt als zusammengehörigen Datensatz abgelegt. Vergleiche die Datei erst nach deinem eigenen Versuch mit dem Referenzstand:
 
 ```ts
 {{#include ../../../07_react/06_components-complete/src/data/page.ts}}
