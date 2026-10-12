@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-fa5093f4.js";
+            window.path_to_searchindex_js = "../searchindex-312b8b88.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-6c46951c.js"></script>
@@ -179,7 +179,7 @@
 <p>Ausgangspunkt ist dein Stand nach <a href="./06_components_abschliessen.html">Die Seite in Komponenten aufteilen</a>. Ziel ist dieselbe Funktionalität wie im <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/03_javascript/06_followButtonsWithBackendIntegration">letzten JavaScript-Endstand mit Follow-Buttons</a>: gespeicherte Likes, der tatsächliche Like-Zähler und die gespeicherten Follow-Zustände der Autorin und des Themas, jeweils für die ausgewählte Benutzer-ID.</p>
 <p>Der <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/07_react/07_backend-integration">React-Referenzstand mit Backend</a> liegt in <code>public/07_react/07_backend-integration</code>. Wir verwenden dasselbe Backend, keine neue Datenbank und keinen neuen API-Vertrag.</p>
 <h2 id="was-bleibt-was-ändert-sich"><a class="header" href="#was-bleibt-was-ändert-sich">Was bleibt, was ändert sich?</a></h2>
-<p><code>CaptionedImage</code>, <code>ComparisonTable</code>, <code>ArticlePreview</code>, <code>ProductSummary</code>, <code>AuthorProfile</code>, <code>TopicFollowSection</code>, <code>LikeSection</code> und <code>ToggleButton</code> bleiben unverändert. Keine dieser Anzeigekomponenten muss HTTP verstehen.</p>
+<p><code>CaptionedImage</code>, <code>ComparisonTable</code>, <code>SummaryCard</code>, <code>ArticlePreview</code>, <code>ProductSummary</code>, <code>AuthorProfile</code>, <code>TopicFollowSection</code>, <code>LikeSection</code> und <code>ToggleButton</code> bleiben unverändert. <code>SummaryCard</code> teilt nur das Bild-und-Inhalt-Layout; Artikel- und Produktdaten bleiben getrennt. Keine dieser Anzeigekomponenten muss HTTP verstehen.</p>
 <p>Neu kommen hinzu:</p>
 <ul>
 <li>ein API-Service für die vorhandenen Endpunkte,</li>

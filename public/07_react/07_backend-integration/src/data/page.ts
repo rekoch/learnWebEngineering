@@ -9,11 +9,14 @@ export const author = {
 export const topic = "Balkongarten";
 
 export const product = {
-  name: "Gartenbox",
-  brand: "Stadtgarten A",
-  price: "24.90",
-  details: "Klein, Grün",
-  rating: "★★★★☆ 4",
-  imageSrc: "https://picsum.photos/seed/beispiel-999/1200/800",
-  imageAlt: "Gartenbox für den Stadtgarten",
+  category: "Gartenschaukeln",
+  name: "Holzschaukel",
+  price: "24.90 CHF",
+  details: "Zur festen Montage im Garten",
+  rating: {
+    average: 4,
+    count: 18,
+  },
+  imageSrc: "https://picsum.photos/id/71/1200/800",
+  imageAlt: "Eine Holzschaukel im Garten",
 };

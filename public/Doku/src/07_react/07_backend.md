@@ -8,7 +8,7 @@ Der [React-Referenzstand mit Backend](https://github.com/rekoch/learnWebEngineer
 
 ## Was bleibt, was ändert sich?
 
-`CaptionedImage`, `ComparisonTable`, `ArticlePreview`, `ProductSummary`, `AuthorProfile`, `TopicFollowSection`, `LikeSection` und `ToggleButton` bleiben unverändert. Keine dieser Anzeigekomponenten muss HTTP verstehen.
+`CaptionedImage`, `ComparisonTable`, `SummaryCard`, `ArticlePreview`, `ProductSummary`, `AuthorProfile`, `TopicFollowSection`, `LikeSection` und `ToggleButton` bleiben unverändert. `SummaryCard` teilt nur das Bild-und-Inhalt-Layout; Artikel- und Produktdaten bleiben getrennt. Keine dieser Anzeigekomponenten muss HTTP verstehen.
 
 Neu kommen hinzu:
 

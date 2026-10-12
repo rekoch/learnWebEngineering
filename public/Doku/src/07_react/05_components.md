@@ -119,11 +119,12 @@ function ImageText({ imageSrc, imageAlt, children }: ImageTextProps) {
 </ImageText>
 
 <ImageText
-  imageSrc="https://picsum.photos/seed/beispiel-999/1200/800"
-  imageAlt="Gartenbox für den Stadtgarten"
+  imageSrc="https://picsum.photos/id/71/1200/800"
+  imageAlt="Eine Holzschaukel im Garten"
 >
-  <p>Gartenbox</p>
-  <p>24.90</p>
+  <p>Gartenschaukeln</p>
+  <p>Holzschaukel</p>
+  <p>24.90 CHF</p>
 </ImageText>
 ```
 

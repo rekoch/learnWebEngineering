@@ -6,10 +6,10 @@ Ausgangspunkt ist dein eigener Stand nach [Komponenten mit React](./05_component
 
 In diesem Kapitel nimmt die Hilfestellung schrittweise ab:
 
-- **Nachbauen und verstehen:** Bildbaustein, Tabelle, Toggle-Button und Autorinnenprofil setzen wir gemeinsam um.
+- **Nachbauen und verstehen:** Bildbaustein, Tabelle und Toggle-Button setzen wir gemeinsam um.
 - **Mit Anleitung umsetzen:** Den Like-Bereich löst du mit vorgegebenen Props und Arbeitsschritten selbst heraus.
 - **Übertragen:** Beim Autorinnenprofil leitest du die Daten aus dem vorhandenen JSX ab, gruppierst sie als Datensatz und setzt die Komponente an der bisherigen Stelle ein.
-- **Eigenständig lösen:** Beim Themenbereich erhältst du Schnittstelle und Prüfkriterien, aber kein Komponenten-JSX. Bei der Produktübersicht entwirfst du zusätzlich den Props-Typ.
+- **Eigenständig lösen:** Beim Themenbereich erhältst du Schnittstelle und Prüfkriterien, aber kein Komponenten-JSX. Für die Produktübersicht verwendest du den gemeinsamen Kartenrahmen und entwirfst zusätzlich den Props-Typ.
 
 Bei den Übungen übernimmst du das vorhandene HTML und die CSS-Klassen aus deinem bisherigen `App.tsx`. Die Aufgabe ist nicht, das Design neu zu erfinden, sondern die Komponentengrenze festzulegen, feste Werte durch Props zu ersetzen und den Baustein einzubinden. Notiere jeweils vor dem Programmieren seine Aufgabe und seine Eingaben.
 
@@ -272,21 +272,34 @@ Ergänze `src/data/page.ts` um die Daten für das Thema und das Produkt. Die Aut
 {{#include ../../../07_react/06_components-complete/src/data/page.ts}}
 ```
 
+## Gemeinsamer Kartenrahmen, verschiedene Inhalte
+
+Vergleiche `ArticlePreview` mit dem bisherigen Produktblock: Beide zeigen ein Bild neben Inhalt. Die fachlichen Angaben sind jedoch verschieden. Ein Artikel hat zum Beispiel Rubrik, Titel und Autorin; beim Produkt gehören Kategorie, Name, Preis und Produktbewertung dazu. Die beiden Datenmodelle werden nicht zu einem gemeinsamen Artikel-oder-Produkt-Typ vermischt.
+
+Wiederverwenden lässt sich die **Darstellung**: Bild, Raster und ein Platz für den jeweiligen Inhalt. Lege dafür `src/components/SummaryCard.tsx` an:
+
+```tsx
+{{#include ../../../07_react/06_components-complete/src/components/SummaryCard.tsx}}
+```
+
+Passe `ArticlePreview` so an, dass es `SummaryCard` verwendet. `ArticlePreview` bleibt ein `<article>` und übergibt Rubrik, Titel und Autorin als `children`; nur den gemeinsamen Bild-und-Inhalt-Rahmen übernimmt die neue Komponente. Die Produktkomponente wird denselben Rahmen verwenden, aber ihre eigenen Produktangaben einsetzen.
+
 ## Übung 3: Eine Produktübersicht eigenständig entwerfen
 
-Löse den bisherigen Produktblock als `src/components/ProductSummary.tsx` heraus. Anders als bei der ersten Übung bestimmst du den Props-Typ und die Umsetzung selbst. Für die spätere Zusammenstellung ist nur vereinbart: Die Komponente hat einen Standardexport und erhält das Produktobjekt über eine Prop namens `product`.
+Löse den bisherigen Produktabschnitt als `src/components/ProductSummary.tsx` heraus. Anders als bei der Like-Übung bestimmst du den Props-Typ und die inhaltliche Darstellung selbst. Verwende aber den gemeinsamen `SummaryCard`-Rahmen. Die Komponente hat einen Standardexport und erhält das Produktobjekt über eine Prop namens `product`.
 
 **Anforderungen:**
 
-- Stelle Produktname, Marke, Preis, Details, Bewertung und Bild aus dem übergebenen Objekt dar. Verwende den Alternativtext aus den Daten.
-- Definiere einen passenden TypeScript-Typ für die benötigten Produktfelder. Orientiere dich an `product` aus `src/data/page.ts`; die vorhandenen Preis- und Bewertungsangaben sind bereits formatierte Zeichenketten.
-- Behalte die bisherigen HTML-Elemente und CSS-Klassen des Produktblocks bei und beschrifte den Abschnitt mit `aria-label="Produkt"`.
-- Importiere den konkreten Produktdatensatz nicht in der Komponente. Sie erhält ihn vom Aufrufer und enthält keinen State, keine Backend-Abfrage und keine fest eingebauten Angaben zur Gartenbox.
+- Stelle Kategorie, Produktname, Preis, Details, Sterne-Durchschnitt, Anzahl Bewertungen und Bild aus dem übergebenen Objekt dar. Verwende den Alternativtext aus den Daten.
+- Definiere einen passenden TypeScript-Typ für die benötigten Produktfelder. Orientiere dich an `product` aus `src/data/page.ts`: Kategorie und Name sind getrennte Zeichenketten, der Preis ist formatiert; `rating.average` und `rating.count` sind getrennte Zahlen.
+- Verwende `SummaryCard` für Bild und Inhaltslayout. Die Produktdarstellung enthält keine Autorin und übernimmt keine Artikel-Likes.
+- Beschrifte den Abschnitt mit `aria-label="Produkt"` und gib den Sternen eine zugängliche Textalternative.
+- Importiere den konkreten Produktdatensatz nicht in die Komponente. Sie erhält ihn vom Aufrufer und enthält keinen State, keine Backend-Abfrage und keine fest eingebauten Angaben zur Gartenschaukel.
 - Ersetze den Produktblock in `App.tsx` durch deine Komponente und übergib dort den Datensatz.
 
 **Prüfe deinen Baustein:** Lege am Aufruf vorübergehend ein zweites Produktobjekt mit anderen Angaben an und rendere beide Produkte gleichzeitig. Alle Angaben einschliesslich Bild und Alternativtext müssen zum jeweiligen Produkt gehören. Dafür darfst du die Komponente nicht verändern. Prüfe ausserdem das Layout bei schmalem Browserfenster und entferne danach die zusätzliche Instanz.
 
-Erkläre zum Abschluss: Weshalb erhält die Produktübersicht Daten über Props, obwohl wir auf unserer Seite nur ein Produkt zeigen? Welche Angaben wären für ihre Darstellungsaufgabe unnötig?
+Erkläre zum Abschluss: Weshalb erhält die Produktübersicht Daten über Props, obwohl wir auf unserer Seite nur ein Produkt zeigen? Weshalb sind Artikel-Likes und Produkt-Sterne unterschiedliche Angaben, obwohl beide Rückmeldungen ausdrücken? Welche Daten braucht `SummaryCard` selbst nicht?
 
 ## Die Interaktionen zusammenführen
 
@@ -319,6 +332,7 @@ App
     ArticlePreview (mehrfach)
     ComparisonTable
   ProductSummary
+    SummaryCard
   BlogInteractions (lokaler State)
     LikeSection
       ToggleButton
@@ -327,6 +341,7 @@ App
     TopicFollowSection
       ToggleButton als children
   ArticlePreview (Liste)
+    SummaryCard
 ```
 
 Damit ist die Aufteilung für diese Seite abgeschlossen. Wir lassen den redaktionellen Text bewusst als zusammengehörigen Inhalt stehen. Es gibt keinen Nutzen darin, jede Überschrift oder jeden Absatz in eine eigene Datei zu verschieben.

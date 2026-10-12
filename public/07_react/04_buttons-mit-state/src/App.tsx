@@ -34,22 +34,22 @@ function App() {
           <p>Ein freier Nachmittag genügt, um eine neue Idee auszuprobieren.</p>
           <figure className="my-0 mx-0">
             <img
-              src="https://picsum.photos/seed/beispiel-2645/1200/800"
-              alt="Beispielbild zum Stadtgarten"
+              src="https://picsum.photos/id/82/1200/800"
+              alt="Ein Zweig mit rosa Blüten."
             />
             <figcaption className="font-caption">
-              Ein Eindruck aus dem kleinen Stadtgarten.
+              Rosa Blüten kündigen den Frühling an.
             </figcaption>
           </figure>
           <p>Für den Anfang genügen Wasser, Licht und ein wenig Geduld.</p>
           <p>So entsteht Schritt für Schritt eine grüne Ecke.</p>
           <figure className="my-0 mx-0">
             <img
-              src="https://picsum.photos/seed/beispiel-6963/1200/800"
-              alt="Beispielbild zum Stadtgarten"
+              src="https://picsum.photos/id/995/1200/800"
+              alt="Bunt gefärbte Blätter liegen auf dem Boden."
             />
             <figcaption className="font-caption">
-              Ein Eindruck aus dem kleinen Stadtgarten.
+              Bunte Blätter zeigen den Wechsel der Jahreszeit.
             </figcaption>
           </figure>
         </section>
@@ -59,35 +59,35 @@ function App() {
           <p>Ich probiere verschiedene Anordnungen aus und lasse Platz zum Sitzen.</p>
           <article className="d-flex flex-row border-top border-bottom py-s">
             <img
-              src="https://picsum.photos/seed/beispiel-6834/1200/800"
-              alt="Beispielbild zum Stadtgarten"
+              src="https://picsum.photos/id/75/1200/800"
+              alt="Eine Weinrebe trägt rote Trauben."
               className="flex-image-aside mr-s"
             />
             <div className="d-flex flex-column">
-              <p className="content-category my-0 font-13">Ideen & Alltag</p>
+              <p className="content-category my-0 font-13">Obst im Stadtgarten</p>
               <h4 className="mt-xxs mb-0 font-20 font-weight-regular">
-                So wird aus einer Ecke ein Lieblingsplatz
+                Eine Weinrebe für den Balkon
               </h4>
               <p className="mt-xxs mb-0 font-13">von Nora Linden</p>
             </div>
           </article>
-          <h4>Kräuter am Fenster</h4>
-          <p>Für den Anfang genügen Wasser, Licht und ein wenig Geduld.</p>
+          <h4>Eine Weinrebe am Balkon</h4>
+          <p>Mit etwas Sonne reifen an den Ranken rote Trauben.</p>
           <figure className="my-0 mx-0">
-            <img src="https://picsum.photos/seed/beispiel-4013/1200/800" alt="Kräuter im Stadtgarten" />
-            <figcaption className="font-caption">Ein Eindruck aus dem kleinen Stadtgarten.</figcaption>
+            <img src="https://picsum.photos/id/75/1200/800" alt="Eine Weinrebe trägt rote Trauben." />
+            <figcaption className="font-caption">Rote Trauben wachsen an der Rebe.</figcaption>
           </figure>
           <h4>Blumen für den Sommer</h4>
-          <p>Mit einer kleinen Kiste und etwas Erde beginnt das Experiment.</p>
+          <p>Ein blühender Zweig braucht nur einen passenden Platz und etwas Pflege.</p>
           <figure className="my-0 mx-0">
-            <img src="https://picsum.photos/seed/beispiel-2658/1200/800" alt="Blumen im Stadtgarten" />
-            <figcaption className="font-caption">Ein Eindruck aus dem kleinen Stadtgarten.</figcaption>
+            <img src="https://picsum.photos/id/82/1200/800" alt="Ein Zweig mit rosa Blüten." />
+            <figcaption className="font-caption">Rosa Blüten an einem Zweig.</figcaption>
           </figure>
-          <h4>Gemüse im Topf</h4>
-          <p>Nach ein paar Tagen zeigt sich, was hier gut wächst.</p>
+          <h4>Bohnen aus dem Topf</h4>
+          <p>Wenn die Hülsen reif sind, pflücke ich die Bohnen direkt vom Balkon.</p>
           <figure className="my-0 mx-0">
-            <img src="https://picsum.photos/seed/beispiel-6022/1200/800" alt="Gemüse im Stadtgarten" />
-            <figcaption className="font-caption">Ein Eindruck aus dem kleinen Stadtgarten.</figcaption>
+            <img src="https://picsum.photos/id/627/1200/800" alt="Frisch gepflückte Bohnen." />
+            <figcaption className="font-caption">Frisch gepflückte Bohnen aus dem Topf.</figcaption>
           </figure>
         </section>
 
@@ -114,42 +114,42 @@ function App() {
           <p>So entsteht Schritt für Schritt eine grüne Ecke.</p>
           <figure className="my-0 mx-0">
             <img
-              src="https://picsum.photos/seed/beispiel-9100/1200/800"
-              alt="Beispielbild zum Stadtgarten"
+              src="https://picsum.photos/id/995/1200/800"
+              alt="Bunt gefärbte Blätter liegen auf dem Boden."
             />
-            <figcaption className="font-caption">Eine Idee für den Balkon.</figcaption>
+            <figcaption className="font-caption">Bunte Blätter markieren den Wechsel der Jahreszeit.</figcaption>
           </figure>
         </section>
 
         <section>
-          <h3>Kleine Helfer für grosse Pläne</h3>
+          <h3>Trauben und kleine Gartenfunde</h3>
           <article className="d-flex flex-row border-top border-bottom py-s">
             <img
-              src="https://picsum.photos/seed/beispiel-2727/1200/800"
-              alt="Beispielbild zum Stadtgarten"
+              src="https://picsum.photos/id/674/1200/800"
+              alt="Frisch geerntete Trauben in zwei Händen."
               className="flex-image-aside mr-s"
             />
             <div className="d-flex flex-column">
               <p className="content-category my-0 font-13">Beispielbeitrag</p>
               <h4 className="mt-xxs mb-0 font-20 font-weight-regular">
-                Fünf Ideen für einen grünen Feierabend
+                Trauben ernten und teilen
               </h4>
               <p className="mt-xxs mb-0 font-13">von Nora Linden</p>
             </div>
           </article>
           <p>Auf dem Balkon ist wenig Platz, doch für ein paar Pflanzen reicht es.</p>
           <figure className="my-0 mx-0">
-            <img src="https://picsum.photos/seed/beispiel-6827/1200/800" alt="Eine Idee für den Balkon" />
-            <figcaption className="font-caption">Eine Idee für den Balkon.</figcaption>
+            <img src="https://picsum.photos/id/977/1200/800" alt="Ein kleiner Pilz im Garten." />
+            <figcaption className="font-caption">Ein kleiner Pilz ist nach dem Regen aufgetaucht.</figcaption>
           </figure>
           <p>Eine kleine Liste hilft mir, den Überblick zu behalten.</p>
         </section>
 
         <section>
-          <h3>Einfach anfangen</h3>
-          <p>Stadtgarten A</p>
+          <h3>Im Herbst</h3>
+          <p>Die Blätter färben sich und fallen nach und nach zu Boden.</p>
           <figure className="my-0 mx-0">
-            <img src="https://picsum.photos/seed/beispiel-9100/1200/800" alt="Eine Momentaufnahme aus dem Beispielprojekt" />
+            <img src="https://picsum.photos/id/995/1200/800" alt="Bunt gefärbte Blätter liegen auf dem Boden." />
             <figcaption className="font-caption">Eine Momentaufnahme aus dem Beispielprojekt.</figcaption>
           </figure>
           <p>Eine kleine Liste hilft mir, den Überblick zu behalten.</p>
@@ -158,7 +158,6 @@ function App() {
 
         <section className="my-s">
           <h3>Fazit</h3>
-          <p className="my-0">★★★★☆</p>
           <p className="mt-xxs mb-xs"><strong>Ein Projekt für zwischendurch</strong></p>
           <p className="my-0">
             Eine grüne Ecke muss nicht gross sein. Mir gefällt, wie schnell hier
@@ -182,19 +181,18 @@ function App() {
           </div>
         </section>
 
-        <section className="border-top py-s px-s border-bottom row">
+        <section className="border-top py-s px-s border-bottom row" aria-label="Produkt">
           <img
-            src="https://picsum.photos/seed/beispiel-999/1200/800"
-            alt="Gartenbox für den Stadtgarten"
+            src="https://picsum.photos/id/71/1200/800"
+            alt="Eine Holzschaukel im Garten"
             className="col-4"
           />
           <div className="col-8 d-flex flex-column">
-            <p className="my-0 product-label">im Überblick</p>
-            <p className="mt-xxs mb-0 font-13 font-color-highlight">Gartenbox</p>
-            <p className="my-0 font-16"><strong>24.90</strong></p>
-            <p className="my-0 font-16"><strong>Stadtgarten A</strong> Gartenbox</p>
-            <p className="my-0 font-13 font-color-light">Klein, Grün</p>
-            <p className="mt-xs font-13">★★★★☆ 4</p>
+            <p className="content-category my-0 font-13">Gartenschaukeln</p>
+            <p className="mt-xxs mb-0 font-20 font-weight-regular">Holzschaukel</p>
+            <p className="my-0 font-16"><strong>24.90 CHF</strong></p>
+            <p className="my-0 font-13 font-color-light">Zur festen Montage im Garten</p>
+            <p className="mt-xs font-13">★★★★☆ 4.0 (18 Bewertungen)</p>
           </div>
         </section>
 
@@ -262,37 +260,37 @@ function App() {
           <h3>Weitere Ideen für deinen Balkon</h3>
           <article className="d-flex flex-row border-top border-bottom py-s">
             <img
-              src="https://picsum.photos/seed/beispiel-6917/1200/800"
-              alt="Beispielbild zum Stadtgarten"
+              src="https://picsum.photos/id/627/1200/800"
+              alt="Frisch gepflückte Bohnen."
               className="flex-image-aside mr-s"
             />
             <div className="d-flex flex-column">
-              <p className="content-category my-0 font-13">Beispielbeitrag</p>
-              <h4 className="mt-xxs mb-0 font-20 font-weight-regular">Ein kleines Beet, viele Möglichkeiten</h4>
+              <p className="content-category my-0 font-13">Ernte im Stadtgarten</p>
+              <h4 className="mt-xxs mb-0 font-20 font-weight-regular">Frische Bohnen aus dem eigenen Beet</h4>
               <p className="mt-xxs mb-0 font-13">von Nora Linden</p>
             </div>
           </article>
           <article className="d-flex flex-row border-bottom py-s">
             <img
-              src="https://picsum.photos/seed/beispiel-8022/1200/800"
-              alt="Beispielbild zum Stadtgarten"
+              src="https://picsum.photos/id/995/1200/800"
+              alt="Bunt gefärbte Blätter liegen auf dem Boden."
               className="flex-image-aside mr-s"
             />
             <div className="d-flex flex-column">
-              <p className="content-category my-0 font-13">Beispielbeitrag</p>
-              <h4 className="mt-xxs mb-0 font-20 font-weight-regular">Ein kleiner Garten mitten in der Stadt</h4>
+              <p className="content-category my-0 font-13">Saison im Stadtgarten</p>
+              <h4 className="mt-xxs mb-0 font-20 font-weight-regular">Ein Balkon durch die Jahreszeiten</h4>
               <p className="mt-xxs mb-0 font-13">von Nora Linden</p>
             </div>
           </article>
           <article className="d-flex flex-row border-bottom py-s">
             <img
-              src="https://picsum.photos/seed/beispiel-6731/1200/800"
-              alt="Beispielbild zum Stadtgarten"
+              src="https://picsum.photos/id/152/1200/800"
+              alt="Violette Blumen."
               className="flex-image-aside mr-s"
             />
             <div className="d-flex flex-column">
-              <p className="content-category my-0 font-13">Beispielbeitrag</p>
-              <h4 className="mt-xxs mb-0 font-20 font-weight-regular">Pflanzen für sonnige Fenster</h4>
+              <p className="content-category my-0 font-13">Blüten im Stadtgarten</p>
+              <h4 className="mt-xxs mb-0 font-20 font-weight-regular">Violette Blüten am Fenster</h4>
               <p className="mt-xxs mb-0 font-13">von Nora Linden</p>
             </div>
           </article>

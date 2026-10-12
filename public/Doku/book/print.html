@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-fa5093f4.js";
+            window.path_to_searchindex_js = "searchindex-312b8b88.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-6c46951c.js"></script>
@@ -4896,11 +4896,12 @@ function ImageText({ imageSrc, imageAlt, children }: ImageTextProps) {
 &lt;/ImageText&gt;
 
 &lt;ImageText
-  imageSrc="https://picsum.photos/seed/beispiel-999/1200/800"
-  imageAlt="Gartenbox für den Stadtgarten"
+  imageSrc="https://picsum.photos/id/71/1200/800"
+  imageAlt="Eine Holzschaukel im Garten"
 &gt;
-  &lt;p&gt;Gartenbox&lt;/p&gt;
-  &lt;p&gt;24.90&lt;/p&gt;
+  &lt;p&gt;Gartenschaukeln&lt;/p&gt;
+  &lt;p&gt;Holzschaukel&lt;/p&gt;
+  &lt;p&gt;24.90 CHF&lt;/p&gt;
 &lt;/ImageText&gt;
 </code></pre>
 <p>Die Inhalte sind verschieden, die Anordnung ist dieselbe. Ob das Layout ein Profilbild rund darstellt oder ein Produktbild rechteckig, wäre eine weitere bewusste Designentscheidung. Unser vereinfachtes Beispiel übernimmt noch nicht das vollständige responsive Profil-Layout.</p>
@@ -5088,10 +5089,10 @@ import { cornerArticle } from "./data/articles";
 <p>Ausgangspunkt ist dein eigener Stand nach <a href="#komponenten-mit-react">Komponenten mit React</a>. Du brauchst kein neues Vite-Projekt. Der <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/07_react/06_components-complete">Referenzstand zu diesem Kapitel</a> liegt im Ordner <code>public/07_react/06_components-complete</code>. Er enthält auch die Lösungen zu den Übungen. Arbeite zunächst in deinem eigenen Projekt und öffne die jeweiligen Lösungsdateien erst nach deinem eigenen Versuch und den angegebenen Prüfungen.</p>
 <p>In diesem Kapitel nimmt die Hilfestellung schrittweise ab:</p>
 <ul>
-<li><strong>Nachbauen und verstehen:</strong> Bildbaustein, Tabelle, Toggle-Button und Autorinnenprofil setzen wir gemeinsam um.</li>
+<li><strong>Nachbauen und verstehen:</strong> Bildbaustein, Tabelle und Toggle-Button setzen wir gemeinsam um.</li>
 <li><strong>Mit Anleitung umsetzen:</strong> Den Like-Bereich löst du mit vorgegebenen Props und Arbeitsschritten selbst heraus.</li>
 <li><strong>Übertragen:</strong> Beim Autorinnenprofil leitest du die Daten aus dem vorhandenen JSX ab, gruppierst sie als Datensatz und setzt die Komponente an der bisherigen Stelle ein.</li>
-<li><strong>Eigenständig lösen:</strong> Beim Themenbereich erhältst du Schnittstelle und Prüfkriterien, aber kein Komponenten-JSX. Bei der Produktübersicht entwirfst du zusätzlich den Props-Typ.</li>
+<li><strong>Eigenständig lösen:</strong> Beim Themenbereich erhältst du Schnittstelle und Prüfkriterien, aber kein Komponenten-JSX. Für die Produktübersicht verwendest du den gemeinsamen Kartenrahmen und entwirfst zusätzlich den Props-Typ.</li>
 </ul>
 <p>Bei den Übungen übernimmst du das vorhandene HTML und die CSS-Klassen aus deinem bisherigen <code>App.tsx</code>. Die Aufgabe ist nicht, das Design neu zu erfinden, sondern die Komponentengrenze festzulegen, feste Werte durch Props zu ersetzen und den Baustein einzubinden. Notiere jeweils vor dem Programmieren seine Aufgabe und seine Eingaben.</p>
 <h2 id="ein-bild-mit-bildlegende"><a class="header" href="#ein-bild-mit-bildlegende">Ein Bild mit Bildlegende</a></h2>
@@ -5454,27 +5455,55 @@ export default function AuthorProfile({ author, children }: AuthorProfileProps) 
 export const topic = "Balkongarten";
 
 export const product = {
-  name: "Gartenbox",
-  brand: "Stadtgarten A",
-  price: "24.90",
-  details: "Klein, Grün",
-  rating: "★★★★☆ 4",
-  imageSrc: "https://picsum.photos/seed/beispiel-999/1200/800",
-  imageAlt: "Gartenbox für den Stadtgarten",
+  category: "Gartenschaukeln",
+  name: "Holzschaukel",
+  price: "24.90 CHF",
+  details: "Zur festen Montage im Garten",
+  rating: {
+    average: 4,
+    count: 18,
+  },
+  imageSrc: "https://picsum.photos/id/71/1200/800",
+  imageAlt: "Eine Holzschaukel im Garten",
 };
 </code></pre>
+<h2 id="gemeinsamer-kartenrahmen-verschiedene-inhalte"><a class="header" href="#gemeinsamer-kartenrahmen-verschiedene-inhalte">Gemeinsamer Kartenrahmen, verschiedene Inhalte</a></h2>
+<p>Vergleiche <code>ArticlePreview</code> mit dem bisherigen Produktblock: Beide zeigen ein Bild neben Inhalt. Die fachlichen Angaben sind jedoch verschieden. Ein Artikel hat zum Beispiel Rubrik, Titel und Autorin; beim Produkt gehören Kategorie, Name, Preis und Produktbewertung dazu. Die beiden Datenmodelle werden nicht zu einem gemeinsamen Artikel-oder-Produkt-Typ vermischt.</p>
+<p>Wiederverwenden lässt sich die <strong>Darstellung</strong>: Bild, Raster und ein Platz für den jeweiligen Inhalt. Lege dafür <code>src/components/SummaryCard.tsx</code> an:</p>
+<pre><code class="language-tsx">import type { ReactNode } from "react";
+
+type SummaryCardProps = {
+  image: {
+    src: string;
+    alt: string;
+  };
+  children: ReactNode;
+  className?: string;
+};
+
+export default function SummaryCard({ image, children, className = "" }: SummaryCardProps) {
+  return (
+    &lt;div className={`row align-items-start border-bottom py-s px-s ${className}`}&gt;
+      &lt;img src={image.src} alt={image.alt} className="col-4" /&gt;
+      &lt;div className="col-8 d-flex flex-column"&gt;{children}&lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p>Passe <code>ArticlePreview</code> so an, dass es <code>SummaryCard</code> verwendet. <code>ArticlePreview</code> bleibt ein <code>&lt;article&gt;</code> und übergibt Rubrik, Titel und Autorin als <code>children</code>; nur den gemeinsamen Bild-und-Inhalt-Rahmen übernimmt die neue Komponente. Die Produktkomponente wird denselben Rahmen verwenden, aber ihre eigenen Produktangaben einsetzen.</p>
 <h2 id="übung-3-eine-produktübersicht-eigenständig-entwerfen"><a class="header" href="#übung-3-eine-produktübersicht-eigenständig-entwerfen">Übung 3: Eine Produktübersicht eigenständig entwerfen</a></h2>
-<p>Löse den bisherigen Produktblock als <code>src/components/ProductSummary.tsx</code> heraus. Anders als bei der ersten Übung bestimmst du den Props-Typ und die Umsetzung selbst. Für die spätere Zusammenstellung ist nur vereinbart: Die Komponente hat einen Standardexport und erhält das Produktobjekt über eine Prop namens <code>product</code>.</p>
+<p>Löse den bisherigen Produktabschnitt als <code>src/components/ProductSummary.tsx</code> heraus. Anders als bei der Like-Übung bestimmst du den Props-Typ und die inhaltliche Darstellung selbst. Verwende aber den gemeinsamen <code>SummaryCard</code>-Rahmen. Die Komponente hat einen Standardexport und erhält das Produktobjekt über eine Prop namens <code>product</code>.</p>
 <p><strong>Anforderungen:</strong></p>
 <ul>
-<li>Stelle Produktname, Marke, Preis, Details, Bewertung und Bild aus dem übergebenen Objekt dar. Verwende den Alternativtext aus den Daten.</li>
-<li>Definiere einen passenden TypeScript-Typ für die benötigten Produktfelder. Orientiere dich an <code>product</code> aus <code>src/data/page.ts</code>; die vorhandenen Preis- und Bewertungsangaben sind bereits formatierte Zeichenketten.</li>
-<li>Behalte die bisherigen HTML-Elemente und CSS-Klassen des Produktblocks bei und beschrifte den Abschnitt mit <code>aria-label="Produkt"</code>.</li>
-<li>Importiere den konkreten Produktdatensatz nicht in der Komponente. Sie erhält ihn vom Aufrufer und enthält keinen State, keine Backend-Abfrage und keine fest eingebauten Angaben zur Gartenbox.</li>
+<li>Stelle Kategorie, Produktname, Preis, Details, Sterne-Durchschnitt, Anzahl Bewertungen und Bild aus dem übergebenen Objekt dar. Verwende den Alternativtext aus den Daten.</li>
+<li>Definiere einen passenden TypeScript-Typ für die benötigten Produktfelder. Orientiere dich an <code>product</code> aus <code>src/data/page.ts</code>: Kategorie und Name sind getrennte Zeichenketten, der Preis ist formatiert; <code>rating.average</code> und <code>rating.count</code> sind getrennte Zahlen.</li>
+<li>Verwende <code>SummaryCard</code> für Bild und Inhaltslayout. Die Produktdarstellung enthält keine Autorin und übernimmt keine Artikel-Likes.</li>
+<li>Beschrifte den Abschnitt mit <code>aria-label="Produkt"</code> und gib den Sternen eine zugängliche Textalternative.</li>
+<li>Importiere den konkreten Produktdatensatz nicht in die Komponente. Sie erhält ihn vom Aufrufer und enthält keinen State, keine Backend-Abfrage und keine fest eingebauten Angaben zur Gartenschaukel.</li>
 <li>Ersetze den Produktblock in <code>App.tsx</code> durch deine Komponente und übergib dort den Datensatz.</li>
 </ul>
 <p><strong>Prüfe deinen Baustein:</strong> Lege am Aufruf vorübergehend ein zweites Produktobjekt mit anderen Angaben an und rendere beide Produkte gleichzeitig. Alle Angaben einschliesslich Bild und Alternativtext müssen zum jeweiligen Produkt gehören. Dafür darfst du die Komponente nicht verändern. Prüfe ausserdem das Layout bei schmalem Browserfenster und entferne danach die zusätzliche Instanz.</p>
-<p>Erkläre zum Abschluss: Weshalb erhält die Produktübersicht Daten über Props, obwohl wir auf unserer Seite nur ein Produkt zeigen? Welche Angaben wären für ihre Darstellungsaufgabe unnötig?</p>
+<p>Erkläre zum Abschluss: Weshalb erhält die Produktübersicht Daten über Props, obwohl wir auf unserer Seite nur ein Produkt zeigen? Weshalb sind Artikel-Likes und Produkt-Sterne unterschiedliche Angaben, obwohl beide Rückmeldungen ausdrücken? Welche Daten braucht <code>SummaryCard</code> selbst nicht?</p>
 <h2 id="die-interaktionen-zusammenführen"><a class="header" href="#die-interaktionen-zusammenführen">Die Interaktionen zusammenführen</a></h2>
 <p>Verschiebe die vier bestehenden Zustände und die Like-Funktion aus <code>App</code> in die neue <code>src/components/BlogInteractions.tsx</code>. Hier setzen wir die fachlichen Bereiche und ihre Aktionen zusammen:</p>
 <pre><code class="language-tsx">import { useState } from "react";
@@ -5566,6 +5595,7 @@ export default function App() {
     ArticlePreview (mehrfach)
     ComparisonTable
   ProductSummary
+    SummaryCard
   BlogInteractions (lokaler State)
     LikeSection
       ToggleButton
@@ -5574,6 +5604,7 @@ export default function App() {
     TopicFollowSection
       ToggleButton als children
   ArticlePreview (Liste)
+    SummaryCard
 </code></pre>
 <p>Damit ist die Aufteilung für diese Seite abgeschlossen. Wir lassen den redaktionellen Text bewusst als zusammengehörigen Inhalt stehen. Es gibt keinen Nutzen darin, jede Überschrift oder jeden Absatz in eine eigene Datei zu verschieben.</p>
 <h2 id="deinen-stand-prüfen-3"><a class="header" href="#deinen-stand-prüfen-3">Deinen Stand prüfen</a></h2>
@@ -5595,7 +5626,7 @@ export default function App() {
 <p>Ausgangspunkt ist dein Stand nach <a href="#die-seite-in-komponenten-aufteilen">Die Seite in Komponenten aufteilen</a>. Ziel ist dieselbe Funktionalität wie im <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/03_javascript/06_followButtonsWithBackendIntegration">letzten JavaScript-Endstand mit Follow-Buttons</a>: gespeicherte Likes, der tatsächliche Like-Zähler und die gespeicherten Follow-Zustände der Autorin und des Themas, jeweils für die ausgewählte Benutzer-ID.</p>
 <p>Der <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/07_react/07_backend-integration">React-Referenzstand mit Backend</a> liegt in <code>public/07_react/07_backend-integration</code>. Wir verwenden dasselbe Backend, keine neue Datenbank und keinen neuen API-Vertrag.</p>
 <h2 id="was-bleibt-was-ändert-sich"><a class="header" href="#was-bleibt-was-ändert-sich">Was bleibt, was ändert sich?</a></h2>
-<p><code>CaptionedImage</code>, <code>ComparisonTable</code>, <code>ArticlePreview</code>, <code>ProductSummary</code>, <code>AuthorProfile</code>, <code>TopicFollowSection</code>, <code>LikeSection</code> und <code>ToggleButton</code> bleiben unverändert. Keine dieser Anzeigekomponenten muss HTTP verstehen.</p>
+<p><code>CaptionedImage</code>, <code>ComparisonTable</code>, <code>SummaryCard</code>, <code>ArticlePreview</code>, <code>ProductSummary</code>, <code>AuthorProfile</code>, <code>TopicFollowSection</code>, <code>LikeSection</code> und <code>ToggleButton</code> bleiben unverändert. <code>SummaryCard</code> teilt nur das Bild-und-Inhalt-Layout; Artikel- und Produktdaten bleiben getrennt. Keine dieser Anzeigekomponenten muss HTTP verstehen.</p>
 <p>Neu kommen hinzu:</p>
 <ul>
 <li>ein API-Service für die vorhandenen Endpunkte,</li>

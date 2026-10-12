@@ -10,56 +10,56 @@ export type ArticlePreviewData = {
 };
 
 export const cornerArticle: ArticlePreviewData = {
-  id: "lieblingsplatz",
-  category: "Ideen & Alltag",
-  title: "So wird aus einer Ecke ein Lieblingsplatz",
+  id: "weinrebe-balkon",
+  category: "Obst im Stadtgarten",
+  title: "Eine Weinrebe für den Balkon",
   author: "Nora Linden",
   image: {
-    src: "https://picsum.photos/seed/beispiel-6834/1200/800",
-    alt: "Beispielbild zum Stadtgarten",
+    src: "https://picsum.photos/id/75/1200/800",
+    alt: "Eine Weinrebe trägt rote Trauben.",
   },
 };
 
 export const eveningArticle: ArticlePreviewData = {
-  id: "gruener-feierabend",
-  category: "Beispielbeitrag",
-  title: "Fünf Ideen für einen grünen Feierabend",
+  id: "traubenernte",
+  category: "Ernte im Stadtgarten",
+  title: "Trauben ernten und teilen",
   author: "Nora Linden",
   image: {
-    src: "https://picsum.photos/seed/beispiel-2727/1200/800",
-    alt: "Beispielbild zum Stadtgarten",
+    src: "https://picsum.photos/id/674/1200/800",
+    alt: "Frisch geerntete Trauben in zwei Händen.",
   },
 };
 
 export const relatedArticles: ArticlePreviewData[] = [
   {
     id: "kleines-beet",
-    category: "Beispielbeitrag",
-    title: "Ein kleines Beet, viele Möglichkeiten",
+    category: "Ernte im Stadtgarten",
+    title: "Frische Bohnen aus dem eigenen Beet",
     author: "Nora Linden",
     image: {
-      src: "https://picsum.photos/seed/beispiel-6917/1200/800",
-      alt: "Beispielbild zum Stadtgarten",
+      src: "https://picsum.photos/id/627/1200/800",
+      alt: "Frisch gepflückte Bohnen.",
     },
   },
   {
     id: "stadtgarten",
-    category: "Beispielbeitrag",
-    title: "Ein kleiner Garten mitten in der Stadt",
+    category: "Saison im Stadtgarten",
+    title: "Ein Balkon durch die Jahreszeiten",
     author: "Nora Linden",
     image: {
-      src: "https://picsum.photos/seed/beispiel-8022/1200/800",
-      alt: "Beispielbild zum Stadtgarten",
+      src: "https://picsum.photos/id/995/1200/800",
+      alt: "Bunt gefärbte Blätter liegen auf dem Boden.",
     },
   },
   {
     id: "sonnige-fenster",
-    category: "Beispielbeitrag",
-    title: "Pflanzen für sonnige Fenster",
+    category: "Blüten im Stadtgarten",
+    title: "Violette Blüten am Fenster",
     author: "Nora Linden",
     image: {
-      src: "https://picsum.photos/seed/beispiel-6731/1200/800",
-      alt: "Beispielbild zum Stadtgarten",
+      src: "https://picsum.photos/id/152/1200/800",
+      alt: "Violette Blumen.",
     },
   },
 ];
