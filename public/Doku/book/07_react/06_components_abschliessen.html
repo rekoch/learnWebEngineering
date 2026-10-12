@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-312b8b88.js";
+            window.path_to_searchindex_js = "../searchindex-7e9f91f9.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-6c46951c.js"></script>
@@ -580,7 +580,26 @@ export default function SummaryCard({ image, children, className = "" }: Summary
   );
 }
 </code></pre>
-<p>Passe <code>ArticlePreview</code> so an, dass es <code>SummaryCard</code> verwendet. <code>ArticlePreview</code> bleibt ein <code>&lt;article&gt;</code> und übergibt Rubrik, Titel und Autorin als <code>children</code>; nur den gemeinsamen Bild-und-Inhalt-Rahmen übernimmt die neue Komponente. Die Produktkomponente wird denselben Rahmen verwenden, aber ihre eigenen Produktangaben einsetzen.</p>
+<h3 id="hinweis-zur-verschachtelung"><a class="header" href="#hinweis-zur-verschachtelung">Hinweis zur Verschachtelung</a></h3>
+<p>Teile den bisherigen Artikelblock in zwei Zuständigkeiten auf:</p>
+<ul>
+<li>Das äussere <code>&lt;article&gt;</code> bleibt in <code>ArticlePreview</code>. Es kennzeichnet weiterhin den Inhalt als Artikel.</li>
+<li><code>SummaryCard</code> übernimmt den gemeinsamen visuellen Rahmen: Bild, Raster, Abstände und Trennlinien. Das Bild geht als <code>image</code>-Prop hinein.</li>
+<li>Rubrik, Titel und Autorinnenzeile bleiben Artikelinhalt. Verschiebe diese drei Elemente zwischen die öffnenden und schliessenden <code>SummaryCard</code>-Tags. Dort werden sie zu <code>children</code>.</li>
+</ul>
+<p>Der Inhalt von <code>children</code> erscheint in der Textspalte, weil <code>SummaryCard</code> ihn innerhalb ihres <code>col-8</code>-Elements rendert. Das Bild wird separat über <code>image</code> an die andere Spalte übergeben.</p>
+<p>Als Gerüst kannst du diese Verschachtelung verwenden:</p>
+<pre><code class="language-tsx">&lt;article&gt;
+  &lt;SummaryCard
+    image={article.image}
+    className={withTopBorder ? "border-top" : ""}
+  &gt;
+    {/* Rubrik, Titel und Autorinnenzeile hierher verschieben */}
+  &lt;/SummaryCard&gt;
+&lt;/article&gt;
+</code></pre>
+<p>Die Klassen für den gemeinsamen Rahmen sollen nicht doppelt in <code>ArticlePreview</code> stehen: <code>SummaryCard</code> setzt bereits <code>.row</code>, <code>.col-4</code>, <code>.col-8</code>, Abstände, unteren Rand und Bildlayout. <code>withTopBorder</code> bleibt eine Entscheidung von <code>ArticlePreview</code>; über <code>className</code> kommt nur der optionale obere Rand dazu. Die Klassen für Rubrik, Titel und Autorenzeile bleiben dagegen bei den jeweiligen Inhaltselementen.</p>
+<p>Die Produktkomponente verwendet später denselben Rahmen, setzt aber Kategorie, Produktname, Preis und Bewertung als eigenen Inhalt ein. Prüfe nach dem Umbau: Das Bild bleibt links, die drei Artikelangaben stehen rechts, und nur die erste Vorschau erhält den oberen Rand.</p>
 <h2 id="übung-3-eine-produktübersicht-eigenständig-entwerfen"><a class="header" href="#übung-3-eine-produktübersicht-eigenständig-entwerfen">Übung 3: Eine Produktübersicht eigenständig entwerfen</a></h2>
 <p>Löse den bisherigen Produktabschnitt als <code>src/components/ProductSummary.tsx</code> heraus. Anders als bei der Like-Übung bestimmst du den Props-Typ und die inhaltliche Darstellung selbst. Verwende aber den gemeinsamen <code>SummaryCard</code>-Rahmen. Die Komponente hat einen Standardexport und erhält das Produktobjekt über eine Prop namens <code>product</code>.</p>
 <p><strong>Anforderungen:</strong></p>

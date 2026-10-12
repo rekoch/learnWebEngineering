@@ -282,7 +282,32 @@ Wiederverwenden lässt sich die **Darstellung**: Bild, Raster und ein Platz für
 {{#include ../../../07_react/06_components-complete/src/components/SummaryCard.tsx}}
 ```
 
-Passe `ArticlePreview` so an, dass es `SummaryCard` verwendet. `ArticlePreview` bleibt ein `<article>` und übergibt Rubrik, Titel und Autorin als `children`; nur den gemeinsamen Bild-und-Inhalt-Rahmen übernimmt die neue Komponente. Die Produktkomponente wird denselben Rahmen verwenden, aber ihre eigenen Produktangaben einsetzen.
+### Hinweis zur Verschachtelung
+
+Teile den bisherigen Artikelblock in zwei Zuständigkeiten auf:
+
+- Das äussere `<article>` bleibt in `ArticlePreview`. Es kennzeichnet weiterhin den Inhalt als Artikel.
+- `SummaryCard` übernimmt den gemeinsamen visuellen Rahmen: Bild, Raster, Abstände und Trennlinien. Das Bild geht als `image`-Prop hinein.
+- Rubrik, Titel und Autorinnenzeile bleiben Artikelinhalt. Verschiebe diese drei Elemente zwischen die öffnenden und schliessenden `SummaryCard`-Tags. Dort werden sie zu `children`.
+
+Der Inhalt von `children` erscheint in der Textspalte, weil `SummaryCard` ihn innerhalb ihres `col-8`-Elements rendert. Das Bild wird separat über `image` an die andere Spalte übergeben.
+
+Als Gerüst kannst du diese Verschachtelung verwenden:
+
+```tsx
+<article>
+  <SummaryCard
+    image={article.image}
+    className={withTopBorder ? "border-top" : ""}
+  >
+    {/* Rubrik, Titel und Autorinnenzeile hierher verschieben */}
+  </SummaryCard>
+</article>
+```
+
+Die Klassen für den gemeinsamen Rahmen sollen nicht doppelt in `ArticlePreview` stehen: `SummaryCard` setzt bereits `.row`, `.col-4`, `.col-8`, Abstände, unteren Rand und Bildlayout. `withTopBorder` bleibt eine Entscheidung von `ArticlePreview`; über `className` kommt nur der optionale obere Rand dazu. Die Klassen für Rubrik, Titel und Autorenzeile bleiben dagegen bei den jeweiligen Inhaltselementen.
+
+Die Produktkomponente verwendet später denselben Rahmen, setzt aber Kategorie, Produktname, Preis und Bewertung als eigenen Inhalt ein. Prüfe nach dem Umbau: Das Bild bleibt links, die drei Artikelangaben stehen rechts, und nur die erste Vorschau erhält den oberen Rand.
 
 ## Übung 3: Eine Produktübersicht eigenständig entwerfen
 
