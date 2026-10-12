@@ -6,6 +6,18 @@ Ausgangspunkt ist dein Stand nach [Die Seite in Komponenten aufteilen](./06_comp
 
 Der [React-Referenzstand mit Backend](https://github.com/rekoch/learnWebEngineering/tree/main/public/07_react/07_backend-integration) liegt in `public/07_react/07_backend-integration`. Wir verwenden dasselbe Backend, keine neue Datenbank und keinen neuen API-Vertrag.
 
+**Zum Lernen:** Du musst die Request-Verwaltung in diesem Kapitel noch nicht vollständig verstehen oder auswendig nachbauen können. Wichtig ist zunächst der Datenfluss: Der Service spricht mit dem Backend, der Hook verwaltet Laden und Fehler, die Komponenten erhalten Daten und Aktionen über Props. Abbruch, verspätete Antworten und Klicksperren kannst du zunächst anhand des Referenzstands nachvollziehen.
+
+### Bibliotheken als Alternative
+
+Du musst diese Abläufe nicht in jeder React-Anwendung selbst schreiben. Wir setzen sie hier bewusst mit dem Browser-`fetch` und React-Hooks um, damit ihre Aufgaben sichtbar werden. Bibliotheken können einen Teil dieses Codes übernehmen:
+
+- [TanStack Query](https://tanstack.com/query/latest/docs/framework/react/overview) verwaltet Serverdaten, Ladezustände, Fehler und einen gemeinsamen Cache. Damit lässt sich ein grosser Teil der Verwaltung in `useBlogInteractions` ersetzen; die HTTP-Anfragen kann weiterhin unser Service ausführen.
+- [SWR](https://swr.vercel.app/) bietet ebenfalls Hooks zum Laden, Cachen und erneuten Aktualisieren von Serverdaten.
+- [Axios](https://axios-http.com/docs/intro) oder [ky](https://github.com/sindresorhus/ky) vereinfachen dagegen die HTTP-Anfragen selbst, beispielsweise JSON-Verarbeitung und die Behandlung von HTTP-Fehlern. Sie ersetzen nicht die gesamte Verwaltung von Serverdaten in React.
+
+Welche Endpunkte wir ansprechen und welche Antworten fachlich gültig sind, bleibt unsere Aufgabe. Für diesen Kurs bleiben wir bei der vorhandenen Umsetzung; du musst keine zusätzliche Bibliothek installieren.
+
 ## Was bleibt, was ändert sich?
 
 `CaptionedImage`, `ComparisonTable`, `SummaryCard`, `ArticlePreview`, `ProductSummary`, `AuthorProfile`, `TopicFollowSection`, `LikeSection` und `ToggleButton` bleiben unverändert. `SummaryCard` teilt nur das Bild-und-Inhalt-Layout; Artikel- und Produktdaten bleiben getrennt. Keine dieser Anzeigekomponenten muss HTTP verstehen.

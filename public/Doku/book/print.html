@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-5663d769.js";
+            window.path_to_searchindex_js = "searchindex-e9c48770.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-6c46951c.js"></script>
@@ -5659,6 +5659,15 @@ export default function App() {
 <p>Unsere Seite ist jetzt in Komponenten aufgeteilt. Bilder, Artikelvorschauen und Vergleichstabelle funktionieren bereits. Likes und Follow-Auswahl sind aber noch lokale Zustände, die beim Neuladen verloren gehen. In diesem Kapitel ersetzen wir diese lokale Simulation durch die bestehende Backend-Anbindung.</p>
 <p>Ausgangspunkt ist dein Stand nach <a href="#die-seite-in-komponenten-aufteilen">Die Seite in Komponenten aufteilen</a>. Ziel ist dieselbe Funktionalität wie im <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/03_javascript/06_followButtonsWithBackendIntegration">letzten JavaScript-Endstand mit Follow-Buttons</a>: gespeicherte Likes, der tatsächliche Like-Zähler und die gespeicherten Follow-Zustände der Autorin und des Themas, jeweils für die ausgewählte Benutzer-ID.</p>
 <p>Der <a href="https://github.com/rekoch/learnWebEngineering/tree/main/public/07_react/07_backend-integration">React-Referenzstand mit Backend</a> liegt in <code>public/07_react/07_backend-integration</code>. Wir verwenden dasselbe Backend, keine neue Datenbank und keinen neuen API-Vertrag.</p>
+<p><strong>Zum Lernen:</strong> Du musst die Request-Verwaltung in diesem Kapitel noch nicht vollständig verstehen oder auswendig nachbauen können. Wichtig ist zunächst der Datenfluss: Der Service spricht mit dem Backend, der Hook verwaltet Laden und Fehler, die Komponenten erhalten Daten und Aktionen über Props. Abbruch, verspätete Antworten und Klicksperren kannst du zunächst anhand des Referenzstands nachvollziehen.</p>
+<h3 id="bibliotheken-als-alternative"><a class="header" href="#bibliotheken-als-alternative">Bibliotheken als Alternative</a></h3>
+<p>Du musst diese Abläufe nicht in jeder React-Anwendung selbst schreiben. Wir setzen sie hier bewusst mit dem Browser-<code>fetch</code> und React-Hooks um, damit ihre Aufgaben sichtbar werden. Bibliotheken können einen Teil dieses Codes übernehmen:</p>
+<ul>
+<li><a href="https://tanstack.com/query/latest/docs/framework/react/overview">TanStack Query</a> verwaltet Serverdaten, Ladezustände, Fehler und einen gemeinsamen Cache. Damit lässt sich ein grosser Teil der Verwaltung in <code>useBlogInteractions</code> ersetzen; die HTTP-Anfragen kann weiterhin unser Service ausführen.</li>
+<li><a href="https://swr.vercel.app/">SWR</a> bietet ebenfalls Hooks zum Laden, Cachen und erneuten Aktualisieren von Serverdaten.</li>
+<li><a href="https://axios-http.com/docs/intro">Axios</a> oder <a href="https://github.com/sindresorhus/ky">ky</a> vereinfachen dagegen die HTTP-Anfragen selbst, beispielsweise JSON-Verarbeitung und die Behandlung von HTTP-Fehlern. Sie ersetzen nicht die gesamte Verwaltung von Serverdaten in React.</li>
+</ul>
+<p>Welche Endpunkte wir ansprechen und welche Antworten fachlich gültig sind, bleibt unsere Aufgabe. Für diesen Kurs bleiben wir bei der vorhandenen Umsetzung; du musst keine zusätzliche Bibliothek installieren.</p>
 <h2 id="was-bleibt-was-ändert-sich"><a class="header" href="#was-bleibt-was-ändert-sich">Was bleibt, was ändert sich?</a></h2>
 <p><code>CaptionedImage</code>, <code>ComparisonTable</code>, <code>SummaryCard</code>, <code>ArticlePreview</code>, <code>ProductSummary</code>, <code>AuthorProfile</code>, <code>TopicFollowSection</code>, <code>LikeSection</code> und <code>ToggleButton</code> bleiben unverändert. <code>SummaryCard</code> teilt nur das Bild-und-Inhalt-Layout; Artikel- und Produktdaten bleiben getrennt. Keine dieser Anzeigekomponenten muss HTTP verstehen.</p>
 <p>Neu kommen hinzu:</p>
