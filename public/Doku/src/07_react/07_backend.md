@@ -43,6 +43,8 @@ npm run dev
 
 Die Standardadresse ist `http://localhost:3000`. Unter `http://localhost:3000/api-docs/` findest du die API-Dokumentation. Prüfe auch `http://localhost:3000/likes/2`: Die Antwort muss JSON mit `likeCount` sein, nicht eine HTML-Seite eines anderen Servers.
 
+
+### Falls Port `3000` schon belegt ist
 Ist Port `3000` beispielsweise durch mdBook belegt, starte das Backend stattdessen mit:
 
 ```sh
@@ -59,11 +61,11 @@ Ohne diese Angabe verwendet der Service `http://localhost:3000`. Im Referenzstan
 
 `VITE_`-Variablen sind im Browser sichtbar und werden beim Build eingebunden. Die API-Adresse darf darin stehen; Passwörter und andere Geheimnisse nicht. Auch für einen Produktionsbuild musst du die korrekte API-Adresse vor dem Build setzen.
 
-In der Entwicklungsumgebung erlaubt das bestehende Backend Zugriffe von `localhost` und `127.0.0.1` mit verschiedenen Ports. Für einen späteren produktiven Betrieb muss dessen erlaubte Frontend-Adresse entsprechend konfiguriert werden. Wir ändern diese Backend-Regeln hier nicht.
+In der Entwicklungsumgebung erlaubt das bestehende Backend Zugriffe von `localhost` und `127.0.0.1` mit verschiedenen Ports. Für einen späteren produktiven Betrieb muss dessen erlaubte Frontend-Adresse entsprechend konfiguriert werden (siehe `corsMiddleware.js` im Backend).
 
 ## Die vorhandenen API-Verträge
 
-Die IDs starten wie im JavaScript-Beispiel bei Benutzer `1` und Blogseite `2`. Die Autorin wird über `nora.linden@example.org`, das Thema über `Balkongarten` identifiziert.
+Die IDs starten wie im JavaScript-Beispiel bei Benutzer*in `1` und Blogseite `2`. Die Autorin wird über `nora.linden@example.org`, das Thema über `Balkongarten` identifiziert.
 
 | Funktion | HTTP-Anfrage | Relevante Antwort |
 | --- | --- | --- |
@@ -77,9 +79,9 @@ Die IDs starten wie im JavaScript-Beispiel bei Benutzer `1` und Blogseite `2`. D
 
 Beim Liken und Entfernen des Likes gehören `blogPageId` und `userId` auch in den JSON-Body. Die Follow-Endpunkte verwenden ihre Pfadparameter; wir schicken dieselben Daten wie die früheren Services zusätzlich als JSON mit.
 
-Autorinnen- und Themen-Follows sind benutzerbezogen, nicht blogseitenbezogen. Wechsle die Blogseiten-ID: Der Like-Zähler und die Like-Auswahl können wechseln, aber derselbe Benutzer folgt weiterhin derselben Autorin und demselben Thema.
+Autorinnen- und Themen-Follows sind auf die Person bezogen, welche angemeldet ist -> nicht blogseitenbezogen. Wechsle die Blogseiten-ID: Der Like-Zähler und die Like-Auswahl können wechseln, aber dieselbe angemeldete Person folgt weiterhin derselben Autorin und demselben Thema.
 
-Die IDs simulieren wie bisher einen Benutzerkontext. Sie sind **kein Login und keine Authentifizierung**. Auch die Blogseiten-ID wählt hier nur den Backend-Kontext; die lokale redaktionelle Beispielseite wird dadurch nicht zu einem anderen Artikel.
+Die IDs simulieren wie bisher eine angemeldete Person. Sie sind **kein Login und keine Authentifizierung**. Auch die Blogseiten-ID wählt hier nur den Backend-Kontext; die lokale redaktionelle Beispielseite wird dadurch nicht zu einem anderen Artikel.
 
 ## Schritt 1: HTTP in einen Service kapseln
 
