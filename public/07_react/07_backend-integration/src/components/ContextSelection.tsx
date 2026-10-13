@@ -25,10 +25,10 @@ export default function ContextSelection({ userId, blogPageId, onSelect }: Conte
 
   return (
     <form className="context-selection" aria-label="Daten simulieren" onSubmit={submit}>
-      <label>simulated user-id
+      <label>user id
         <input type="number" min="1" step="1" required value={userInput} onChange={event => setUserInput(event.target.value)} />
       </label>
-      <label>simulated blog-page-ID
+      <label>blogpage id
         <input type="number" min="1" step="1" required value={pageInput} onChange={event => setPageInput(event.target.value)} />
       </label>
       <button type="submit">Daten simulieren</button>
