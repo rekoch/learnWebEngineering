@@ -37,9 +37,7 @@ Starte das Backend in einem separaten Terminal. Verwende die in `public/00_backe
 
 ```sh
 cd public/00_backend
-nvm install
-nvm use
-npm ci
+npm install
 npm run dev
 ```
 
