@@ -3,3 +3,6 @@ authors = ["rekoch"]
 language = "de"
 src = "src"
 title = "Learn To Build A Web Page"
+
+[output.html]
+theme = "theme"
