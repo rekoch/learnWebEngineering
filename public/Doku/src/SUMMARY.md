@@ -10,6 +10,8 @@
     - [Vs Code](./02_setup/vsCode.md)
     - [NodeJs](./02_setup/node.md)
     - [Chrome](./02_setup/chrome.md)
+
+# Lernen mit AI
     - [Mit dem KI-Tutor lernen](./02_setup/aiTutor.md)
 
 # HTML
