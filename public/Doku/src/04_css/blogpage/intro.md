@@ -2,6 +2,8 @@
 
 ## Was wir designen
 
+Als Orientierung dient die [fertige Beispielseite «Stadtgarten»](https://learn-web-engineering.web.app/02_html_css/09_blog_page_completed/index.html). Öffne sie in einem zweiten Browser-Tab und vergleiche deinen Stand nach jedem Kapitel damit.
+
 Analog zum HTML-Teil werden wir uns nicht um alle Elemente kümmern bzw. nur wenn die Zeit reicht.
 
 ### Diese Elemente setzen wir sicher um:

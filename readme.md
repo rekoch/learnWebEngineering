@@ -5,6 +5,19 @@ Für die Kursunterlagen gehe auf [Kursunterlagen](https://learn-web-engineering.
 
 Dieses Repository enthält verschiedene Beispielprojekte für einen Web-Engineering-Kurs: direkt aufrufbare HTML/CSS/JavaScript-Seiten, ein lokales Backend und React-Projekte mit TypeScript.
 
+## Interaktiv mit dem KI-Tutor lernen
+
+Alternativ zum Lesen des Tutorials kannst du dieselben Kursinhalte mit dem lokalen MCP-Tutor bearbeiten. Wähle Themen und Niveau, löse Aufgaben in deinem eigenen Projekt und erhalte Hinweise sowie Code-Feedback von deinem KI-Assistenten. Der Tutor speichert den Lernstand lokal; er benötigt keinen eigenen Modell-API-Key, aber einen MCP-fähigen Client mit Modellzugang.
+
+Öffne dieses Repository in VS Code und führe im Hauptverzeichnis aus:
+
+```sh
+npm run tutor:install
+npm run tutor:test
+```
+
+Ergänze dann den Server aus [tutor/mcp.vscode.json](tutor/mcp.vscode.json) in deiner lokalen VS-Code-MCP-Konfiguration und starte einen Agent-Chat. Vollständige Einrichtung und Beispielprompts: [Mit dem KI-Tutor lernen](public/Doku/src/02_setup/aiTutor.md). Technische Details: [tutor/README.md](tutor/README.md).
+
 ## Übersicht der Beispielseiten
 
 Die HTML/CSS/JavaScript-Beispielseiten sind über Firebase Hosting erreichbar. Für React gibt es jeweils eine gebaute Demo zum Vergleichen und den Referenzcode hier auf GitHub. Die neuen Demo-URLs sind nach dem nächsten Hosting-Deployment verfügbar. Die Zahlen in den Ordnernamen kennzeichnen Code-Stände, nicht die automatisch vergebenen Kapitelnummern im Buch.

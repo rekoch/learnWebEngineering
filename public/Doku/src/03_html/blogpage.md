@@ -4,6 +4,14 @@
 
 Wir bauen eine Page, die von einem News Artikel oder ähnlichem inspiriert ist.
 
+### So soll das Ergebnis am Ende aussehen
+
+Öffne die [fertige Beispielseite «Stadtgarten»](https://learn-web-engineering.web.app/02_html_css/09_blog_page_completed/index.html) in Chrome und scrolle sie einmal durch. Sie zeigt den Stand am Ende des CSS-Teils und dient dir als Vorbild für Inhalt und Aufbau. In diesem Kapitel baust du nur das HTML ohne Design.
+
+- **Das Thema ist frei.** Wenn du keine Idee hast, übernimm das Thema Stadtgarten.
+- **Die Bereiche der Beispielseite sind verbindlich**, denn die folgenden Kapitel zu CSS, JavaScript und React bauen auf dieser Struktur auf.
+- Eine Struktur-Referenz zum Vergleichen findest du erst nach deiner eigenen Lösung im Ordner [01_html](https://github.com/rekoch/learnWebEngineering/tree/main/public/01_html).
+
 Die Page enthält:
 - **Video/Bild als Slide**
 - **Fazit-Bereiche**

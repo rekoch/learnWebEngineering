@@ -1,0 +1,12 @@
+{
+  "servers": {
+    "web-engineering-tutor": {
+      "type": "stdio",
+      "command": "npm",
+      "args": ["--silent", "--prefix", "${workspaceFolder}/tutor", "start"],
+      "env": {
+        "TUTOR_WORKSPACE": "${workspaceFolder}"
+      }
+    }
+  }
+}

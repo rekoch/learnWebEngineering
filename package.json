@@ -2,6 +2,9 @@
   "name": "learn-web-engineering",
   "private": true,
   "scripts": {
-    "build:hosting": "node scripts/build-hosting.mjs"
+    "build:hosting": "node scripts/build-hosting.mjs",
+    "tutor:install": "npm --prefix tutor ci",
+    "tutor:start": "npm --prefix tutor start",
+    "tutor:test": "npm --prefix tutor test"
   }
 }

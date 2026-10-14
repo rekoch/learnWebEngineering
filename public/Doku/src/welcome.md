@@ -27,6 +27,12 @@ Mit diesen Grundlagen kannst du eigene Webseiten bauen und besser verstehen, wie
 
 Wir beginnen mit HTML und CSS und ergänzen danach JavaScript. So baust du dein Wissen Schritt für Schritt auf.
 
+## Buch oder KI-Tutor
+
+Du kannst die Kapitel selbst durcharbeiten oder dieselben Kursinhalte mit einem KI-Tutor interaktiv lernen. Der Tutor passt Erklärungen und Aufgaben an deine Themenwahl und dein Niveau an. Du entwickelst die Blogseite selbst und erhältst Hinweise sowie Rückmeldungen zu deinem Code. Beide Lernwege lassen sich kombinieren.
+
+Die Anleitung [Mit dem KI-Tutor lernen](./02_setup/aiTutor.md) zeigt dir, wie du den lokalen Tutor mit einem MCP-fähigen KI-Assistenten in VS Code einrichtest, startest und später fortsetzt.
+
 ## Orientierung im Buch und im Code
 
 Die Kapitelnummern in der Navigation werden automatisch aus der Buchstruktur erzeugt. Die Zahlen in den Code-Ordnernamen kennzeichnen dagegen die Reihenfolge der Referenzstände. Beide Nummerierungen sind unabhängig voneinander: `public/07_react/06_components-complete` ist ein Code-Stand, keine Kapitelnummer des Buchs.

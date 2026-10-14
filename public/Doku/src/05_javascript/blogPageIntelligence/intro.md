@@ -11,6 +11,8 @@ Mittels JavaScript geben wir der Blog Page mehr **Intelligenz**:
 - **Buttons mit Aktionen** ausstatten  
 - **Datenladung und -speicherung** optimieren
 
+Den Endstand dieses Teils siehst du in der [Beispielseite mit Backend-Anbindung](https://learn-web-engineering.web.app/03_javascript/06_followButtonsWithBackendIntegration/index.html). Sie benötigt ein lokal laufendes Backend. Die Zwischenstände der einzelnen Kapitel sind in der Übersicht der Beispielseiten im [Repository](https://github.com/rekoch/learnWebEngineering) verlinkt.
+
 ---
 
 ## Hauptziele
