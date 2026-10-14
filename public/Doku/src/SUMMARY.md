@@ -12,7 +12,7 @@
     - [Chrome](./02_setup/chrome.md)
 
 # Lernen mit AI
-    - [Mit dem KI-Tutor lernen](./02_setup/aiTutor.md)
+- [Mit dem KI-Tutor lernen](./02_setup/aiTutor.md)
 
 # HTML
 - [Einstieg](./03_html/intro.md)
