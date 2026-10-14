@@ -87,7 +87,7 @@ Das Niveau verändert Erklärung, Aufgabengröße und Hilfestellung, nicht die K
 1. Der Tutor lädt die passende Lektion aus diesem Kurs und erklärt kurz das Konzept.
 2. Du erhältst eine Aufgabe mit beobachtbaren Zielen.
 3. Du schreibst und prüfst deinen Code selbst.
-4. Mit **Prüfe meine Lösung** bittest du um Rückmeldung. Gib dem Assistenten bei Bedarf Zugriff auf deine Dateien und erlaube gezielte Tests oder Browserprüfungen.
+4. Sobald du fertig bist, zeigt dir der Tutor eine Auswahl mit Schaltflächen: **Fertig, bitte prüfen**, **Ich brauche einen Hinweis**, **Schritt kleiner machen** oder **Noch nicht fertig / Pause**. Du musst nichts tippen. Unterstützt dein Client diese Abfrage nicht, fragt der Tutor stattdessen im Chat nach. Gib dem Assistenten bei Bedarf Zugriff auf deine Dateien und erlaube gezielte Tests oder Browserprüfungen.
 5. Der Tutor prüft die Kriterien, fragt nach deinem Verständnis und speichert seine begründete Beurteilung.
 
 Erlaubst du keine Code- oder Verhaltensprüfung, kann der Tutor erklären und Hinweise geben, aber keinen verlässlichen Prüferfolg behaupten. Ein erfolgreicher Build allein prüft beispielsweise noch nicht, ob ein Like-Button korrekt toggelt. Die Fortschrittsanzeige ist eine KI-Beurteilung, kein Zertifikat.

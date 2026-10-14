@@ -5,7 +5,9 @@ import { join } from "node:path";
 import { test } from "node:test";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
+import { ElicitRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 import { courseMaterial, courseRoot, createPlan, criteriaView, getLesson, goals, lessons, toolChecklist } from "../src/curriculum.js";
+import { tips } from "../src/tips.js";
 import { ProgressStore, type Profile, type Review } from "../src/progress.js";
 
 const profile: Profile = { topics: ["javascript"], level: "beginner", topicLevels: {}, priorKnowledge: {}, includePrerequisites: false, projectPath: "/tmp/my-learning-project" };
@@ -42,6 +44,15 @@ test("Werkzeugliste folgt den gewaehlten Themen; Node/npm werden nie abgefragt",
   assert.ok(!toolChecklist(createPlan(["css"], true)).some((entry) => entry.tool === "node"));
   assert.ok(toolChecklist(createPlan(["react"], true)).some((entry) => entry.tool === "node" && entry.alreadyVerified));
   assert.ok(!askable(["react"]).includes("node" as never));
+});
+
+test("Buch-Tipps sind je Lektion hinterlegt und kommen nicht doppelt vor", () => {
+  const ids = new Set(lessons.map((lesson) => lesson.id));
+  for (const id of Object.keys(tips)) assert.ok(ids.has(id), `Unbekannte Lektion: ${id}`);
+  for (const lesson of lessons) assert.ok((tips[lesson.id] ?? []).length > 0, `${lesson.id}: Tipps fehlen`);
+  const all = Object.values(tips).flat();
+  assert.equal(new Set(all).size, all.length);
+  assert.ok(tips["html-first-page"].some((tip) => tip.includes("Emmet") && tip.includes("`!`")));
 });
 
 test("Zielseiten gehoeren zu bekannten Modulen; HTML- und CSS-Module haben eines", () => {
@@ -134,8 +145,9 @@ test("Parallele Fortschrittsupdates verlieren keine Ergebnisse", async () => {
 
 test("Echter MCP-Client startet Server, liest Quellen und nimmt das Profil wieder auf", async () => {
   const directory = await mkdtemp(join(tmpdir(), "web-tutor-mcp-"));
-  async function connect() {
-    const client = new Client({ name: "tutor-test", version: "1.0.0" });
+  async function connect(answer?: string) {
+    const client = new Client({ name: "tutor-test", version: "1.0.0" }, answer ? { capabilities: { elicitation: {} } } : undefined);
+    if (answer) client.setRequestHandler(ElicitRequestSchema, async () => ({ action: "accept" as const, content: { status: answer } }));
     const configuration = JSON.parse(await readFile(join(courseRoot, "tutor/mcp.vscode.json"), "utf8")).servers["web-engineering-tutor"];
     const transport = new StdioClientTransport({
       command: configuration.command,
@@ -149,7 +161,7 @@ test("Echter MCP-Client startet Server, liest Quellen und nimmt das Profil wiede
   let client: Client | undefined;
   try {
     client = await connect();
-    assert.equal((await client.listTools()).tools.length, 7);
+    assert.equal((await client.listTools()).tools.length, 8);
     const topics = await client.callTool({ name: "list_topics" });
     assert.ok(JSON.stringify(topics).includes("typescript"));
     const started = await client.callTool({ name: "start_tutor", arguments: profile });
@@ -170,8 +182,17 @@ test("Echter MCP-Client startet Server, liest Quellen und nimmt das Profil wiede
     assert.ok(JSON.stringify(lesson).includes("js-basics"));
     assert.ok(JSON.stringify(lesson).includes("experienced"));
     assert.ok(JSON.stringify(lesson).includes("kennt Variablen") && JSON.stringify(lesson).includes("courseGoal"));
+    assert.ok(JSON.stringify(lesson).includes("tips") && JSON.stringify(lesson).includes("Debug-Funktion"));
     assert.ok(JSON.stringify(lesson).includes("steps") && JSON.stringify(lesson).includes("inspiration"));
     assert.ok(JSON.stringify(progress).includes("practiced"));
+    const payload = (response: unknown) => JSON.parse((response as { content: { text: string }[] }).content[0].text);
+    const withoutSupport = payload(await client.callTool({ name: "ask_ready", arguments: {} }));
+    assert.equal(withoutSupport.available, false);
+    await client.close();
+    client = await connect("hint");
+    const withSupport = payload(await client.callTool({ name: "ask_ready", arguments: { question: "Bist du mit dem Grundgerüst fertig?" } }));
+    assert.equal(withSupport.answer, "hint");
+    assert.match(withSupport.next, /Hinweis/);
   } finally {
     await client?.close();
     await rm(directory, { recursive: true, force: true });

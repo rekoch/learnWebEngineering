@@ -32,6 +32,7 @@ Beispielprompt:
 | `get_lesson` | Aktuelles oder gezielt gewaehltes Modul liefern |
 | `get_course_material` | Originale Markdown-Quellen eines Moduls laden |
 | `update_progress` | Beurteilung mit Kriterienbelegen speichern |
+| `ask_ready` | Auswahl mit Schaltflaechen (fertig, Hinweis, kleiner, Pause) per MCP-Elicitation anzeigen; ohne Client-Unterstuetzung liefert es `available: false` und der Assistent fragt anders nach |
 
 Themen: `html`, `css`, `javascript`, `typescript`, `react`, `backend`. Niveaus: `beginner`, `intermediate`, `experienced`. `topicLevels` erlaubt pro Thema ein anderes Niveau; nicht gesetzte Themen verwenden `level`. Bei `update_profile` ersetzt `topicLevels` die bisherigen Einzelwerte. `includePrerequisites` bestimmt, ob Voraussetzungen zum Plan hinzugefuegt werden. Ohne sie muss der Tutor vorhandene Kenntnisse und einen passenden Projektstart klaeren.
 
