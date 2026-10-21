@@ -7,8 +7,11 @@
   },
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "NODE_ENV=development node ./bin/www",
-    "prod": "NODE_ENV=production node ./bin/www"
+    "dev": "cross-env NODE_ENV=development node ./bin/www",
+    "prod": "cross-env NODE_ENV=production node ./bin/www"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0"
   },
   "dependencies": {
     "body-parser": "^2.2.0",

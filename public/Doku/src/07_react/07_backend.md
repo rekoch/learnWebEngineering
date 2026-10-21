@@ -48,7 +48,7 @@ Die Standardadresse ist `http://localhost:3000`. Unter `http://localhost:3000/ap
 Ist Port `3000` beispielsweise durch mdBook belegt, starte das Backend stattdessen mit:
 
 ```sh
-PORT=3001 npm run dev
+npx cross-env PORT=3001 npm run dev
 ```
 
 Lege dann im **React-Projektordner**, neben `package.json`, eine `.env.local` an:
